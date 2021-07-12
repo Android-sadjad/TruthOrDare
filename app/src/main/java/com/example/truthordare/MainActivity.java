@@ -6,15 +6,23 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    StartGameFragment startGameFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        init();
+    }
+
+    private void init() {
+
+        startGameFragment=new StartGameFragment();
     }
 
 
@@ -23,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()){
 
             case R.id.tv_start_game:
+
+                loadFragment(new StartGameFragment());
 
                 break;
 
