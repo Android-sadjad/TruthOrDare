@@ -1,41 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@drawable/grassbg"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
+  <FrameLayout
+      android:id="@+id/fl_fragment_container"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:elevation="@dimen/_20sdp"
+      >
+
+  </FrameLayout>
+
+   <TextView
+       android:layout_width="@dimen/_200sdp"
+       android:layout_height="@dimen/_100sdp"
+      style="@style/tv_style"
+       android:text="شروع بازی"
+       android:id="@+id/tv_start_game"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       android:layout_marginTop="@dimen/_100sdp"
 
 
        />
 
+    <TextView
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_start_game"
+        app:layout_constraintLeft_toRightOf="@id/tv_questions_list"
+        android:text="تنظیمات"
+        style="@style/tv_style"
+        android:id="@+id/tv_setting"
+        />
 
+    <TextView
+        style="@style/tv_style"
+        android:text="لیست سوالات"
+        android:id="@+id/tv_questions_list"
+
+        app:layout_constraintTop_toTopOf="@id/tv_setting"
+        app:layout_constraintBottom_toBottomOf="@id/tv_setting"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_setting"
 
         />
 
+    <TextView
+        style="@style/tv_style"
+        android:text="حمایت از ما"
+        android:id="@+id/tv_hemayat"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintLeft_toRightOf="@id/tv_comment"
 
         />
 
-</LinearLayout>
+    <TextView
+        style="@style/tv_style"
+        android:text="خروج"
+        android:id="@+id/tv_exit"
+        app:layout_constraintTop_toBottomOf="@id/tv_hemayat"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="@dimen/_20sdp"
+
+        />
+    <TextView
+        style="@style/tv_style"
+        android:text="ثبت نظر"
+        android:id="@+id/tv_comment"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_hemayat"
+        app:layout_constraintRight_toLeftOf="@id/tv_hemayat"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
