@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,10 @@ public class StartGameFragment extends Fragment {
     ImageView ivBottle;
     TextView tvStart;
     ImageView ivCircleBackground;
+    LinearLayout llNamesBord;
+
+    int width;
+    int height;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
@@ -30,6 +35,7 @@ public class StartGameFragment extends Fragment {
     @Override
     public void onViewCreated( View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
 
 
@@ -47,9 +53,18 @@ public class StartGameFragment extends Fragment {
         Point size=new Point();
         displaySize.getSize(size);
 
-        int width=size.x*80/100;
-        ivCircleBackground.getLayoutParams().width=width;
-        ivCircleBackground.getLayoutParams().height=width;
+        width=size.x;
+        height=size.y;
+
+
+        int radius=width*80/100;
+
+        ivCircleBackground.getLayoutParams().width=radius;
+        ivCircleBackground.getLayoutParams().height=radius;
+
+        llNamesBord.getLayoutParams().height=height*30/100;
+
+
 
     }
 
@@ -83,6 +98,7 @@ public class StartGameFragment extends Fragment {
         tvStart =view.findViewById(R.id.tv_start);
         ivBottle=view.findViewById(R.id.iv_bottle);
         ivCircleBackground=view.findViewById(R.id.iv_circle_background);
+        llNamesBord=view.findViewById(R.id.ll_names_and_color);
     }
 
 

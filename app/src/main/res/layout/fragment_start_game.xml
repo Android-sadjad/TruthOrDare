@@ -9,6 +9,16 @@
     >
 
     <ImageView
+        android:id="@+id/iv_menu"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/menubtn"
+        android:layout_margin="@dimen/_5sdp"/>
+
+
+    <ImageView
         android:id="@+id/iv_bottle"
         android:layout_width="@dimen/_60sdp"
         android:layout_height="0dp"
@@ -209,6 +219,8 @@
 
 
     <TextView
+
+
 
         android:id="@+id/tv_start"
         android:layout_width="@dimen/_150sdp"
