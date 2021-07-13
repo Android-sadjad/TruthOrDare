@@ -36,15 +36,18 @@
     </ImageView>
 
     <LinearLayout
+        android:id="@+id/ll_names_and_color"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/_150sdp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingTop="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_20sdp"
+        android:paddingRight="@dimen/_20sdp"
+        android:paddingLeft="@dimen/_5sdp"
 
-        app:layout_constraintTop_toBottomOf="@id/iv_circle_background"
-        app:layout_constraintBottom_toTopOf="@id/iv_start"
-        android:layout_margin="@dimen/_5sdp"
 
-        android:background="@drawable/woodbg">
+        android:background="@drawable/wood6">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -54,32 +57,51 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="right"
+                style="@style/ll_horizontal_style"
+                >
 
-                android:orientation="horizontal">
+                <TextView
+                    style="@style/tv_names_style"
+                    android:text="محمدعلی"
+                    />
+
+                <ImageView
+                    style="@style/iv_colors_style"
+                    android:background="@color/black"
+                    />
+
 
 
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                style="@style/ll_horizontal_style">
+
+                <TextView
+                    style="@style/tv_names_style"
+                    android:text="محمد"
+                    />
+
+                <ImageView
+                    style="@style/iv_colors_style"
+                    android:background="@color/purple_500"
+                    />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                style="@style/ll_horizontal_style">
 
-                android:orientation="horizontal">
+                <TextView
+                    style="@style/tv_names_style"
+                    android:text="علی"
+                    />
 
+                <ImageView
+                    style="@style/iv_colors_style"
+                    android:background="@color/white"
+                    />
             </LinearLayout>
 
 
@@ -93,30 +115,42 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                style="@style/ll_horizontal_style">
+                <TextView
+                    style="@style/tv_names_style"
+                    android:text="الناز"
+                    />
 
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
+                <ImageView
+                    style="@style/iv_colors_style"
+                    android:background="@color/teal_700"
+                    />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                style="@style/ll_horizontal_style">
+                <TextView
+                    style="@style/tv_names_style"
+                    android:text="مهری"
+                    />
 
-                android:orientation="horizontal">
-
+                <ImageView
+                    style="@style/iv_colors_style"
+                    android:background="#0B1A6C"
+                    />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                style="@style/ll_horizontal_style">
+                <TextView
+                    style="@style/tv_names_style"
+                    android:text="سینا"
+                    />
 
-                android:orientation="horizontal">
-
+                <ImageView
+                    style="@style/iv_colors_style"
+                    android:background="#8BC34A"
+                    />
             </LinearLayout>
 
         </LinearLayout>
@@ -129,30 +163,42 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                style="@style/ll_horizontal_style">
+                <TextView
+                    style="@style/tv_names_style"
+                    android:text="سعید"
+                    />
 
-                android:orientation="horizontal">
-
+                <ImageView
+                    style="@style/iv_colors_style"
+                    android:background="#DDCA1E"
+                    />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                style="@style/ll_horizontal_style">
+                <TextView
+                    style="@style/tv_names_style"
+                    android:text="نازنین فاطمه"
+                    />
 
-                android:orientation="horizontal">
-
+                <ImageView
+                    style="@style/iv_colors_style"
+                    android:background="#035707"
+                    />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                style="@style/ll_horizontal_style">
+                <TextView
+                    style="@style/tv_names_style"
+                    android:text="محمدیاسین"
+                    />
 
-                android:orientation="horizontal">
-
+                <ImageView
+                    style="@style/iv_colors_style"
+                    android:background="#E30808"
+                    />
             </LinearLayout>
 
         </LinearLayout>
@@ -161,19 +207,24 @@
     </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/iv_start"
-        android:layout_width="@dimen/_80sdp"
+
+    <TextView
+
+        android:id="@+id/tv_start"
+        android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_80sdp"
+        app:layout_constraintBottom_toTopOf="@id/ll_names_and_color"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@drawable/play"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/woodbg"
+        android:text="بچرخون"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="@dimen/_20sdp"
+        android:elevation="@dimen/_30sdp"
         >
 
-    </ImageView>
-
-
+    </TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

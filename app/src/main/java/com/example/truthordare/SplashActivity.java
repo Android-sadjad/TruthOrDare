@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 public class SplashActivity extends AppCompatActivity {
 
-    final int DURATION = 2000;
+    final int DURATION = 500;
 
     ImageView ivSplash;
 
