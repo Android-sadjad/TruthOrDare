@@ -10,9 +10,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.android.material.slider.Slider;
+
 public class StartDialog extends Dialog {
     ConstraintLayout clStartDialog;
-    SeekBar sbPlayerNumber;
+    Slider sbPlayerNumber;
     ConstraintLayout[] clPlayerNames;
 
 
@@ -29,29 +31,26 @@ public class StartDialog extends Dialog {
 
     private void configuraion() {
 
-        sbPlayerNumber.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        sbPlayerNumber.addOnChangeListener(new Slider.OnChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            public void onValueChange(Slider slider, float value, boolean fromUser) {
 
-                for(int i=2;i<progress;i++){
+                for(int i=2;i<value;i++){
 
-                    Toast.makeText(getContext(), String.valueOf(progress), Toast.LENGTH_SHORT).show();
-                   // clPlayerNames[i].setVisibility(View.VISIBLE);
+                    Toast.makeText(getContext(), String.valueOf(value), Toast.LENGTH_SHORT).show();
+                     clPlayerNames[i].setVisibility(View.VISIBLE);
+                }
+
+                for(int i = (int) value; i<9; i++){
+
+                    clPlayerNames[i].setVisibility(View.GONE);
+
                 }
             }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
         });
+
+
+
 
 
     }
