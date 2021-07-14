@@ -1,12 +1,10 @@
 package com.example.truthordare;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,13 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
 
-        startGameFragment=new StartGameFragment();
+        startGameFragment = new StartGameFragment();
     }
 
+    public void onClick(View view) {
 
-    public void onClick(View view){
-
-        switch (view.getId()){
+        switch (view.getId()) {
 
             case R.id.tv_start_game:
 
@@ -57,14 +54,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
         }
-
     }
 
-    public void loadFragment(Fragment fragment){
+    public void loadFragment(Fragment fragment) {
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fl_fragment_container,fragment)
+                .add(R.id.fl_fragment_container, fragment)
                 .addToBackStack(null).commit();
-
     }
 }

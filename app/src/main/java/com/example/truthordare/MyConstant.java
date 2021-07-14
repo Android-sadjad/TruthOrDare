@@ -10,8 +10,6 @@ import android.view.WindowManager;
 
 public class MyConstant {
 
-
-
     public static int getScreenWidth() {
         return Resources.getSystem().getDisplayMetrics().widthPixels;
     }
@@ -19,10 +17,5 @@ public class MyConstant {
     public static int getScreenHeight() {
         return Resources.getSystem().getDisplayMetrics().heightPixels;
     }
-
-
-
-
-
 
 }

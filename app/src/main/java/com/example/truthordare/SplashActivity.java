@@ -1,13 +1,11 @@
 package com.example.truthordare;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Display;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -27,26 +25,20 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
             }
-        },DURATION);
-
-
-    }
-
-    private void configuration() {
-
-
-
-        int width=MyConstant.getScreenWidth()*60/100;
-        ivSplash.getLayoutParams().width=width;
-        ivSplash.getLayoutParams().height=width;
-
-
+        }, DURATION);
     }
 
     private void findViews() {
 
-        ivSplash=findViewById(R.id.iv_splash);
+        ivSplash = findViewById(R.id.iv_splash);
+    }
+
+    private void configuration() {
+
+        int width = MyConstant.getScreenWidth() * 60 / 100;
+        ivSplash.getLayoutParams().width = width;
+        ivSplash.getLayoutParams().height = width;
     }
 }
