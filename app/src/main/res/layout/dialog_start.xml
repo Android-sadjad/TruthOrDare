@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/_500sdp"
     android:background="@drawable/wood6"
+
     android:padding="20dp">
 
     <TextView
@@ -56,57 +57,382 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/seek_count" />
 
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/tv_player_number"
+    android:layout_marginTop="@dimen/_10sdp"
+
+    >
     <LinearLayout
         android:id="@+id/ll_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_15sdp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/tv_player_number"
-        >
+        app:layout_constraintTop_toBottomOf="@id/tv_player_number">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+        <androidx.constraintlayout.widget.ConstraintLayout
 
+            android:id="@+id/cl_player_name_1"
+            style="@style/constrait_layout_input"
+            android:visibility="visible"
 
             >
 
             <ImageView
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"
-                android:layout_gravity="center"
+                android:id="@+id/iv_avatar_1"
+                style="@style/img_avatar_edit_text"
                 android:background="@drawable/avatar"
+                app:layout_constraintBottom_toBottomOf="@id/til_player_1"
+                app:layout_constraintLeft_toLeftOf="@id/til_player_1"
+                app:layout_constraintTop_toTopOf="@id/til_player_1"
 
 
                 />
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_player_1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام بازیکن"
-                app:boxBackgroundColor="#00000000"
-                app:hintTextColor="@color/black">
+                android:hint="نام بازیکن اول"
+                android:layoutDirection="rtl"
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent">
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_phone"
+                    android:id="@+id/et_player_1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-
-                    android:gravity="center|right"
-                    android:inputType="phone"
-                    android:textStyle="bold" />
+                    android:layout_height="wrap_content" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_player_name_2"
+            style="@style/constrait_layout_input"
+
+            >
+
+            <ImageView
+                android:id="@+id/iv_avatar_2"
+                style="@style/img_avatar_edit_text"
+                android:background="@drawable/avatar"
+                app:layout_constraintBottom_toBottomOf="@id/til_player_2"
+                app:layout_constraintLeft_toLeftOf="@id/til_player_2"
+                app:layout_constraintTop_toTopOf="@id/til_player_2"
+
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_player_2"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="نام بازیکن"
+                android:layoutDirection="rtl"
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_player_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_player_name_3"
+            style="@style/constrait_layout_input"
+
+            >
+
+            <ImageView
+                android:id="@+id/iv_avatar_3"
+                style="@style/img_avatar_edit_text"
+                android:background="@drawable/avatar"
+                app:layout_constraintBottom_toBottomOf="@id/til_player_3"
+                app:layout_constraintLeft_toLeftOf="@id/til_player_3"
+                app:layout_constraintTop_toTopOf="@id/til_player_3"
+
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_player_3"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="نام بازیکن"
+                android:layoutDirection="rtl"
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_player_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_player_name_4"
+            style="@style/constrait_layout_input"
+
+            >
+
+            <ImageView
+                android:id="@+id/iv_avatar_4"
+                style="@style/img_avatar_edit_text"
+                android:background="@drawable/avatar"
+                app:layout_constraintBottom_toBottomOf="@id/til_player_4"
+                app:layout_constraintLeft_toLeftOf="@id/til_player_4"
+                app:layout_constraintTop_toTopOf="@id/til_player_4"
+
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_player_4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="نام بازیکن"
+                android:layoutDirection="rtl"
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_player_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_player_name_5"
+            style="@style/constrait_layout_input"
+
+            >
+
+            <ImageView
+                android:id="@+id/iv_avatar_5"
+                style="@style/img_avatar_edit_text"
+                android:background="@drawable/avatar"
+                app:layout_constraintBottom_toBottomOf="@id/til_player_5"
+                app:layout_constraintLeft_toLeftOf="@id/til_player_5"
+                app:layout_constraintTop_toTopOf="@id/til_player_5"
+
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_player_5"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="نام بازیکن"
+                android:layoutDirection="rtl"
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_player_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_player_name_6"
+            style="@style/constrait_layout_input"
+
+            >
+
+            <ImageView
+                android:id="@+id/iv_avatar_6"
+                style="@style/img_avatar_edit_text"
+                android:background="@drawable/avatar"
+                app:layout_constraintBottom_toBottomOf="@id/til_player_6"
+                app:layout_constraintLeft_toLeftOf="@id/til_player_6"
+                app:layout_constraintTop_toTopOf="@id/til_player_6"
+
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_player_6"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="نام بازیکن"
+                android:layoutDirection="rtl"
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_player_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_player_name_7"
+            style="@style/constrait_layout_input"
+
+            >
+
+            <ImageView
+                android:id="@+id/iv_avatar_7"
+                style="@style/img_avatar_edit_text"
+                android:background="@drawable/avatar"
+                app:layout_constraintBottom_toBottomOf="@id/til_player_7"
+                app:layout_constraintLeft_toLeftOf="@id/til_player_7"
+                app:layout_constraintTop_toTopOf="@id/til_player_7"
+
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_player_7"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="نام بازیکن"
+                android:layoutDirection="rtl"
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_player_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_player_name_8"
+            style="@style/constrait_layout_input"
+
+            >
+
+            <ImageView
+                android:id="@+id/iv_avatar_8"
+                style="@style/img_avatar_edit_text"
+                android:background="@drawable/avatar"
+                app:layout_constraintBottom_toBottomOf="@id/til_player_8"
+                app:layout_constraintLeft_toLeftOf="@id/til_player_8"
+                app:layout_constraintTop_toTopOf="@id/til_player_8"
+
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_player_8"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="نام بازیکن"
+                android:layoutDirection="rtl"
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_player_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_player_name_9"
+            style="@style/constrait_layout_input"
+
+            >
+
+            <ImageView
+                android:id="@+id/iv_avatar_9"
+                style="@style/img_avatar_edit_text"
+                android:background="@drawable/avatar"
+                app:layout_constraintBottom_toBottomOf="@id/til_player_9"
+                app:layout_constraintLeft_toLeftOf="@id/til_player_9"
+                app:layout_constraintTop_toTopOf="@id/til_player_9"
+
+
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_player_9"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="نام بازیکن"
+                android:layoutDirection="rtl"
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_player_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
 
     </LinearLayout>
+
+</ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
