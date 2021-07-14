@@ -40,6 +40,8 @@ public class StartGameFragment extends Fragment {
 
 
 
+StartDialog startDialog = new StartDialog(getContext());
+startDialog.show();
 
         findViews(view);
         setSize();
@@ -49,13 +51,9 @@ public class StartGameFragment extends Fragment {
     }
 
     private void setSize() {
-        Display displaySize = getActivity().getWindowManager().getDefaultDisplay();
-        Point size=new Point();
-        displaySize.getSize(size);
 
-        width=size.x;
-        height=size.y;
-
+        width=MyConstant.getScreenWidth();
+        height=MyConstant.getScreenHeight();
 
         int radius=width*80/100;
 

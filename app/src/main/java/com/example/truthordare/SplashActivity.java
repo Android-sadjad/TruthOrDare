@@ -36,11 +36,9 @@ public class SplashActivity extends AppCompatActivity {
 
     private void configuration() {
 
-        Display displaySize = getWindowManager().getDefaultDisplay();
-        Point size=new Point();
-        displaySize.getSize(size);
 
-        int width=size.x*60/100;
+
+        int width=MyConstant.getScreenWidth()*60/100;
         ivSplash.getLayoutParams().width=width;
         ivSplash.getLayoutParams().height=width;
 
