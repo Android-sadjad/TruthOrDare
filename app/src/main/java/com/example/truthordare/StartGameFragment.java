@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class StartGameFragment extends Fragment {
@@ -24,6 +25,10 @@ public class StartGameFragment extends Fragment {
 
     int width;
     int height;
+    int sign=1;
+    int currentDegree=0;
+
+    ArrayList<Integer> randomNumberList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,6 +38,8 @@ public class StartGameFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        randomNumberList=new ArrayList<>(360);
 
         showStartDialog();
         findViews(view);
@@ -65,16 +72,26 @@ public class StartGameFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                int randomNumber = new Random().nextInt() % 360;
-                randomNumber = (randomNumber >= 0) ? randomNumber : randomNumber * -1;
+                int randomNumber;
 
-                RotateAnimation rotate = new RotateAnimation(0, 1800 - randomNumber, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+                while (true){
+                    randomNumber = new Random().nextInt() % 360;
+                    if (!randomNumberList.contains(randomNumber)){
+                        randomNumberList.add(randomNumber);
+                        break;
+                    }
+                }
+
+
+                randomNumber*=sign;
+                sign*=-1;
+
+                RotateAnimation rotate = new RotateAnimation(currentDegree, 3600 + randomNumber, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
                 rotate.setDuration(4000);
                 rotate.setFillAfter(true);
 
+                currentDegree=randomNumber;
                 ivBottle.startAnimation(rotate);
-
-
             }
         });
 
