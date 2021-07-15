@@ -424,6 +424,7 @@
 </ScrollView>
 
     <TextView
+        android:id="@+id/tv_start_game"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_70sdp"
         app:layout_constraintBottom_toBottomOf="parent"

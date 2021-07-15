@@ -9,7 +9,6 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -29,6 +28,10 @@ public class StartGameFragment extends Fragment {
     int currentDegree=0;
 
     ArrayList<Integer> randomNumberList;
+    ArrayList<String> playerNameList;
+
+    TextView[]tvNames;
+    ImageView[]ivColors;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,16 +43,44 @@ public class StartGameFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         randomNumberList=new ArrayList<>(360);
+        playerNameList=new ArrayList<>();
 
         showStartDialog();
         findViews(view);
         setSize();
         configuraion();
+
+
     }
+
+    private void setTextAndColor() {
+
+
+        for (int i=0;i<playerNameList.size();i++){
+
+            tvNames[i].setVisibility(View.VISIBLE);
+            tvNames[i].setText(playerNameList.get(i));
+
+            ivColors[i].setVisibility(View.VISIBLE);
+
+        }
+
+    }
+
 
     private void showStartDialog() {
 
-        StartDialog startDialog = new StartDialog(getContext());
+        StartDialog startDialog = new StartDialog(getContext(), new MyCallBack() {
+            @Override
+            public void callBackPlayerList(ArrayList<String> playerName) {
+                playerNameList=playerName;
+                setTextAndColor();
+            }
+        });
+
+
+
+
         startDialog.show();
     }
 
@@ -103,5 +134,28 @@ public class StartGameFragment extends Fragment {
         ivBottle = view.findViewById(R.id.iv_bottle);
         ivCircleBackground = view.findViewById(R.id.iv_circle_background);
         llNamesBord = view.findViewById(R.id.ll_names_and_color);
+
+        tvNames[0]=view.findViewById(R.id.tv_name_1);
+        tvNames[1]=view.findViewById(R.id.tv_name_2);
+        tvNames[2]=view.findViewById(R.id.tv_name_3);
+        tvNames[3]=view.findViewById(R.id.tv_name_4);
+        tvNames[4]=view.findViewById(R.id.tv_name_5);
+        tvNames[5]=view.findViewById(R.id.tv_name_6);
+        tvNames[6]=view.findViewById(R.id.tv_name_7);
+        tvNames[7]=view.findViewById(R.id.tv_name_8);
+        tvNames[8]=view.findViewById(R.id.tv_name_9);
+
+        ivColors[0]=view.findViewById(R.id.iv_color_1);
+        ivColors[1]=view.findViewById(R.id.iv_color_2);
+        ivColors[2]=view.findViewById(R.id.iv_color_3);
+        ivColors[3]=view.findViewById(R.id.iv_color_4);
+        ivColors[4]=view.findViewById(R.id.iv_color_5);
+        ivColors[5]=view.findViewById(R.id.iv_color_6);
+        ivColors[6]=view.findViewById(R.id.iv_color_7);
+        ivColors[7]=view.findViewById(R.id.iv_color_8);
+        ivColors[8]=view.findViewById(R.id.iv_color_9);
+
+
+
     }
 }

@@ -33,6 +33,7 @@
         <item name="android:textSize">@dimen/_14sdp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginRight">@dimen/_2sdp</item>
+        <item name="android:visibility">gone</item>
 
 
     </style>
@@ -42,6 +43,7 @@
         <item name="android:layout_width">@dimen/_22sdp</item>
         <item name="android:layout_height">@dimen/_22sdp</item>
         <item name="android:gravity">center</item>
+        <item name="android:visibility">gone</item>
 
 
     </style>
