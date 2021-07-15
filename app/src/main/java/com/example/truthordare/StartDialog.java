@@ -79,6 +79,7 @@ public class StartDialog extends Dialog {
                 }
 
                 myCallBack.callBackPlayerList(playerNameList);
+                cancel();
             }
         });
 
@@ -115,7 +116,7 @@ public class StartDialog extends Dialog {
 
 
 
-        tvStartGame=findViewById(R.id.tv_start_game);
+        tvStartGame=findViewById(R.id.tv_start_game1);
 
     }
 

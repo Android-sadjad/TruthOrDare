@@ -135,6 +135,9 @@ public class StartGameFragment extends Fragment {
         ivCircleBackground = view.findViewById(R.id.iv_circle_background);
         llNamesBord = view.findViewById(R.id.ll_names_and_color);
 
+        tvNames=new TextView[9];
+        ivColors=new ImageView[9];
+
         tvNames[0]=view.findViewById(R.id.tv_name_1);
         tvNames[1]=view.findViewById(R.id.tv_name_2);
         tvNames[2]=view.findViewById(R.id.tv_name_3);
