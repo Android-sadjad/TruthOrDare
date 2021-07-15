@@ -60,8 +60,9 @@
 
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="0dp"
     app:layout_constraintTop_toBottomOf="@id/tv_player_number"
+    app:layout_constraintBottom_toBottomOf="parent"
     android:layout_marginTop="@dimen/_10sdp"
 
     >
@@ -96,7 +97,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام بازیکن اول"
+                android:hint="نام بازیکن 1"
                 android:layoutDirection="rtl"
                 app:hintTextColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent">
@@ -104,8 +105,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_player_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    style="@style/et_player_name_style"
+                    />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -135,7 +136,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام بازیکن"
+                android:hint="نام بازیکن 2"
                 android:layoutDirection="rtl"
                 app:hintTextColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent">
@@ -143,8 +144,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_player_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    style="@style/et_player_name_style" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -174,7 +174,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام بازیکن"
+                android:hint="نام بازیکن 3"
                 android:layoutDirection="rtl"
                 app:hintTextColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent">
@@ -182,8 +182,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_player_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    style="@style/et_player_name_style" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -213,7 +212,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام بازیکن"
+                android:hint="نام بازیکن 4"
                 android:layoutDirection="rtl"
                 app:hintTextColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent">
@@ -221,8 +220,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_player_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    style="@style/et_player_name_style" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -252,7 +250,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام بازیکن"
+                android:hint="نام بازیکن 5"
                 android:layoutDirection="rtl"
                 app:hintTextColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent">
@@ -260,8 +258,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_player_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    style="@style/et_player_name_style" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -291,7 +288,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام بازیکن"
+                android:hint="نام بازیکن 6"
                 android:layoutDirection="rtl"
                 app:hintTextColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent">
@@ -299,8 +296,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_player_6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    style="@style/et_player_name_style" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -330,7 +326,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام بازیکن"
+                android:hint="نام بازیکن 7"
                 android:layoutDirection="rtl"
                 app:hintTextColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent">
@@ -338,8 +334,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_player_7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    style="@style/et_player_name_style" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -369,7 +364,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام بازیکن"
+                android:hint="نام بازیکن 8"
                 android:layoutDirection="rtl"
                 app:hintTextColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent">
@@ -377,8 +372,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_player_8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    style="@style/et_player_name_style" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -408,7 +402,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="نام بازیکن"
+                android:hint="نام بازیکن 9"
                 android:layoutDirection="rtl"
                 app:hintTextColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent">
@@ -416,18 +410,13 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_player_9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    style="@style/et_player_name_style" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
 
 
     </LinearLayout>

@@ -17,11 +17,13 @@ public class StartDialog extends Dialog {
     Slider sbPlayerNumber;
     ConstraintLayout[] clPlayerNames;
 
-
-    public StartDialog(@NonNull Context context) {
+    Context context;
+    public StartDialog(Context context) {
         super(context);
         setContentView(R.layout.dialog_start);
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        this.context=context;
 
         findViews();
         setSize();
@@ -36,22 +38,14 @@ public class StartDialog extends Dialog {
             public void onValueChange(Slider slider, float value, boolean fromUser) {
 
                 for(int i=2;i<value;i++){
-
-                    Toast.makeText(getContext(), String.valueOf(value), Toast.LENGTH_SHORT).show();
                      clPlayerNames[i].setVisibility(View.VISIBLE);
                 }
 
                 for(int i = (int) value; i<9; i++){
-
                     clPlayerNames[i].setVisibility(View.GONE);
-
                 }
             }
         });
-
-
-
-
 
     }
 
