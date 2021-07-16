@@ -47,7 +47,7 @@ public class StartDialog extends Dialog {
             @Override
             public void onValueChange(Slider slider, float value, boolean fromUser) {
 
-                tvPlayerNumber.setText(  "تعداد بازیکن: " + (int) value);
+                tvPlayerNumber.setText(  "تعداد بازیکن: " + (int) value+" نفر");
 
                 for(int i=2;i<value;i++){
                      clPlayerNames[i].setVisibility(View.VISIBLE);
@@ -126,7 +126,8 @@ tvPlayerNumber=findViewById(R.id.tv_player_number);
 
     public void setSize() {
         clStartDialog.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
-        clStartDialog.getLayoutParams().height = MyConstant.getScreenHeight() * 80 / 100;
+        clStartDialog.getLayoutParams().height = MyConstant.getScreenHeight() * 90 / 100;
+
 
     }
 

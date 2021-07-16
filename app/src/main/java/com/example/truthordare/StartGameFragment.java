@@ -1,5 +1,8 @@
 package com.example.truthordare;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +11,8 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -48,8 +53,7 @@ public class StartGameFragment extends Fragment {
         showStartDialog();
         findViews(view);
         setSize();
-        configuraion();
-
+        configuration();
 
     }
 
@@ -66,7 +70,6 @@ public class StartGameFragment extends Fragment {
         }
 
     }
-
 
     private void showStartDialog() {
 
@@ -97,7 +100,7 @@ public class StartGameFragment extends Fragment {
         llNamesBord.getLayoutParams().height = height * 30 / 100;
     }
 
-    private void configuraion() {
+    private void configuration() {
 
         tvStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,4 +164,5 @@ public class StartGameFragment extends Fragment {
 
 
     }
+
 }
