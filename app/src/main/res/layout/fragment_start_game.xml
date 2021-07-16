@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/grassbg"
-    android:clickable="true">
+    android:clickable="true"
+    android:focusable="true">
 
     <ImageView
         android:id="@+id/iv_menu"
@@ -42,19 +43,17 @@
     </ImageView>
 
     <LinearLayout
-        android:layoutDirection="ltr"
         android:id="@+id/ll_names_and_color"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_150sdp"
         android:background="@drawable/wood6"
+        android:layoutDirection="ltr"
         android:orientation="horizontal"
         android:paddingLeft="@dimen/_5sdp"
         android:paddingTop="@dimen/_20sdp"
         android:paddingRight="@dimen/_20sdp"
         android:paddingBottom="@dimen/_20sdp"
         app:layout_constraintBottom_toBottomOf="parent">
-
-
 
 
         <LinearLayout
@@ -64,7 +63,7 @@
 
             android:orientation="vertical">
 
-            <LinearLayout style="@style/ll_horizontal_style">
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
 
                 <TextView
                     android:id="@+id/tv_name_7"
@@ -79,7 +78,7 @@
 
             </LinearLayout>
 
-            <LinearLayout style="@style/ll_horizontal_style">
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
 
                 <TextView
                     android:id="@+id/tv_name_8"
@@ -93,7 +92,7 @@
 
             </LinearLayout>
 
-            <LinearLayout style="@style/ll_horizontal_style">
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
 
                 <TextView
                     android:id="@+id/tv_name_9"
@@ -116,7 +115,7 @@
 
             android:orientation="vertical">
 
-            <LinearLayout style="@style/ll_horizontal_style">
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
 
                 <TextView
                     android:id="@+id/tv_name_4"
@@ -129,7 +128,7 @@
                     android:background="@color/teal_700" />
             </LinearLayout>
 
-            <LinearLayout style="@style/ll_horizontal_style">
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
 
                 <TextView
                     android:id="@+id/tv_name_5"
@@ -142,7 +141,7 @@
                     android:background="#0B1A6C" />
             </LinearLayout>
 
-            <LinearLayout style="@style/ll_horizontal_style">
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
 
                 <TextView
                     android:id="@+id/tv_name_6"
@@ -164,7 +163,7 @@
 
             android:orientation="vertical">
 
-            <LinearLayout style="@style/ll_horizontal_style">
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
 
                 <TextView
                     android:id="@+id/tv_name_1"
@@ -176,11 +175,10 @@
                 <ImageView
                     android:id="@+id/iv_color_1"
                     style="@style/iv_colors_style"
-                    android:background="#DDCA1E"
-                    />
+                    android:background="#DDCA1E" />
             </LinearLayout>
 
-            <LinearLayout style="@style/ll_horizontal_style">
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
 
                 <TextView
                     android:id="@+id/tv_name_2"
@@ -193,7 +191,7 @@
                     android:background="#035707" />
             </LinearLayout>
 
-            <LinearLayout style="@style/ll_horizontal_style">
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
 
                 <TextView
                     android:id="@+id/tv_name_3"
@@ -212,7 +210,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_start"
+        android:id="@+id/tv_turn"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_80sdp"
         android:background="@drawable/woodbg"

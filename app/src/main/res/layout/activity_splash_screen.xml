@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity">
+    tools:context=".SplashScreenActivity">
 
     <TextView
         android:id="@+id/tv_truth_or_dare"
@@ -14,13 +15,13 @@
         android:text="جرعت یا حقیقت"
         android:textColor="@color/black"
         android:textSize="@dimen/_20sdp"
-        app:layout_constraintBottom_toTopOf="@id/iv_splash"
+        app:layout_constraintBottom_toTopOf="@id/iv_splash_screen"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/iv_splash"
+        android:id="@+id/iv_splash_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_splash_screen"
@@ -30,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_team"
+        android:id="@+id/tv_team_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -40,10 +41,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_splash" />
+        app:layout_constraintTop_toBottomOf="@id/iv_splash_screen" />
 
     <TextView
-        android:id="@+id/tv_version"
+        android:id="@+id/tv_code_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -52,7 +53,7 @@
         android:textSize="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_team" />
+        app:layout_constraintTop_toBottomOf="@id/tv_team_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

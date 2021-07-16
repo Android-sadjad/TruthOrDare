@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TruthOrDare">
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

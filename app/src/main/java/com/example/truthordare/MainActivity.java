@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()) {
 
-            case R.id.tv_start_game:
+            case R.id.tv_show_start_dialog:
 
-                loadFragment(new StartGameFragment());
+                loadFragment(startGameFragment);
 
                 break;
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_start_dialog"
     android:layout_width="match_parent"
@@ -7,11 +8,11 @@
     android:layout_gravity="center">
 
     <View
-        android:id="@+id/view_background"
+        android:id="@+id/view_start_dialog_background"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/wood6"
-        app:layout_constraintBottom_toBottomOf="@id/tv_start_game1"
+        app:layout_constraintBottom_toBottomOf="@id/tv_start_game"
         android:layout_marginTop="@dimen/_30sdp"
         android:layout_marginBottom="@dimen/_30sdp"
         app:layout_constraintTop_toTopOf="@id/tv_choose" />
@@ -32,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.slider.Slider
-        android:id="@+id/sb_player_number"
+        android:id="@+id/slider_player_number"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
@@ -62,7 +63,7 @@
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sb_player_number" />
+        app:layout_constraintTop_toBottomOf="@id/slider_player_number" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -70,7 +71,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
-        app:layout_constraintBottom_toTopOf="@id/tv_start_game1"
+        app:layout_constraintBottom_toTopOf="@id/tv_start_game"
         app:layout_constraintTop_toBottomOf="@id/tv_player_number"
 
         >
@@ -85,14 +86,14 @@
             <androidx.constraintlayout.widget.ConstraintLayout
 
                 android:id="@+id/cl_player_name_1"
-                style="@style/constrait_layout_input"
+                style="@style/cl_name_and_avatar_style"
                 android:visibility="visible"
 
                 >
 
                 <ImageView
                     android:id="@+id/iv_avatar_1"
-                    style="@style/img_avatar_edit_text"
+                    style="@style/iv_avatar_style"
                     android:background="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="@id/til_player_1"
                     app:layout_constraintLeft_toLeftOf="@id/til_player_1"
@@ -124,12 +125,12 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_player_name_2"
-                style="@style/constrait_layout_input"
+                style="@style/cl_name_and_avatar_style"
                 android:visibility="visible">
 
                 <ImageView
                     android:id="@+id/iv_avatar_2"
-                    style="@style/img_avatar_edit_text"
+                    style="@style/iv_avatar_style"
                     android:background="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="@id/til_player_2"
                     app:layout_constraintLeft_toLeftOf="@id/til_player_2"
@@ -161,13 +162,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_player_name_3"
-                style="@style/constrait_layout_input"
+                style="@style/cl_name_and_avatar_style"
 
                 >
 
                 <ImageView
                     android:id="@+id/iv_avatar_3"
-                    style="@style/img_avatar_edit_text"
+                    style="@style/iv_avatar_style"
                     android:background="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="@id/til_player_3"
                     app:layout_constraintLeft_toLeftOf="@id/til_player_3"
@@ -199,13 +200,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_player_name_4"
-                style="@style/constrait_layout_input"
+                style="@style/cl_name_and_avatar_style"
 
                 >
 
                 <ImageView
                     android:id="@+id/iv_avatar_4"
-                    style="@style/img_avatar_edit_text"
+                    style="@style/iv_avatar_style"
                     android:background="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="@id/til_player_4"
                     app:layout_constraintLeft_toLeftOf="@id/til_player_4"
@@ -237,13 +238,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_player_name_5"
-                style="@style/constrait_layout_input"
+                style="@style/cl_name_and_avatar_style"
 
                 >
 
                 <ImageView
                     android:id="@+id/iv_avatar_5"
-                    style="@style/img_avatar_edit_text"
+                    style="@style/iv_avatar_style"
                     android:background="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="@id/til_player_5"
                     app:layout_constraintLeft_toLeftOf="@id/til_player_5"
@@ -275,13 +276,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_player_name_6"
-                style="@style/constrait_layout_input"
+                style="@style/cl_name_and_avatar_style"
 
                 >
 
                 <ImageView
                     android:id="@+id/iv_avatar_6"
-                    style="@style/img_avatar_edit_text"
+                    style="@style/iv_avatar_style"
                     android:background="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="@id/til_player_6"
                     app:layout_constraintLeft_toLeftOf="@id/til_player_6"
@@ -313,13 +314,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_player_name_7"
-                style="@style/constrait_layout_input"
+                style="@style/cl_name_and_avatar_style"
 
                 >
 
                 <ImageView
                     android:id="@+id/iv_avatar_7"
-                    style="@style/img_avatar_edit_text"
+                    style="@style/iv_avatar_style"
                     android:background="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="@id/til_player_7"
                     app:layout_constraintLeft_toLeftOf="@id/til_player_7"
@@ -351,13 +352,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_player_name_8"
-                style="@style/constrait_layout_input"
+                style="@style/cl_name_and_avatar_style"
 
                 >
 
                 <ImageView
                     android:id="@+id/iv_avatar_8"
-                    style="@style/img_avatar_edit_text"
+                    style="@style/iv_avatar_style"
                     android:background="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="@id/til_player_8"
                     app:layout_constraintLeft_toLeftOf="@id/til_player_8"
@@ -389,13 +390,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_player_name_9"
-                style="@style/constrait_layout_input"
+                style="@style/cl_name_and_avatar_style"
 
                 >
 
                 <ImageView
                     android:id="@+id/iv_avatar_9"
-                    style="@style/img_avatar_edit_text"
+                    style="@style/iv_avatar_style"
                     android:background="@drawable/avatar"
                     app:layout_constraintBottom_toBottomOf="@id/til_player_9"
                     app:layout_constraintLeft_toLeftOf="@id/til_player_9"
@@ -431,7 +432,7 @@
     </ScrollView>
 
     <TextView
-        android:id="@+id/tv_start_game1"
+        android:id="@+id/tv_start_game"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_70sdp"
         android:background="@drawable/woodbtn"
