@@ -21,6 +21,7 @@ public class StartDialog extends Dialog {
     Slider sbPlayerNumber;
     ConstraintLayout[] clPlayerNames;
     TextInputEditText[] tiePlayerNames;
+    TextView tvPlayerNumber;
 
     TextView tvStartGame;
 
@@ -46,12 +47,15 @@ public class StartDialog extends Dialog {
             @Override
             public void onValueChange(Slider slider, float value, boolean fromUser) {
 
+                tvPlayerNumber.setText(  "تعداد بازیکن: " + (int) value);
+
                 for(int i=2;i<value;i++){
                      clPlayerNames[i].setVisibility(View.VISIBLE);
                 }
 
                 for(int i = (int) value; i<9; i++){
                     clPlayerNames[i].setVisibility(View.GONE);
+
                 }
             }
         });
@@ -90,7 +94,7 @@ public class StartDialog extends Dialog {
 
         clStartDialog = findViewById(R.id.cl_start_dialog);
         sbPlayerNumber = findViewById(R.id.sb_player_number);
-
+tvPlayerNumber=findViewById(R.id.tv_player_number);
         clPlayerNames=new ConstraintLayout[9];
         tiePlayerNames=new TextInputEditText[9];
 
