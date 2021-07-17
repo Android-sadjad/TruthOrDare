@@ -53,6 +53,7 @@
         android:paddingTop="@dimen/_20sdp"
         android:paddingRight="@dimen/_20sdp"
         android:paddingBottom="@dimen/_20sdp"
+
         app:layout_constraintBottom_toBottomOf="parent">
 
 
@@ -225,5 +226,66 @@
         app:layout_constraintRight_toRightOf="parent">
 
     </TextView>
+    
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/coordinbate_layout"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <LinearLayout
+            android:background="@color/purple_700"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/bottom_sheet_behavior"
+            app:behavior_peekHeight="60dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:padding="@dimen/_5sdp"
+            >
+
+
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="جقیقت"
+                android:layout_marginRight="@dimen/_5sdp"
+
+
+                />
+
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="جرعت"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="یک نوار با رنگ پس زمینه و ارتفاع ۲۰۰dp که قبلا تعیین کردم در پایین صفحه ظاهر شده که محتوای آن شامل دو TextViewمی‌باشد. در حال حاضر این یک نوار ثابت است که با کشیدن به سمت پایین هیچ واکنشی صورت نمی‌پذیرد. خاصیت زیر را با یک مقدار دلخواه به Bottom Sheet (یعنییک نوار با رنگ پس زمینه و ارتفاع ۲۰۰dp که قبلا تعیین کردم در پایین صفحه ظاهر شده که محتوای آن شامل دو TextViewمی‌باشد. در حال حاضر این یک نوار ثابت است که با کشیدن به سمت پایین هیچ واکنشی صورت نمی‌پذیرد. خاصیت زیر را با یک مقدار دلخواه به Bottom Sheet (یعنییک نوار با رنگ پس زمینه و ارتفاع ۲۰۰dp که قبلا تعیین کردم در پایین صفحه ظاهر شده که محتوای آن شامل دو TextViewمی‌باشد. در حال حاضر این یک نوار ثابت است که با کشیدن به سمت پایین هیچ واکنشی صورت نمی‌پذیرد. خاصیت زیر را با یک مقدار دلخواه به Bottom Sheet (یعنییک نوار با رنگ پس زمینه و ارتفاع ۲۰۰dp که قبلا تعیین کردم در پایین صفحه ظاهر شده که محتوای آن شامل دو TextViewمی‌باشد. در حال حاضر این یک نوار ثابت است که با کشیدن به سمت پایین هیچ واکنشی صورت نمی‌پذیرد. خاصیت زیر را با یک مقدار دلخواه به Bottom Sheet (یعنی"
+
+                />
+
+        </LinearLayout>
+
+
+
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+    
+    
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>
