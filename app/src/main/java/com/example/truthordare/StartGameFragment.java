@@ -24,10 +24,11 @@ public class StartGameFragment extends Fragment {
     int sign = 1;
     int currentDegree = 0;
 
+    LinearLayout llTruthOrdare;
     ImageView ivCircleBackground;
     ImageView ivBottle;
 
-    TextView tvStart;
+
 
     LinearLayout llNamesBord;
 
@@ -41,7 +42,6 @@ public class StartGameFragment extends Fragment {
     public StartGameFragment(ArrayList<String> playerNameList) {
         this.playerNameList = new ArrayList<>();
         this.playerNameList =  playerNameList;
-
 
     }
 
@@ -96,9 +96,10 @@ public class StartGameFragment extends Fragment {
         ivCircleBackground = view.findViewById(R.id.iv_circle_background);
         ivBottle = view.findViewById(R.id.iv_bottle);
 
-        tvStart = view.findViewById(R.id.tv_turn);
+
 
         llNamesBord = view.findViewById(R.id.ll_names_and_color);
+        llTruthOrdare = view.findViewById(R.id.ll_truth_dare);
 
         tvNames[0] = view.findViewById(R.id.tv_name_1);
         tvNames[1] = view.findViewById(R.id.tv_name_2);
@@ -137,7 +138,9 @@ public class StartGameFragment extends Fragment {
 
     private void configuration() {
 
-        tvStart.setOnClickListener(new View.OnClickListener() {
+
+
+        ivCircleBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -159,14 +162,39 @@ public class StartGameFragment extends Fragment {
                         Animation.RELATIVE_TO_SELF,
                         0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
-                rotate.setDuration(4000);
+                rotate.setDuration(2000);
                 rotate.setFillAfter(true);
 
                 currentDegree = randomNumber;
                 ivBottle.startAnimation(rotate);
+                if (llNamesBord.getTranslationY() == 0)
+                    up();
+                else
+                down();
+
             }
+
         });
 
     }
+
+    private void up() {
+        llTruthOrdare.animate().translationY(0).setDuration(1000).setStartDelay(2000);
+        llNamesBord.animate().translationY((llTruthOrdare.getLayoutParams().height*-1)-10).setDuration(1000).setStartDelay(2000);
+    }
+
+
+    private void down() {
+        llTruthOrdare.animate().translationY(llTruthOrdare.getLayoutParams().height)
+                .setDuration(0).setStartDelay(0);
+
+
+        llNamesBord.animate().translationY(0).setDuration(0).setStartDelay(0);
+
+
+    }
+
+
+
 
 }
