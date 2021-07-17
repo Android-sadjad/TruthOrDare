@@ -9,6 +9,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -17,10 +18,11 @@ import java.util.Random;
 
 public class StartGameFragment extends Fragment {
 
+
     int width;
     int height;
-    int sign=1;
-    int currentDegree=0;
+    int sign = 1;
+    int currentDegree = 0;
 
     ImageView ivCircleBackground;
     ImageView ivBottle;
@@ -32,10 +34,21 @@ public class StartGameFragment extends Fragment {
     ArrayList<Integer> randomNumberList;
     ArrayList<String> playerNameList;
 
-    TextView[]tvNames;
-    ImageView[]ivColors;
+    TextView[] tvNames;
+    ImageView[] ivColors;
+
+
+    public StartGameFragment(ArrayList<String> playerNameList) {
+        this.playerNameList = new ArrayList<>();
+        this.playerNameList =  playerNameList;
+
+
+    }
+
 
     @Override
+
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_start_game, container, false);
     }
@@ -45,10 +58,10 @@ public class StartGameFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-
         init();
-        showStartDialog();
+
         findViews(view);
+        setTextAndColor();
         setSize();
         configuration();
 
@@ -56,33 +69,18 @@ public class StartGameFragment extends Fragment {
 
     private void init() {
 
-        randomNumberList=new ArrayList<>(360);
-        playerNameList=new ArrayList<>();
+        randomNumberList = new ArrayList<>(360);
 
-        tvNames=new TextView[9];
-        ivColors=new ImageView[9];
+
+        tvNames = new TextView[9];
+        ivColors = new ImageView[9];
     }
 
-    private void showStartDialog() {
-
-        StartDialog startDialog = new StartDialog(getContext(), new MyCallBack() {
-            @Override
-            public void callBackPlayerList(ArrayList<String> playerName) {
-                playerNameList=playerName;
-                setTextAndColor();
-            }
-        });
-
-
-
-
-        startDialog.show();
-    }
 
     private void setTextAndColor() {
 
 
-        for (int i=0;i<playerNameList.size();i++){
+        for (int i = 0; i < playerNameList.size(); i++) {
 
             tvNames[i].setVisibility(View.VISIBLE);
             tvNames[i].setText(playerNameList.get(i));
@@ -102,25 +100,25 @@ public class StartGameFragment extends Fragment {
 
         llNamesBord = view.findViewById(R.id.ll_names_and_color);
 
-        tvNames[0]=view.findViewById(R.id.tv_name_1);
-        tvNames[1]=view.findViewById(R.id.tv_name_2);
-        tvNames[2]=view.findViewById(R.id.tv_name_3);
-        tvNames[3]=view.findViewById(R.id.tv_name_4);
-        tvNames[4]=view.findViewById(R.id.tv_name_5);
-        tvNames[5]=view.findViewById(R.id.tv_name_6);
-        tvNames[6]=view.findViewById(R.id.tv_name_7);
-        tvNames[7]=view.findViewById(R.id.tv_name_8);
-        tvNames[8]=view.findViewById(R.id.tv_name_9);
+        tvNames[0] = view.findViewById(R.id.tv_name_1);
+        tvNames[1] = view.findViewById(R.id.tv_name_2);
+        tvNames[2] = view.findViewById(R.id.tv_name_3);
+        tvNames[3] = view.findViewById(R.id.tv_name_4);
+        tvNames[4] = view.findViewById(R.id.tv_name_5);
+        tvNames[5] = view.findViewById(R.id.tv_name_6);
+        tvNames[6] = view.findViewById(R.id.tv_name_7);
+        tvNames[7] = view.findViewById(R.id.tv_name_8);
+        tvNames[8] = view.findViewById(R.id.tv_name_9);
 
-        ivColors[0]=view.findViewById(R.id.iv_color_1);
-        ivColors[1]=view.findViewById(R.id.iv_color_2);
-        ivColors[2]=view.findViewById(R.id.iv_color_3);
-        ivColors[3]=view.findViewById(R.id.iv_color_4);
-        ivColors[4]=view.findViewById(R.id.iv_color_5);
-        ivColors[5]=view.findViewById(R.id.iv_color_6);
-        ivColors[6]=view.findViewById(R.id.iv_color_7);
-        ivColors[7]=view.findViewById(R.id.iv_color_8);
-        ivColors[8]=view.findViewById(R.id.iv_color_9);
+        ivColors[0] = view.findViewById(R.id.iv_color_1);
+        ivColors[1] = view.findViewById(R.id.iv_color_2);
+        ivColors[2] = view.findViewById(R.id.iv_color_3);
+        ivColors[3] = view.findViewById(R.id.iv_color_4);
+        ivColors[4] = view.findViewById(R.id.iv_color_5);
+        ivColors[5] = view.findViewById(R.id.iv_color_6);
+        ivColors[6] = view.findViewById(R.id.iv_color_7);
+        ivColors[7] = view.findViewById(R.id.iv_color_8);
+        ivColors[8] = view.findViewById(R.id.iv_color_9);
 
     }
 
@@ -145,16 +143,16 @@ public class StartGameFragment extends Fragment {
 
                 int randomNumber;
 
-                while (true){
+                while (true) {
                     randomNumber = new Random().nextInt() % 360;
-                    if (!randomNumberList.contains(randomNumber)){
+                    if (!randomNumberList.contains(randomNumber)) {
                         randomNumberList.add(randomNumber);
                         break;
                     }
                 }
 
-                randomNumber*=sign;
-                sign*=-1;
+                randomNumber *= sign;
+                sign *= -1;
 
                 RotateAnimation rotate = new RotateAnimation(currentDegree,
                         3600 + randomNumber,
@@ -164,7 +162,7 @@ public class StartGameFragment extends Fragment {
                 rotate.setDuration(4000);
                 rotate.setFillAfter(true);
 
-                currentDegree=randomNumber;
+                currentDegree = randomNumber;
                 ivBottle.startAnimation(rotate);
             }
         });

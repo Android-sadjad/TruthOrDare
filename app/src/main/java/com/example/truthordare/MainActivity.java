@@ -6,9 +6,12 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     StartGameFragment startGameFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
 
-        startGameFragment = new StartGameFragment();
+
     }
 
     public void onClick(View view) {
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.tv_show_start_dialog:
 
-                loadFragment(startGameFragment);
+               showStartDialog();
 
                 break;
 
@@ -55,6 +58,24 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+
+
+    private void showStartDialog() {
+
+        StartDialog startDialog = new StartDialog(MainActivity.this, new MyCallBack() {
+            @Override
+            public void callBackPlayerList(ArrayList<String> playerName) {
+                startGameFragment = new StartGameFragment(playerName);
+                loadFragment(startGameFragment);
+
+            }
+        });
+
+        startDialog.show();
+    }
+
+
 
     public void loadFragment(Fragment fragment) {
 

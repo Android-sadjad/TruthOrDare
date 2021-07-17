@@ -107,6 +107,7 @@ public class StartDialog extends Dialog {
             @Override
             public void onClick(View v) {
 
+                boolean flag = true;
                 ArrayList<String> playerNameList = new ArrayList<>();
 
 
@@ -115,17 +116,22 @@ public class StartDialog extends Dialog {
                     if (clPlayerNames[i].getVisibility() == View.VISIBLE) {
 
                         if (tiePlayerNames[i].getText().length() == 0) {
+                            flag = false;
 
                             Toast.makeText(context, "لطفا همه ی اسامی را وارد کنید", Toast.LENGTH_SHORT).show();
+                            tiePlayerNames[i].setError("لطفا این فیلد را هم کامل کنید");
+                            break;
                         } else
                             playerNameList.add(tiePlayerNames[i].getText().toString());
 
 
                     }
                 }
+                if (flag == true) {
+                    myCallBack.callBackPlayerList(playerNameList);
+                    cancel();
+                }
 
-                myCallBack.callBackPlayerList(playerNameList);
-                cancel();
             }
         });
 
