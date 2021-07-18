@@ -33,7 +33,7 @@ public class QuestionListFragment extends Fragment {
     public void loadFragment(Fragment fragment) {
 
         getActivity().getSupportFragmentManager().beginTransaction()
-                .add(R.id.fl_fragment_container, fragment)
+                .add(R.id.fl_question, fragment)
                 .addToBackStack(null).commit();
     }
 }
