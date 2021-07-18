@@ -12,22 +12,37 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class QuestionFragment extends Fragment {
 
-    RecyclerView recyclerView;
+    RecyclerView rvQuestionList;
     ArrayList<String> questionList;
-    @Nullable
+
 
     @Override
-    public View onCreateView(@NonNull  LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable  Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_question,container,false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        return inflater.inflate(R.layout.fragment_question, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull  View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        findViews(view);
+        init();
+
+    }
+
+
+    private void findViews(View view){
+
+        rvQuestionList = view.findViewById(R.id.rv_question_list);
+
+    }
+
+    private void init(){
+
         questionList = new ArrayList<>();
         questionList.add("اخرین بار کی اب خوردی؟");
         questionList.add("اخرین بار کی نوشابه خوردی؟");
@@ -37,12 +52,9 @@ public class QuestionFragment extends Fragment {
         questionList.add("اخرین بار کی ویسکی خوردی؟");
 
 
-        recyclerView = view.findViewById(R.id.rv_question_list);
-        QuestionsAdapter questionsAdapter= new QuestionsAdapter(questionList);
-
-recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-recyclerView.setAdapter(questionsAdapter);
-
+        QuestionsAdapter questionsAdapter = new QuestionsAdapter(questionList);
+        rvQuestionList.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvQuestionList.setAdapter(questionsAdapter);
 
     }
 }

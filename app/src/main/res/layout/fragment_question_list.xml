@@ -44,7 +44,7 @@
 
 
     <FrameLayout
-        android:id="@+id/fl_question"
+        android:id="@+id/fl_question_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="@dimen/_10sdp"

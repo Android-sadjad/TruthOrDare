@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.ViewHolder> {
 
@@ -17,23 +16,21 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
 
     public QuestionsAdapter(ArrayList<String> questionList) {
 
-        this.questionList=questionList;
+        this.questionList = questionList;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
-        LayoutInflater inflater=LayoutInflater.from(parent.getContext());
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        ViewHolder viewHolder=new ViewHolder(inflater.inflate(R.layout.question_item,parent,false));
-        return viewHolder;
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        return new ViewHolder(inflater.inflate(R.layout.question_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull  QuestionsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull QuestionsAdapter.ViewHolder holder, int position) {
 
         holder.setText(questionList.get(position));
-
     }
 
     @Override
@@ -41,22 +38,21 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
         return questionList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
         TextView tvQuestion;
 
-        public void setText(String text){
+        public void setText(String text) {
             tvQuestion.setText(text);
         }
 
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
-            tvQuestion=itemView.findViewById(R.id.tv_question_item);
 
-
+            tvQuestion = itemView.findViewById(R.id.tv_question_item);
         }
     }
-
-
 
 }

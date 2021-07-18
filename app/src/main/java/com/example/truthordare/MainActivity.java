@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     StartGameFragment startGameFragment;
-QuestionListFragment questionListFragment;
+    QuestionListFragment questionListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ QuestionListFragment questionListFragment;
 
     private void init() {
 
-
+        questionListFragment = new QuestionListFragment();
     }
 
     public void onClick(View view) {
@@ -32,8 +32,7 @@ QuestionListFragment questionListFragment;
 
             case R.id.tv_show_start_dialog:
 
-               showStartDialog();
-
+                showStartDialog();
                 break;
 
             case R.id.tv_setting:
@@ -42,19 +41,15 @@ QuestionListFragment questionListFragment;
 
             case R.id.tv_questions_list:
 
-                questionListFragment = new QuestionListFragment();
                 loadFragment(questionListFragment);
-
                 break;
 
             case R.id.tv_hemayat:
 
                 break;
-
             case R.id.tv_comment:
 
                 break;
-
             case R.id.tv_exit:
 
                 break;
@@ -63,22 +58,19 @@ QuestionListFragment questionListFragment;
     }
 
 
-
     private void showStartDialog() {
 
         StartDialog startDialog = new StartDialog(MainActivity.this, new MyCallBack() {
             @Override
             public void callBackPlayerList(ArrayList<String> playerName) {
+
                 startGameFragment = new StartGameFragment(playerName);
                 loadFragment(startGameFragment);
-
-
             }
         });
 
         startDialog.show();
     }
-
 
 
     public void loadFragment(Fragment fragment) {

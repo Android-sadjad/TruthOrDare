@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -38,12 +37,18 @@ public class StartDialog extends Dialog {
         this.context = context;
         this.myCallBack = myCallBack;
 
+        init();
         findViews();
         setSize();
         configuration();
 
     }
 
+    private void init() {
+
+        clPlayerNames = new ConstraintLayout[9];
+        tiePlayerNames = new TextInputEditText[9];
+    }
 
     private void findViews() {
         clStartDialog = findViewById(R.id.cl_start_dialog);
@@ -51,10 +56,16 @@ public class StartDialog extends Dialog {
         sliderPlayerNumber = findViewById(R.id.slider_player_number);
         tvPlayerNumber = findViewById(R.id.tv_player_number);
 
-        clPlayerNames = new ConstraintLayout[9];
-        tiePlayerNames = new TextInputEditText[9];
+        for (int i = 0; i < 9; i++) {
 
-        clPlayerNames[0] = findViewById(R.id.cl_player_name_1);
+            int id = context.getResources().getIdentifier("cl_player_name_" + (i + 1), "id", context.getPackageName());
+            clPlayerNames[i] = findViewById(id);
+
+            id = context.getResources().getIdentifier("et_player_" + (i + 1), "id", context.getPackageName());
+            tiePlayerNames[i] = findViewById(id);
+        }
+
+       /* clPlayerNames[0] = findViewById(R.id.cl_player_name_1);
         clPlayerNames[1] = findViewById(R.id.cl_player_name_2);
         clPlayerNames[2] = findViewById(R.id.cl_player_name_3);
         clPlayerNames[3] = findViewById(R.id.cl_player_name_4);
@@ -72,7 +83,7 @@ public class StartDialog extends Dialog {
         tiePlayerNames[5] = findViewById(R.id.et_player_6);
         tiePlayerNames[6] = findViewById(R.id.et_player_7);
         tiePlayerNames[7] = findViewById(R.id.et_player_8);
-        tiePlayerNames[8] = findViewById(R.id.et_player_9);
+        tiePlayerNames[8] = findViewById(R.id.et_player_9);*/
 
         tvStartGame = findViewById(R.id.tv_start_game);
     }
@@ -107,7 +118,7 @@ public class StartDialog extends Dialog {
             @Override
             public void onClick(View v) {
 
-                boolean flag = true;
+                boolean fullAllEditText = true;
                 ArrayList<String> playerNameList = new ArrayList<>();
 
 
@@ -116,9 +127,8 @@ public class StartDialog extends Dialog {
                     if (clPlayerNames[i].getVisibility() == View.VISIBLE) {
 
                         if (tiePlayerNames[i].getText().length() == 0) {
-                            flag = false;
 
-                            Toast.makeText(context, "لطفا همه ی اسامی را وارد کنید", Toast.LENGTH_SHORT).show();
+                            fullAllEditText = false;
                             tiePlayerNames[i].setError("لطفا این فیلد را هم کامل کنید");
                             break;
                         } else
@@ -127,7 +137,7 @@ public class StartDialog extends Dialog {
 
                     }
                 }
-                if (flag == true) {
+                if (fullAllEditText == true) {
                     myCallBack.callBackPlayerList(playerNameList);
                     cancel();
                 }
