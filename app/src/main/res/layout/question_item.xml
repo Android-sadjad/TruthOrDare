@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_8sdp"
+    android:background="#D8C945"
+    >
+
+
+    <TextView
+        android:id="@+id/tv_question_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="اب نخوردی بی تربیت؟"
+        android:textSize="@dimen/_18sdp"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+
+
+
+        />
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

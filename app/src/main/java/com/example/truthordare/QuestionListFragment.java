@@ -21,8 +21,19 @@ public class QuestionListFragment extends Fragment {
     public void onViewCreated(@NonNull  View view, @Nullable  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        QuestionFragment questionFragment = new QuestionFragment();
+        loadFragment(questionFragment);
 
 
 
+
+
+    }
+
+    public void loadFragment(Fragment fragment) {
+
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .add(R.id.fl_fragment_container, fragment)
+                .addToBackStack(null).commit();
     }
 }
