@@ -1,11 +1,13 @@
 package com.example.truthordare;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,10 +25,18 @@ public class StartGameFragment extends Fragment {
     int height;
     int sign = 1;
     int currentDegree = 0;
-
+    LinearLayout llQustion;
     LinearLayout llTruthOrdare;
     ImageView ivCircleBackground;
     ImageView ivBottle;
+    Button btnChangeQuestion;
+    Button btnCloseQustion;
+    Button btnDare;
+    Button btnTruth;
+    TextView tvQuestion;
+    TextView tvTod;
+    ImageView ivSetting;
+    ImageView ivMenu;
 
 
 
@@ -41,7 +51,7 @@ public class StartGameFragment extends Fragment {
 
     public StartGameFragment(ArrayList<String> playerNameList) {
         this.playerNameList = new ArrayList<>();
-        this.playerNameList =  playerNameList;
+        this.playerNameList = playerNameList;
 
     }
 
@@ -59,23 +69,33 @@ public class StartGameFragment extends Fragment {
 
 
         init();
-
         findViews(view);
+
         setTextAndColor();
         setSize();
+        setHeight();
         configuration();
 
     }
 
+
+    private void setHeight() {
+
+        llQustion.setTranslationY(llQustion.getLayoutParams().height);
+        llTruthOrdare.setTranslationY(llTruthOrdare.getLayoutParams().height);
+
+    }
+
     private void init() {
+
 
         randomNumberList = new ArrayList<>(360);
 
 
         tvNames = new TextView[9];
         ivColors = new ImageView[9];
-    }
 
+    }
 
     private void setTextAndColor() {
 
@@ -95,8 +115,16 @@ public class StartGameFragment extends Fragment {
 
         ivCircleBackground = view.findViewById(R.id.iv_circle_background);
         ivBottle = view.findViewById(R.id.iv_bottle);
+        llQustion = view.findViewById(R.id.ll_question);
+        tvTod = view.findViewById(R.id.tv_tod);
+        tvQuestion = view.findViewById(R.id.tv_qustion);
+        btnChangeQuestion = view.findViewById(R.id.btn_change_question);
+        btnCloseQustion = view.findViewById(R.id.btn_close_question);
+        btnDare = view.findViewById(R.id.btn_dare);
+        btnTruth = view.findViewById(R.id.btn_truth);
 
-
+        ivSetting = view.findViewById(R.id.iv_setting);
+        ivMenu = view.findViewById(R.id.iv_menu);
 
         llNamesBord = view.findViewById(R.id.ll_names_and_color);
         llTruthOrdare = view.findViewById(R.id.ll_truth_dare);
@@ -128,17 +156,24 @@ public class StartGameFragment extends Fragment {
         width = MyConstant.getScreenWidth();
         height = MyConstant.getScreenHeight();
 
-        int circleRadius = width * 80 / 100;
+        int circleRadius = width * 85 / 100;
 
         ivCircleBackground.getLayoutParams().width = circleRadius;
         ivCircleBackground.getLayoutParams().height = circleRadius;
 
         llNamesBord.getLayoutParams().height = height * 30 / 100;
+        llQustion.getLayoutParams().height = height * 35 / 100;
+        llTruthOrdare.getLayoutParams().height = height * 9 / 100;
+
+        ivSetting.getLayoutParams().height=width*13/100;
+        ivSetting.getLayoutParams().width=width*13/100;
+
+        ivMenu.getLayoutParams().height=width*13/100;
+        ivMenu.getLayoutParams().width=width*13/100;
+
     }
 
     private void configuration() {
-
-
 
         ivCircleBackground.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,34 +202,92 @@ public class StartGameFragment extends Fragment {
 
                 currentDegree = randomNumber;
                 ivBottle.startAnimation(rotate);
+
                 if (llNamesBord.getTranslationY() == 0)
                     up();
-                else
-                down();
+                else {
+                    down();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            up_zero_delay();
+                        }
+                    }, 2000);
+                }
+
 
             }
-
         });
+        btnTruth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                down();
+                tvTod.setText("حقیقت");
+                tvQuestion.setText("اخرین بار کی اب خوردی");
+                upQuestionLayout();
+
+
+            }
+        });
+        btnDare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                down();
+                tvTod.setText("جرعت");
+                tvQuestion.setText("برو آب بخور");
+                upQuestionLayout();
+
+
+            }
+        });
+
+        btnCloseQustion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                downQuestionLayout();
+            }
+        });
+
 
     }
 
     private void up() {
         llTruthOrdare.animate().translationY(0).setDuration(1000).setStartDelay(2000);
-        llNamesBord.animate().translationY((llTruthOrdare.getLayoutParams().height*-1)-10).setDuration(1000).setStartDelay(2000);
+        llNamesBord.animate().translationY((llTruthOrdare.getLayoutParams().height * -1)-10).setDuration(1000).setStartDelay(2000);
     }
 
+    private void up_zero_delay() {
+        llTruthOrdare.animate().translationY(0).setDuration(1000).setStartDelay(0);
+        llNamesBord.animate().translationY((llTruthOrdare.getLayoutParams().height * -1)-10).setDuration(1000).setStartDelay(0);
+    }
 
     private void down() {
+
         llTruthOrdare.animate().translationY(llTruthOrdare.getLayoutParams().height)
-                .setDuration(0).setStartDelay(0);
+                .setDuration(500).setStartDelay(0);
 
 
-        llNamesBord.animate().translationY(0).setDuration(0).setStartDelay(0);
+        llNamesBord.animate().translationY(0).setDuration(500).setStartDelay(0);
 
 
     }
 
+    private void downQuestionLayout() {
 
+        llQustion.animate().translationY(llQustion.getLayoutParams().height).setDuration(1000).setStartDelay(0);
+
+    }
+
+
+    private void upQuestionLayout() {
+
+        llQustion.animate().translationY(0).setDuration(1000).setStartDelay(0);
+
+
+    }
 
 
 }

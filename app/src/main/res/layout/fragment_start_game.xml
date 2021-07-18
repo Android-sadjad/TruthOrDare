@@ -7,6 +7,18 @@
     android:clickable="true"
     android:focusable="true">
 
+
+    <ImageView
+        android:id="@+id/iv_setting"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/setting_ic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
     <ImageView
         android:id="@+id/iv_menu"
         android:layout_width="@dimen/_40sdp"
@@ -219,10 +231,10 @@
             android:id="@+id/ll_truth_dare"
             android:background="@color/purple_700"
             android:layout_width="match_parent"
-            android:translationY="60dp"
             android:layout_height="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:orientation="horizontal"
+            android:layoutDirection="ltr"
             android:weightSum="2"
 
             >
@@ -230,10 +242,11 @@
 
 
             <Button
+                android:id="@+id/btn_dare"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="جقیقت"
+                android:text="جرعت"
                 android:layout_marginRight="@dimen/_5sdp"
 
 
@@ -241,10 +254,11 @@
 
 
             <Button
+android:id="@+id/btn_truth"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="جرعت"
+                android:text="حقیقت"
 
                 />
 
@@ -253,9 +267,81 @@
         </LinearLayout>
 
 
+    <LinearLayout
+        android:id="@+id/ll_question"
+        android:background="@color/purple_700"
+        android:layout_width="match_parent"
+
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:weightSum="6"
+
+
+        >
+
+        <TextView
+            android:id="@+id/tv_tod"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingTop="@dimen/_5sdp"
+            android:text="حقیقت"
+            android:textSize="25sp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="2"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_qustion"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="آخرین بار کی آب خوردی؟"
+            android:textSize="25sp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:layout_weight="2"
+
+
+            />
 
 
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="horizontal"
+    android:layout_weight="2"
+    android:layoutDirection="ltr"
+
+
+    >
+        <Button
+            android:id="@+id/btn_change_question"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="تغییر سوال"
+            android:layout_marginRight="@dimen/_5sdp"
+
+
+            />
+
+
+        <Button
+            android:id="@+id/btn_close_question"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="بستن"
+
+            />
+</LinearLayout>
+
+
+
+    </LinearLayout>
 
 
 
