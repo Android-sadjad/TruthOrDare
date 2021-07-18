@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     StartGameFragment startGameFragment;
-
+QuestionListFragment questionListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.tv_questions_list:
 
+                questionListFragment = new QuestionListFragment();
+                loadFragment(questionListFragment);
+
                 break;
 
             case R.id.tv_hemayat:
@@ -68,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             public void callBackPlayerList(ArrayList<String> playerName) {
                 startGameFragment = new StartGameFragment(playerName);
                 loadFragment(startGameFragment);
+
 
             }
         });
