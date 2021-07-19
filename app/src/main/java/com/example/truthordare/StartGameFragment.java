@@ -118,27 +118,6 @@ public class StartGameFragment extends Fragment {
             ivColors[i] = view.findViewById(id);
         }
 
-/*
-        tvNames[0] = view.findViewById(R.id.tv_name_1);
-        tvNames[1] = view.findViewById(R.id.tv_name_2);
-        tvNames[2] = view.findViewById(R.id.tv_name_3);
-        tvNames[3] = view.findViewById(R.id.tv_name_4);
-        tvNames[4] = view.findViewById(R.id.tv_name_5);
-        tvNames[5] = view.findViewById(R.id.tv_name_6);
-        tvNames[6] = view.findViewById(R.id.tv_name_7);
-        tvNames[7] = view.findViewById(R.id.tv_name_8);
-        tvNames[8] = view.findViewById(R.id.tv_name_9);
-
-        ivColors[0] = view.findViewById(R.id.iv_color_1);
-        ivColors[1] = view.findViewById(R.id.iv_color_2);
-        ivColors[2] = view.findViewById(R.id.iv_color_3);
-        ivColors[3] = view.findViewById(R.id.iv_color_4);
-        ivColors[4] = view.findViewById(R.id.iv_color_5);
-        ivColors[5] = view.findViewById(R.id.iv_color_6);
-        ivColors[6] = view.findViewById(R.id.iv_color_7);
-        ivColors[7] = view.findViewById(R.id.iv_color_8);
-        ivColors[8] = view.findViewById(R.id.iv_color_9);
-*/
 
     }
 

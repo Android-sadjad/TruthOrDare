@@ -65,26 +65,6 @@ public class StartDialog extends Dialog {
             tiePlayerNames[i] = findViewById(id);
         }
 
-       /* clPlayerNames[0] = findViewById(R.id.cl_player_name_1);
-        clPlayerNames[1] = findViewById(R.id.cl_player_name_2);
-        clPlayerNames[2] = findViewById(R.id.cl_player_name_3);
-        clPlayerNames[3] = findViewById(R.id.cl_player_name_4);
-        clPlayerNames[4] = findViewById(R.id.cl_player_name_5);
-        clPlayerNames[5] = findViewById(R.id.cl_player_name_6);
-        clPlayerNames[6] = findViewById(R.id.cl_player_name_7);
-        clPlayerNames[7] = findViewById(R.id.cl_player_name_8);
-        clPlayerNames[8] = findViewById(R.id.cl_player_name_9);
-
-        tiePlayerNames[0] = findViewById(R.id.et_player_1);
-        tiePlayerNames[1] = findViewById(R.id.et_player_2);
-        tiePlayerNames[2] = findViewById(R.id.et_player_3);
-        tiePlayerNames[3] = findViewById(R.id.et_player_4);
-        tiePlayerNames[4] = findViewById(R.id.et_player_5);
-        tiePlayerNames[5] = findViewById(R.id.et_player_6);
-        tiePlayerNames[6] = findViewById(R.id.et_player_7);
-        tiePlayerNames[7] = findViewById(R.id.et_player_8);
-        tiePlayerNames[8] = findViewById(R.id.et_player_9);*/
-
         tvStartGame = findViewById(R.id.tv_start_game);
     }
 
