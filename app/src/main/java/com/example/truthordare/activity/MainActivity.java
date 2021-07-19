@@ -1,10 +1,16 @@
-package com.example.truthordare;
+package com.example.truthordare.activity;
 
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+import com.example.truthordare.classes.MyCallBack;
+import com.example.truthordare.fragment.QuestionListFragment;
+import com.example.truthordare.R;
+import com.example.truthordare.dialog.StartDialog;
+import com.example.truthordare.fragment.StartGameFragment;
 
 import java.util.ArrayList;
 

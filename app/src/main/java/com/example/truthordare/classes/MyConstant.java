@@ -1,4 +1,4 @@
-package com.example.truthordare;
+package com.example.truthordare.classes;
 
 import android.app.Activity;
 import android.content.Context;

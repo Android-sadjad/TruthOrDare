@@ -1,16 +1,17 @@
-package com.example.truthordare;
+package com.example.truthordare.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.truthordare.R;
+import com.example.truthordare.adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class QuestionListFragment extends Fragment {

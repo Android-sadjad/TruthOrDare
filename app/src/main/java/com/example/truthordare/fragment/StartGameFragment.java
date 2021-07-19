@@ -1,4 +1,4 @@
-package com.example.truthordare;
+package com.example.truthordare.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,6 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.R;
 
 import java.util.ArrayList;
 import java.util.Random;

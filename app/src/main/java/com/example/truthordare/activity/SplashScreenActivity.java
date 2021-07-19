@@ -1,4 +1,4 @@
-package com.example.truthordare;
+package com.example.truthordare.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.os.Handler;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

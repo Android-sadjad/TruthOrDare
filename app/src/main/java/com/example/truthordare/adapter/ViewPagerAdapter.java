@@ -1,4 +1,4 @@
-package com.example.truthordare;
+package com.example.truthordare.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

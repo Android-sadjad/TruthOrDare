@@ -1,4 +1,4 @@
-package com.example.truthordare;
+package com.example.truthordare.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.example.truthordare.classes.MyCallBack;
+import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.R;
 import com.google.android.material.slider.Slider;
 import com.google.android.material.textfield.TextInputEditText;
 
