@@ -144,7 +144,7 @@ public class StartGameFragment extends Fragment {
 
     private void setViewSize() {
 
-        int circleRadius = screenWidth * 85 / 100;
+        int circleRadius = screenWidth * 80 / 100;
 
         ivCircleBackground.getLayoutParams().width = circleRadius;
         ivCircleBackground.getLayoutParams().height = circleRadius;
