@@ -12,11 +12,11 @@ import com.example.truthordare.R;
 
 import java.util.ArrayList;
 
-public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.ViewHolder> {
+public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
 
     ArrayList<String> questionList;
 
-    public QuestionsAdapter(ArrayList<String> questionList) {
+    public RvAdapter(ArrayList<String> questionList) {
 
         this.questionList = questionList;
     }
@@ -30,7 +30,7 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull QuestionsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RvAdapter.ViewHolder holder, int position) {
 
         holder.setText(questionList.get(position));
     }

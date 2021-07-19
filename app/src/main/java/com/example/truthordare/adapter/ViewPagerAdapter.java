@@ -16,8 +16,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     private final List<String> titleList;
 
 
-    public ViewPagerAdapter(@NonNull  FragmentManager fm)
-    {
+    public ViewPagerAdapter(@NonNull FragmentManager fm) {
         super(fm);
         frgList = new ArrayList<>();
         titleList = new ArrayList<>();
@@ -26,8 +25,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @NonNull
     @Override
-    public Fragment getItem(int position)
-    {
+    public Fragment getItem(int position) {
 
         return frgList.get(position);
     }
@@ -41,15 +39,15 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
 
     @Override
-    public int getCount()
-    {
+    public int getCount() {
         return titleList.size();
     }
 
 
-    public void addToList(Fragment fragment,String title){
-frgList.add(fragment);
-titleList.add(title);
+    public void addToList(Fragment fragment, String title) {
+
+            frgList.add(fragment);
+            titleList.add(title);
 
     }
 }

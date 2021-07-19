@@ -1,3 +1,100 @@
 <resources>
     <string name="app_name">truth or dare</string>
+
+
+    <array name="truth_questions_list">
+
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+        <item>آخرین بار کی آب خوردی</item>
+
+    </array>
+
+    <array name="dare_questions_list">
+
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+        <item>برو نوشابه بخور</item>
+
+    </array>
 </resources>

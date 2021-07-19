@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.truthordare.adapter.QuestionsAdapter;
+import com.example.truthordare.adapter.RvAdapter;
 import com.example.truthordare.R;
 
 import java.util.ArrayList;
@@ -20,6 +20,10 @@ public class QuestionFragment extends Fragment {
 
     RecyclerView rvQuestionList;
     ArrayList<String> questionList;
+
+    public QuestionFragment(ArrayList<String> questionList){
+        this.questionList=questionList;
+    }
 
 
     @Override
@@ -46,16 +50,10 @@ public class QuestionFragment extends Fragment {
 
     private void init(){
 
-        questionList = new ArrayList<>();
-        questionList.add("اخرین بار کی اب خوردی؟");
-        questionList.add("اخرین بار کی نوشابه خوردی؟");
-        questionList.add("اخرین بار کی دلستر خوردی؟");
-        questionList.add("اخرین بار کی ابجو خوردی؟");
-        questionList.add("اخرین بار کی شراب خوردی؟");
-        questionList.add("اخرین بار کی ویسکی خوردی؟");
 
 
-        QuestionsAdapter questionsAdapter = new QuestionsAdapter(questionList);
+
+        RvAdapter questionsAdapter = new RvAdapter(questionList);
         rvQuestionList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvQuestionList.setAdapter(questionsAdapter);
 

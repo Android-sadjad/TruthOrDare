@@ -12,15 +12,20 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.truthordare.R;
 import com.example.truthordare.adapter.ViewPagerAdapter;
+import com.example.truthordare.classes.Questions;
 import com.google.android.material.tabs.TabLayout;
 
-public class QuestionListFragment extends Fragment {
+import java.util.ArrayList;
+
+public class TabFragment extends Fragment {
 
     QuestionFragment truthQuestionFragment;
     QuestionFragment dareQuestionFragment;
+
     TabLayout tabLayout;
     ViewPager viewPager;
     ViewPagerAdapter viewPagerAdapter;
+    Questions questions;
 
 
     @Override
@@ -43,11 +48,14 @@ public class QuestionListFragment extends Fragment {
 
     private void setupViewPager() {
 
-        tabLayout.setupWithViewPager(viewPager);
+
         viewPagerAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
-        viewPagerAdapter.addToList(new QuestionFragment(), "جرعت");
-        viewPagerAdapter.addToList(new QuestionFragment(), "حقیقت");
+        viewPagerAdapter.addToList(dareQuestionFragment, "جرعت");
+        viewPagerAdapter.addToList(truthQuestionFragment, "حقیقت");
         viewPager.setAdapter(viewPagerAdapter);
+
+        tabLayout.setupWithViewPager(viewPager);
+
 
     }
 
@@ -60,8 +68,10 @@ public class QuestionListFragment extends Fragment {
 
     private void init() {
 
-        truthQuestionFragment = new QuestionFragment();
-        dareQuestionFragment = new QuestionFragment();
+        questions=new Questions();
+
+        truthQuestionFragment = new QuestionFragment(questions.getTruthQuestionList(getContext()));
+        dareQuestionFragment = new QuestionFragment(questions.getDareQuestionList(getContext()));
 
 
     }
