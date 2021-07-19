@@ -1,9 +1,11 @@
 package com.example.truthordare.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,8 +40,8 @@ public class QuestionFragment extends Fragment {
 
         findViews(view);
         init();
-
     }
+
 
 
     private void findViews(View view){
@@ -51,11 +53,10 @@ public class QuestionFragment extends Fragment {
     private void init(){
 
 
-
-
         RvAdapter questionsAdapter = new RvAdapter(questionList);
         rvQuestionList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvQuestionList.setAdapter(questionsAdapter);
 
     }
+
 }

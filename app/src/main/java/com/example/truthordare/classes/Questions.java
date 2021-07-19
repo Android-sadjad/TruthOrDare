@@ -29,7 +29,6 @@ public class Questions {
             mySharedPreferences.putTruthQuestionList(truthQuestionList);
         }
 
-        Toast.makeText(context, truthQuestionList.get(0), Toast.LENGTH_SHORT).show();
         return truthQuestionList;
     }
 
@@ -64,4 +63,6 @@ public class Questions {
         dareQuestionList.addAll(Arrays.asList(list));
 
     }
+
+
 }

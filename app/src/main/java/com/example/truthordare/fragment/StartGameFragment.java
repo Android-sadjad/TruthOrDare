@@ -14,8 +14,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.R;
+import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.Questions;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -206,6 +207,10 @@ public class StartGameFragment extends Fragment {
                     }, 2000);
                 }
 
+                if (llQuestions.getTranslationY() == 0) {
+                    downQuestionLayoutAnimation();
+                }
+
 
             }
         });
@@ -217,6 +222,9 @@ public class StartGameFragment extends Fragment {
                 downAnimation();
                 tvTod.setText("حقیقت");
                 tvQuestion.setText("اخرین بار کی اب خوردی");
+
+                showRandomTruthQuestion();
+
                 upQuestionLayoutAnimation();
 
 
@@ -228,13 +236,12 @@ public class StartGameFragment extends Fragment {
 
                 downAnimation();
                 tvTod.setText("جرعت");
-                tvQuestion.setText("برو آب بخور");
+                showRandomDareQuestion();
                 upQuestionLayoutAnimation();
 
 
             }
         });
-
         btnCloseQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -242,9 +249,22 @@ public class StartGameFragment extends Fragment {
             }
         });
 
+        btnChangeQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(tvTod.getText().equals("حقیقت")){
+
+                    showRandomTruthQuestion();
+                }else if(tvTod.getText().equals("جرعت")){
+                    showRandomDareQuestion();
+                }
+
+            }
+        });
+
 
     }
-
 
 
     private void upAnimation() {
@@ -280,4 +300,32 @@ public class StartGameFragment extends Fragment {
 
     }
 
+    private void showRandomTruthQuestion() {
+
+        ArrayList<String> truthQuestionList;
+        truthQuestionList = new Questions().getTruthQuestionList(getContext());
+
+        tvQuestion.setText(truthQuestionList.get(createRandomNumber(truthQuestionList.size()-1)));
+
+    }
+
+    private void showRandomDareQuestion() {
+
+        ArrayList<String> dareQuestionList;
+        dareQuestionList = new Questions().getDareQuestionList(getContext());
+
+
+        tvQuestion.setText(dareQuestionList.get(createRandomNumber(dareQuestionList.size()-1)));
+    }
+
+    private int createRandomNumber(int maximum){
+
+        int randomNumber = new Random().nextInt() % (maximum);
+        if (randomNumber < 0)
+            randomNumber *= -1;
+
+       return randomNumber;
+
+
+    }
 }

@@ -44,7 +44,7 @@ public class MySharedPreferences {
         String questionListString=gson.toJson(questionList);
 
         editor.putString("dare_questions",questionListString).apply();
-        Toast.makeText(context, "put", Toast.LENGTH_SHORT).show();
+
 
     }
 
@@ -58,7 +58,7 @@ public class MySharedPreferences {
         Gson gson=new Gson();
         Type listType = new TypeToken<ArrayList<String>>() {}.getType();
         ArrayList<String>questionList=gson.fromJson(questionListString,listType);
-        Toast.makeText(context, "get", Toast.LENGTH_SHORT).show();
+
 
         return  questionList;
 
