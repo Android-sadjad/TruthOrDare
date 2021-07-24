@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.truthordare.classes.MyCallBack;
+import com.example.truthordare.fragment.MyQuestionFragment;
 import com.example.truthordare.fragment.TabFragment;
 import com.example.truthordare.R;
 import com.example.truthordare.dialog.StartDialog;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     StartGameFragment startGameFragment;
     TabFragment tabFragment;
+    MyQuestionFragment myQuestionFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
 
         tabFragment = new TabFragment();
+        myQuestionFragment=new MyQuestionFragment();
     }
 
     public void onClick(View view) {
@@ -41,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 showStartDialog();
                 break;
 
-            case R.id.tv_setting:
+            case R.id.tv_my_question:
+             loadFragment(myQuestionFragment);
 
                 break;
 
@@ -54,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.tv_comment:
+
+                break;
+
+            case R.id.tv_setting:
 
                 break;
             case R.id.tv_exit:
