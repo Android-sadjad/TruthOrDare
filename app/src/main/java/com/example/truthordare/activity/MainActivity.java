@@ -81,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
                 startGameFragment = new StartGameFragment(playerName);
                 loadFragment(startGameFragment);
             }
+
+            @Override
+            public void callBackAddList(String key, String myQuestion) {
+
+            }
         });
 
         startDialog.show();

@@ -12,7 +12,8 @@ import java.util.ArrayList;
 
 public class MySharedPreferences {
 
-     SharedPreferences sharedPreferences;
+    private static Gson gson;
+    SharedPreferences sharedPreferences;
      SharedPreferences.Editor editor;
 
     Context context;
@@ -24,6 +25,7 @@ public class MySharedPreferences {
 
         if(mySharedPreferences==null)
             mySharedPreferences=new MySharedPreferences(context);
+        gson=new Gson();
 
         return mySharedPreferences;
     }
@@ -40,7 +42,7 @@ public class MySharedPreferences {
 
     public void putDareQuestionList(ArrayList<String> questionList){
 
-        Gson gson = new Gson();
+
         String questionListString=gson.toJson(questionList);
 
         editor.putString("dare_questions",questionListString).apply();
@@ -55,7 +57,7 @@ public class MySharedPreferences {
         if(questionListString==null)
             return null;
 
-        Gson gson=new Gson();
+
         Type listType = new TypeToken<ArrayList<String>>() {}.getType();
         ArrayList<String>questionList=gson.fromJson(questionListString,listType);
 
@@ -66,7 +68,7 @@ public class MySharedPreferences {
 
     public void putTruthQuestionList(ArrayList<String> questionList){
 
-        Gson gson = new Gson();
+
 
         String questionListString=gson.toJson(questionList);
 
@@ -82,12 +84,71 @@ public class MySharedPreferences {
             return null;
 
         Type listType = new TypeToken<ArrayList<String>>() {}.getType();
-        Gson gson=new Gson();
+
         ArrayList<String>questionList=gson.fromJson(questionListString,listType);
 
         return  questionList;
 
     }
+
+
+
+
+
+
+    public void putMyDareList(ArrayList<String> questionList){
+
+
+        String questionListString=gson.toJson(questionList);
+
+        editor.putString("My_dare",questionListString).apply();
+
+
+    }
+
+    public ArrayList<String> getMyDareList(){
+
+        String questionListString=sharedPreferences.getString("My_dare",null);
+
+        if(questionListString==null)
+            return null;
+
+
+        Type listType = new TypeToken<ArrayList<String>>() {}.getType();
+        ArrayList<String>questionList=gson.fromJson(questionListString,listType);
+
+
+        return  questionList;
+
+    }
+
+    public void putMyTruthList(ArrayList<String> questionList){
+
+
+
+        String questionListString=gson.toJson(questionList);
+
+        editor.putString("My_truth",questionListString).apply();
+
+    }
+
+    public ArrayList<String> getMyTruthList(){
+
+        String questionListString=sharedPreferences.getString("My_truth",null);
+
+        if(questionListString==null)
+            return null;
+
+        Type listType = new TypeToken<ArrayList<String>>() {}.getType();
+
+        ArrayList<String>questionList=gson.fromJson(questionListString,listType);
+
+        return  questionList;
+
+    }
+
+
+
 
 
 }

@@ -1,9 +1,11 @@
 package com.example.truthordare.fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,14 +14,23 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.truthordare.R;
 import com.example.truthordare.adapter.ViewPagerAdapter;
+import com.example.truthordare.classes.MyCallBack;
+import com.example.truthordare.classes.MySharedPreferences;
 import com.example.truthordare.classes.Questions;
+import com.example.truthordare.dialog.AddQuestionDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
-public class MyQuestionFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
 
+public class MyQuestionFragment extends Fragment {
+LinearLayout llGuide;
     QuestionFragment truthQuestionFragment;
     QuestionFragment dareQuestionFragment;
+    SharedPreferences sharedPreferences;
+    ArrayList<String> myTruthList;
+    ArrayList<String> myDareList;
 
     FloatingActionButton floatingActionButton;
     TabLayout tabLayout;
@@ -73,20 +84,79 @@ public class MyQuestionFragment extends Fragment {
         tabLayout = view.findViewById(R.id.my_tab_layout);
         viewPager = view.findViewById(R.id.my_view_pager);
         floatingActionButton = view.findViewById(R.id.float_btn);
+        llGuide = view.findViewById(R.id.ll_guide);
 
     }
 
     private void init() {
 
-        questions=new Questions();
 
-        truthQuestionFragment = new QuestionFragment(questions.getTruthQuestionList(getContext()));
-        dareQuestionFragment = new QuestionFragment(questions.getDareQuestionList(getContext()));
+
+        myDareList= MySharedPreferences.getInstance(getContext()).getMyDareList();
+        myTruthList= MySharedPreferences.getInstance(getContext()).getMyTruthList();
+
+        if(myTruthList==null){
+
+            myTruthList=new ArrayList<>();
+            llGuide.setVisibility(View.VISIBLE);
+        }
+        if(myDareList==null){
+            myDareList=new ArrayList<>();
+            llGuide.setVisibility(View.VISIBLE);
+        }
+
+        truthQuestionFragment = new QuestionFragment(myTruthList);
+        dareQuestionFragment = new QuestionFragment(myDareList);
 
 
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+    MySharedPreferences.getInstance(getContext()).putMyDareList(myDareList);
+    MySharedPreferences.getInstance(getContext()).putMyTruthList(myTruthList);
+
+
+    }
+
+
+
+
     private void configuration() {
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddQuestionDialog addQuestionDialog=new AddQuestionDialog(getContext(), new MyCallBack() {
+                    @Override
+                    public void callBackPlayerList(ArrayList<String> playerName) {
+
+                    }
+
+                    @Override
+                    public void callBackAddList(String key,String myQuestion) {
+                        if (key.equals("truth")){
+                            myTruthList.add(myQuestion);
+                            truthQuestionFragment.updateList();
+
+                        }
+                        else if (key.equals("dare")){
+
+                            myDareList.add(myQuestion);
+                            dareQuestionFragment.updateList();
+
+                        }
+
+
+
+                    }
+                });
+                addQuestionDialog.show();
+
+
+            }
+        });
 
 
 

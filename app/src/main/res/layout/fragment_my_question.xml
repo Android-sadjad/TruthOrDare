@@ -36,8 +36,48 @@
 
     </androidx.viewpager.widget.ViewPager>
 
+    <LinearLayout
+        android:id="@+id/ll_guide"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="@dimen/_50sdp"
+        android:background="#6F787575"
+        android:padding="@dimen/_5sdp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="هنوز سوالی اضافه نشده"
+        android:textSize="@dimen/_23sdp"
+
+
+
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="با زدن روی دکمه پلاس \nسوال خود را اضافه کنید"
+            android:textSize="@dimen/_15sdp"
+            android:layout_gravity="center"
+            android:lines="2"
+
+
+            />
+
+   </LinearLayout>
+
+
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"

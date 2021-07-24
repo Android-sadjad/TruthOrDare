@@ -22,6 +22,7 @@ public class QuestionFragment extends Fragment {
 
     RecyclerView rvQuestionList;
     ArrayList<String> questionList;
+    RvAdapter questionsAdapter;
 
     public QuestionFragment(ArrayList<String> questionList){
         this.questionList=questionList;
@@ -53,9 +54,14 @@ public class QuestionFragment extends Fragment {
     private void init(){
 
 
-        RvAdapter questionsAdapter = new RvAdapter(questionList);
+        questionsAdapter = new RvAdapter(questionList);
         rvQuestionList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvQuestionList.setAdapter(questionsAdapter);
+
+    }
+
+    public void updateList(){
+        questionsAdapter.notifyDataSetChanged();
 
     }
 
