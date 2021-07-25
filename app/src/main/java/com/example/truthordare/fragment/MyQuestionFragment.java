@@ -25,10 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyQuestionFragment extends Fragment {
-LinearLayout llGuide;
+
     QuestionFragment truthQuestionFragment;
     QuestionFragment dareQuestionFragment;
-    SharedPreferences sharedPreferences;
+
     ArrayList<String> myTruthList;
     ArrayList<String> myDareList;
 
@@ -36,7 +36,7 @@ LinearLayout llGuide;
     TabLayout tabLayout;
     ViewPager viewPager;
     ViewPagerAdapter viewPagerAdapter;
-    Questions questions;
+
 
 
 
@@ -84,7 +84,7 @@ LinearLayout llGuide;
         tabLayout = view.findViewById(R.id.my_tab_layout);
         viewPager = view.findViewById(R.id.my_view_pager);
         floatingActionButton = view.findViewById(R.id.float_btn);
-        llGuide = view.findViewById(R.id.ll_guide);
+
 
     }
 
@@ -96,17 +96,14 @@ LinearLayout llGuide;
         myTruthList= MySharedPreferences.getInstance(getContext()).getMyTruthList();
 
         if(myTruthList==null){
-
             myTruthList=new ArrayList<>();
-            llGuide.setVisibility(View.VISIBLE);
         }
         if(myDareList==null){
             myDareList=new ArrayList<>();
-            llGuide.setVisibility(View.VISIBLE);
         }
 
-        truthQuestionFragment = new QuestionFragment(myTruthList);
-        dareQuestionFragment = new QuestionFragment(myDareList);
+        truthQuestionFragment = new QuestionFragment(myTruthList,"my_truth");
+        dareQuestionFragment = new QuestionFragment(myDareList,"my_dare");
 
 
     }

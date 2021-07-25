@@ -32,6 +32,47 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_choose"
+        android:text="لیست سوالات"
+        android:textSize="@dimen/_22sdp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/tv_list_question"/>
+
+    <LinearLayout
+        android:id="@+id/ll_check_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:background="#9C5E4A"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@id/tv_list_question"
+        android:orientation="vertical">
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سوالات پیشفرض"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:id="@+id/switch_default_question"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سوالات من"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:id="@+id/switch_my_question"/>
+
+
+    </LinearLayout>
+
+
     <com.google.android.material.slider.Slider
         android:id="@+id/slider_player_number"
         android:layout_width="@dimen/_250sdp"
@@ -44,7 +85,7 @@
         android:layoutDirection="rtl"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_choose"
+        app:layout_constraintTop_toBottomOf="@id/ll_check_box"
         app:thumbColor="@color/white"
         app:thumbElevation="@dimen/_50sdp"
         app:thumbRadius="@dimen/_10sdp"

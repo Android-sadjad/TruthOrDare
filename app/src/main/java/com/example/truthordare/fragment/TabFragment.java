@@ -73,8 +73,8 @@ public class TabFragment extends Fragment {
 
         questions=new Questions();
 
-        truthQuestionFragment = new QuestionFragment(questions.getTruthQuestionList(getContext()));
-        dareQuestionFragment = new QuestionFragment(questions.getDareQuestionList(getContext()));
+        truthQuestionFragment = new QuestionFragment(questions.getTruthQuestionList(getContext()),"default_truth");
+        dareQuestionFragment = new QuestionFragment(questions.getDareQuestionList(getContext()),"default_dare");
 
 
     }

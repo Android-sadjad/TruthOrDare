@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,8 +25,13 @@ public class QuestionFragment extends Fragment {
     ArrayList<String> questionList;
     RvAdapter questionsAdapter;
 
-    public QuestionFragment(ArrayList<String> questionList){
+    LinearLayout llGuide;
+    String listName;
+
+    public QuestionFragment(ArrayList<String> questionList,String listName){
         this.questionList=questionList;
+
+        this.listName=listName;
     }
 
 
@@ -41,6 +47,9 @@ public class QuestionFragment extends Fragment {
 
         findViews(view);
         init();
+
+        setVisibilityGuideLayout();
+
     }
 
 
@@ -48,20 +57,30 @@ public class QuestionFragment extends Fragment {
     private void findViews(View view){
 
         rvQuestionList = view.findViewById(R.id.rv_question_list);
-
+        llGuide = view.findViewById(R.id.ll_guide);
     }
 
     private void init(){
 
 
-        questionsAdapter = new RvAdapter(questionList);
+        questionsAdapter = new RvAdapter(questionList,listName);
         rvQuestionList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvQuestionList.setAdapter(questionsAdapter);
 
     }
 
+    private void setVisibilityGuideLayout() {
+
+        if(questionList.isEmpty())
+            llGuide.setVisibility(View.VISIBLE);
+        else
+            llGuide.setVisibility(View.GONE);
+    }
+
+
     public void updateList(){
         questionsAdapter.notifyDataSetChanged();
+        setVisibilityGuideLayout();
 
     }
 

@@ -92,10 +92,6 @@ public class MySharedPreferences {
     }
 
 
-
-
-
-
     public void putMyDareList(ArrayList<String> questionList){
 
 
@@ -145,6 +141,24 @@ public class MySharedPreferences {
 
         return  questionList;
 
+    }
+
+    public void putIsDefaultQuestion(boolean b){
+        editor.putBoolean("default_question",b).apply();
+    }
+
+    public boolean getIsDefaultQuestion(){
+
+        return sharedPreferences.getBoolean("default_question",true);
+    }
+
+    public void putIsMyQuestion(boolean b){
+        editor.putBoolean("my",b).apply();
+    }
+
+    public boolean getIsMYQuestion(){
+
+        return sharedPreferences.getBoolean("my",true);
     }
 
 

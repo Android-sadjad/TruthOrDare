@@ -4,13 +4,17 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.truthordare.classes.MyCallBack;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.R;
+import com.example.truthordare.classes.MySharedPreferences;
 import com.google.android.material.slider.Slider;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -30,6 +34,9 @@ public class StartDialog extends Dialog {
 
     Context context;
     MyCallBack myCallBack;
+
+    Switch switchDefaultQuestion;
+    Switch switchMyQuestion;
 
 
     public StartDialog(Context context, MyCallBack myCallBack) {
@@ -51,6 +58,9 @@ public class StartDialog extends Dialog {
 
         clPlayerNames = new ConstraintLayout[9];
         tiePlayerNames = new TextInputEditText[9];
+
+        switchDefaultQuestion =findViewById(R.id.switch_default_question);
+        switchMyQuestion =findViewById(R.id.switch_my_question);
     }
 
     private void findViews() {
@@ -101,6 +111,9 @@ public class StartDialog extends Dialog {
             @Override
             public void onClick(View v) {
 
+
+
+
                 boolean fullAllEditText = true;
                 ArrayList<String> playerNameList = new ArrayList<>();
 
@@ -124,11 +137,18 @@ public class StartDialog extends Dialog {
                     myCallBack.callBackPlayerList(playerNameList);
                     cancel();
                 }
+              }
 
-            }
+
         });
 
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
 
+        MySharedPreferences.getInstance(getContext()).putIsDefaultQuestion(switchDefaultQuestion.isChecked());
+        MySharedPreferences.getInstance(getContext()).putIsMyQuestion(switchMyQuestion.isChecked());
+    }
 }

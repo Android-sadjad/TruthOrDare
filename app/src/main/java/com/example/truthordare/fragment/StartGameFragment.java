@@ -2,6 +2,7 @@ package com.example.truthordare.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.MySharedPreferences;
 import com.example.truthordare.classes.Questions;
 
 import java.util.ArrayList;
@@ -53,6 +56,9 @@ public class StartGameFragment extends Fragment {
     TextView[] tvNames;
     ImageView[] ivColors;
 
+    boolean isDefaultQuestion;
+    boolean isMyQuestion;
+
 
     public StartGameFragment(ArrayList<String> playerNameList) {
 
@@ -64,6 +70,7 @@ public class StartGameFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         return inflater.inflate(R.layout.fragment_start_game, container, false);
+
     }
 
     @Override
@@ -90,6 +97,9 @@ public class StartGameFragment extends Fragment {
 
         tvNames = new TextView[9];
         ivColors = new ImageView[9];
+
+        isDefaultQuestion=MySharedPreferences.getInstance(getContext()).getIsDefaultQuestion();
+        isMyQuestion=MySharedPreferences.getInstance(getContext()).getIsMYQuestion();
     }
 
     private void findViews(View view) {
@@ -302,20 +312,43 @@ public class StartGameFragment extends Fragment {
 
     private void showRandomTruthQuestion() {
 
-        ArrayList<String> truthQuestionList;
-        truthQuestionList = new Questions().getTruthQuestionList(getContext());
+        ArrayList<String> truthQuestionList=new ArrayList<>();
 
-        tvQuestion.setText(truthQuestionList.get(createRandomNumber(truthQuestionList.size()-1)));
+
+        if(isDefaultQuestion){
+
+            truthQuestionList.addAll(new Questions().getTruthQuestionList(getContext()));
+        }
+
+        if(isMyQuestion){
+
+            truthQuestionList.addAll(MySharedPreferences.getInstance(getContext()).getMyTruthList());
+        }
+
+        if(truthQuestionList.isEmpty())
+            tvQuestion.setText("هیچ سوالی انتخاب نشده است");
+        else
+             tvQuestion.setText(truthQuestionList.get(createRandomNumber(truthQuestionList.size())));
 
     }
 
     private void showRandomDareQuestion() {
 
-        ArrayList<String> dareQuestionList;
-        dareQuestionList = new Questions().getDareQuestionList(getContext());
+        ArrayList<String> dareQuestionList=new ArrayList<>();
 
+        if(isDefaultQuestion){
 
-        tvQuestion.setText(dareQuestionList.get(createRandomNumber(dareQuestionList.size()-1)));
+            dareQuestionList.addAll(new Questions().getDareQuestionList(getContext()));
+        }
+        if(isMyQuestion){
+
+            dareQuestionList.addAll(MySharedPreferences.getInstance(getContext()).getMyDareList());
+        }
+        if(dareQuestionList.isEmpty())
+            tvQuestion.setText("هیچ سوالی انتخاب نشده است");
+        else
+            tvQuestion.setText(dareQuestionList.get(createRandomNumber(dareQuestionList.size())));
+
     }
 
     private int createRandomNumber(int maximum){
