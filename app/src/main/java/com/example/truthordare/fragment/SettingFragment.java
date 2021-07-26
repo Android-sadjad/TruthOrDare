@@ -37,7 +37,7 @@ public class SettingFragment extends Fragment {
     }
 
     private void init() {
-        selectedPhotoAdapter=new SelectedPhotoAdapter();
+        selectedPhotoAdapter=new SelectedPhotoAdapter(getContext());
         rvSelectPhoto.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         rvSelectPhoto.setAdapter(selectedPhotoAdapter);
 

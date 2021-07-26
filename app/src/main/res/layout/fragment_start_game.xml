@@ -8,6 +8,11 @@
     android:focusable="true">
 
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fl_fragment_container_2"
+        android:elevation="@dimen/_100sdp"/>
     <ImageView
         android:id="@+id/iv_setting"
         android:layout_width="@dimen/_40sdp"

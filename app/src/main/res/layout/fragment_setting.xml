@@ -65,6 +65,15 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:id="@+id/switch_my"/>
 
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="سوال تکراری"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:id="@+id/switch_repeat_question"/>
+
         </LinearLayout>
 
 
