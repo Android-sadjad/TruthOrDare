@@ -20,11 +20,11 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
    Context context;
    Setting setting;
 
-    public SelectedPhotoAdapter(Context context) {
+    public SelectedPhotoAdapter(Context context,Setting setting) {
 
         this.context=context;
 
-        setting=new Setting(context);
+        this.setting=setting;
         checkBoxFlags=setting.getCheckBoxFlags();
         lockFlags=setting.getLockFlags();
 
@@ -87,6 +87,9 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
         });
 
 
+        int id = context.getResources().getIdentifier("bottle_" + (position+1), "drawable", context.getPackageName());
+
+        holder.ivBottle.setBackgroundResource(id);
 
 
 
@@ -96,7 +99,7 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
 
     @Override
     public int getItemCount() {
-        return 30;
+        return lockFlags.length;
     }
 
 

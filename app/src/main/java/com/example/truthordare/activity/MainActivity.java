@@ -76,13 +76,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
     private void showStartDialog() {
 
         StartDialog startDialog = new StartDialog(MainActivity.this, new MyCallBack() {
             @Override
             public void callBackPlayerList(ArrayList<String> playerName) {
 
-                startGameFragment = new StartGameFragment(playerName);
+                startGameFragment = new StartGameFragment(playerName,settingFragment);
                 loadFragment(startGameFragment);
             }
 
@@ -99,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     public void loadFragment(Fragment fragment) {
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fl_fragment_container, fragment)
+                .replace(R.id.fl_fragment_container, fragment)
                 .addToBackStack(null).commit();
     }
 

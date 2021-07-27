@@ -1,6 +1,8 @@
 package com.example.truthordare.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,11 +64,13 @@ public class SettingFragment extends Fragment {
     }
 
     private void init() {
-        selectedPhotoAdapter=new SelectedPhotoAdapter(getContext());
+        setting=new Setting(getContext());
+
+        selectedPhotoAdapter=new SelectedPhotoAdapter(getContext(),setting);
         rvSelectPhoto.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         rvSelectPhoto.setAdapter(selectedPhotoAdapter);
 
-        setting=new Setting(getContext());
+
 
 
 
@@ -83,6 +87,8 @@ public class SettingFragment extends Fragment {
         switchCircleSound=view.findViewById(R.id.switch_circle_cound);
 
     }
+
+
 
     public void switchOnClick(){
 
@@ -131,12 +137,16 @@ public class SettingFragment extends Fragment {
     public void onStop() {
         super.onStop();
 
+
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Toast.makeText(getContext(), "pause", Toast.LENGTH_SHORT).show();
+
+
+
+        Log.i("puseee","pppakdadshgkl");
         setting.updateSetting(getContext(),setting);
 
     }

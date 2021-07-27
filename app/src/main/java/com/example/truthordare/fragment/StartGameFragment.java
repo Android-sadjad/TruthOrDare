@@ -1,5 +1,6 @@
 package com.example.truthordare.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -20,6 +21,7 @@ import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
 import com.example.truthordare.classes.Questions;
+import com.example.truthordare.model.Setting;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -32,7 +34,7 @@ public class StartGameFragment extends Fragment {
     int currentDegree = 0;
 
     ImageView ivCircleBackground;
-    ImageView ivBottle;
+    private static ImageView ivBottle;
 
     LinearLayout llNamesBord;
     LinearLayout llTruthOrDare;
@@ -59,10 +61,12 @@ public class StartGameFragment extends Fragment {
     boolean isDefaultQuestion;
     boolean isMyQuestion;
 
+    SettingFragment settingFragment;
 
-    public StartGameFragment(ArrayList<String> playerNameList) {
+    public StartGameFragment(ArrayList<String> playerNameList,SettingFragment settingFragment) {
 
         this.playerNameList = playerNameList;
+        this.settingFragment=settingFragment;
     }
 
 
@@ -84,6 +88,16 @@ public class StartGameFragment extends Fragment {
         setViewTranslation();
         setTextAndColor();
         configuration();
+
+        Setting setting=new Setting(getContext());
+
+        int position=0;
+        for (int i=0;i<setting.getCheckBoxFlags().length;i++)
+            if(setting.getCheckBoxFlags()[i])
+                position=i;
+
+        int id = getContext().getResources().getIdentifier("bottle_" + (position+1), "drawable", getContext().getPackageName());
+        ivBottle.setBackgroundResource(id);
 
     }
 
@@ -280,13 +294,14 @@ public class StartGameFragment extends Fragment {
 
 
                 getFragmentManager().beginTransaction()
-                        .add(R.id.fl_fragment_container_2,new SettingFragment())
+                        .add(R.id.fl_fragment_container_2,settingFragment)
                         .addToBackStack(null).commit();
             }
         });
 
 
     }
+
 
 
     private void upAnimation() {

@@ -18,4 +18,6 @@ public class MyConstant {
         return Resources.getSystem().getDisplayMetrics().heightPixels;
     }
 
+    public static final int BOTTLE_NUMBER=10;
+
 }

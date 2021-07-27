@@ -3,6 +3,7 @@ package com.example.truthordare.model;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
 
 public class Setting {
@@ -16,9 +17,10 @@ public class Setting {
     boolean []lockFlags;
     boolean []checkBoxFlags;
 
-    final int PHOTO_NUMBER=30;
 
     public Setting(Context context){
+
+        Toast.makeText(context, "constructor", Toast.LENGTH_SHORT).show();
 
         Setting setting= MySharedPreferences.getInstance(context).getSetting();
 
@@ -30,8 +32,8 @@ public class Setting {
             appSound=true;
             circleSound=true;
 
-            checkBoxFlags=new boolean[PHOTO_NUMBER];
-            lockFlags=new boolean[PHOTO_NUMBER];
+            checkBoxFlags=new boolean[MyConstant.BOTTLE_NUMBER];
+            lockFlags=new boolean[MyConstant.BOTTLE_NUMBER];
 
             for (int i=0;i<checkBoxFlags.length;i++)
                 if(i==0)
