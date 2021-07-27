@@ -276,6 +276,9 @@ public class StartGameFragment extends Fragment {
         ivSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
                 getFragmentManager().beginTransaction()
                         .add(R.id.fl_fragment_container_2,new SettingFragment())
                         .addToBackStack(null).commit();

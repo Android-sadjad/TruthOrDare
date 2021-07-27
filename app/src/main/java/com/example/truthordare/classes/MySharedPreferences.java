@@ -2,8 +2,8 @@ package com.example.truthordare.classes;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.widget.Toast;
 
+import com.example.truthordare.model.Setting;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -162,6 +162,24 @@ public class MySharedPreferences {
     }
 
 
+    public void putSetting(Setting settingModel){
+
+
+        String settingStr=gson.toJson(settingModel, Setting.class);
+        editor.putString("setting",settingStr).apply();
+
+    }
+
+    public Setting getSetting(){
+
+        String settingStr=sharedPreferences.getString("setting",null);
+
+        if(settingStr==null)
+            return null;
+
+        return gson.fromJson(settingStr, Setting.class);
+
+    }
 
 
 

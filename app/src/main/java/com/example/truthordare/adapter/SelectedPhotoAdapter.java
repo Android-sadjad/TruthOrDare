@@ -5,43 +5,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
-
-import java.util.ArrayList;
-import java.util.logging.Handler;
+import com.example.truthordare.model.Setting;
 
 public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdapter.ViewHolder>{
 
-    boolean []lockFlags;
+   boolean []lockFlags;
    boolean []checkBoxFlags;
    Context context;
+   Setting setting;
 
     public SelectedPhotoAdapter(Context context) {
 
         this.context=context;
-        checkBoxFlags=new boolean[getItemCount()];
-        lockFlags=new boolean[getItemCount()];
 
-        for (int i=0;i<checkBoxFlags.length;i++)
-            if(i==0)
-                checkBoxFlags[i]=true;
-            else
-            checkBoxFlags[i]=false;
-
-
-            for (int i=0;i<lockFlags.length;i++)
-                if(i==0||i==1||i==2)
-                    lockFlags[i]=false;
-                else
-                    lockFlags[i]=true;
-
-
+        setting=new Setting(context);
+        checkBoxFlags=setting.getCheckBoxFlags();
+        lockFlags=setting.getLockFlags();
 
     }
 
@@ -85,6 +70,8 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
                     Toast.makeText(context, "حتما باید یک عکس رو انتخاب کنی", Toast.LENGTH_SHORT).show();
 
                 }
+
+                setting.setCheckBoxFlags(checkBoxFlags);
                 notifyDataSetChanged();
             }
         });
@@ -93,6 +80,7 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
             public void onClick(View v) {
 
                 lockFlags[position]=false;
+                setting.setLockFlags(lockFlags);
                 notifyDataSetChanged();
 
             }
@@ -110,6 +98,8 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
     public int getItemCount() {
         return 30;
     }
+
+
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
