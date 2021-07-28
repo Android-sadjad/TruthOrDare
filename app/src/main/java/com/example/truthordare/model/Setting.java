@@ -15,8 +15,16 @@ public class Setting {
     boolean circleSound;
 
     boolean []lockFlags;
-    boolean []checkBoxFlags;
+    int position;
 
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
 
     public Setting(Context context){
 
@@ -31,14 +39,7 @@ public class Setting {
             appSound=true;
             circleSound=true;
 
-            checkBoxFlags=new boolean[MyConstant.BOTTLE_NUMBER];
-            lockFlags=new boolean[MyConstant.BOTTLE_NUMBER];
-
-            for (int i=0;i<checkBoxFlags.length;i++)
-                if(i==0)
-                    checkBoxFlags[i]=true;
-                else
-                    checkBoxFlags[i]=false;
+            position=1;
 
 
             for (int i=0;i<lockFlags.length;i++)
@@ -60,7 +61,7 @@ public class Setting {
             appSound=setting.isAppSound();
             circleSound=setting.isCircleSound();
 
-            checkBoxFlags=setting.getCheckBoxFlags();
+            position=setting.getPosition();
             lockFlags=setting.getLockFlags();
 
         }
@@ -122,11 +123,5 @@ public class Setting {
         this.lockFlags = lockFlags;
     }
 
-    public boolean[] getCheckBoxFlags() {
-        return checkBoxFlags;
-    }
 
-    public void setCheckBoxFlags(boolean[] checkBoxFlags) {
-        this.checkBoxFlags = checkBoxFlags;
-    }
 }

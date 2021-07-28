@@ -16,7 +16,8 @@ import com.example.truthordare.model.Setting;
 public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdapter.ViewHolder>{
 
    boolean []lockFlags;
-   boolean []checkBoxFlags;
+
+   int checkedPosition;
    Context context;
    Setting setting;
 
@@ -25,7 +26,7 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
         this.context=context;
 
         this.setting=setting;
-        checkBoxFlags=setting.getCheckBoxFlags();
+        checkedPosition =setting.getPosition();
         lockFlags=setting.getLockFlags();
 
     }
@@ -40,7 +41,7 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
     public void onBindViewHolder(SelectedPhotoAdapter.ViewHolder holder, int position) {
 
 
-        holder.cbSelected.setChecked(checkBoxFlags[position]);
+        holder.cbSelected.setChecked(checkedPosition == position);
 
         if(lockFlags[position]){
             holder.ivLock.setVisibility(View.VISIBLE);
@@ -57,11 +58,8 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
 
                 if(((CheckBox) v).isChecked()){
 
-                    for (int i=0;i<checkBoxFlags.length;i++)
-                        if(i==position)
-                            checkBoxFlags[i]=true;
-                        else
-                            checkBoxFlags[i]=false;
+                    checkedPosition=position;
+
                 }
 
                 else {
@@ -71,7 +69,7 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
 
                 }
 
-                setting.setCheckBoxFlags(checkBoxFlags);
+                setting.setPosition(checkedPosition);
                 notifyDataSetChanged();
             }
         });

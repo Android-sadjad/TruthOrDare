@@ -1,11 +1,9 @@
 package com.example.truthordare.fragment;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.truthordare.R;
@@ -25,7 +22,6 @@ import com.example.truthordare.activity.SettingActivity;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
 import com.example.truthordare.classes.Questions;
-import com.example.truthordare.interfaces.SettingCallBack;
 import com.example.truthordare.model.Setting;
 
 import java.util.ArrayList;
@@ -66,12 +62,16 @@ public class StartGameFragment extends Fragment {
     boolean isDefaultQuestion;
     boolean isMyQuestion;
 
-    SettingFragment settingFragment;
+    final int REQUEST_CODE=1;
 
-    public StartGameFragment(ArrayList<String> playerNameList,SettingFragment settingFragment) {
+
+
+
+
+    public StartGameFragment(ArrayList<String> playerNameList) {
 
         this.playerNameList = playerNameList;
-        this.settingFragment=settingFragment;
+
     }
 
 
@@ -93,6 +93,7 @@ public class StartGameFragment extends Fragment {
         setViewTranslation();
         setTextAndColor();
         configuration();
+        updateSetting();
 
 
 
@@ -242,8 +243,6 @@ public class StartGameFragment extends Fragment {
 
                 downAnimation();
                 tvTod.setText("حقیقت");
-                tvQuestion.setText("اخرین بار کی اب خوردی");
-
                 showRandomTruthQuestion();
 
                 upQuestionLayoutAnimation();
@@ -269,7 +268,6 @@ public class StartGameFragment extends Fragment {
                 downQuestionLayoutAnimation();
             }
         });
-
         btnChangeQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -288,27 +286,10 @@ public class StartGameFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-
-
-              /*  getFragmentManager().beginTransaction()
-                        .add(R.id.fl_fragment_container_2,settingFragment)
-                        .addToBackStack(null).commit();*/
-
-                startActivityForResult(new Intent(getActivity(),SettingActivity.class),1);
+                startActivityForResult(new Intent(getActivity(),SettingActivity.class),REQUEST_CODE);
             }
         });
 
-
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode,Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 1 ) {
-            updateSetting();
-
-        }
 
     }
 
@@ -396,16 +377,33 @@ public class StartGameFragment extends Fragment {
 
 
     }
-//////////////////////////////////////////
+
+
     public void updateSetting(){
+
+
         Setting setting=new Setting(getContext());
 
-        int position=0;
-        for (int i=0;i<setting.getCheckBoxFlags().length;i++)
-            if(setting.getCheckBoxFlags()[i])
-                position=i;
+        int position=setting.getPosition();
+
 
         int id = getContext().getResources().getIdentifier("bottle_" + (position+1), "drawable", getContext().getPackageName());
         ivBottle.setBackgroundResource(id);
+
+
     }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode,Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE ) {
+
+            updateSetting();
+
+        }
+
+    }
+
 }

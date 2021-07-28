@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
 import com.example.truthordare.adapter.SelectedPhotoAdapter;
-import com.example.truthordare.interfaces.SettingCallBack;
 import com.example.truthordare.model.Setting;
 
 public class SettingActivity extends AppCompatActivity {
@@ -35,7 +35,7 @@ public class SettingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_setting);
+        setContentView(R.layout.activity_setting);
 
 
         findViews();
@@ -121,12 +121,19 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
         setting.updateSetting(this,setting);
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
         Intent returnIntent = new Intent();
-        returnIntent.putExtra("result","result");
+
+        returnIntent.putExtra("position",setting.getPosition());
         setResult(Activity.RESULT_OK,returnIntent);
         finish();
 
