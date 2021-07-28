@@ -107,7 +107,7 @@ public class MySharedPreferences {
         String questionListString=sharedPreferences.getString("My_dare",null);
 
         if(questionListString==null)
-            return null;
+            return new ArrayList<>();
 
 
         Type listType = new TypeToken<ArrayList<String>>() {}.getType();
@@ -133,7 +133,7 @@ public class MySharedPreferences {
         String questionListString=sharedPreferences.getString("My_truth",null);
 
         if(questionListString==null)
-            return null;
+            return new ArrayList<>();
 
         Type listType = new TypeToken<ArrayList<String>>() {}.getType();
 
@@ -143,23 +143,6 @@ public class MySharedPreferences {
 
     }
 
-    public void putIsDefaultQuestion(boolean b){
-        editor.putBoolean("default_question",b).apply();
-    }
-
-    public boolean getIsDefaultQuestion(){
-
-        return sharedPreferences.getBoolean("default_question",true);
-    }
-
-    public void putIsMyQuestion(boolean b){
-        editor.putBoolean("my",b).apply();
-    }
-
-    public boolean getIsMYQuestion(){
-
-        return sharedPreferences.getBoolean("my",true);
-    }
 
 
     public void putSetting(Setting settingModel){

@@ -13,6 +13,7 @@ import com.example.truthordare.interfaces.MyCallBack;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MySharedPreferences;
+import com.example.truthordare.model.Setting;
 import com.google.android.material.slider.Slider;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -36,6 +37,8 @@ public class StartDialog extends Dialog {
     Switch switchDefaultQuestion;
     Switch switchMyQuestion;
 
+    Setting setting;
+
 
     public StartDialog(Context context, MyCallBack myCallBack) {
         super(context);
@@ -48,6 +51,7 @@ public class StartDialog extends Dialog {
         init();
         findViews();
         setSize();
+        applySetting();
         configuration();
 
     }
@@ -59,6 +63,8 @@ public class StartDialog extends Dialog {
 
         switchDefaultQuestion =findViewById(R.id.switch_default_question);
         switchMyQuestion =findViewById(R.id.switch_my_question);
+
+        setting=new Setting(context);
     }
 
     private void findViews() {
@@ -84,6 +90,13 @@ public class StartDialog extends Dialog {
 
         clStartDialog.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
         clStartDialog.getLayoutParams().height = MyConstant.getScreenHeight() * 90 / 100;
+    }
+
+    public void applySetting(){
+
+        switchDefaultQuestion.setChecked(setting.isDefaultQuestion());
+        switchMyQuestion.setChecked(setting.isMYQuestion());
+
     }
 
     private void configuration() {
@@ -146,7 +159,10 @@ public class StartDialog extends Dialog {
     protected void onStop() {
         super.onStop();
 
-        MySharedPreferences.getInstance(getContext()).putIsDefaultQuestion(switchDefaultQuestion.isChecked());
-        MySharedPreferences.getInstance(getContext()).putIsMyQuestion(switchMyQuestion.isChecked());
+        setting.setDefaultQuestion(switchDefaultQuestion.isChecked());
+        setting.setMYQuestion(switchMyQuestion.isChecked());
+
+        setting.updateSetting(context,setting);
+
     }
 }

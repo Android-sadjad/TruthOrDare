@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home_page"
+        android:onClick="onClick"
+        android:title="صفحه اصلی" />
+
+
+    <item
+        android:id="@+id/nav_default_question"
+        android:onClick="onClick"
+        android:title=" سوالات برنامه" />
+
+    <item
+        android:id="@+id/nav_my_question"
+        android:onClick="onClick"
+        android:title=" سوالات من"  />
+
+
+    <item
+        android:id="@+id/nav_share_app"
+        android:onClick="onClick"
+        android:title="اشتراک گذاری برنامه" />
+    <item
+        android:id="@+id/nav_other_app"
+        android:onClick="onClick"
+        android:title="سایر برنامه ها" />
+    <item
+        android:id="@+id/nav_comment"
+        android:onClick="onClick"
+        android:title="ثبت نظر" />
+    <item
+        android:id="@+id/nav_hemayat"
+        android:onClick="onClick"
+        android:title="حمایت ازما" />
+    <item
+        android:id="@+id/nav_about_us"
+        android:onClick="onClick"
+        android:title="درباره ما" />
+    <item
+        android:id="@+id/nav_exit"
+        android:onClick="onClick"
+        android:title="خروج" />
+
+</menu>
