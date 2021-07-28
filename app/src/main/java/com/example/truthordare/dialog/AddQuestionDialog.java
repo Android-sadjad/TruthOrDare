@@ -8,11 +8,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import com.example.truthordare.R;
-import com.example.truthordare.classes.MyCallBack;
+import com.example.truthordare.interfaces.MyCallBack;
 import com.example.truthordare.classes.MyConstant;
 import com.google.android.material.textfield.TextInputEditText;
 

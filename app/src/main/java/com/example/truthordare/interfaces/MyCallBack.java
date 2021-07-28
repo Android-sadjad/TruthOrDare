@@ -1,4 +1,4 @@
-package com.example.truthordare.classes;
+package com.example.truthordare.interfaces;
 
 import java.util.ArrayList;
 

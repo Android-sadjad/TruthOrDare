@@ -20,12 +20,11 @@ public class Setting {
 
     public Setting(Context context){
 
-        Toast.makeText(context, "constructor", Toast.LENGTH_SHORT).show();
 
         Setting setting= MySharedPreferences.getInstance(context).getSetting();
 
         if(setting==null){
-            Toast.makeText(context, "null", Toast.LENGTH_SHORT).show();
+
             defaultQuestion=true;
             mYQuestion=false;
             repeatQuestion=false;
@@ -53,7 +52,7 @@ public class Setting {
         }
 
         else {
-            Toast.makeText(context, "not null", Toast.LENGTH_SHORT).show();
+
 
             defaultQuestion=setting.isDefaultQuestion();
             mYQuestion=setting.isMYQuestion();

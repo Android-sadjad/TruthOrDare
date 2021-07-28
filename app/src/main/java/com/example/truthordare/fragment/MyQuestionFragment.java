@@ -1,11 +1,9 @@
 package com.example.truthordare.fragment;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,15 +12,13 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.truthordare.R;
 import com.example.truthordare.adapter.ViewPagerAdapter;
-import com.example.truthordare.classes.MyCallBack;
+import com.example.truthordare.interfaces.MyCallBack;
 import com.example.truthordare.classes.MySharedPreferences;
-import com.example.truthordare.classes.Questions;
 import com.example.truthordare.dialog.AddQuestionDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyQuestionFragment extends Fragment {
 

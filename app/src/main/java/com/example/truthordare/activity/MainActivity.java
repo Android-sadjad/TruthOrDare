@@ -1,12 +1,13 @@
 package com.example.truthordare.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.truthordare.classes.MyCallBack;
+import com.example.truthordare.interfaces.MyCallBack;
 import com.example.truthordare.fragment.MyQuestionFragment;
 import com.example.truthordare.fragment.SettingFragment;
 import com.example.truthordare.fragment.TabFragment;
@@ -65,8 +66,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.tv_setting:
-                loadFragment(settingFragment);
+              //  loadFragment(settingFragment);
 
+                startActivity(new Intent(MainActivity.this,SettingActivity.class));
                 break;
             case R.id.tv_exit:
 

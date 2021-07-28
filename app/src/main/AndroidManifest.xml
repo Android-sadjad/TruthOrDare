@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TruthOrDare">
-        <activity android:name=".activity.MainActivity"
+        <activity android:name=".activity.SettingActivity"></activity>
+        <activity
+            android:name=".activity.MainActivity"
             android:configChanges="orientation|keyboard"
-            android:screenOrientation="portrait"
-            ></activity>
-        <activity android:name=".activity.SplashScreenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SplashScreenActivity"
             android:configChanges="orientation|keyboard"
-            android:screenOrientation="portrait"
-            >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

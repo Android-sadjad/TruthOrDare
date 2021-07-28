@@ -1,6 +1,8 @@
 package com.example.truthordare.fragment;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -15,12 +17,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.truthordare.R;
+import com.example.truthordare.activity.SettingActivity;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
 import com.example.truthordare.classes.Questions;
+import com.example.truthordare.interfaces.SettingCallBack;
 import com.example.truthordare.model.Setting;
 
 import java.util.ArrayList;
@@ -89,15 +94,7 @@ public class StartGameFragment extends Fragment {
         setTextAndColor();
         configuration();
 
-        Setting setting=new Setting(getContext());
 
-        int position=0;
-        for (int i=0;i<setting.getCheckBoxFlags().length;i++)
-            if(setting.getCheckBoxFlags()[i])
-                position=i;
-
-        int id = getContext().getResources().getIdentifier("bottle_" + (position+1), "drawable", getContext().getPackageName());
-        ivBottle.setBackgroundResource(id);
 
     }
 
@@ -293,16 +290,27 @@ public class StartGameFragment extends Fragment {
 
 
 
-                getFragmentManager().beginTransaction()
+              /*  getFragmentManager().beginTransaction()
                         .add(R.id.fl_fragment_container_2,settingFragment)
-                        .addToBackStack(null).commit();
+                        .addToBackStack(null).commit();*/
+
+                startActivityForResult(new Intent(getActivity(),SettingActivity.class),1);
             }
         });
 
 
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode,Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == 1 ) {
+            updateSetting();
+
+        }
+
+    }
 
     private void upAnimation() {
 
@@ -387,5 +395,17 @@ public class StartGameFragment extends Fragment {
        return randomNumber;
 
 
+    }
+//////////////////////////////////////////
+    public void updateSetting(){
+        Setting setting=new Setting(getContext());
+
+        int position=0;
+        for (int i=0;i<setting.getCheckBoxFlags().length;i++)
+            if(setting.getCheckBoxFlags()[i])
+                position=i;
+
+        int id = getContext().getResources().getIdentifier("bottle_" + (position+1), "drawable", getContext().getPackageName());
+        ivBottle.setBackgroundResource(id);
     }
 }

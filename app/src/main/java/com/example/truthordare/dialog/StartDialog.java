@@ -6,12 +6,10 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.truthordare.classes.MyCallBack;
+import com.example.truthordare.interfaces.MyCallBack;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MySharedPreferences;
