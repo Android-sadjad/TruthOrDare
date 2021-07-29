@@ -22,6 +22,20 @@
         android:background="@drawable/grassbg"
         tools:context=".activity.MainActivity">
 
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layoutDirection="rtl"
+            >
+
+
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
         <ImageView
             android:id="@+id/iv_menu"
             android:layout_width="@dimen/_40sdp"
@@ -40,6 +54,18 @@
             android:elevation="@dimen/_20sdp">
 
         </FrameLayout>
+
+
+
+        <FrameLayout
+            android:id="@+id/fl_fragment_full_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="@dimen/_150sdp">
+
+        </FrameLayout>
+
+
 
         <TextView
             android:id="@+id/tv_show_start_dialog"

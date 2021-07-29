@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                                            AdNetworkError adNetworkError) {
             }
         });
-
+        TapsellPlus.setGDPRConsent(this, true);
     }
 
 
@@ -184,9 +184,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadFragment(Fragment fragment) {
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fl_fragment_container, fragment)
+        if(fragment==startGameFragment){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fl_fragment_container, fragment)
+                    .addToBackStack(null).commit();
+        }
+        else { getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fl_fragment_full_screen, fragment)
                 .addToBackStack(null).commit();
+        }
+
     }
 
 
