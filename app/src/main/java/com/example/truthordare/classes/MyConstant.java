@@ -39,5 +39,8 @@ public class MyConstant {
     public static final int BOTTLE_NUMBER=10;
 
     public static final String TAPSELL_KEY="kqeejibsfcireicosnsakmkrfpcspehismbolbqqmdfjetsrbdqjtphnhmendqotnreedh";
+    public static final String STANDARD_BANNER_HOME_PAGE="61026ec203fb244413fcd8ee";
+    public static final String interstitial_BANNER="610274f524c82d5311e6338c";
+
 
 }

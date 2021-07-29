@@ -109,6 +109,15 @@
 
             />
 
+        <RelativeLayout
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/standardBanner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+
+            android:elevation="@dimen/_100sdp"
+            android:gravity="center" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

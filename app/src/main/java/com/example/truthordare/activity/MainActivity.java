@@ -6,13 +6,14 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.interfaces.MyCallBack;
 import com.example.truthordare.fragment.MyQuestionFragment;
 import com.example.truthordare.fragment.TabFragment;
@@ -22,6 +23,11 @@ import com.example.truthordare.fragment.StartGameFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+
+import ir.tapsell.plus.TapsellPlus;
+import ir.tapsell.plus.TapsellPlusInitListener;
+import ir.tapsell.plus.model.AdNetworkError;
+import ir.tapsell.plus.model.AdNetworks;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,12 +49,39 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initTapsell();
+
         findViews();
         init();
         setViewSize();
         configuraion();
 
+        RelativeLayout relativeLayout=findViewById(R.id.standardBanner);
+
+
+
+
+        MyTapsell.showStandardBanner(MainActivity.this,MyConstant.STANDARD_BANNER_HOME_PAGE,relativeLayout);
+
     }
+
+    private void initTapsell() {
+
+        TapsellPlus.initialize(this, MyConstant.TAPSELL_KEY,new TapsellPlusInitListener() {
+            @Override
+            public void onInitializeSuccess(AdNetworks adNetworks) {
+
+            }
+
+            @Override
+            public void onInitializeFailed(AdNetworks adNetworks,
+                                           AdNetworkError adNetworkError) {
+            }
+        });
+
+    }
+
+
 
     public void findViews(){
         ivMenu = findViewById(R.id.iv_menu);
@@ -96,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.tv_hemayat:
+                MyTapsell.showInterstitialAd(MainActivity.this,MyConstant.interstitial_BANNER);
 
                 break;
             case R.id.tv_comment:
