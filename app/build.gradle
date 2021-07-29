@@ -40,7 +40,7 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.google.code.gson:gson:2.8.7'
 
-
+    implementation 'ir.tapsell.plus:tapsell-plus-sdk-android:2.1.3'
 
 
 }

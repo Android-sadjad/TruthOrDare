@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">truth or dare</string>
+    <string name="need_internet">برای مشاهده این قسمت باید به اینترنت متصل باشید</string>
 
 
     <array name="truth_questions_list">
