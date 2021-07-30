@@ -1,33 +1,31 @@
 package com.example.truthordare.adapter;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
+import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
 
 import java.util.ArrayList;
 
-public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
+public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdapter.ViewHolder> {
 
     ArrayList<String> questionList;
     String listName;
 
-    public RvAdapter(ArrayList<String> questionList,String listName) {
+    public listQuestionsAdapter(ArrayList<String> questionList, String listName) {
 
         this.questionList = questionList;
-        this.listName=listName;
+        this.listName = listName;
     }
 
     @NonNull
@@ -39,7 +37,7 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RvAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull listQuestionsAdapter.ViewHolder holder, int position) {
 
         holder.ivDeleteItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,23 +53,24 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
                     public void onClick(DialogInterface dialog, int which) {
 
                         questionList.remove(position);
-                        switch (listName){
+                        switch (listName) {
 
-                            case "default_truth":
-                                MySharedPreferences.getInstance(v.getContext()).putTruthQuestionList(questionList);
+
+                            case MyConstant.TRUTH:
+                                MySharedPreferences.getInstance(v.getContext()).getQuestions().setTruthQuestionList(questionList);
                                 break;
 
-                            case "default_dare":
-                                MySharedPreferences.getInstance(v.getContext()).putDareQuestionList(questionList);
+                            case MyConstant.DARE:
+                                MySharedPreferences.getInstance(v.getContext()).getQuestions().setDareQuestionList(questionList);
                                 break;
 
-                            case "my_truth":
-                                MySharedPreferences.getInstance(v.getContext()).putMyTruthList(questionList);
+                            case MyConstant.MY_TRUTH:
+                                MySharedPreferences.getInstance(v.getContext()).getQuestions().setMyTruthQuestionList(questionList);
 
                                 break;
 
-                            case "my_dare":
-                                MySharedPreferences.getInstance(v.getContext()).putMyDareList(questionList);
+                            case MyConstant.MY_DARE:
+                                MySharedPreferences.getInstance(v.getContext()).getQuestions().setMyDareQuestionList(questionList);
 
                                 break;
 
@@ -90,7 +89,6 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
                 });
 
                 deleteDialog.create().show();
-
 
 
             }
@@ -115,15 +113,12 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
             tvQuestion.setText(text);
         }
 
-
         public ViewHolder(View itemView) {
             super(itemView);
 
             tvQuestion = itemView.findViewById(R.id.tv_question_item);
-            ivDeleteItem=itemView.findViewById(R.id.iv_delete_item);
+            ivDeleteItem = itemView.findViewById(R.id.iv_delete_item);
         }
     }
-
-
 
 }

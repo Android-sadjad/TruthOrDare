@@ -7,12 +7,10 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.R;
+import com.example.truthordare.classes.MyConstant;
 
 public class SplashScreenActivity extends AppCompatActivity {
-
-    final int DURATION = 500;
 
     ImageView ivSplashScreen;
 
@@ -24,7 +22,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
 
         findViews();
-        configuration();
+        setViewsSize();
         goToMainActivity();
 
     }
@@ -34,11 +32,12 @@ public class SplashScreenActivity extends AppCompatActivity {
         ivSplashScreen = findViewById(R.id.iv_splash_screen);
     }
 
-    private void configuration() {
+    private void setViewsSize() {
 
         int width = MyConstant.getScreenWidth() * 60 / 100;
         ivSplashScreen.getLayoutParams().width = width;
         ivSplashScreen.getLayoutParams().height = width;
+
     }
 
     private void goToMainActivity() {
@@ -49,6 +48,6 @@ public class SplashScreenActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
                 finish();
             }
-        }, DURATION);
+        }, MyConstant.SPLASH_SCREEN_DURATION);
     }
 }

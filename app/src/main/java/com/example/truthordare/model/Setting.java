@@ -18,6 +18,7 @@ public class Setting {
     int position;
 
 
+
     public int getPosition() {
         return position;
     }

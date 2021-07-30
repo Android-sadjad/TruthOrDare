@@ -13,41 +13,40 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.truthordare.R;
 import com.example.truthordare.model.Setting;
 
-public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdapter.ViewHolder>{
+public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.ViewHolder> {
 
-   boolean []lockFlags;
+    boolean[] lockFlags;
+    int checkedPosition;
 
-   int checkedPosition;
-   Context context;
-   Setting setting;
+    Context context;
+    Setting setting;
 
-    public SelectedPhotoAdapter(Context context,Setting setting) {
+    public SelectPhotoAdapter(Context context, Setting setting) {
 
-        this.context=context;
+        this.context = context;
+        this.setting = setting;
 
-        this.setting=setting;
-        checkedPosition =setting.getPosition();
-        lockFlags=setting.getLockFlags();
+        checkedPosition = setting.getPosition();
+        lockFlags = setting.getLockFlags();
 
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.bottle_item,parent,false));
+                .inflate(R.layout.bottle_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(SelectedPhotoAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(SelectPhotoAdapter.ViewHolder holder, int position) {
 
 
         holder.cbSelected.setChecked(checkedPosition == position);
 
-        if(lockFlags[position]){
+        if (lockFlags[position]) {
             holder.ivLock.setVisibility(View.VISIBLE);
             holder.cbSelected.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             holder.ivLock.setVisibility(View.GONE);
             holder.cbSelected.setVisibility(View.VISIBLE);
         }
@@ -56,13 +55,9 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
             @Override
             public void onClick(View v) {
 
-                if(((CheckBox) v).isChecked()){
-
-                    checkedPosition=position;
-
-                }
-
-                else {
+                if (((CheckBox) v).isChecked()) {
+                    checkedPosition = position;
+                } else {
 
                     ((CheckBox) v).setChecked(true);
                     Toast.makeText(context, "حتما باید یک عکس رو انتخاب کنی", Toast.LENGTH_SHORT).show();
@@ -77,7 +72,7 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
             @Override
             public void onClick(View v) {
 
-                lockFlags[position]=false;
+                lockFlags[position] = false;
                 setting.setLockFlags(lockFlags);
                 notifyDataSetChanged();
 
@@ -85,12 +80,8 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
         });
 
 
-        int id = context.getResources().getIdentifier("bottle_" + (position+1), "drawable", context.getPackageName());
-
+        int id = context.getResources().getIdentifier("bottle_" + (position + 1), "drawable", context.getPackageName());
         holder.ivBottle.setBackgroundResource(id);
-
-
-
 
 
     }
@@ -99,7 +90,6 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
     public int getItemCount() {
         return lockFlags.length;
     }
-
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -111,9 +101,9 @@ public class SelectedPhotoAdapter extends RecyclerView.Adapter<SelectedPhotoAdap
         public ViewHolder(View itemView) {
             super(itemView);
 
-            ivBottle=itemView.findViewById(R.id.iv_bottle_selected);
-            ivLock=itemView.findViewById(R.id.iv_lock);
-            cbSelected=itemView.findViewById(R.id.cb_selected);
+            ivBottle = itemView.findViewById(R.id.iv_bottle_selected);
+            ivLock = itemView.findViewById(R.id.iv_lock);
+            cbSelected = itemView.findViewById(R.id.cb_selected);
         }
     }
 }

@@ -3,6 +3,7 @@ package com.example.truthordare.classes;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -12,158 +13,112 @@ import java.util.ArrayList;
 
 public class MySharedPreferences {
 
-    private static Gson gson;
-    SharedPreferences sharedPreferences;
-     SharedPreferences.Editor editor;
-
     Context context;
 
-    private static MySharedPreferences mySharedPreferences=null;
+    private static Gson gson;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
-    public static MySharedPreferences getInstance(Context context){
+    ArrayList<String> truthQuestionList;
+    ArrayList<String> dareQuestionList;
+    ArrayList<String> myTruthQuestionList;
+    ArrayList<String> myDareQuestionList;
+
+    String truth;
+    String dare;
+    String my_truth;
+    String my_dare;
+
+    //////////////////////////////////////////////////////////////////////////////////
+
+    private static MySharedPreferences mySharedPreferences = null;
+
+    public static MySharedPreferences getInstance(Context context) {
 
 
-        if(mySharedPreferences==null)
-            mySharedPreferences=new MySharedPreferences(context);
-        gson=new Gson();
+        if (mySharedPreferences == null)
+            mySharedPreferences = new MySharedPreferences(context);
+        gson = new Gson();
 
         return mySharedPreferences;
     }
 
-    private MySharedPreferences(Context context){
+    private MySharedPreferences(Context context) {
 
-        sharedPreferences=context.getSharedPreferences("question_list",Context.MODE_PRIVATE);
-        editor =sharedPreferences.edit();
+        sharedPreferences = context.getSharedPreferences(MyConstant.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
-        this.context=context;
-
-    }
-
-
-    public void putDareQuestionList(ArrayList<String> questionList){
-
-
-        String questionListString=gson.toJson(questionList);
-
-        editor.putString("dare_questions",questionListString).apply();
-
+        this.context = context;
 
     }
 
-    public ArrayList<String> getDareQuestionList(){
+    //////////////////////////////////////////////////////////////////////////////////
 
-        String questionListString=sharedPreferences.getString("dare_questions",null);
-
-        if(questionListString==null)
-            return null;
+    public void putSetting(Setting settingModel) {
 
 
-        Type listType = new TypeToken<ArrayList<String>>() {}.getType();
-        ArrayList<String>questionList=gson.fromJson(questionListString,listType);
-
-
-        return  questionList;
+        String settingStr = gson.toJson(settingModel, Setting.class);
+        editor.putString(MyConstant.SETTING, settingStr).apply();
 
     }
 
-    public void putTruthQuestionList(ArrayList<String> questionList){
+    public Setting getSetting() {
 
+        String settingStr = sharedPreferences.getString(MyConstant.SETTING, null);
 
-
-        String questionListString=gson.toJson(questionList);
-
-        editor.putString("truth_questions",questionListString).apply();
-
-    }
-
-    public ArrayList<String> getTruthQuestionList(){
-
-        String questionListString=sharedPreferences.getString("truth_questions",null);
-
-        if(questionListString==null)
-            return null;
-
-        Type listType = new TypeToken<ArrayList<String>>() {}.getType();
-
-        ArrayList<String>questionList=gson.fromJson(questionListString,listType);
-
-        return  questionList;
-
-    }
-
-
-    public void putMyDareList(ArrayList<String> questionList){
-
-
-        String questionListString=gson.toJson(questionList);
-
-        editor.putString("My_dare",questionListString).apply();
-
-
-    }
-
-    public ArrayList<String> getMyDareList(){
-
-        String questionListString=sharedPreferences.getString("My_dare",null);
-
-        if(questionListString==null)
-            return new ArrayList<>();
-
-
-        Type listType = new TypeToken<ArrayList<String>>() {}.getType();
-        ArrayList<String>questionList=gson.fromJson(questionListString,listType);
-
-
-        return  questionList;
-
-    }
-
-    public void putMyTruthList(ArrayList<String> questionList){
-
-
-
-        String questionListString=gson.toJson(questionList);
-
-        editor.putString("My_truth",questionListString).apply();
-
-    }
-
-    public ArrayList<String> getMyTruthList(){
-
-        String questionListString=sharedPreferences.getString("My_truth",null);
-
-        if(questionListString==null)
-            return new ArrayList<>();
-
-        Type listType = new TypeToken<ArrayList<String>>() {}.getType();
-
-        ArrayList<String>questionList=gson.fromJson(questionListString,listType);
-
-        return  questionList;
-
-    }
-
-
-
-    public void putSetting(Setting settingModel){
-
-
-        String settingStr=gson.toJson(settingModel, Setting.class);
-        editor.putString("setting",settingStr).apply();
-
-    }
-
-    public Setting getSetting(){
-
-        String settingStr=sharedPreferences.getString("setting",null);
-
-        if(settingStr==null)
+        if (settingStr == null)
             return null;
 
         return gson.fromJson(settingStr, Setting.class);
 
     }
 
+    //////////////////////////////////////////////////////////////////////////////////
+    public Questions getQuestions() {
 
+        truth = sharedPreferences.getString(MyConstant.TRUTH, null);
+        dare = sharedPreferences.getString(MyConstant.DARE, null);
+        my_truth = sharedPreferences.getString(MyConstant.MY_TRUTH, null);
+        my_dare = sharedPreferences.getString(MyConstant.MY_DARE, null);
+
+        if (truth == null)
+            return null;
+
+
+        Type listType = new TypeToken<ArrayList<String>>() {
+        }.getType();
+        Questions questions = new Questions();
+
+        questions.setTruthQuestionList(gson.fromJson(truth, listType));
+        questions.setDareQuestionList(gson.fromJson(dare, listType));
+        questions.setMyTruthQuestionList(gson.fromJson(my_truth, listType));
+        questions.setMyDareQuestionList(gson.fromJson(my_dare, listType));
+
+
+        return questions;
+
+    }
+
+    public void putQuestions(Questions questions) {
+
+        truthQuestionList = questions.getTruthQuestionList();
+        dareQuestionList = questions.getDareQuestionList();
+        myTruthQuestionList = questions.getMyTruthQuestionList();
+        myDareQuestionList = questions.getMyDareQuestionList();
+
+        truth = gson.toJson(truthQuestionList);
+        editor.putString(MyConstant.TRUTH, truth).apply();
+
+        dare = gson.toJson(dareQuestionList);
+        editor.putString(MyConstant.DARE, dare).apply();
+
+        my_truth = gson.toJson(myTruthQuestionList);
+        editor.putString(MyConstant.MY_TRUTH, my_truth).apply();
+
+        my_dare = gson.toJson(myDareQuestionList);
+        editor.putString(MyConstant.MY_DARE, my_dare).apply();
+
+
+    }
 
 }

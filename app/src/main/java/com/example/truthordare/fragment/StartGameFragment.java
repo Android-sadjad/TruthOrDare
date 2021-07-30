@@ -19,7 +19,7 @@ import com.example.truthordare.R;
 import com.example.truthordare.activity.SettingActivity;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
-import com.example.truthordare.classes.Questions;
+import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
 
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class StartGameFragment extends Fragment {
     int currentDegree = 0;
 
     ImageView ivCircleBackground;
-    private static ImageView ivBottle;
+    ImageView ivBottle;
 
     LinearLayout llNamesBord;
     LinearLayout llTruthOrDare;
@@ -50,19 +50,16 @@ public class StartGameFragment extends Fragment {
 
     ImageView ivSetting;
 
-
     ArrayList<Integer> randomNumberList;
     ArrayList<String> playerNameList;
 
-    ArrayList<Integer> repeatTruthQuestion;
-    ArrayList<Integer> repeatDareQuestion;
+    ArrayList<Integer> repetitiousTruthQuestion;
+    ArrayList<Integer> repetitiousDareQuestion;
 
     TextView[] tvNames;
     ImageView[] ivColors;
 
     Setting setting;
-
-    final int REQUEST_CODE = 1;
 
 
     public StartGameFragment(ArrayList<String> playerNameList) {
@@ -93,7 +90,6 @@ public class StartGameFragment extends Fragment {
         updateSetting();
 
 
-
     }
 
 
@@ -102,15 +98,15 @@ public class StartGameFragment extends Fragment {
         screenWidth = MyConstant.getScreenWidth();
         screenHeight = MyConstant.getScreenHeight();
 
-        randomNumberList = new ArrayList<>(360);
+        randomNumberList = new ArrayList<>();
 
-        tvNames = new TextView[9];
-        ivColors = new ImageView[9];
+        tvNames = new TextView[playerNameList.size()];
+        ivColors = new ImageView[playerNameList.size()];
 
         setting = new Setting(getContext());
 
-        repeatTruthQuestion = new ArrayList<>();
-        repeatDareQuestion = new ArrayList<>();
+        repetitiousTruthQuestion = new ArrayList<>();
+        repetitiousDareQuestion = new ArrayList<>();
 
 
     }
@@ -136,7 +132,7 @@ public class StartGameFragment extends Fragment {
         btnCloseQuestion = view.findViewById(R.id.btn_close_question);
 
 
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < tvNames.length; i++) {
 
             int id = getContext().getResources().getIdentifier("tv_name_" + (i + 1), "id", getContext().getPackageName());
             tvNames[i] = view.findViewById(id);
@@ -150,10 +146,9 @@ public class StartGameFragment extends Fragment {
 
     private void setViewSize() {
 
-        int circleRadius = screenWidth * 80 / 100;
 
-        ivCircleBackground.getLayoutParams().width = circleRadius;
-        ivCircleBackground.getLayoutParams().height = circleRadius;
+        ivCircleBackground.getLayoutParams().width = screenWidth * 80 / 100;
+        ivCircleBackground.getLayoutParams().height = screenWidth * 80 / 100;
 
         llNamesBord.getLayoutParams().height = screenHeight * 30 / 100;
         llQuestions.getLayoutParams().height = screenHeight * 35 / 100;
@@ -161,8 +156,6 @@ public class StartGameFragment extends Fragment {
 
         ivSetting.getLayoutParams().height = screenWidth * 13 / 100;
         ivSetting.getLayoutParams().width = screenWidth * 13 / 100;
-
-
 
     }
 
@@ -176,7 +169,7 @@ public class StartGameFragment extends Fragment {
     private void setTextAndColorAndBackground() {
 
 
-        for (int i = 0; i < playerNameList.size(); i++) {
+        for (int i = 0; i < tvNames.length; i++) {
 
             tvNames[i].setVisibility(View.VISIBLE);
             tvNames[i].setText(playerNameList.get(i));
@@ -198,18 +191,7 @@ public class StartGameFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                int randomNumber;
-
-                while (true) {
-                    randomNumber = new Random().nextInt() % 360;
-                    if (!randomNumberList.contains(randomNumber)) {
-                        randomNumberList.add(randomNumber);
-                        break;
-                    }
-                }
-
-                randomNumber *= sign;
-                sign *= -1;
+                int randomNumber = createRandomNumber();
 
                 RotateAnimation rotate = new RotateAnimation(currentDegree,
                         3600 + randomNumber,
@@ -291,12 +273,30 @@ public class StartGameFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                startActivityForResult(new Intent(getActivity(), SettingActivity.class), REQUEST_CODE);
+                startActivityForResult(new Intent(getActivity(), SettingActivity.class), MyConstant.REQUEST_CODE);
                 downAnimation();
                 downQuestionLayoutAnimation();
             }
         });
 
+
+    }
+
+    private int createRandomNumber() {
+
+        int randomNumber = 0;
+        while (true) {
+            randomNumber = new Random().nextInt() % 360;
+            if (!randomNumberList.contains(randomNumber)) {
+                randomNumberList.add(randomNumber);
+                break;
+            }
+        }
+
+        randomNumber *= sign;
+        sign *= -1;
+
+        return randomNumber;
 
     }
 
@@ -340,12 +340,12 @@ public class StartGameFragment extends Fragment {
 
         if (setting.isDefaultQuestion()) {
 
-            truthQuestionList.addAll(new Questions().getTruthQuestionList(getContext()));
+            truthQuestionList.addAll(new Questions(getActivity()).getTruthQuestionList());
         }
 
         if (setting.isMYQuestion()) {
 
-            truthQuestionList.addAll(MySharedPreferences.getInstance(getContext()).getMyTruthList());
+            truthQuestionList.addAll(MySharedPreferences.getInstance(getContext()).getQuestions().getMyTruthQuestionList());
         }
 
         if (truthQuestionList.isEmpty())
@@ -368,11 +368,11 @@ public class StartGameFragment extends Fragment {
 
         if (setting.isDefaultQuestion()) {
 
-            dareQuestionList.addAll(new Questions().getDareQuestionList(getContext()));
+            dareQuestionList.addAll(new Questions(getActivity()).getDareQuestionList());
         }
         if (setting.isMYQuestion()) {
 
-            dareQuestionList.addAll(MySharedPreferences.getInstance(getContext()).getMyDareList());
+            dareQuestionList.addAll(MySharedPreferences.getInstance(getContext()).getQuestions().getMyDareQuestionList());
         }
         if (dareQuestionList.isEmpty())
             tvQuestion.setText("هیچ سوالی انتخاب نشده است");
@@ -405,32 +405,32 @@ public class StartGameFragment extends Fragment {
         if (listType.equals("truth")) {
 
             while (true) {
-                if (repeatTruthQuestion.size() == maximum)
-                    repeatTruthQuestion.clear();
+                if (repetitiousTruthQuestion.size() == maximum)
+                    repetitiousTruthQuestion.clear();
 
 
                 randomNumber = new Random().nextInt() % (maximum);
                 if (randomNumber < 0)
                     randomNumber *= -1;
 
-                if (!repeatTruthQuestion.contains(randomNumber)) {
-                    repeatTruthQuestion.add(randomNumber);
+                if (!repetitiousTruthQuestion.contains(randomNumber)) {
+                    repetitiousTruthQuestion.add(randomNumber);
                     break;
                 }
             }
         } else {
 
             while (true) {
-                if (repeatDareQuestion.size() == maximum)
-                    repeatDareQuestion.clear();
+                if (repetitiousDareQuestion.size() == maximum)
+                    repetitiousDareQuestion.clear();
 
 
                 randomNumber = new Random().nextInt() % (maximum);
                 if (randomNumber < 0)
                     randomNumber *= -1;
 
-                if (!repeatDareQuestion.contains(randomNumber)) {
-                    repeatDareQuestion.add(randomNumber);
+                if (!repetitiousDareQuestion.contains(randomNumber)) {
+                    repetitiousDareQuestion.add(randomNumber);
                     break;
                 }
             }
@@ -443,7 +443,6 @@ public class StartGameFragment extends Fragment {
 
 
     public void updateSetting() {
-
 
 
         setting = new Setting(getContext());
@@ -462,7 +461,7 @@ public class StartGameFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_CODE) {
+        if (requestCode == MyConstant.REQUEST_CODE) {
 
             updateSetting();
 

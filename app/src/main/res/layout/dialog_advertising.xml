@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/constraint_layout_show_advertising"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="@dimen/_10sdp"
+    android:background="#C9E3AC"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="با دیدن یک ویدیو کوتاه میتونی ۱۰ سوال به سوالات برنامه اضافه کنی"
+        android:textSize="24sp"
+
+        android:paddingVertical="@dimen/_20sdp"
+        android:gravity="center"
+        android:id="@+id/tv_show_video"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_show_video"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_no"
+        android:textSize="@dimen/_20sdp"
+        android:background="@drawable/rectangle_storke"
+        android:text="بله"
+        android:gravity="center"
+        android:layout_margin="@dimen/_5sdp"
+        android:id="@+id/tv_yes"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_show_video"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_yes"
+        android:textSize="@dimen/_20sdp"
+        android:text="خیر"
+        android:layout_margin="@dimen/_5sdp"
+        android:gravity="center"
+        android:background="@drawable/rectangle_storke"
+        android:id="@+id/tv_no"
+        android:textColor="@color/black"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

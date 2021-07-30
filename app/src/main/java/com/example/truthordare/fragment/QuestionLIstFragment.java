@@ -1,12 +1,10 @@
 package com.example.truthordare.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,21 +12,21 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.truthordare.adapter.RvAdapter;
+import com.example.truthordare.adapter.listQuestionsAdapter;
 import com.example.truthordare.R;
 
 import java.util.ArrayList;
 
-public class QuestionFragment extends Fragment {
+public class QuestionLIstFragment extends Fragment {
 
     RecyclerView rvQuestionList;
     ArrayList<String> questionList;
-    RvAdapter questionsAdapter;
+    listQuestionsAdapter questionsAdapter;
 
     LinearLayout llGuide;
     String listName;
 
-    public QuestionFragment(ArrayList<String> questionList,String listName){
+    public QuestionLIstFragment(ArrayList<String> questionList, String listName){
         this.questionList=questionList;
 
         this.listName=listName;
@@ -63,7 +61,7 @@ public class QuestionFragment extends Fragment {
     private void init(){
 
 
-        questionsAdapter = new RvAdapter(questionList,listName);
+        questionsAdapter = new listQuestionsAdapter(questionList,listName);
         rvQuestionList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvQuestionList.setAdapter(questionsAdapter);
 
@@ -80,8 +78,13 @@ public class QuestionFragment extends Fragment {
 
     public void updateList(){
         questionsAdapter.notifyDataSetChanged();
+
         setVisibilityGuideLayout();
 
     }
+
+
+
+
 
 }

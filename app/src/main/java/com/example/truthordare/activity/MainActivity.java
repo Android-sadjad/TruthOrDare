@@ -12,14 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MyTapsell;
-import com.example.truthordare.interfaces.MyCallBack;
-import com.example.truthordare.fragment.MyQuestionFragment;
-import com.example.truthordare.fragment.TabFragment;
-import com.example.truthordare.R;
+import com.example.truthordare.model.Questions;
 import com.example.truthordare.dialog.StartDialog;
+import com.example.truthordare.fragment.TabFragment;
 import com.example.truthordare.fragment.StartGameFragment;
+import com.example.truthordare.interfaces.CallBackPlayerList;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -31,17 +31,20 @@ import ir.tapsell.plus.model.AdNetworks;
 
 public class MainActivity extends AppCompatActivity {
 
+    int screenWidth;
+    int screenHeight;
+
     StartGameFragment startGameFragment;
-    TabFragment tabFragment;
-    MyQuestionFragment myQuestionFragment;
+    TabFragment defaultQuestionFragment;
+    TabFragment myQuestionFragment;
 
     ImageView ivMenu;
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
-    int screenWidth;
-    int screenHeight;
+
+    Questions questions;
 
 
     @Override
@@ -50,24 +53,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initTapsell();
-
         findViews();
         init();
         setViewSize();
-        configuraion();
+        configuration();
 
-        RelativeLayout relativeLayout=findViewById(R.id.standardBanner);
-
-
+        RelativeLayout relativeLayout = findViewById(R.id.standardBanner);
 
 
-        MyTapsell.showStandardBanner(MainActivity.this,MyConstant.STANDARD_BANNER_HOME_PAGE,relativeLayout);
+        MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, relativeLayout);
+
 
     }
 
     private void initTapsell() {
 
-        TapsellPlus.initialize(this, MyConstant.TAPSELL_KEY,new TapsellPlusInitListener() {
+        TapsellPlus.initialize(this, MyConstant.TAPSELL_KEY, new TapsellPlusInitListener() {
             @Override
             public void onInitializeSuccess(AdNetworks adNetworks) {
 
@@ -81,30 +82,65 @@ public class MainActivity extends AppCompatActivity {
         TapsellPlus.setGDPRConsent(this, true);
     }
 
+    public void findViews() {
 
-
-    public void findViews(){
         ivMenu = findViewById(R.id.iv_menu);
 
-        drawerLayout=findViewById(R.id.drawer_layout);
-        navigationView=findViewById(R.id.navigation_view);
-    }
-
-    public void setViewSize(){
-
-        ivMenu.getLayoutParams().height = screenWidth * 13 / 100;
-        ivMenu.getLayoutParams().width = screenWidth * 13 / 100;
-
-        navigationView.getLayoutParams().width=screenWidth*60/100;
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
     }
 
     private void init() {
 
-        tabFragment = new TabFragment();
-        myQuestionFragment=new MyQuestionFragment();
+        questions = new Questions(this);
 
-        screenWidth= MyConstant.getScreenWidth();
-        screenHeight=MyConstant.getScreenHeight();
+        myQuestionFragment = new TabFragment(MyConstant.MY_LIST);
+        defaultQuestionFragment = new TabFragment(MyConstant.DEFAULT_LIST);
+
+        screenWidth = MyConstant.getScreenWidth();
+        screenHeight = MyConstant.getScreenHeight();
+
+    }
+
+    public void setViewSize() {
+
+        ivMenu.getLayoutParams().height = screenWidth * 13 / 100;
+        ivMenu.getLayoutParams().width = screenWidth * 13 / 100;
+
+    }
+
+    public void configuration() {
+
+
+    }
+
+    private void showStartDialog() {
+
+        StartDialog startDialog = new StartDialog(MainActivity.this, new CallBackPlayerList() {
+            @Override
+            public void getPlayerList(ArrayList<String> playerName) {
+
+                startGameFragment = new StartGameFragment(playerName);
+                loadFragment(startGameFragment);
+            }
+        });
+
+        startDialog.show();
+    }
+
+    public void loadFragment(Fragment fragment) {
+
+        int flId;
+
+        if (fragment == startGameFragment)
+            flId = R.id.fl_fragment_container;
+        else
+            flId = R.id.fl_fragment_full_screen;
+
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(flId, fragment)
+                .addToBackStack(null).commit();
 
     }
 
@@ -114,22 +150,21 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.tv_show_start_dialog:
 
-
                 showStartDialog();
                 break;
 
             case R.id.tv_my_question:
-             loadFragment(myQuestionFragment);
 
+                loadFragment(myQuestionFragment);
                 break;
 
-            case R.id.tv_questions_list:
+            case R.id.tv_default_questions:
 
-                loadFragment(tabFragment);
+                loadFragment(defaultQuestionFragment);
                 break;
 
             case R.id.tv_hemayat:
-                MyTapsell.showInterstitialAd(MainActivity.this,MyConstant.interstitial_BANNER);
+                MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER);
 
                 break;
             case R.id.tv_comment:
@@ -138,68 +173,21 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.tv_setting:
 
-                startActivity(new Intent(MainActivity.this,SettingActivity.class));
+                startActivity(new Intent(MainActivity.this, SettingActivity.class));
                 break;
             case R.id.tv_exit:
 
                 break;
 
-        }
-    }
-
-    public void configuraion(){
-
-        ivMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+            case R.id.iv_menu:
                 drawerLayout.openDrawer(Gravity.RIGHT);
+                break;
 
-            }
-        });
-
-    }
-
-
-
-    private void showStartDialog() {
-
-        StartDialog startDialog = new StartDialog(MainActivity.this, new MyCallBack() {
-            @Override
-            public void callBackPlayerList(ArrayList<String> playerName) {
-
-                startGameFragment = new StartGameFragment(playerName);
-                loadFragment(startGameFragment);
-            }
-
-            @Override
-            public void callBackAddList(String key, String myQuestion) {
-
-            }
-        });
-
-        startDialog.show();
-    }
-
-
-    public void loadFragment(Fragment fragment) {
-
-        if(fragment==startGameFragment){
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fl_fragment_container, fragment)
-                    .addToBackStack(null).commit();
         }
-        else { getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fl_fragment_full_screen, fragment)
-                .addToBackStack(null).commit();
-        }
-
     }
 
-
-    public void onClick(MenuItem item) {
+    public void navItemsOnClick(MenuItem item) {
         switch (item.getItemId()) {
-
 
 
             case R.id.nav_my_question:
@@ -209,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.nav_default_question:
 
-                loadFragment(tabFragment);
+                loadFragment(defaultQuestionFragment);
                 break;
 
             case R.id.tv_hemayat:

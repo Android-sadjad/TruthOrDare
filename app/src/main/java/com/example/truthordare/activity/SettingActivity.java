@@ -5,20 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Switch;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
-import com.example.truthordare.adapter.SelectedPhotoAdapter;
+import com.example.truthordare.adapter.SelectPhotoAdapter;
 import com.example.truthordare.model.Setting;
 
 public class SettingActivity extends AppCompatActivity {
 
     RecyclerView rvSelectPhoto;
-    SelectedPhotoAdapter selectedPhotoAdapter;
+    SelectPhotoAdapter selectPhotoAdapter;
     Setting setting;
 
     Switch switchDefaultQuestion;
@@ -26,10 +25,6 @@ public class SettingActivity extends AppCompatActivity {
     Switch switchRepeatQuestion;
     Switch switchAppSound;
     Switch switchCircleSound;
-
-
-
-
 
 
     @Override
@@ -41,28 +36,7 @@ public class SettingActivity extends AppCompatActivity {
         findViews();
         init();
         setUpSetting();
-        switchOnClick();
-
-    }
-
-    private void setUpSetting() {
-
-        switchDefaultQuestion.setChecked(setting.isDefaultQuestion());
-        switchMYQuestion.setChecked(setting.isMYQuestion());
-        switchRepeatQuestion.setChecked(setting.isRepeatQuestion());
-        switchAppSound.setChecked(setting.isAppSound());
-        switchCircleSound.setChecked(setting.isCircleSound());
-
-
-    }
-
-    private void init() {
-        setting = new Setting(this);
-
-        selectedPhotoAdapter = new SelectedPhotoAdapter(this, setting);
-        rvSelectPhoto.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        rvSelectPhoto.setAdapter(selectedPhotoAdapter);
-
+        setSwitchOnClick();
 
     }
 
@@ -78,8 +52,27 @@ public class SettingActivity extends AppCompatActivity {
 
     }
 
+    private void init() {
 
-    public void switchOnClick() {
+        setting = new Setting(this);
+
+        selectPhotoAdapter = new SelectPhotoAdapter(this, setting);
+        rvSelectPhoto.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        rvSelectPhoto.setAdapter(selectPhotoAdapter);
+
+    }
+
+    private void setUpSetting() {
+
+        switchDefaultQuestion.setChecked(setting.isDefaultQuestion());
+        switchMYQuestion.setChecked(setting.isMYQuestion());
+        switchRepeatQuestion.setChecked(setting.isRepeatQuestion());
+        switchAppSound.setChecked(setting.isAppSound());
+        switchCircleSound.setChecked(setting.isCircleSound());
+
+    }
+
+    public void setSwitchOnClick() {
 
 
         switchDefaultQuestion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -120,10 +113,12 @@ public class SettingActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     protected void onPause() {
         super.onPause();
-        setting.updateSetting(this,setting);
+
+        setting.updateSetting(this, setting);
 
     }
 
@@ -131,10 +126,8 @@ public class SettingActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        Intent returnIntent = new Intent();
 
-        returnIntent.putExtra("position",setting.getPosition());
-        setResult(Activity.RESULT_OK,returnIntent);
+        setResult(Activity.RESULT_OK, new Intent());
         finish();
 
     }

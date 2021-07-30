@@ -1,19 +1,35 @@
 package com.example.truthordare.classes;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.truthordare.R;
 
 public class MyConstant {
+
+
+    public static final int SPLASH_SCREEN_DURATION = 500;
+    public static final int BOTTLE_NUMBER = 10;
+    public static final int REQUEST_CODE = 1;
+
+    public static final String SHARED_PREFERENCES_NAME="question_list";
+    public static final String SETTING="setting";
+
+    public static final String TRUTH = "truth";
+    public static final String DARE = "dare";
+    public static final String MY_LIST = "my_list";
+    public static final String DEFAULT_LIST = "default_list";
+    public static final String MY_TRUTH = "my_truth";
+    public static final String MY_DARE = "my_dare";
+
+
+    public static final String TAPSELL_KEY = "kqeejibsfcireicosnsakmkrfpcspehismbolbqqmdfjetsrbdqjtphnhmendqotnreedh";
+    public static final String STANDARD_BANNER_HOME_PAGE = "61026ec203fb244413fcd8ee";
+    public static final String interstitial_BANNER = "610274f524c82d5311e6338c";
+
 
     public static int getScreenWidth() {
         return Resources.getSystem().getDisplayMetrics().widthPixels;
@@ -28,19 +44,12 @@ public class MyConstant {
                 = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
 
-        boolean connect=activeNetworkInfo != null && activeNetworkInfo.isConnected();
+        boolean connect = activeNetworkInfo != null && activeNetworkInfo.isConnected();
 
-        if(!connect)
+        if (!connect)
             Toast.makeText(context, R.string.need_internet, Toast.LENGTH_SHORT).show();
 
         return connect;
     }
-
-    public static final int BOTTLE_NUMBER=10;
-
-    public static final String TAPSELL_KEY="kqeejibsfcireicosnsakmkrfpcspehismbolbqqmdfjetsrbdqjtphnhmendqotnreedh";
-    public static final String STANDARD_BANNER_HOME_PAGE="61026ec203fb244413fcd8ee";
-    public static final String interstitial_BANNER="610274f524c82d5311e6338c";
-
 
 }

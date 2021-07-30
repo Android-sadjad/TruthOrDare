@@ -3,44 +3,44 @@
 
     <item
         android:id="@+id/nav_home_page"
-        android:onClick="onClick"
+        android:onClick="navItemsOnClick"
         android:title="صفحه اصلی" />
 
 
     <item
         android:id="@+id/nav_default_question"
-        android:onClick="onClick"
+        android:onClick="navItemsOnClick"
         android:title=" سوالات برنامه" />
 
     <item
         android:id="@+id/nav_my_question"
-        android:onClick="onClick"
+        android:onClick="navItemsOnClick"
         android:title=" سوالات من"  />
 
 
     <item
         android:id="@+id/nav_share_app"
-        android:onClick="onClick"
+        android:onClick="navItemsOnClick"
         android:title="اشتراک گذاری برنامه" />
     <item
         android:id="@+id/nav_other_app"
-        android:onClick="onClick"
+        android:onClick="navItemsOnClick"
         android:title="سایر برنامه ها" />
     <item
         android:id="@+id/nav_comment"
-        android:onClick="onClick"
+        android:onClick="navItemsOnClick"
         android:title="ثبت نظر" />
     <item
         android:id="@+id/nav_hemayat"
-        android:onClick="onClick"
+        android:onClick="navItemsOnClick"
         android:title="حمایت ازما" />
     <item
         android:id="@+id/nav_about_us"
-        android:onClick="onClick"
+        android:onClick="navItemsOnClick"
         android:title="درباره ما" />
     <item
         android:id="@+id/nav_exit"
-        android:onClick="onClick"
+        android:onClick="navItemsOnClick"
         android:title="خروج" />
 
 </menu>

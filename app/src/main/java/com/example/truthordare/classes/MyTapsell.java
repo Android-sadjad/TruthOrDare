@@ -1,11 +1,8 @@
 package com.example.truthordare.classes;
 
 import android.app.Activity;
-import android.content.Context;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
-import com.example.truthordare.activity.MainActivity;
 
 import ir.tapsell.plus.AdRequestCallback;
 import ir.tapsell.plus.AdShowListener;
@@ -17,9 +14,7 @@ import ir.tapsell.plus.model.TapsellPlusErrorModel;
 public class MyTapsell {
 
 
-
-    public static void showStandardBanner(Activity activity, String zoneId, RelativeLayout relativeLayout){
-
+    public static void showStandardBanner(Activity activity, String zoneId, RelativeLayout relativeLayout) {
 
         TapsellPlus.requestStandardBannerAd(
                 activity, zoneId,
@@ -29,7 +24,7 @@ public class MyTapsell {
                     public void response(TapsellPlusAdModel tapsellPlusAdModel) {
                         super.response(tapsellPlusAdModel);
 
-                        String  standardBannerResponseId = tapsellPlusAdModel.getResponseId();
+                        String standardBannerResponseId = tapsellPlusAdModel.getResponseId();
 
                         TapsellPlus.showStandardBannerAd(activity, standardBannerResponseId,
                                 relativeLayout,
@@ -57,7 +52,7 @@ public class MyTapsell {
     public static void showInterstitialAd(Activity activity, String zoneId) {
         TapsellPlus.requestRewardedVideoAd(
                 activity,
-                 zoneId,
+                zoneId,
                 new AdRequestCallback() {
                     @Override
                     public void response(TapsellPlusAdModel tapsellPlusAdModel) {
@@ -93,7 +88,6 @@ public class MyTapsell {
                                 });
 
 
-
                     }
 
                     @Override
@@ -102,7 +96,8 @@ public class MyTapsell {
 
                     }
 
-                });}
+                });
+    }
 
 
 }

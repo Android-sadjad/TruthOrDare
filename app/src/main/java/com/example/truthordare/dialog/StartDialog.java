@@ -9,10 +9,9 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.truthordare.interfaces.MyCallBack;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.R;
-import com.example.truthordare.classes.MySharedPreferences;
+import com.example.truthordare.interfaces.CallBackPlayerList;
 import com.example.truthordare.model.Setting;
 import com.google.android.material.slider.Slider;
 import com.google.android.material.textfield.TextInputEditText;
@@ -32,7 +31,7 @@ public class StartDialog extends Dialog {
     TextView tvStartGame;
 
     Context context;
-    MyCallBack myCallBack;
+    CallBackPlayerList callBackPlayerList;
 
     Switch switchDefaultQuestion;
     Switch switchMyQuestion;
@@ -40,13 +39,13 @@ public class StartDialog extends Dialog {
     Setting setting;
 
 
-    public StartDialog(Context context, MyCallBack myCallBack) {
+    public StartDialog(Context context,  CallBackPlayerList callBackPlayerList) {
         super(context);
         setContentView(R.layout.dialog_start);
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
         this.context = context;
-        this.myCallBack = myCallBack;
+        this.callBackPlayerList = callBackPlayerList;
 
         init();
         findViews();
@@ -145,7 +144,7 @@ public class StartDialog extends Dialog {
                     }
                 }
                 if (fullAllEditText == true) {
-                    myCallBack.callBackPlayerList(playerNameList);
+                    callBackPlayerList.getPlayerList(playerNameList);
                     cancel();
                 }
               }
