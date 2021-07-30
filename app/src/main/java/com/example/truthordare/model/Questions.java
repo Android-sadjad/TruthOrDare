@@ -73,6 +73,8 @@ public class Questions {
         } else {
 
 
+
+
             truthQuestionList = questions.getTruthQuestionList();
             dareQuestionList = questions.getDareQuestionList();
 
@@ -80,6 +82,8 @@ public class Questions {
             myDareQuestionList = questions.getMyDareQuestionList();
 
             questionNumber=questions.getQuestionNumber();
+
+
 
 
 
