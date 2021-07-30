@@ -12,18 +12,22 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.model.Questions;
 
 public class AdvertisingDialog extends Dialog {
 
     ConstraintLayout constraintLayout;
     TextView tvYes;
     TextView tvNO;
+    Questions questions;
 
-    public AdvertisingDialog(Context context) {
+    public AdvertisingDialog(Context context,Questions questions) {
         super(context);
 
         setContentView(R.layout.dialog_advertising);
+
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        this.questions=questions;
 
         findViews();
         setViewsSize();
@@ -59,8 +63,9 @@ public class AdvertisingDialog extends Dialog {
             public void onClick(View v) {
                 Toast.makeText(getContext(), "تبریک ۱۰ سوال به هر دسته بندی اضافه شد", Toast.LENGTH_SHORT).show();
 
-
-
+                questions.setQuestionNumber((questions.getQuestionNumber()+10));
+                questions.updateQuestions(getContext(),questions);
+                cancel();
             }
         });
 

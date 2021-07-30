@@ -2,6 +2,8 @@ package com.example.truthordare.model;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MySharedPreferences;
@@ -19,24 +21,48 @@ public class Questions {
     ArrayList<String> myDareQuestionList;
 
 
+    int questionNumber;
+
+
     public Questions() {
 
     }
 
-    public Questions(Activity context) {
+    public int getQuestionNumber() {
+        return questionNumber;
+    }
+
+    public void setQuestionNumber(int questionNumber) {
+        this.questionNumber = questionNumber;
+    }
+
+    public Questions(Context context) {
 
 
         Questions questions = MySharedPreferences.getInstance(context).getQuestions();
 
         if (questions == null) {
 
-            truthQuestionList = new ArrayList<>();
-            String[] truthList = context.getResources().getStringArray(R.array.truth_questions_list);
-            truthQuestionList.addAll(Arrays.asList(truthList));
 
+            questionNumber=10;
+
+            ArrayList<String>tempList=new ArrayList<>();
+            truthQuestionList = new ArrayList<>();
             dareQuestionList = new ArrayList<>();
+
+
+            String[] truthList = context.getResources().getStringArray(R.array.truth_questions_list);
+            tempList.addAll(Arrays.asList(truthList));
+
+            for (int i=0;i<questionNumber;i++)
+                truthQuestionList.add(tempList.get(i));
+
+
             String[] dareList = context.getResources().getStringArray(R.array.dare_questions_list);
-            dareQuestionList.addAll(Arrays.asList(dareList));
+            tempList.addAll(Arrays.asList(dareList));
+
+            for (int i=0;i<questionNumber;i++)
+                dareQuestionList.add(tempList.get(i));
 
             myTruthQuestionList = new ArrayList<>();
             myDareQuestionList = new ArrayList<>();
@@ -46,14 +72,19 @@ public class Questions {
 
         } else {
 
+
             truthQuestionList = questions.getTruthQuestionList();
             dareQuestionList = questions.getDareQuestionList();
 
             myTruthQuestionList = questions.getMyTruthQuestionList();
             myDareQuestionList = questions.getMyDareQuestionList();
 
+            questionNumber=questions.getQuestionNumber();
+
+
 
         }
+        Log.i("number11", String.valueOf(questionNumber));
 
     }
 

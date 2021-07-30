@@ -170,7 +170,7 @@ public class TabFragment extends Fragment {
 
         if(MyConstant.isNetworkAvailable(getContext())){
 
-            AdvertisingDialog advertisingDialog=new AdvertisingDialog(getContext());
+            AdvertisingDialog advertisingDialog=new AdvertisingDialog(getContext(),questions);
             advertisingDialog.show();
 
 
