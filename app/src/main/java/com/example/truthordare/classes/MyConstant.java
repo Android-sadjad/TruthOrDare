@@ -14,6 +14,7 @@ public class MyConstant {
     public static final int SPLASH_SCREEN_DURATION = 500;
     public static final int BOTTLE_NUMBER = 10;
     public static final int REQUEST_CODE = 1;
+    public static final int MAX_QUESTION_NUMBER = 50;
 
     public static final String SHARED_PREFERENCES_NAME="question_list";
     public static final String SETTING="setting";
@@ -30,6 +31,7 @@ public class MyConstant {
     public static final String STANDARD_BANNER_HOME_PAGE = "61026ec203fb244413fcd8ee";
     public static final String interstitial_BANNER = "610274f524c82d5311e6338c";
     public static final String reward_based = "61056351bd57ce68f9fa9aff";
+
 
 
     public static int getScreenWidth() {

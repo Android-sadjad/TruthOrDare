@@ -93,7 +93,10 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
 
                     @Override
                     public void myError() {
-                        if (flag[0]){
+
+                        if (flag[0])
+
+                        {
                             Toast.makeText(activity, "برای دریافت جایزه باید ویدیو تا انتها مشاهده شود.", Toast.LENGTH_SHORT).show();
 
                         }

@@ -69,7 +69,15 @@ this.callBackUpdateList=callBackUpdateList;
             @Override
             public void onClick(View v) {
 
+                if (questions.getQuestionNumber()>=MyConstant.MAX_QUESTION_NUMBER){
+
+                    Toast.makeText(activity, "قبلا همه سوال ها اضافه شده است", Toast.LENGTH_SHORT).show();
+                    cancel();
+                    return;
+                }
+
                 final boolean[] flag = {true};
+
 
 
                 MyTapsell.showInterstitialAd(activity, MyConstant.reward_based, new CallBackReward() {
