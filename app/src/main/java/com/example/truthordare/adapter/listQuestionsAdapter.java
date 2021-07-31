@@ -14,18 +14,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
+import com.example.truthordare.model.Questions;
 
 import java.util.ArrayList;
 
 public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdapter.ViewHolder> {
 
+    Questions questions;
     ArrayList<String> questionList;
     String listName;
 
-    public listQuestionsAdapter(ArrayList<String> questionList, String listName) {
+    public listQuestionsAdapter(ArrayList<String> questionList, String listName,Questions questions) {
 
         this.questionList = questionList;
         this.listName = listName;
+        this.questions=questions;
     }
 
     @NonNull
@@ -38,6 +41,12 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
 
     @Override
     public void onBindViewHolder(@NonNull listQuestionsAdapter.ViewHolder holder, int position) {
+
+        if (listName.equals(MyConstant.DARE) || listName.equals(MyConstant.TRUTH)){
+            holder.ivDeleteItem.setVisibility(View.GONE);
+        }
+
+
 
         holder.ivDeleteItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +109,13 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
 
     @Override
     public int getItemCount() {
+
+        if (listName.equals(MyConstant.DARE) || listName.equals(MyConstant.TRUTH)){
+
+            return  questions.getQuestionNumber();
+
+        }
+
         return questionList.size();
     }
 

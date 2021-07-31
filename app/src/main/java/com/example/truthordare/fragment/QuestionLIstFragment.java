@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.adapter.listQuestionsAdapter;
 import com.example.truthordare.R;
+import com.example.truthordare.model.Questions;
 
 import java.util.ArrayList;
 
@@ -58,10 +59,10 @@ public class QuestionLIstFragment extends Fragment {
         llGuide = view.findViewById(R.id.ll_guide);
     }
 
-    private void init(){
+    public void init(){
 
 
-        questionsAdapter = new listQuestionsAdapter(questionList,listName);
+        questionsAdapter = new listQuestionsAdapter(questionList,listName,new Questions(getContext()));
         rvQuestionList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvQuestionList.setAdapter(questionsAdapter);
 

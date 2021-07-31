@@ -46,23 +46,7 @@ public class Questions {
 
             questionNumber=10;
 
-            ArrayList<String>tempList=new ArrayList<>();
-            truthQuestionList = new ArrayList<>();
-            dareQuestionList = new ArrayList<>();
-
-
-            String[] truthList = context.getResources().getStringArray(R.array.truth_questions_list);
-            tempList.addAll(Arrays.asList(truthList));
-
-            for (int i=0;i<questionNumber;i++)
-                truthQuestionList.add(tempList.get(i));
-
-
-            String[] dareList = context.getResources().getStringArray(R.array.dare_questions_list);
-            tempList.addAll(Arrays.asList(dareList));
-
-            for (int i=0;i<questionNumber;i++)
-                dareQuestionList.add(tempList.get(i));
+          initDefaultQuestion(context);
 
             myTruthQuestionList = new ArrayList<>();
             myDareQuestionList = new ArrayList<>();
@@ -73,6 +57,8 @@ public class Questions {
         } else {
 
 
+            questionNumber=questions.getQuestionNumber();
+
 
 
             truthQuestionList = questions.getTruthQuestionList();
@@ -81,7 +67,9 @@ public class Questions {
             myTruthQuestionList = questions.getMyTruthQuestionList();
             myDareQuestionList = questions.getMyDareQuestionList();
 
-            questionNumber=questions.getQuestionNumber();
+
+
+
 
 
 
@@ -91,6 +79,31 @@ public class Questions {
         Log.i("number11", String.valueOf(questionNumber));
 
     }
+
+
+    private void initDefaultQuestion(Context context){
+
+        ArrayList<String>tempList=new ArrayList<>();
+        truthQuestionList = new ArrayList<>();
+        dareQuestionList = new ArrayList<>();
+
+
+        String[] truthList = context.getResources().getStringArray(R.array.truth_questions_list);
+        tempList.addAll(Arrays.asList(truthList));
+
+        for (int i=0;i<tempList.size();i++)
+            truthQuestionList.add(tempList.get(i));
+
+
+        String[] dareList = context.getResources().getStringArray(R.array.dare_questions_list);
+        tempList.addAll(Arrays.asList(dareList));
+
+        for (int i=0;i<tempList.size();i++)
+            dareQuestionList.add(tempList.get(i));
+
+
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
 

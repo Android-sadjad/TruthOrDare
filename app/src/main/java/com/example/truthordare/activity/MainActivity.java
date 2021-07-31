@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.tv_hemayat:
-                MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER);
+               // MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER);
 
                 break;
             case R.id.tv_comment:

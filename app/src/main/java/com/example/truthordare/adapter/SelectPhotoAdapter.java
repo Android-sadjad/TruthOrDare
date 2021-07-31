@@ -1,6 +1,6 @@
 package com.example.truthordare.adapter;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +11,10 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
+import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.MyTapsell;
+import com.example.truthordare.dialog.AdvertisingDialog;
+import com.example.truthordare.interfaces.CallBackReward;
 import com.example.truthordare.model.Setting;
 
 public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.ViewHolder> {
@@ -18,12 +22,12 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
     boolean[] lockFlags;
     int checkedPosition;
 
-    Context context;
+    Activity activity;
     Setting setting;
 
-    public SelectPhotoAdapter(Context context, Setting setting) {
+    public SelectPhotoAdapter(Activity activity, Setting setting) {
 
-        this.context = context;
+        this.activity = activity;
         this.setting = setting;
 
         checkedPosition = setting.getPosition();
@@ -47,6 +51,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
             holder.ivLock.setVisibility(View.VISIBLE);
             holder.cbSelected.setVisibility(View.GONE);
         } else {
+
             holder.ivLock.setVisibility(View.GONE);
             holder.cbSelected.setVisibility(View.VISIBLE);
         }
@@ -60,7 +65,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
                 } else {
 
                     ((CheckBox) v).setChecked(true);
-                    Toast.makeText(context, "حتما باید یک عکس رو انتخاب کنی", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "حتما باید یک عکس رو انتخاب کنی", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -72,15 +77,38 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
             @Override
             public void onClick(View v) {
 
-                lockFlags[position] = false;
-                setting.setLockFlags(lockFlags);
-                notifyDataSetChanged();
+
+                final boolean[] flag = {true};
+
+                MyTapsell.showInterstitialAd(activity, MyConstant.reward_based, new CallBackReward() {
+                    @Override
+                    public void myReward() {
+
+                        flag[0] =false;
+                        lockFlags[position] = false;
+                        setting.setLockFlags(lockFlags);
+                        notifyDataSetChanged();
+
+                    }
+
+                    @Override
+                    public void myError() {
+                        if (flag[0]){
+                            Toast.makeText(activity, "برای دریافت جایزه باید ویدیو تا انتها مشاهده شود.", Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+                });
+
+
+
 
             }
         });
 
 
-        int id = context.getResources().getIdentifier("bottle_" + (position + 1), "drawable", context.getPackageName());
+        int id = activity.getResources().getIdentifier("bottle_" + (position + 1), "drawable", activity.getPackageName());
         holder.ivBottle.setBackgroundResource(id);
 
 

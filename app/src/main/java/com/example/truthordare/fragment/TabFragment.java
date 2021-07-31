@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +17,7 @@ import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.dialog.AddQuestionDialog;
 import com.example.truthordare.dialog.AdvertisingDialog;
 import com.example.truthordare.interfaces.CallBackAddQuestions;
+import com.example.truthordare.interfaces.CallBackUpdateList;
 import com.example.truthordare.model.Questions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -170,7 +172,15 @@ public class TabFragment extends Fragment {
 
         if(MyConstant.isNetworkAvailable(getContext())){
 
-            AdvertisingDialog advertisingDialog=new AdvertisingDialog(getContext(),questions);
+            AdvertisingDialog advertisingDialog=new AdvertisingDialog(getActivity(), questions, new CallBackUpdateList() {
+                @Override
+                public void updateCallBack() {
+//                   QuestionLIstFragment.updateDefaultList();
+                   dareQuestionFragment.init();
+                   truthQuestionFragment.init();
+                    Toast.makeText(getContext(), "aaa", Toast.LENGTH_SHORT).show();
+                }
+            });
             advertisingDialog.show();
 
 
