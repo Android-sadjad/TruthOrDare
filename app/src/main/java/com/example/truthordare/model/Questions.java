@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MySharedPreferences;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -87,20 +88,11 @@ public class Questions {
         truthQuestionList = new ArrayList<>();
         dareQuestionList = new ArrayList<>();
 
-
         String[] truthList = context.getResources().getStringArray(R.array.truth_questions_list);
-        tempList.addAll(Arrays.asList(truthList));
-
-        for (int i=0;i<tempList.size();i++)
-            truthQuestionList.add(tempList.get(i));
-
-
         String[] dareList = context.getResources().getStringArray(R.array.dare_questions_list);
-        tempList.addAll(Arrays.asList(dareList));
 
-        for (int i=0;i<tempList.size();i++)
-            dareQuestionList.add(tempList.get(i));
-
+        truthQuestionList.addAll(Arrays.asList(truthList));
+        dareQuestionList.addAll(Arrays.asList(dareList));
 
     }
 
