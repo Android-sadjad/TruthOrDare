@@ -12,7 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
 import com.example.truthordare.adapter.SelectPhotoAdapter;
+import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Setting;
+
+import ir.tapsell.plus.TapsellPlus;
+import ir.tapsell.plus.TapsellPlusInitListener;
+import ir.tapsell.plus.model.AdNetworkError;
+import ir.tapsell.plus.model.AdNetworks;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -37,6 +44,9 @@ public class SettingActivity extends AppCompatActivity {
         init();
         setUpSetting();
         setSwitchOnClick();
+
+
+
 
     }
 
@@ -100,6 +110,13 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setting.setAppSound(isChecked);
+                if (isChecked){
+                    MyMediaPlayer.mediaPlayer.start();
+                }else {
+                    MyMediaPlayer.mediaPlayer.pause();
+                }
+
+
             }
         });
 
@@ -112,6 +129,9 @@ public class SettingActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
 
     @Override
@@ -128,7 +148,8 @@ public class SettingActivity extends AppCompatActivity {
 
 
         setResult(Activity.RESULT_OK, new Intent());
-        finish();
+
+
 
     }
 }

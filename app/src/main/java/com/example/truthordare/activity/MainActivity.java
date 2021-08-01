@@ -15,11 +15,14 @@ import androidx.fragment.app.Fragment;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MyTapsell;
+import com.example.truthordare.classes.MytapsellBanner;
+import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.dialog.StartDialog;
 import com.example.truthordare.fragment.TabFragment;
 import com.example.truthordare.fragment.StartGameFragment;
 import com.example.truthordare.interfaces.CallBackPlayerList;
+import com.example.truthordare.model.Setting;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -47,16 +50,26 @@ public class MainActivity extends AppCompatActivity {
     Questions questions;
 
 
+    Setting setting;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         initTapsell();
         findViews();
         init();
         setViewSize();
         configuration();
+        if (setting.isAppSound()){
+
+         MyMediaPlayer.mediaPlayer.start();
+
+
+        }
+
 
         RelativeLayout relativeLayout = findViewById(R.id.standardBanner);
 
@@ -92,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
 
+        setting=new Setting(MainActivity.this);
+        MyMediaPlayer.createMediaPlayer(MainActivity.this);
         questions = new Questions(this);
 
         myQuestionFragment = new TabFragment(MyConstant.MY_LIST);
@@ -164,7 +179,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.tv_hemayat:
-               // MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER);
+
+                MytapsellBanner.showInterstitialAd(MainActivity.this,MyConstant.interstitial_BANNER);
 
                 break;
             case R.id.tv_comment:
@@ -173,8 +189,9 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.tv_setting:
 
-                startActivity(new Intent(MainActivity.this, SettingActivity.class));
-                break;
+              startActivity(new Intent(MainActivity.this, SettingActivity.class));
+
+               break;
             case R.id.tv_exit:
 
                 break;
@@ -216,4 +233,6 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout.closeDrawer(Gravity.RIGHT);
     }
+
+
 }

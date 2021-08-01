@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
-import com.example.truthordare.classes.MyTapsell;
-import com.example.truthordare.dialog.AdvertisingDialog;
-import com.example.truthordare.interfaces.CallBackReward;
+import com.example.truthordare.dialog.AdvertisingSelectDialog;
+import com.example.truthordare.interfaces.CallBackUpdateList;
+import com.example.truthordare.interfaces.CallBackUpdateSelect;
 import com.example.truthordare.model.Setting;
 
 public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.ViewHolder> {
@@ -78,31 +78,28 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
             public void onClick(View v) {
 
 
-                final boolean[] flag = {true};
+                if(MyConstant.isNetworkAvailable(activity)){
 
-                MyTapsell.showInterstitialAd(activity, MyConstant.reward_based, new CallBackReward() {
-                    @Override
-                    public void myReward() {
+                    AdvertisingSelectDialog advertisingSelectDialog=new AdvertisingSelectDialog(activity, setting,new CallBackUpdateSelect() {
+                        @Override
+                        public void updateSelect() {
 
-                        flag[0] =false;
-                        lockFlags[position] = false;
-                        setting.setLockFlags(lockFlags);
-                        notifyDataSetChanged();
+                            Toast.makeText(activity, "تبریک بطری شما اضافه شد", Toast.LENGTH_SHORT).show();
 
-                    }
+                            lockFlags[position] = false;
+                            setting.setLockFlags(lockFlags);
+                            setting.updateSetting(activity,setting);
 
-                    @Override
-                    public void myError() {
+                            notifyDataSetChanged();
 
-                        if (flag[0])
-
-                        {
-                            Toast.makeText(activity, "برای دریافت جایزه باید ویدیو تا انتها مشاهده شود.", Toast.LENGTH_SHORT).show();
 
                         }
 
-                    }
-                });
+                    });
+                    advertisingSelectDialog.show();
+
+
+                }
 
 
 

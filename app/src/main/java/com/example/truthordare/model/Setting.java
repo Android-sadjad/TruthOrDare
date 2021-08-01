@@ -1,6 +1,7 @@
 package com.example.truthordare.model;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.truthordare.classes.MyConstant;
@@ -13,7 +14,6 @@ public class Setting {
     boolean repeatQuestion;
     boolean appSound;
     boolean circleSound;
-
     boolean []lockFlags;
     int position;
 
@@ -123,6 +123,8 @@ public class Setting {
 
     public void setLockFlags(boolean[] lockFlags) {
         this.lockFlags = lockFlags;
+
+
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.truthordare.fragment;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import com.example.truthordare.R;
 import com.example.truthordare.activity.SettingActivity;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
+import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
 
@@ -61,6 +63,7 @@ public class StartGameFragment extends Fragment {
 
     Setting setting;
 
+MediaPlayer mpRound;
 
     public StartGameFragment(ArrayList<String> playerNameList) {
 
@@ -107,6 +110,8 @@ public class StartGameFragment extends Fragment {
 
         repetitiousTruthQuestion = new ArrayList<>();
         repetitiousDareQuestion = new ArrayList<>();
+
+        mpRound=MediaPlayer.create(getContext(),R.raw.rounding);
 
 
     }
@@ -191,6 +196,17 @@ public class StartGameFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+
+
+                if (mpRound.isPlaying()){
+                    return;
+
+                }
+
+                if(setting.isCircleSound()){
+                    mpRound.start();
+                }
+
                 int randomNumber = createRandomNumber();
 
                 RotateAnimation rotate = new RotateAnimation(currentDegree,
@@ -198,7 +214,7 @@ public class StartGameFragment extends Fragment {
                         Animation.RELATIVE_TO_SELF,
                         0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
-                rotate.setDuration(2000);
+                rotate.setDuration(mpRound.getDuration());
                 rotate.setFillAfter(true);
 
                 currentDegree = randomNumber;
