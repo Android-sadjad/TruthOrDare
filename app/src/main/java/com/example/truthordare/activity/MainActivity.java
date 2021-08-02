@@ -14,8 +14,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.MyIntent;
 import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.classes.MytapsellBanner;
+import com.example.truthordare.dialog.AboutUsDialog;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.dialog.StartDialog;
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     Questions questions;
 
+    AboutUsDialog aboutUsDialog;
 
     Setting setting;
 
@@ -63,9 +66,9 @@ public class MainActivity extends AppCompatActivity {
         init();
         setViewSize();
         configuration();
-        if (setting.isAppSound()){
+        if (setting.isAppSound()) {
 
-         MyMediaPlayer.mpMainSound.start();
+            MyMediaPlayer.mpMainSound.start();
 
 
         }
@@ -105,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
 
-        setting=new Setting(MainActivity.this);
+        setting = new Setting(MainActivity.this);
         MyMediaPlayer.createMediaPlayer(MainActivity.this);
         MyMediaPlayer.createButtonSound(MainActivity.this);
         questions = new Questions(this);
@@ -116,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         screenWidth = MyConstant.getScreenWidth();
         screenHeight = MyConstant.getScreenHeight();
 
+        aboutUsDialog=new AboutUsDialog(MainActivity.this);
     }
 
     public void setViewSize() {
@@ -162,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view) {
 
-setting=new Setting(MainActivity.this);
+        setting = new Setting(MainActivity.this);
         if (setting.isButtonSound()) {
 
             MyMediaPlayer.mpBtnSound.start();
@@ -188,19 +192,20 @@ setting=new Setting(MainActivity.this);
 
             case R.id.tv_hemayat:
 
-                MytapsellBanner.showInterstitialAd(MainActivity.this,MyConstant.interstitial_BANNER);
+                MytapsellBanner.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER);
 
                 break;
             case R.id.tv_comment:
+                MyIntent.commentIntent(MainActivity.this);
 
 
                 break;
 
             case R.id.tv_setting:
 
-              startActivity(new Intent(MainActivity.this, SettingActivity.class));
+                startActivity(new Intent(MainActivity.this, SettingActivity.class));
 
-               break;
+                break;
             case R.id.tv_exit:
 
                 break;
@@ -226,18 +231,30 @@ setting=new Setting(MainActivity.this);
                 loadFragment(defaultQuestionFragment);
                 break;
 
-            case R.id.tv_hemayat:
+            case R.id.nav_hemayat:
+                MytapsellBanner.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER);
 
                 break;
-            case R.id.tv_comment:
+            case R.id.nav_comment:
 
+                MyIntent.commentIntent(MainActivity.this);
                 break;
 
 
-            case R.id.tv_exit:
+            case R.id.nav_exit:
 
                 break;
 
+            case R.id.nav_share_app:
+                MyIntent.shareAppIntent(MainActivity.this);
+                break;
+            case R.id.nav_home_page:
+                closeFragment();
+                break;
+
+            case R.id.nav_about_us:
+            aboutUsDialog.show();
+                break;
         }
 
         drawerLayout.closeDrawer(Gravity.RIGHT);
@@ -247,6 +264,14 @@ setting=new Setting(MainActivity.this);
     protected void onPause() {
         super.onPause();
         if (MyMediaPlayer.mpMainSound.isPlaying())
-        MyMediaPlayer.mpMainSound.pause();
+            MyMediaPlayer.mpMainSound.pause();
+    }
+
+    private void closeFragment() {
+while (getSupportFragmentManager().getBackStackEntryCount()>0){
+
+    onBackPressed();
+}
+
     }
 }
