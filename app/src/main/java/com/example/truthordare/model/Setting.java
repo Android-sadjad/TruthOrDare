@@ -14,8 +14,13 @@ public class Setting {
     boolean repeatQuestion;
     boolean appSound;
     boolean circleSound;
+    boolean buttonSound;
+
     boolean []lockFlags;
     int position;
+
+
+
 
 
 
@@ -39,6 +44,7 @@ public class Setting {
             repeatQuestion=false;
             appSound=true;
             circleSound=true;
+            buttonSound=true;
 
             position=1;
 
@@ -65,8 +71,10 @@ public class Setting {
             position=setting.getPosition();
             lockFlags=setting.getLockFlags();
 
+            buttonSound=setting.isButtonSound();
 
         }
+
 
 
     }
@@ -125,6 +133,14 @@ public class Setting {
         this.lockFlags = lockFlags;
 
 
+    }
+
+    public boolean isButtonSound() {
+        return buttonSound;
+    }
+
+    public void setButtonSound(boolean buttonSound) {
+        this.buttonSound = buttonSound;
     }
 
 

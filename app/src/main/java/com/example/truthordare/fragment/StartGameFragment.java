@@ -289,6 +289,10 @@ MediaPlayer mpRound;
             @Override
             public void onClick(View v) {
 
+                if (setting.isButtonSound()){
+                    MyMediaPlayer.mpBtnSound.start();
+                }
+
                 startActivityForResult(new Intent(getActivity(), SettingActivity.class), MyConstant.REQUEST_CODE);
                 downAnimation();
                 downQuestionLayoutAnimation();

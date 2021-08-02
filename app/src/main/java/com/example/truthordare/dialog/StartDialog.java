@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.R;
 import com.example.truthordare.interfaces.CallBackPlayerList;
+import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Setting;
 import com.google.android.material.slider.Slider;
 import com.google.android.material.textfield.TextInputEditText;
@@ -121,6 +122,9 @@ public class StartDialog extends Dialog {
             @Override
             public void onClick(View v) {
 
+                if (setting.isButtonSound()){
+                    MyMediaPlayer.mpBtnSound.start();
+                }
 
 
 

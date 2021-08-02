@@ -12,14 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
 import com.example.truthordare.adapter.SelectPhotoAdapter;
-import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Setting;
-
-import ir.tapsell.plus.TapsellPlus;
-import ir.tapsell.plus.TapsellPlusInitListener;
-import ir.tapsell.plus.model.AdNetworkError;
-import ir.tapsell.plus.model.AdNetworks;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -32,6 +26,7 @@ public class SettingActivity extends AppCompatActivity {
     Switch switchRepeatQuestion;
     Switch switchAppSound;
     Switch switchCircleSound;
+    Switch switchButtonSound;
 
 
     @Override
@@ -55,6 +50,7 @@ public class SettingActivity extends AppCompatActivity {
         rvSelectPhoto = findViewById(R.id.rv_select_photo);
 
         switchDefaultQuestion = findViewById(R.id.switch_default);
+        switchButtonSound = findViewById(R.id.switch_btn_sound);
         switchMYQuestion = findViewById(R.id.switch_my);
         switchRepeatQuestion = findViewById(R.id.switch_repeat_question);
         switchAppSound = findViewById(R.id.switch_app_sound);
@@ -79,6 +75,7 @@ public class SettingActivity extends AppCompatActivity {
         switchRepeatQuestion.setChecked(setting.isRepeatQuestion());
         switchAppSound.setChecked(setting.isAppSound());
         switchCircleSound.setChecked(setting.isCircleSound());
+        switchButtonSound.setChecked(setting.isButtonSound());
 
     }
 
@@ -111,9 +108,9 @@ public class SettingActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setting.setAppSound(isChecked);
                 if (isChecked){
-                    MyMediaPlayer.mediaPlayer.start();
+                    MyMediaPlayer.mpMainSound.start();
                 }else {
-                    MyMediaPlayer.mediaPlayer.pause();
+                    MyMediaPlayer.mpMainSound.pause();
                 }
 
 
@@ -127,12 +124,25 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+       switchButtonSound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+               setting.setButtonSound(isChecked);
+           }
+       });
+
+
 
     }
 
 
-
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (setting.isAppSound()){
+            MyMediaPlayer.mpMainSound.start();
+        }
+    }
 
     @Override
     protected void onPause() {

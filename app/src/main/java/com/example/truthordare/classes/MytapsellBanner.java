@@ -3,7 +3,7 @@ package com.example.truthordare.classes;
 import android.app.Activity;
 import android.widget.Toast;
 
-import com.example.truthordare.interfaces.CallBackReward;
+import com.example.truthordare.model.MyMediaPlayer;
 
 import ir.tapsell.plus.AdRequestCallback;
 import ir.tapsell.plus.AdShowListener;
@@ -12,6 +12,8 @@ import ir.tapsell.plus.model.TapsellPlusAdModel;
 import ir.tapsell.plus.model.TapsellPlusErrorModel;
 
 public class MytapsellBanner {
+
+
 
     public static void showInterstitialAd(Activity activity, String zoneId) {
         TapsellPlus.requestRewardedVideoAd(
@@ -36,12 +38,13 @@ public class MytapsellBanner {
                                     public void onOpened(TapsellPlusAdModel tapsellPlusAdModel) {
                                         super.onOpened(tapsellPlusAdModel);
                                         Toast.makeText(activity, "opened", Toast.LENGTH_SHORT).show();
+                                        MyMediaPlayer.mpMainSound.pause();
                                     }
 
                                     @Override
                                     public void onClosed(TapsellPlusAdModel tapsellPlusAdModel) {
                                         super.onClosed(tapsellPlusAdModel);
-
+                                        MyMediaPlayer.mpMainSound.start();
                                     }
 
                                     @Override
@@ -55,6 +58,7 @@ public class MytapsellBanner {
                                     public void onError(TapsellPlusErrorModel tapsellPlusErrorModel) {
                                         super.onError(tapsellPlusErrorModel);
                                         Toast.makeText(activity, "erorrrrrrrr", Toast.LENGTH_SHORT).show();
+
                                     }
                                 });
 

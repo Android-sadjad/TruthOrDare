@@ -118,6 +118,10 @@
                 style="@style/switch_style"
                 android:text="صدای برنامه"
                 android:id="@+id/switch_app_sound"/>
+            <Switch
+                style="@style/switch_style"
+                android:text="صدای دکمه ها"
+                android:id="@+id/switch_btn_sound"/>
 
         </LinearLayout>
 

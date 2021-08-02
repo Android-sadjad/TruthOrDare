@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         configuration();
         if (setting.isAppSound()){
 
-         MyMediaPlayer.mediaPlayer.start();
+         MyMediaPlayer.mpMainSound.start();
 
 
         }
@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         setting=new Setting(MainActivity.this);
         MyMediaPlayer.createMediaPlayer(MainActivity.this);
+        MyMediaPlayer.createButtonSound(MainActivity.this);
         questions = new Questions(this);
 
         myQuestionFragment = new TabFragment(MyConstant.MY_LIST);
@@ -161,6 +162,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view) {
 
+setting=new Setting(MainActivity.this);
+        if (setting.isButtonSound()) {
+
+            MyMediaPlayer.mpBtnSound.start();
+        }
+
+
         switch (view.getId()) {
 
             case R.id.tv_show_start_dialog:
@@ -184,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.tv_comment:
+
 
                 break;
 
@@ -234,5 +243,10 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.closeDrawer(Gravity.RIGHT);
     }
 
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (MyMediaPlayer.mpMainSound.isPlaying())
+        MyMediaPlayer.mpMainSound.pause();
+    }
 }
