@@ -18,6 +18,7 @@ import com.example.truthordare.classes.MyIntent;
 import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.classes.MytapsellBanner;
 import com.example.truthordare.dialog.AboutUsDialog;
+import com.example.truthordare.dialog.ExitDialog;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.dialog.StartDialog;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     Questions questions;
 
     AboutUsDialog aboutUsDialog;
+    ExitDialog exitDialog;
 
     Setting setting;
 
@@ -120,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
         screenHeight = MyConstant.getScreenHeight();
 
         aboutUsDialog=new AboutUsDialog(MainActivity.this);
+        exitDialog=new ExitDialog(MainActivity.this);
     }
 
     public void setViewSize() {
@@ -207,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.tv_exit:
-
+exitDialog.show();
                 break;
 
             case R.id.iv_menu:
@@ -242,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             case R.id.nav_exit:
-
+                exitDialog.show();
                 break;
 
             case R.id.nav_share_app:

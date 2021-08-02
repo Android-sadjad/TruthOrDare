@@ -2,16 +2,9 @@ package com.example.truthordare.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.DialogFragment;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
@@ -22,7 +15,7 @@ public class AboutUsDialog extends Dialog {
 
     public AboutUsDialog(@NonNull Context context) {
         super(context);
-        setContentView(R.layout.fragment_about_us);
+        setContentView(R.layout.dialog_about_us);
         findViews();
         setViewSize();
     }
