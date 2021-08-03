@@ -137,14 +137,6 @@ public class SettingActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        if (setting.isAppSound()){
-            MyMediaPlayer.mpMainSound.start();
-        }
-    }
-
-    @Override
     protected void onPause() {
         super.onPause();
 
@@ -156,10 +148,7 @@ public class SettingActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-
         setResult(Activity.RESULT_OK, new Intent());
-
-
 
     }
 }

@@ -77,7 +77,7 @@ public class AddQuestionDialog extends Dialog {
             public void onClick(View v) {
 
                 if (tieTextQuestion.getText().length() == 0) {
-                    tieTextQuestion.setError("لطفا متن سوال را وارد کنید");
+                    tieTextQuestion.setError(getContext().getString(R.string.please_enter_question));
                     return;
                 }
 

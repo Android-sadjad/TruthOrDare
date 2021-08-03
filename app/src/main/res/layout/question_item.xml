@@ -16,7 +16,7 @@
       app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/iv_delete_item"
         android:padding="@dimen/_10sdp"
-        android:text="اب نخوردی بی تربیت؟"
+        android:text="@string/sample_question"
         android:textSize="@dimen/_18sdp"
         app:layout_constraintTop_toTopOf="parent"
 

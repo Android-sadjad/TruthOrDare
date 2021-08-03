@@ -63,7 +63,7 @@ public class StartGameFragment extends Fragment {
 
     Setting setting;
 
-MediaPlayer mpRound;
+    MediaPlayer mpRound;
 
     public StartGameFragment(ArrayList<String> playerNameList) {
 
@@ -111,7 +111,7 @@ MediaPlayer mpRound;
         repetitiousTruthQuestion = new ArrayList<>();
         repetitiousDareQuestion = new ArrayList<>();
 
-        mpRound=MediaPlayer.create(getContext(),R.raw.rounding);
+        mpRound = MediaPlayer.create(getContext(), R.raw.rounding);
 
 
     }
@@ -197,13 +197,12 @@ MediaPlayer mpRound;
             public void onClick(View v) {
 
 
-
-                if (mpRound.isPlaying()){
+                if (mpRound.isPlaying()) {
                     return;
 
                 }
 
-                if(setting.isCircleSound()){
+                if (setting.isCircleSound()) {
                     mpRound.start();
                 }
 
@@ -245,7 +244,7 @@ MediaPlayer mpRound;
 
 
                 downAnimation();
-                tvTod.setText("حقیقت");
+                tvTod.setText(R.string.truth);
                 showRandomTruthQuestion();
 
                 upQuestionLayoutAnimation();
@@ -258,7 +257,7 @@ MediaPlayer mpRound;
             public void onClick(View v) {
 
                 downAnimation();
-                tvTod.setText("جرعت");
+                tvTod.setText(R.string.dare);
                 showRandomDareQuestion();
                 upQuestionLayoutAnimation();
 
@@ -275,10 +274,10 @@ MediaPlayer mpRound;
             @Override
             public void onClick(View v) {
 
-                if (tvTod.getText().equals("حقیقت")) {
+                if (tvTod.getText().equals(R.string.truth)) {
 
                     showRandomTruthQuestion();
-                } else if (tvTod.getText().equals("جرعت")) {
+                } else if (tvTod.getText().equals(R.string.dare)) {
                     showRandomDareQuestion();
                 }
 
@@ -289,7 +288,7 @@ MediaPlayer mpRound;
             @Override
             public void onClick(View v) {
 
-                if (setting.isButtonSound()){
+                if (setting.isButtonSound()) {
                     MyMediaPlayer.mpBtnSound.start();
                 }
 
@@ -369,7 +368,7 @@ MediaPlayer mpRound;
         }
 
         if (truthQuestionList.isEmpty())
-            tvQuestion.setText("هیچ سوالی انتخاب نشده است");
+            tvQuestion.setText(R.string.no_question_selected);
         else {
             if (setting.isRepeatQuestion())
                 tvQuestion.setText(truthQuestionList.get(createRandomNumber(truthQuestionList.size())));
@@ -395,7 +394,7 @@ MediaPlayer mpRound;
             dareQuestionList.addAll(MySharedPreferences.getInstance(getContext()).getQuestions().getMyDareQuestionList());
         }
         if (dareQuestionList.isEmpty())
-            tvQuestion.setText("هیچ سوالی انتخاب نشده است");
+            tvQuestion.setText(R.string.no_question_selected);
 
         else {
             if (setting.isRepeatQuestion())
@@ -422,7 +421,7 @@ MediaPlayer mpRound;
     private int createNonRepeatRandomNumber(int maximum, String listType) {
 
         int randomNumber;
-        if (listType.equals("truth")) {
+        if (listType.equals(R.string.truth)) {
 
             while (true) {
                 if (repetitiousTruthQuestion.size() == maximum)

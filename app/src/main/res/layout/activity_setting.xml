@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
 
 
-            android:text="لیست سوالات"
+            android:text="@string/questions_list"
             android:textSize="@dimen/_18sdp"
             android:textColor="@color/white"
             android:gravity="center"
@@ -51,17 +51,17 @@
             <Switch
 
                 style="@style/switch_style"
-                android:text="سوالات پیشفرض"
+                android:text="@string/default_questions"
                 android:id="@+id/switch_default"/>
 
             <Switch
                 style="@style/switch_style"
-                android:text="سوالات من"
+                android:text="@string/my_questions"
                 android:id="@+id/switch_my"/>
 
             <Switch
                 style="@style/switch_style"
-                android:text="سوال تکراری"
+                android:text="@string/repetitious_question"
                 android:id="@+id/switch_repeat_question"/>
 
         </LinearLayout>
@@ -88,7 +88,7 @@
             android:layout_height="match_parent"
 
 
-            android:text="تنظیمات صدا "
+            android:text="@string/sound_setting"
             android:textSize="@dimen/_18sdp"
             android:textColor="@color/white"
             android:gravity="center"
@@ -111,16 +111,16 @@
             <Switch
 
                style="@style/switch_style"
-                android:text="صدای چرخش"
+                android:text="@string/rotation_sound"
                 android:id="@+id/switch_circle_cound"/>
 
             <Switch
                 style="@style/switch_style"
-                android:text="صدای برنامه"
+                android:text="@string/app_sound"
                 android:id="@+id/switch_app_sound"/>
             <Switch
                 style="@style/switch_style"
-                android:text="صدای دکمه ها"
+                android:text="@string/button_sound"
                 android:id="@+id/switch_btn_sound"/>
 
         </LinearLayout>

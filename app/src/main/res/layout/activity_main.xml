@@ -74,7 +74,7 @@
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_100sdp"
             android:layout_marginTop="@dimen/_100sdp"
-            android:text="شروع بازی"
+            android:text="@string/start_game"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +83,7 @@
             android:id="@+id/tv_my_question"
             style="@style/tv_main_menu_style"
             android:layout_marginTop="@dimen/_40sdp"
-            android:text="سوالات من"
+            android:text="@string/my_questions"
             app:layout_constraintLeft_toRightOf="@id/tv_default_questions"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_show_start_dialog" />
@@ -91,7 +91,7 @@
         <TextView
             android:id="@+id/tv_default_questions"
             style="@style/tv_main_menu_style"
-            android:text="لیست سوالات"
+            android:text="@string/default_questions"
             app:layout_constraintBottom_toBottomOf="@id/tv_my_question"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/tv_my_question"
@@ -101,7 +101,7 @@
             android:id="@+id/tv_hemayat"
             style="@style/tv_main_menu_style"
             android:layout_marginTop="@dimen/_20sdp"
-            android:text="حمایت از ما"
+            android:text="@string/support_from_us"
             app:layout_constraintLeft_toRightOf="@id/tv_comment"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_my_question" />
@@ -109,7 +109,7 @@
         <TextView
             android:id="@+id/tv_comment"
             style="@style/tv_main_menu_style"
-            android:text="ثبت نظر"
+            android:text="@string/comment"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/tv_hemayat"
             app:layout_constraintTop_toTopOf="@id/tv_hemayat"
@@ -120,7 +120,7 @@
             android:id="@+id/tv_exit"
             style="@style/tv_main_menu_style"
             android:layout_marginTop="@dimen/_20sdp"
-            android:text="خروج"
+            android:text="@string/exit"
             app:layout_constraintTop_toBottomOf="@id/tv_hemayat"
             app:layout_constraintRight_toRightOf="@id/tv_hemayat"
             />
@@ -129,7 +129,7 @@
             android:id="@+id/tv_setting"
             style="@style/tv_main_menu_style"
             android:layout_marginTop="@dimen/_20sdp"
-            android:text="تنظیمات"
+            android:text="@string/setting"
             app:layout_constraintRight_toRightOf="@id/tv_comment"
             app:layout_constraintTop_toBottomOf="@id/tv_comment"
 

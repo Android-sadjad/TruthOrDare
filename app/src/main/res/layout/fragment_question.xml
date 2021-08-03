@@ -30,8 +30,9 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="هنوز سوالی اضافه نشده"
-            android:textSize="@dimen/_23sdp"
+            android:text="@string/no_question_added"
+            android:textSize="@dimen/_20sdp"
+            android:gravity="center"
 
 
 
@@ -40,10 +41,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="با زدن روی دکمه پلاس \nسوال خود را اضافه کنید"
+            android:text="@string/add_your_question"
             android:textSize="@dimen/_15sdp"
             android:layout_gravity="center"
             android:lines="2"
+            android:gravity="center"
 
 
             />

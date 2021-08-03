@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_start_dialog"
     android:layout_width="match_parent"
@@ -11,10 +10,10 @@
         android:id="@+id/view_start_dialog_background"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/wood6"
-        app:layout_constraintBottom_toBottomOf="@id/tv_start_game"
         android:layout_marginTop="@dimen/_30sdp"
         android:layout_marginBottom="@dimen/_30sdp"
+        android:background="@drawable/wood6"
+        app:layout_constraintBottom_toBottomOf="@id/tv_start_game"
         app:layout_constraintTop_toTopOf="@id/tv_choose" />
 
     <TextView
@@ -24,7 +23,7 @@
         android:layout_gravity="center"
         android:background="@drawable/woodbg"
         android:gravity="center"
-        android:text="انتخاب بازیکن"
+        android:text="@string/select_player"
         android:textColor="@color/white"
         android:textSize="@dimen/_25sdp"
         android:textStyle="bold"
@@ -33,41 +32,41 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_list_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_choose"
-        android:text="لیست سوالات"
-        android:textSize="@dimen/_22sdp"
-        android:textColor="@color/white"
         android:gravity="center"
-        android:id="@+id/tv_list_question"/>
+        android:text="@string/questions_list"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_22sdp"
+        app:layout_constraintTop_toBottomOf="@id/tv_choose" />
 
     <LinearLayout
         android:id="@+id/ll_check_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:background="#9C5E4A"
-        android:layout_marginRight="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@id/tv_list_question"
-        android:orientation="vertical">
+        android:layout_marginRight="@dimen/_20sdp"
+        android:background="#9C5E4A"
+        android:gravity="right"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_list_question">
 
         <Switch
+            android:id="@+id/switch_default_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="سوالات پیشفرض"
+            android:text="@string/default_questions"
             android:textColor="@color/white"
-            android:textSize="@dimen/_14sdp"
-            android:id="@+id/switch_default_question"/>
+            android:textSize="@dimen/_14sdp" />
 
         <Switch
+            android:id="@+id/switch_my_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="سوالات من"
+            android:text="@string/my_questions"
             android:textColor="@color/white"
-            android:textSize="@dimen/_14sdp"
-            android:id="@+id/switch_my_question"/>
+            android:textSize="@dimen/_14sdp" />
 
 
     </LinearLayout>
@@ -78,11 +77,11 @@
         android:layout_width="@dimen/_250sdp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
+        android:layoutDirection="rtl"
         android:stepSize="1"
         android:value="2.0"
         android:valueFrom="2.0"
         android:valueTo="9.0"
-        android:layoutDirection="rtl"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll_check_box"
@@ -99,7 +98,7 @@
         android:id="@+id/tv_player_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="تعداد بازیکن؛ 2 نفر"
+        android:text="@string/player_number"
         android:textColor="@color/white"
         android:textSize="@dimen/_15sdp"
         android:textStyle="bold"
@@ -111,8 +110,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/_10sdp"
-        android:paddingRight="20dp"
         android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         app:layout_constraintBottom_toTopOf="@id/tv_start_game"
         app:layout_constraintTop_toBottomOf="@id/tv_player_number"
 
@@ -149,7 +148,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="نام بازیکن 1"
+                    android:hint="@string/player_name_1"
                     android:layoutDirection="rtl"
                     app:hintTextColor="@color/black"
                     app:layout_constraintTop_toTopOf="parent">
@@ -186,7 +185,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="نام بازیکن 2"
+                    android:hint="@string/player_name_2"
                     android:layoutDirection="rtl"
                     app:hintTextColor="@color/black"
                     app:layout_constraintTop_toTopOf="parent">
@@ -224,7 +223,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="نام بازیکن 3"
+                    android:hint="@string/player_name_3"
                     android:layoutDirection="rtl"
                     app:hintTextColor="@color/black"
                     app:layout_constraintTop_toTopOf="parent">
@@ -262,7 +261,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="نام بازیکن 4"
+                    android:hint="@string/player_name_4"
                     android:layoutDirection="rtl"
                     app:hintTextColor="@color/black"
                     app:layout_constraintTop_toTopOf="parent">
@@ -300,7 +299,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="نام بازیکن 5"
+                    android:hint="@string/player_name_5"
                     android:layoutDirection="rtl"
                     app:hintTextColor="@color/black"
                     app:layout_constraintTop_toTopOf="parent">
@@ -338,7 +337,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="نام بازیکن 6"
+                    android:hint="@string/player_name_6"
                     android:layoutDirection="rtl"
                     app:hintTextColor="@color/black"
                     app:layout_constraintTop_toTopOf="parent">
@@ -376,7 +375,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="نام بازیکن 7"
+                    android:hint="@string/player_name_7"
                     android:layoutDirection="rtl"
                     app:hintTextColor="@color/black"
                     app:layout_constraintTop_toTopOf="parent">
@@ -414,7 +413,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="نام بازیکن 8"
+                    android:hint="@string/player_name_8"
                     android:layoutDirection="rtl"
                     app:hintTextColor="@color/black"
                     app:layout_constraintTop_toTopOf="parent">
@@ -452,7 +451,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="نام بازیکن 9"
+                    android:hint="@string/player_name_9"
                     android:layoutDirection="rtl"
                     app:hintTextColor="@color/black"
                     app:layout_constraintTop_toTopOf="parent">
@@ -479,7 +478,7 @@
         android:layout_height="@dimen/_70sdp"
         android:background="@drawable/woodbtn"
         android:gravity="center"
-        android:text="شروع بازی"
+        android:text="@string/start_game"
         android:textColor="@color/white"
         android:textSize="@dimen/_22sdp"
         android:textStyle="bold"

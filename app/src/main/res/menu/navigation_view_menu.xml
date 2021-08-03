@@ -4,43 +4,43 @@
     <item
         android:id="@+id/nav_home_page"
         android:onClick="navItemsOnClick"
-        android:title="صفحه اصلی" />
+        android:title="@string/home_page" />
 
 
     <item
         android:id="@+id/nav_default_question"
         android:onClick="navItemsOnClick"
-        android:title=" سوالات برنامه" />
+        android:title="@string/default_questions" />
 
     <item
         android:id="@+id/nav_my_question"
         android:onClick="navItemsOnClick"
-        android:title=" سوالات من"  />
+        android:title="@string/my_questions"  />
 
 
     <item
         android:id="@+id/nav_share_app"
         android:onClick="navItemsOnClick"
-        android:title="اشتراک گذاری برنامه" />
+        android:title="@string/share_app" />
     <item
         android:id="@+id/nav_other_app"
         android:onClick="navItemsOnClick"
-        android:title="سایر برنامه ها" />
+        android:title="@string/other_app" />
     <item
         android:id="@+id/nav_comment"
         android:onClick="navItemsOnClick"
-        android:title="ثبت نظر" />
+        android:title="@string/comment" />
     <item
         android:id="@+id/nav_hemayat"
         android:onClick="navItemsOnClick"
-        android:title="حمایت ازما" />
+        android:title="@string/support_from_us" />
     <item
         android:id="@+id/nav_about_us"
         android:onClick="navItemsOnClick"
-        android:title="درباره ما" />
+        android:title="@string/about_us" />
     <item
         android:id="@+id/nav_exit"
         android:onClick="navItemsOnClick"
-        android:title="خروج" />
+        android:title="@string/exit" />
 
 </menu>

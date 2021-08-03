@@ -16,15 +16,14 @@ import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MyIntent;
 import com.example.truthordare.classes.MyTapsell;
-import com.example.truthordare.classes.MytapsellBanner;
 import com.example.truthordare.dialog.AboutUsDialog;
 import com.example.truthordare.dialog.ExitDialog;
+import com.example.truthordare.dialog.StartDialog;
+import com.example.truthordare.fragment.StartGameFragment;
+import com.example.truthordare.fragment.TabFragment;
+import com.example.truthordare.interfaces.CallBackPlayerList;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
-import com.example.truthordare.dialog.StartDialog;
-import com.example.truthordare.fragment.TabFragment;
-import com.example.truthordare.fragment.StartGameFragment;
-import com.example.truthordare.interfaces.CallBackPlayerList;
 import com.example.truthordare.model.Setting;
 import com.google.android.material.navigation.NavigationView;
 
@@ -43,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     StartGameFragment startGameFragment;
     TabFragment defaultQuestionFragment;
     TabFragment myQuestionFragment;
+
 
     ImageView ivMenu;
 
@@ -67,13 +67,6 @@ public class MainActivity extends AppCompatActivity {
         findViews();
         init();
         setViewSize();
-        configuration();
-        if (setting.isAppSound()) {
-
-            MyMediaPlayer.mpMainSound.start();
-
-
-        }
 
 
         RelativeLayout relativeLayout = findViewById(R.id.standardBanner);
@@ -82,6 +75,17 @@ public class MainActivity extends AppCompatActivity {
         MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, relativeLayout);
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        setting = new Setting(MainActivity.this);
+        if (setting.isAppSound()) {
+
+            MyMediaPlayer.mpMainSound.start();
+        }
     }
 
     private void initTapsell() {
@@ -110,30 +114,23 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
 
-        setting = new Setting(MainActivity.this);
-        MyMediaPlayer.createMediaPlayer(MainActivity.this);
-        MyMediaPlayer.createButtonSound(MainActivity.this);
         questions = new Questions(this);
 
         myQuestionFragment = new TabFragment(MyConstant.MY_LIST);
         defaultQuestionFragment = new TabFragment(MyConstant.DEFAULT_LIST);
 
+
         screenWidth = MyConstant.getScreenWidth();
         screenHeight = MyConstant.getScreenHeight();
 
-        aboutUsDialog=new AboutUsDialog(MainActivity.this);
-        exitDialog=new ExitDialog(MainActivity.this);
+        aboutUsDialog = new AboutUsDialog(MainActivity.this);
+        exitDialog = new ExitDialog(MainActivity.this);
     }
 
     public void setViewSize() {
 
         ivMenu.getLayoutParams().height = screenWidth * 13 / 100;
         ivMenu.getLayoutParams().width = screenWidth * 13 / 100;
-
-    }
-
-    public void configuration() {
-
 
     }
 
@@ -147,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
                 loadFragment(startGameFragment);
             }
         });
-
         startDialog.show();
     }
 
@@ -169,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view) {
 
-        setting = new Setting(MainActivity.this);
+
         if (setting.isButtonSound()) {
 
             MyMediaPlayer.mpBtnSound.start();
@@ -195,8 +191,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.tv_hemayat:
 
-                MytapsellBanner.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER);
-
+                MyTapsell.showInterstitialAd(MainActivity.this,MyConstant.interstitial_BANNER,null);
                 break;
             case R.id.tv_comment:
                 MyIntent.commentIntent(MainActivity.this);
@@ -210,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.tv_exit:
-exitDialog.show();
+                exitDialog.show();
                 break;
 
             case R.id.iv_menu:
@@ -235,7 +230,7 @@ exitDialog.show();
                 break;
 
             case R.id.nav_hemayat:
-                MytapsellBanner.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER);
+                MyTapsell.showInterstitialAd(MainActivity.this,MyConstant.interstitial_BANNER,null);
 
                 break;
             case R.id.nav_comment:
@@ -256,25 +251,19 @@ exitDialog.show();
                 break;
 
             case R.id.nav_about_us:
-            aboutUsDialog.show();
+                aboutUsDialog.show();
                 break;
         }
 
         drawerLayout.closeDrawer(Gravity.RIGHT);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (MyMediaPlayer.mpMainSound.isPlaying())
-            MyMediaPlayer.mpMainSound.pause();
-    }
 
     private void closeFragment() {
-while (getSupportFragmentManager().getBackStackEntryCount()>0){
+        while (getSupportFragmentManager().getBackStackEntryCount() > 0) {
 
-    onBackPressed();
-}
+            onBackPressed();
+        }
 
     }
 }

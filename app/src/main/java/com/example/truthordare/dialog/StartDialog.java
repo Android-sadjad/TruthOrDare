@@ -80,6 +80,7 @@ public class StartDialog extends Dialog {
 
             id = context.getResources().getIdentifier("et_player_" + (i + 1), "id", context.getPackageName());
             tiePlayerNames[i] = findViewById(id);
+
         }
 
         tvStartGame = findViewById(R.id.tv_start_game);
@@ -139,7 +140,7 @@ public class StartDialog extends Dialog {
                         if (tiePlayerNames[i].getText().length() == 0) {
 
                             fullAllEditText = false;
-                            tiePlayerNames[i].setError("لطفا این فیلد را هم کامل کنید");
+                            tiePlayerNames[i].setError(getContext().getString(R.string.please_enter_this_field));
                             break;
                         } else
                             playerNameList.add(tiePlayerNames[i].getText().toString());

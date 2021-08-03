@@ -1,14 +1,11 @@
 package com.example.truthordare.model;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MySharedPreferences;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -45,9 +42,9 @@ public class Questions {
         if (questions == null) {
 
 
-            questionNumber=10;
+            questionNumber = 10;
 
-          initDefaultQuestion(context);
+            initDefaultQuestion(context);
 
             myTruthQuestionList = new ArrayList<>();
             myDareQuestionList = new ArrayList<>();
@@ -58,8 +55,7 @@ public class Questions {
         } else {
 
 
-            questionNumber=questions.getQuestionNumber();
-
+            questionNumber = questions.getQuestionNumber();
 
 
             truthQuestionList = questions.getTruthQuestionList();
@@ -69,22 +65,14 @@ public class Questions {
             myDareQuestionList = questions.getMyDareQuestionList();
 
 
-
-
-
-
-
-
-
         }
-        Log.i("number11", String.valueOf(questionNumber));
 
     }
 
 
-    private void initDefaultQuestion(Context context){
+    private void initDefaultQuestion(Context context) {
 
-        ArrayList<String>tempList=new ArrayList<>();
+        ArrayList<String> tempList = new ArrayList<>();
         truthQuestionList = new ArrayList<>();
         dareQuestionList = new ArrayList<>();
 

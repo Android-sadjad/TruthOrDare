@@ -2,13 +2,11 @@ package com.example.truthordare.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.truthordare.R;
@@ -32,21 +30,21 @@ public class AdvertisingDialog extends Dialog {
 
 
         setContentView(R.layout.dialog_advertising);
-        this.activity=activity;
+        this.activity = activity;
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        this.questions=questions;
-this.callBackUpdateList=callBackUpdateList;
+        this.questions = questions;
+        this.callBackUpdateList = callBackUpdateList;
 
         findViews();
         setViewsSize();
         configuration();
     }
 
-    private void findViews(){
+    private void findViews() {
 
-        constraintLayout=findViewById(R.id.constraint_layout_show_advertising);
-        tvYes=findViewById(R.id.tv_yes);
-        tvNO=findViewById(R.id.tv_no);
+        constraintLayout = findViewById(R.id.constraint_layout_show_advertising);
+        tvYes = findViewById(R.id.tv_yes);
+        tvNO = findViewById(R.id.tv_no);
 
     }
 
@@ -55,7 +53,7 @@ this.callBackUpdateList=callBackUpdateList;
         constraintLayout.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
     }
 
-    private void configuration(){
+    private void configuration() {
 
         tvNO.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,9 +67,9 @@ this.callBackUpdateList=callBackUpdateList;
             @Override
             public void onClick(View v) {
 
-                if (questions.getQuestionNumber()>=MyConstant.MAX_QUESTION_NUMBER){
+                if (questions.getQuestionNumber() >= MyConstant.MAX_QUESTION_NUMBER) {
 
-                    Toast.makeText(activity, "قبلا همه سوال ها اضافه شده است", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, R.string.all_question_added_already, Toast.LENGTH_SHORT).show();
                     cancel();
                     return;
                 }
@@ -79,33 +77,27 @@ this.callBackUpdateList=callBackUpdateList;
                 final boolean[] flag = {true};
 
 
-
                 MyTapsell.showInterstitialAd(activity, MyConstant.reward_based, new CallBackReward() {
                     @Override
                     public void myReward() {
-                        flag[0] =false;
+                        flag[0] = false;
 
-                        Toast.makeText(getContext(), "تبریک ۱۰ سوال به هر دسته بندی اضافه شد", Toast.LENGTH_SHORT).show();
-                        questions.setQuestionNumber((questions.getQuestionNumber()+10));
-                        questions.updateQuestions(getContext(),questions);
+                        Toast.makeText(getContext(),R.string.ten_question_added, Toast.LENGTH_SHORT).show();
+                        questions.setQuestionNumber((questions.getQuestionNumber() + 10));
+                        questions.updateQuestions(getContext(), questions);
 
                         callBackUpdateList.updateCallBack();
                     }
 
                     @Override
                     public void myError() {
-                        if (flag[0]){
-                            Toast.makeText(activity, "برای دریافت جایزه باید ویدیو تا انتها مشاهده شود.", Toast.LENGTH_SHORT).show();
+                        if (flag[0]) {
+                            Toast.makeText(activity, R.string.need_see_video, Toast.LENGTH_SHORT).show();
 
                         }
                     }
 
                 });
-
-
-
-
-
 
 
                 cancel();

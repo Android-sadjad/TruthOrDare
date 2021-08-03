@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="آیا میخواهید خارج شوید؟"
+        android:text="@string/do_you_want_to_exit"
         android:textSize="25sp"
         android:textColor="@color/black"
         android:layout_margin="10dp"
@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="خیر"
+            android:text="@string/no"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -66,7 +66,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="بله"
+            android:text="@string/yes"
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="35sp"

@@ -1,6 +1,73 @@
 <resources>
     <string name="app_name">truth or dare</string>
+    <string name="developer_team_name">تیم توسعه دهنده گوگولی</string>
+    <string name="version_code">ورژن 2.0</string>
+
+
     <string name="need_internet">برای مشاهده این قسمت باید به اینترنت متصل باشید</string>
+    <string name="start_game">شروع بازی</string>
+    <string name="my_questions">سوالات من</string>
+    <string name="default_questions">سوالات پیشفرص</string>
+    <string name="support_from_us">حمایت از ما</string>
+    <string name="comment">ثبت نظر</string>
+    <string name="exit">خروج</string>
+    <string name="setting">تنظیمات</string>
+
+
+    <string name="home_page">صفحه اصلی</string>
+    <string name="share_app">اشتراک گذاری برنامه</string>
+    <string name="other_app">سایر برنامه ها</string>
+    <string name="about_us">درباره ما</string>
+
+
+    <string name="questions_list">لیست سوالات</string>
+    <string name="repetitious_question">سوال تکراری</string>
+    <string name="sound_setting">تنظیمات صدا</string>
+    <string name="rotation_sound">صدای چرخش</string>
+    <string name="app_sound">صدای برنامه</string>
+    <string name="button_sound">صدای دکمه ها</string>
+
+    <string name="dare">جرعت</string>
+    <string name="truth">حقیقت</string>
+    <string name="sample_question">آخرین بار کی آب خوردی؟</string>
+    <string name="change_question">تغییر سوال</string>
+    <string name="close">بستن</string>
+    <string name="no_question_selected">هیچ سوالی انتخاب نشده است</string>
+    <string name="no_question_added">هنوز هیچ سوالی اضافه نشده است</string>
+    <string name="add_your_question">با زدن روی دکمه پلاس \nسوال خود را اضافه کنید</string>
+
+    <string name="my_dare">جرعت من</string>
+    <string name="my_truth">حقیقت من</string>
+    <string name="delete_question">حذف سوال</string>
+    <string name="delete_message">آیا میخواهید این سوال را حذف کنید؟</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+    <string name="shoud_select_photo">حتما باید یک عکس رو انتخاب کنی</string>
+    <string name="added_photo">تبریک بطری شما اضافه شد</string>
+    <string name="please_enter_question">لطفا متن سوال را وارد کنید</string>
+    <string name="all_question_added_already">قبلا همه سوال ها اضافه شده است</string>
+    <string name="ten_question_added">تبریک ۱۰ سوال به هر دسته بندی اضافه شد</string>
+    <string name="need_see_video">برای دریافت جایزه باید ویدیو تا انتها مشاهده شود</string>
+    <string name="please_enter_this_field">لطفا این فیلد را هم کامل کنید</string>
+    <string name="select_player">انتخاب بازیکن</string>
+    <string name="player_number">تعداد بازیکن؛ 2 نفر</string>
+    <string name="player_name_1">نام بازیکن 1</string>
+    <string name="player_name_2">نام بازیکن 2</string>
+    <string name="player_name_3">نام بازیکن 3</string>
+    <string name="player_name_4">نام بازیکن 4</string>
+    <string name="player_name_5">نام بازیکن 5</string>
+    <string name="player_name_6">نام بازیکن 6</string>
+    <string name="player_name_7">نام بازیکن 7</string>
+    <string name="player_name_8">نام بازیکن 8</string>
+    <string name="player_name_9">نام بازیکن 9</string>
+    <string name="do_you_want_to_exit">آیا میخواهید خارج شوید؟</string>
+    <string name="show_vidow_text">با دیدن یک ویدیو کوتاه میتونی این بطری را به بازی اضافه کنی</string>
+    <string name="add_question_with_see_video">با دیدن یک ویدیو کوتاه میتونی ۱۰ سوال به سوالات برنامه اضافه کنی</string>
+    <string name="add_question">افزودن سوال</string>
+    <string name="enter_your_quesiont">سوال خود را وارد کنید</string>
+    <string name="add">افزودن</string>
+    <string name="email">Email : m.aliattarr@gmial.com</string>
+    <string name="delevopers_name">برنامه نویس ها:\nمحمدعلی عطار علیایی\nمحمد یزدی</string>
 
 
     <array name="truth_questions_list">
@@ -100,7 +167,6 @@
 
 
     </array>
-
     <array name="dare_questions_list">
 
         <item>به مدت پنج دقیقه پاهای شرکت کننده سمت چپ خود را ماساژ بده</item>

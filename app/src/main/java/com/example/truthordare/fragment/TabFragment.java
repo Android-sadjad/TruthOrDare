@@ -98,12 +98,12 @@ public class TabFragment extends Fragment {
         viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
 
         if (listType.equals(MyConstant.MY_LIST)) {
-            viewPagerAdapter.addToList(dareQuestionFragment, "جرعت من");
-            viewPagerAdapter.addToList(truthQuestionFragment, "حقیقت من");
+            viewPagerAdapter.addToList(dareQuestionFragment, getString(R.string.my_dare));
+            viewPagerAdapter.addToList(truthQuestionFragment, getString(R.string.my_truth));
 
         } else if (listType.equals(MyConstant.DEFAULT_LIST)) {
-            viewPagerAdapter.addToList(dareQuestionFragment, "جرعت");
-            viewPagerAdapter.addToList(truthQuestionFragment, "حقیقت");
+            viewPagerAdapter.addToList(dareQuestionFragment, getString(R.string.truth));
+            viewPagerAdapter.addToList(truthQuestionFragment, getString(R.string.dare));
         }
 
 
@@ -175,10 +175,9 @@ public class TabFragment extends Fragment {
             AdvertisingDialog advertisingDialog=new AdvertisingDialog(getActivity(), questions, new CallBackUpdateList() {
                 @Override
                 public void updateCallBack() {
-//                   QuestionLIstFragment.updateDefaultList();
                    dareQuestionFragment.init();
                    truthQuestionFragment.init();
-                    Toast.makeText(getContext(), "aaa", Toast.LENGTH_SHORT).show();
+
                 }
             });
             advertisingDialog.show();

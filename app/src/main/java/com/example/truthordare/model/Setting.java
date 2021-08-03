@@ -1,8 +1,6 @@
 package com.example.truthordare.model;
 
 import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
@@ -16,12 +14,8 @@ public class Setting {
     boolean circleSound;
     boolean buttonSound;
 
-    boolean []lockFlags;
+    boolean[] lockFlags;
     int position;
-
-
-
-
 
 
     public int getPosition() {
@@ -32,54 +26,51 @@ public class Setting {
         this.position = position;
     }
 
-    public Setting(Context context){
+    public Setting(Context context) {
 
 
-        Setting setting= MySharedPreferences.getInstance(context).getSetting();
+        Setting setting = MySharedPreferences.getInstance(context).getSetting();
 
-        if(setting==null){
+        if (setting == null) {
 
-            defaultQuestion=true;
-            mYQuestion=false;
-            repeatQuestion=false;
-            appSound=true;
-            circleSound=true;
-            buttonSound=true;
+            defaultQuestion = true;
+            mYQuestion = false;
+            repeatQuestion = false;
+            appSound = true;
+            circleSound = true;
+            buttonSound = true;
 
-            position=1;
+            position = 1;
 
-            lockFlags=new boolean[MyConstant.BOTTLE_NUMBER];
-            for (int i=0;i<lockFlags.length;i++)
-                if(i==0||i==1||i==2)
-                    lockFlags[i]=false;
+            lockFlags = new boolean[MyConstant.BOTTLE_NUMBER];
+            for (int i = 0; i < lockFlags.length; i++)
+                if (i == 0 || i == 1 || i == 2)
+                    lockFlags[i] = false;
                 else
-                    lockFlags[i]=true;
+                    lockFlags[i] = true;
 
-            updateSetting(context,this);
+            updateSetting(context, this);
 
-        }
-
-        else {
+        } else {
 
 
-            defaultQuestion=setting.isDefaultQuestion();
-            mYQuestion=setting.isMYQuestion();
-            repeatQuestion=setting.isRepeatQuestion();
-            appSound=setting.isAppSound();
-            circleSound=setting.isCircleSound();
+            defaultQuestion = setting.isDefaultQuestion();
+            mYQuestion = setting.isMYQuestion();
+            repeatQuestion = setting.isRepeatQuestion();
+            appSound = setting.isAppSound();
+            circleSound = setting.isCircleSound();
 
-            position=setting.getPosition();
-            lockFlags=setting.getLockFlags();
+            position = setting.getPosition();
+            lockFlags = setting.getLockFlags();
 
-            buttonSound=setting.isButtonSound();
+            buttonSound = setting.isButtonSound();
 
         }
-
 
 
     }
 
-    public void updateSetting(Context context,Setting setting){
+    public void updateSetting(Context context, Setting setting) {
 
         MySharedPreferences.getInstance(context).putSetting(setting);
     }

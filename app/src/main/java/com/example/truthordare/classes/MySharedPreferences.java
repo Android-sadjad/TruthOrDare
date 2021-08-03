@@ -83,7 +83,7 @@ public class MySharedPreferences {
         dare = sharedPreferences.getString(MyConstant.DARE, null);
         my_truth = sharedPreferences.getString(MyConstant.MY_TRUTH, null);
         my_dare = sharedPreferences.getString(MyConstant.MY_DARE, null);
-        questionNumber=sharedPreferences.getInt("question_number",10);
+        questionNumber=sharedPreferences.getInt(MyConstant.QUESTION_NUMBER,10);
 
         if (truth == null)
             return null;
@@ -124,7 +124,7 @@ public class MySharedPreferences {
         my_dare = gson.toJson(myDareQuestionList);
         editor.putString(MyConstant.MY_DARE, my_dare).apply();
 
-        editor.putInt("question_number",questionNumber).apply();
+        editor.putInt(MyConstant.QUESTION_NUMBER,questionNumber).apply();
 
 
     }

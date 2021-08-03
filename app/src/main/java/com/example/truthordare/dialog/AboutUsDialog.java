@@ -21,10 +21,6 @@ public class AboutUsDialog extends Dialog {
     }
 
 
-
-
-
-
     private void setViewSize() {
 
    clAboutUs.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;

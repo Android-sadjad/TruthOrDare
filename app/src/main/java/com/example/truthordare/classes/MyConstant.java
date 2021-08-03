@@ -25,6 +25,7 @@ public class MyConstant {
     public static final String DEFAULT_LIST = "default_list";
     public static final String MY_TRUTH = "my_truth";
     public static final String MY_DARE = "my_dare";
+    public static final String QUESTION_NUMBER = "question_number";
 
 
     public static final String TAPSELL_KEY = "kqeejibsfcireicosnsakmkrfpcspehismbolbqqmdfjetsrbdqjtphnhmendqotnreedh";

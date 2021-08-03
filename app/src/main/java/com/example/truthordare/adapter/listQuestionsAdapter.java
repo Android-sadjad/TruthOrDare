@@ -54,10 +54,10 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
 
                 AlertDialog.Builder deleteDialog = new AlertDialog.Builder(v.getContext());
 
-                deleteDialog.setTitle("حذف سوال");
-                deleteDialog.setMessage("آیا میخواهید این سوال را حذف کنید؟");
+                deleteDialog.setTitle(R.string.delete_question);
+                deleteDialog.setMessage(R.string.delete_message);
 
-                deleteDialog.setPositiveButton("بله", new DialogInterface.OnClickListener() {
+                deleteDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -89,7 +89,7 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
 
 
                 });
-                deleteDialog.setNegativeButton("خیر", new DialogInterface.OnClickListener() {
+                deleteDialog.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 

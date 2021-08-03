@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.model.MyMediaPlayer;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -23,7 +24,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         findViews();
         setViewsSize();
+        init();
         goToMainActivity();
+
+
+
 
     }
 
@@ -38,6 +43,12 @@ public class SplashScreenActivity extends AppCompatActivity {
         ivSplashScreen.getLayoutParams().width = width;
         ivSplashScreen.getLayoutParams().height = width;
 
+    }
+
+    private void init(){
+
+        MyMediaPlayer.createMediaPlayer(SplashScreenActivity.this);
+        MyMediaPlayer.createButtonSound(SplashScreenActivity.this);
     }
 
     private void goToMainActivity() {

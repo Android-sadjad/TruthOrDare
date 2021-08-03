@@ -65,7 +65,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
                 } else {
 
                     ((CheckBox) v).setChecked(true);
-                    Toast.makeText(activity, "حتما باید یک عکس رو انتخاب کنی", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, R.string.shoud_select_photo, Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -84,7 +84,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
                         @Override
                         public void updateSelect() {
 
-                            Toast.makeText(activity, "تبریک بطری شما اضافه شد", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, R.string.added_photo, Toast.LENGTH_SHORT).show();
 
                             lockFlags[position] = false;
                             setting.setLockFlags(lockFlags);
