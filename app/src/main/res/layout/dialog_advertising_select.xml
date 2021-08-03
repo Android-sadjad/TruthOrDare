@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/show_vidow_text"
+        android:text="@string/show_video_text"
         android:textSize="24sp"
 
         android:paddingVertical="@dimen/_20sdp"
