@@ -74,7 +74,7 @@
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_150sdp"
                 android:text="@string/start_game"
-                android:background="@drawable/ic_start_game"
+                android:background="@drawable/ic_start_gmme"
                 android:gravity="center"
                 android:textSize="24sp"
                 android:textColor="@color/black"
@@ -85,7 +85,7 @@
         <TextView
             android:id="@+id/tv_my_question"
             style="@style/tv_main_menu_style"
-            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:text="@string/my_questions"
             app:layout_constraintLeft_toRightOf="@id/tv_default_questions"
             app:layout_constraintRight_toRightOf="parent"
@@ -94,6 +94,7 @@
         <TextView
             android:id="@+id/tv_default_questions"
             style="@style/tv_main_menu_style"
+            android:background="@drawable/bg_btn_green"
             android:text="@string/default_questions"
             app:layout_constraintBottom_toBottomOf="@id/tv_my_question"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -103,6 +104,7 @@
         <TextView
             android:id="@+id/tv_hemayat"
             style="@style/tv_main_menu_style"
+            android:background="@drawable/bg_btn_yellow"
             android:layout_marginTop="@dimen/_20sdp"
             android:text="@string/support_from_us"
             app:layout_constraintLeft_toRightOf="@id/tv_comment"
@@ -112,6 +114,7 @@
         <TextView
             android:id="@+id/tv_comment"
             style="@style/tv_main_menu_style"
+            android:background="@drawable/bg_btn_orange"
             android:text="@string/comment"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/tv_hemayat"
@@ -124,6 +127,7 @@
         <TextView
             android:id="@+id/tv_setting"
             style="@style/tv_main_menu_style"
+            android:background="@drawable/bg_btn_red"
             android:layout_marginTop="@dimen/_20sdp"
             android:text="@string/setting"
             app:layout_constraintRight_toRightOf="parent"
