@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+
+    View viewOval;
+    TextView tvStartGame;
 
 
     Questions questions;
@@ -110,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
+        viewOval=findViewById(R.id.view_oval);
+        tvStartGame=findViewById(R.id.tv_start);
     }
 
     private void init() {
@@ -131,6 +137,11 @@ public class MainActivity extends AppCompatActivity {
 
         ivMenu.getLayoutParams().height = screenWidth * 13 / 100;
         ivMenu.getLayoutParams().width = screenWidth * 13 / 100;
+
+        viewOval.getLayoutParams().height=screenHeight*70/100;
+
+        tvStartGame.getLayoutParams().width=screenWidth*50/100;
+        tvStartGame.getLayoutParams().height=screenWidth*50/100;
 
     }
 
@@ -204,9 +215,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SettingActivity.class));
 
                 break;
-            case R.id.tv_exit:
-                exitDialog.show();
-                break;
+            
 
             case R.id.iv_menu:
                 drawerLayout.openDrawer(Gravity.RIGHT);
