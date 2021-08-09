@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -47,11 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView ivMenu;
 
+
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
     View viewOval;
-    TextView tvStartGame;
+    ImageView ivStartGame;
 
 
     Questions questions;
@@ -78,6 +80,15 @@ public class MainActivity extends AppCompatActivity {
 
         MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, relativeLayout);
 
+
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 360
+                , Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+
+        rotateAnimation.setDuration(30000);
+        rotateAnimation.setRepeatMode(Animation.RESTART);
+        rotateAnimation.setFillAfter(true);
+        rotateAnimation.setRepeatCount(Animation.INFINITE);
+        ivStartGame.startAnimation(rotateAnimation);
 
     }
 
@@ -114,8 +125,8 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
-        viewOval=findViewById(R.id.view_oval);
-        tvStartGame=findViewById(R.id.tv_start);
+        viewOval = findViewById(R.id.view_oval);
+        ivStartGame = findViewById(R.id.tv_show_start_dialog);
     }
 
     private void init() {
@@ -138,10 +149,10 @@ public class MainActivity extends AppCompatActivity {
         ivMenu.getLayoutParams().height = screenWidth * 13 / 100;
         ivMenu.getLayoutParams().width = screenWidth * 13 / 100;
 
-        viewOval.getLayoutParams().height=screenHeight*70/100;
+        viewOval.getLayoutParams().height = screenHeight * 30 / 100;
 
-        tvStartGame.getLayoutParams().width=screenWidth*50/100;
-        tvStartGame.getLayoutParams().height=screenWidth*50/100;
+        ivStartGame.getLayoutParams().width = screenWidth * 50 / 100;
+        ivStartGame.getLayoutParams().height = screenWidth * 50 / 100;
 
     }
 
@@ -202,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.tv_hemayat:
 
-                MyTapsell.showInterstitialAd(MainActivity.this,MyConstant.interstitial_BANNER,null);
+                MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER, null);
                 break;
             case R.id.tv_comment:
                 MyIntent.commentIntent(MainActivity.this);
@@ -215,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SettingActivity.class));
 
                 break;
-            
+
 
             case R.id.iv_menu:
                 drawerLayout.openDrawer(Gravity.RIGHT);
@@ -239,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_hemayat:
-                MyTapsell.showInterstitialAd(MainActivity.this,MyConstant.interstitial_BANNER,null);
+                MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER, null);
 
                 break;
             case R.id.nav_comment:

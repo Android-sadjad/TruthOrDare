@@ -8,9 +8,10 @@
         <item name="android:layout_height">@dimen/_50sdp</item>
         <item name="android:background">@drawable/bg_btn_blue</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/_18sdp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/_16sdp</item>
         <item name="android:onClick">onClick</item>
+
 
     </style>
 
