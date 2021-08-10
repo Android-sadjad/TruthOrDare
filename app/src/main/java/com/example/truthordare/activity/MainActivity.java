@@ -20,7 +20,7 @@ import com.example.truthordare.classes.MyIntent;
 import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.dialog.AboutUsDialog;
 import com.example.truthordare.dialog.ExitDialog;
-import com.example.truthordare.dialog.StartDialog;
+import com.example.truthordare.fragment.StartFragment;
 import com.example.truthordare.fragment.StartGameFragment;
 import com.example.truthordare.fragment.TabFragment;
 import com.example.truthordare.interfaces.CallBackPlayerList;
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     int screenWidth;
     int screenHeight;
 
+    StartFragment startFragment;
     StartGameFragment startGameFragment;
     TabFragment defaultQuestionFragment;
     TabFragment myQuestionFragment;
@@ -131,10 +132,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
 
+
         questions = new Questions(this);
 
         myQuestionFragment = new TabFragment(MyConstant.MY_LIST);
         defaultQuestionFragment = new TabFragment(MyConstant.DEFAULT_LIST);
+
 
 
         screenWidth = MyConstant.getScreenWidth();
@@ -156,18 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void showStartDialog() {
 
-        StartDialog startDialog = new StartDialog(MainActivity.this, new CallBackPlayerList() {
-            @Override
-            public void getPlayerList(ArrayList<String> playerName) {
-
-                startGameFragment = new StartGameFragment(playerName);
-                loadFragment(startGameFragment);
-            }
-        });
-        startDialog.show();
-    }
 
     public void loadFragment(Fragment fragment) {
 
@@ -198,7 +190,19 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.tv_show_start_dialog:
 
-                showStartDialog();
+
+                 startFragment = new StartFragment( new CallBackPlayerList() {
+                    @Override
+                    public void getPlayerList(ArrayList<String> playerName) {
+
+                        startGameFragment = new StartGameFragment(playerName);
+                        onBackPressed();
+                        loadFragment(startGameFragment);
+                    }
+                });
+
+
+               loadFragment(startFragment);
                 break;
 
             case R.id.tv_my_question:
