@@ -274,10 +274,10 @@ public class StartGameFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (tvTod.getText().equals(R.string.truth)) {
+                if (tvTod.getText().toString().equals(getString(R.string.truth))) {
 
                     showRandomTruthQuestion();
-                } else if (tvTod.getText().equals(R.string.dare)) {
+                } else if (tvTod.getText().equals(getString(R.string.dare))) {
                     showRandomDareQuestion();
                 }
 
