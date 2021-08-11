@@ -3,8 +3,10 @@ package com.example.truthordare.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -147,8 +149,12 @@ public class SettingActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        Toast.makeText(this, "kgfdmgkdfmbkmfdcjkbnfjbnj", Toast.LENGTH_SHORT).show();
 
+        Log.i("aaaa","stop");
+        
         setResult(Activity.RESULT_OK, new Intent());
+
 
     }
 }

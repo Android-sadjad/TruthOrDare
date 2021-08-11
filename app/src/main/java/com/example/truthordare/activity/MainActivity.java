@@ -2,6 +2,7 @@ package com.example.truthordare.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,7 +10,9 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        initTapsell();
+
         findViews();
         init();
         setViewSize();
@@ -98,27 +101,13 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         setting = new Setting(MainActivity.this);
-        if (setting.isAppSound()) {
+        if (setting.isAppSound()&&!MyMediaPlayer.mpMainSound.isPlaying()) {
 
             MyMediaPlayer.mpMainSound.start();
         }
     }
 
-    private void initTapsell() {
 
-        TapsellPlus.initialize(this, MyConstant.TAPSELL_KEY, new TapsellPlusInitListener() {
-            @Override
-            public void onInitializeSuccess(AdNetworks adNetworks) {
-
-            }
-
-            @Override
-            public void onInitializeFailed(AdNetworks adNetworks,
-                                           AdNetworkError adNetworkError) {
-            }
-        });
-        TapsellPlus.setGDPRConsent(this, true);
-    }
 
     public void findViews() {
 
@@ -216,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.tv_setting:
 
-                startActivity(new Intent(MainActivity.this, SettingActivity.class));
+                startActivityForResult(new Intent(MainActivity.this, SettingActivity.class),MyConstant.REQUEST_CODE);
 
                 break;
 
@@ -279,4 +268,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable  Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Log.i("aaaa","main");
+        Toast.makeText(this, "asdgfdjsgklvngggggggggggggggggggggggggg", Toast.LENGTH_SHORT).show();
+
+    }
+
 }

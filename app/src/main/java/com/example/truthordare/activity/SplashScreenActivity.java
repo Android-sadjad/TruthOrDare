@@ -24,7 +24,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         findViews();
         setViewsSize();
-        init();
+
         goToMainActivity();
 
 
@@ -45,11 +45,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     }
 
-    private void init(){
 
-        MyMediaPlayer.createMediaPlayer(SplashScreenActivity.this);
-        MyMediaPlayer.createButtonSound(SplashScreenActivity.this);
-    }
 
     private void goToMainActivity() {
 
