@@ -16,11 +16,14 @@
    
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_350sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:layout_height="0dp"
         android:id="@+id/cv_start"
         app:cardBackgroundColor="#6E613B"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_30sdp"
 
 
@@ -482,82 +485,21 @@
 
 
 
-    <LinearLayout
-        android:id="@+id/ll_check_box"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
-        android:gravity="right"
-        android:layoutDirection="rtl"
-        android:layout_marginVertical="@dimen/_10sdp"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@id/cv_start"
-        android:padding="@dimen/_5sdp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-
-
-            android:text="@string/questions_list"
-            android:textSize="@dimen/_18sdp"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:id="@+id/tv_list"/>
-
-        <View
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:background="@color/white"/>
-
-        <LinearLayout
-
-            android:gravity="center|right"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
-            <Switch
-
-                style="@style/switch_style"
-                android:text="@string/default_questions"
-                android:id="@+id/switch_default_start"
-
-                />
-
-            <Switch
-                style="@style/switch_style"
-                android:text="@string/my_questions"
-                android:id="@+id/switch_my_start"/>
-
-            <Switch
-                style="@style/switch_style"
-                android:text="@string/repetitious_question"
-                android:id="@+id/switch_repeat_question_start"/>
-
-        </LinearLayout>
-
-
-
-    </LinearLayout>
-
-
-
-
     <TextView
         android:id="@+id/tv_start_game"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_70sdp"
-        android:background="@drawable/woodbtn"
+        android:background="@drawable/oval_wood"
         android:gravity="center"
+        android:elevation="@dimen/_10sdp"
         android:text="@string/start_game"
         android:textColor="@color/white"
         android:textSize="@dimen/_22sdp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_start"
+        app:layout_constraintBottom_toBottomOf="@id/cv_start"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

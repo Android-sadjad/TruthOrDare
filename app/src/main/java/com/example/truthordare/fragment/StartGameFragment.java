@@ -50,7 +50,7 @@ public class StartGameFragment extends Fragment {
     TextView tvTod;
     TextView tvQuestion;
 
-    ImageView ivSetting;
+
 
     ArrayList<Integer> randomNumberList;
     ArrayList<String> playerNameList;
@@ -119,7 +119,7 @@ public class StartGameFragment extends Fragment {
     private void findViews(View view) {
 
 
-        ivSetting = view.findViewById(R.id.iv_setting);
+
 
         ivCircleBackground = view.findViewById(R.id.iv_circle_background);
         ivBottle = view.findViewById(R.id.iv_bottle);
@@ -159,8 +159,7 @@ public class StartGameFragment extends Fragment {
         llQuestions.getLayoutParams().height = screenHeight * 35 / 100;
         llTruthOrDare.getLayoutParams().height = screenHeight * 9 / 100;
 
-        ivSetting.getLayoutParams().height = screenWidth * 13 / 100;
-        ivSetting.getLayoutParams().width = screenWidth * 13 / 100;
+
 
     }
 
@@ -284,19 +283,7 @@ public class StartGameFragment extends Fragment {
             }
         });
 
-        ivSetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                if (setting.isButtonSound()) {
-                    MyMediaPlayer.mpBtnSound.start();
-                }
-
-                startActivityForResult(new Intent(getActivity(), SettingActivity.class), MyConstant.REQUEST_CODE);
-                downAnimation();
-                downQuestionLayoutAnimation();
-            }
-        });
 
 
     }

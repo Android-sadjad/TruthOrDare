@@ -14,15 +14,6 @@
         android:layout_height="match_parent"
         android:elevation="@dimen/_400sdp" />
 
-    <ImageView
-        android:id="@+id/iv_setting"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_margin="@dimen/_5sdp"
-        android:background="@drawable/setting_ic"
-        android:elevation="@dimen/_300sdp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
@@ -32,7 +23,7 @@
         android:background="@drawable/circle4"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_setting">
+        app:layout_constraintTop_toTopOf="parent">
 
     </ImageView>
 
@@ -246,18 +237,17 @@
     <LinearLayout
         android:id="@+id/ll_question"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:background="@color/purple_700"
         android:orientation="vertical"
-        android:weightSum="6"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/tv_tod"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="2"
+
             android:paddingTop="@dimen/_5sdp"
             android:text="@string/truth"
             android:textColor="@color/white"
@@ -268,9 +258,10 @@
         <TextView
             android:id="@+id/tv_qustion"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="2"
+            android:gravity="center"
+           android:paddingVertical="@dimen/_10sdp"
             android:text="@string/sample_question"
             android:textColor="@color/white"
             android:textSize="25sp"
@@ -281,8 +272,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_height="wrap_content"
             android:layoutDirection="ltr"
             android:orientation="horizontal"
 

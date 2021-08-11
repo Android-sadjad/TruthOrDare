@@ -39,9 +39,6 @@ public class StartFragment extends Fragment {
     ImageView ivLeftArrow;
 
 
-    Switch switchRepeat;
-    Switch switchDefaultQuestion;
-    Switch switchMyQuestion;
 
     Setting setting;
 
@@ -63,7 +60,6 @@ StartGameFragment startGameFragment;
         init(view);
         findViews(view);
         setSize();
-        applySetting();
         configuration();
 
 
@@ -84,9 +80,7 @@ StartGameFragment startGameFragment;
         ivLeftArrow = view.findViewById(R.id.iv_left_arrow);
         tvPlayerNumber = view.findViewById(R.id.tv_player_number);
 
-        switchDefaultQuestion = view.findViewById(R.id.switch_default_start);
-        switchMyQuestion = view.findViewById(R.id.switch_my_start);
-        switchRepeat = view.findViewById(R.id.switch_repeat_question_start);
+
 
 
         for (int i = 0; i < 9; i++) {
@@ -109,13 +103,7 @@ StartGameFragment startGameFragment;
         cvPlayer.getLayoutParams().height = MyConstant.getScreenHeight() * 60 / 100;
     }
 
-    public void applySetting() {
 
-        switchDefaultQuestion.setChecked(setting.isDefaultQuestion());
-        switchMyQuestion.setChecked(setting.isMYQuestion());
-        switchRepeat.setChecked(setting.isRepeatQuestion());
-
-    }
 
     private void configuration() {
 
@@ -211,16 +199,6 @@ StartGameFragment startGameFragment;
     }
 
 
-    @Override
-    public void onStop() {
-        super.onStop();
 
-        setting.setDefaultQuestion(switchDefaultQuestion.isChecked());
-        setting.setMYQuestion(switchMyQuestion.isChecked());
-        setting.setRepeatQuestion(switchRepeat.isChecked());
-
-        setting.updateSetting(getContext(), setting);
-
-    }
 
 }
