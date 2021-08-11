@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     int screenHeight;
 
     StartFragment startFragment;
-    StartGameFragment startGameFragment;
+
     TabFragment defaultQuestionFragment;
     TabFragment myQuestionFragment;
 
@@ -137,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
         myQuestionFragment = new TabFragment(MyConstant.MY_LIST);
         defaultQuestionFragment = new TabFragment(MyConstant.DEFAULT_LIST);
+        startFragment=new StartFragment();
 
 
 
@@ -165,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
         int flId;
 
-        if (fragment == startGameFragment)
+        if (fragment == startFragment)
             flId = R.id.fl_fragment_container;
         else
             flId = R.id.fl_fragment_full_screen;
@@ -189,18 +190,6 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.tv_show_start_dialog:
-
-
-                 startFragment = new StartFragment( new CallBackPlayerList() {
-                    @Override
-                    public void getPlayerList(ArrayList<String> playerName) {
-
-                        startGameFragment = new StartGameFragment(playerName);
-                        onBackPressed();
-                        loadFragment(startGameFragment);
-                    }
-                });
-
 
                loadFragment(startFragment);
                 break;

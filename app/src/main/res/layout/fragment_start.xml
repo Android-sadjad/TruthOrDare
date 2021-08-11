@@ -7,6 +7,12 @@
     android:background="@drawable/bg_main"
     android:layout_gravity="center">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="@dimen/_200sdp"
+        android:id="@+id/fl_game_container"/>
+
    
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

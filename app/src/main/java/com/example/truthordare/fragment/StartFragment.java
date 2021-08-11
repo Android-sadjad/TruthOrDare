@@ -27,10 +27,7 @@ import java.util.ArrayList;
 public class StartFragment extends Fragment {
 
 
-
-
-
-   CardView cvPlayer;
+    CardView cvPlayer;
 
     ConstraintLayout[] clPlayerNames;
     TextInputEditText[] tiePlayerNames;
@@ -41,7 +38,6 @@ public class StartFragment extends Fragment {
     ImageView ivRightArrow;
     ImageView ivLeftArrow;
 
-CallBackPlayerList callBackPlayerList;
 
     Switch switchRepeat;
     Switch switchDefaultQuestion;
@@ -49,24 +45,18 @@ CallBackPlayerList callBackPlayerList;
 
     Setting setting;
 
-    int counter=2;
-
-
-    public StartFragment(CallBackPlayerList callBackPlayerList){
-        this.callBackPlayerList=callBackPlayerList;
-
-    }
-
+    int counter = 2;
+StartGameFragment startGameFragment;
 
     @Nullable
 
     @Override
-    public View onCreateView(@NonNull  LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable  Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_start,container,false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_start, container, false);
     }
 
     @Override
-    public void onViewCreated(@NonNull  View view, @Nullable  Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
 
@@ -80,27 +70,23 @@ CallBackPlayerList callBackPlayerList;
     }
 
 
-
-
-
     private void init(View view) {
 
         clPlayerNames = new ConstraintLayout[9];
         tiePlayerNames = new TextInputEditText[9];
 
-
-
-        setting=new Setting(getContext());
+        setting = new Setting(getContext());
     }
 
     private void findViews(View view) {
-      ivRightArrow=view.findViewById(R.id.iv_right_arrow);
-      ivLeftArrow=view.findViewById(R.id.iv_left_arrow);
-      tvPlayerNumber=view.findViewById(R.id.tv_player_number);
 
-        switchDefaultQuestion =view.findViewById(R.id.switch_default_start);
-        switchMyQuestion =view.findViewById(R.id.switch_my_start);
-        switchRepeat =view.findViewById(R.id.switch_repeat_question_start);
+        ivRightArrow = view.findViewById(R.id.iv_right_arrow);
+        ivLeftArrow = view.findViewById(R.id.iv_left_arrow);
+        tvPlayerNumber = view.findViewById(R.id.tv_player_number);
+
+        switchDefaultQuestion = view.findViewById(R.id.switch_default_start);
+        switchMyQuestion = view.findViewById(R.id.switch_my_start);
+        switchRepeat = view.findViewById(R.id.switch_repeat_question_start);
 
 
         for (int i = 0; i < 9; i++) {
@@ -120,11 +106,10 @@ CallBackPlayerList callBackPlayerList;
     public void setSize() {
 
 
-
-        cvPlayer.getLayoutParams().height = MyConstant.getScreenHeight() * 60/100;
+        cvPlayer.getLayoutParams().height = MyConstant.getScreenHeight() * 60 / 100;
     }
 
-    public void applySetting(){
+    public void applySetting() {
 
         switchDefaultQuestion.setChecked(setting.isDefaultQuestion());
         switchMyQuestion.setChecked(setting.isMYQuestion());
@@ -135,13 +120,11 @@ CallBackPlayerList callBackPlayerList;
     private void configuration() {
 
 
-
-
         ivRightArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (counter>=9){
-                    Toast.makeText(getContext(),getString(R.string.max_number) , Toast.LENGTH_SHORT).show();
+                if (counter >= 9) {
+                    Toast.makeText(getContext(), getString(R.string.max_number), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -158,7 +141,7 @@ CallBackPlayerList callBackPlayerList;
             public void onClick(View v) {
 
 
-                if (counter<=2){
+                if (counter <= 2) {
                     Toast.makeText(getContext(), getString(R.string.min_number), Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -168,25 +151,17 @@ CallBackPlayerList callBackPlayerList;
                 setVisibility();
 
 
-
-
             }
         });
-
-
-
-
-
 
 
         tvStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (setting.isButtonSound()){
+                if (setting.isButtonSound()) {
                     MyMediaPlayer.mpBtnSound.start();
                 }
-
 
 
                 boolean fullAllEditText = true;
@@ -210,8 +185,10 @@ CallBackPlayerList callBackPlayerList;
                 }
                 if (fullAllEditText == true) {
 
-                callBackPlayerList.getPlayerList(playerNameList);
-                ////////////////////////////////////////////////////////
+                   // callBackPlayerList.getPlayerList(playerNameList);
+                    ////////////////////////////////////////////////////////
+                    getChildFragmentManager().beginTransaction()
+                            .add(R.id.fl_game_container,new StartGameFragment(playerNameList)).commit();
                 }
             }
 
@@ -220,7 +197,7 @@ CallBackPlayerList callBackPlayerList;
 
     }
 
-    private void setVisibility(){
+    private void setVisibility() {
         for (int i = 2; i < counter; i++) {
             clPlayerNames[i].setVisibility(View.VISIBLE);
         }
@@ -242,7 +219,7 @@ CallBackPlayerList callBackPlayerList;
         setting.setMYQuestion(switchMyQuestion.isChecked());
         setting.setRepeatQuestion(switchRepeat.isChecked());
 
-        setting.updateSetting(getContext(),setting);
+        setting.updateSetting(getContext(), setting);
 
     }
 
