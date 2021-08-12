@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
-        viewOval = findViewById(R.id.view_oval);
+//        viewOval = findViewById(R.id.view_oval);
         ivStartGame = findViewById(R.id.tv_show_start_dialog);
     }
 
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         ivMenu.getLayoutParams().height = screenWidth * 13 / 100;
         ivMenu.getLayoutParams().width = screenWidth * 13 / 100;
 
-        viewOval.getLayoutParams().height = screenHeight * 30 / 100;
+//        viewOval.getLayoutParams().height = screenHeight * 30 / 100;
 
         ivStartGame.getLayoutParams().width = screenWidth * 50 / 100;
         ivStartGame.getLayoutParams().height = screenWidth * 50 / 100;
