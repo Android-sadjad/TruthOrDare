@@ -45,7 +45,6 @@ public class StartGameActivity extends AppCompatActivity {
 
         init();
         findViews();
-        setSize();
         configuration();
 
 
@@ -81,11 +80,7 @@ public class StartGameActivity extends AppCompatActivity {
         cvPlayer =findViewById(R.id.cv_start);
     }
 
-    public void setSize() {
 
-
-        cvPlayer.getLayoutParams().height = MyConstant.getScreenHeight() * 60 / 100;
-    }
 
 
     private void configuration() {

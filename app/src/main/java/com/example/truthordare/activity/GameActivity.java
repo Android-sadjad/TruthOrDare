@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,12 +16,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MyIntent;
 import com.example.truthordare.classes.MySharedPreferences;
 import com.example.truthordare.classes.MyTapsell;
+import com.example.truthordare.dialog.AboutUsDialog;
+import com.example.truthordare.dialog.ExitDialog;
+import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
 
@@ -33,6 +38,8 @@ public class GameActivity extends AppCompatActivity {
     int screenHeight;
     int sign = 1;
     int currentDegree = 0;
+
+    DrawerLayout drawerLayout;
 
     ImageView ivCircleBackground;
     ImageView ivBottle;
@@ -50,7 +57,7 @@ public class GameActivity extends AppCompatActivity {
     TextView tvTod;
     TextView tvQuestion;
 
-    ImageView ivSetting;
+
 
 
     ArrayList<Integer> randomNumberList;
@@ -111,6 +118,7 @@ public class GameActivity extends AppCompatActivity {
 
     private void findViews() {
 
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         ivCircleBackground = findViewById(R.id.iv_circle_background);
         ivBottle = findViewById(R.id.iv_bottle);
@@ -119,7 +127,7 @@ public class GameActivity extends AppCompatActivity {
         llNamesBord = findViewById(R.id.ll_names_board);
         llTruthOrDare = findViewById(R.id.ll_truth_dare);
 
-        ivSetting = findViewById(R.id.iv_setting);
+
 
         btnDare = findViewById(R.id.btn_dare);
         btnTruth = findViewById(R.id.btn_truth);
@@ -181,23 +189,40 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    public void onClick(View view) {
+
+        if (setting.isButtonSound()) {
+            MyMediaPlayer.mpBtnSound.start();
+        }
+
+
+        switch (view.getId()) {
+
+            case R.id.iv_setting:
+                startActivity(new Intent(GameActivity.this, SettingActivity.class));
+                break;
+
+            case R.id.iv_menu:
+                drawerLayout.openDrawer(Gravity.RIGHT);
+                break;
+
+        }
+    }
+
     public void navItemsOnClick(MenuItem item) {
         switch (item.getItemId()) {
 
 
             case R.id.nav_my_question:
-
                 openQuestionActivity(MyConstant.MY_LIST);
                 break;
 
             case R.id.nav_default_question:
                 openQuestionActivity(MyConstant.DEFAULT_LIST);
-
                 break;
 
             case R.id.nav_hemayat:
                 MyTapsell.showInterstitialAd(GameActivity.this, MyConstant.interstitial_BANNER, null);
-
                 break;
             case R.id.nav_comment:
 
@@ -206,7 +231,7 @@ public class GameActivity extends AppCompatActivity {
 
 
             case R.id.nav_exit:
-                //    exitDialog.show();
+                new ExitDialog(this).show();
                 break;
 
             case R.id.nav_share_app:
@@ -214,11 +239,11 @@ public class GameActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_about_us:
-                //  aboutUsDialog.show();
+               new AboutUsDialog(this).show();
                 break;
         }
 
-        //    drawerLayout.closeDrawer(Gravity.RIGHT);
+            drawerLayout.closeDrawer(Gravity.RIGHT);
     }
 
     private void openQuestionActivity(String listName) {
@@ -322,12 +347,7 @@ public class GameActivity extends AppCompatActivity {
 
             }
         });
-        ivSetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivityForResult(new Intent(GameActivity.this, SettingActivity.class), MyConstant.REQUEST_CODE);
-            }
-        });
+
 
 
     }
