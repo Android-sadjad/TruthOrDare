@@ -1,29 +1,27 @@
-package com.example.truthordare.fragment;
+package com.example.truthordare.activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.fragment.StartGameFragment;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Setting;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 
-public class StartFragment extends Fragment {
-
+public class StartGameActivity extends AppCompatActivity {
 
     CardView cvPlayer;
 
@@ -40,57 +38,49 @@ public class StartFragment extends Fragment {
     Setting setting;
 
     int counter = 2;
-    StartGameFragment startGameFragment;
 
-    @Nullable
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_start, container, false);
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_start);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-
-        init(view);
-        findViews(view);
+        init();
+        findViews();
         setSize();
         configuration();
 
 
-
     }
 
 
-    private void init(View view) {
+    private void init() {
 
         clPlayerNames = new ConstraintLayout[9];
         tiePlayerNames = new TextInputEditText[9];
 
-        setting = new Setting(getContext());
+        setting = new Setting(this);
     }
 
-    private void findViews(View view) {
+    private void findViews() {
 
-        ivRightArrow = view.findViewById(R.id.iv_right_arrow);
-        ivLeftArrow = view.findViewById(R.id.iv_left_arrow);
-        tvPlayerNumber = view.findViewById(R.id.tv_player_number);
+        ivRightArrow = findViewById(R.id.iv_right_arrow);
+        ivLeftArrow =findViewById(R.id.iv_left_arrow);
+        tvPlayerNumber = findViewById(R.id.tv_player_number);
 
 
         for (int i = 0; i < 9; i++) {
 
-            int id = getContext().getResources().getIdentifier("cl_player_name_" + (i + 1), "id", getContext().getPackageName());
-            clPlayerNames[i] = view.findViewById(id);
+            int id = getResources().getIdentifier("cl_player_name_" + (i + 1), "id", getPackageName());
+            clPlayerNames[i] = findViewById(id);
 
-            id = getContext().getResources().getIdentifier("et_player_" + (i + 1), "id", getContext().getPackageName());
-            tiePlayerNames[i] = view.findViewById(id);
+            id = getResources().getIdentifier("et_player_" + (i + 1), "id", getPackageName());
+            tiePlayerNames[i] = findViewById(id);
 
         }
 
-        tvStartGame = view.findViewById(R.id.tv_start_game);
-        cvPlayer = view.findViewById(R.id.cv_start);
+        tvStartGame = findViewById(R.id.tv_start_game);
+        cvPlayer =findViewById(R.id.cv_start);
     }
 
     public void setSize() {
@@ -107,7 +97,7 @@ public class StartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (counter >= 9) {
-                    Toast.makeText(getContext(), getString(R.string.max_number), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StartGameActivity.this, getString(R.string.max_number), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -125,7 +115,7 @@ public class StartFragment extends Fragment {
 
 
                 if (counter <= 2) {
-                    Toast.makeText(getContext(), getString(R.string.min_number), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(StartGameActivity.this, getString(R.string.min_number), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -158,7 +148,7 @@ public class StartFragment extends Fragment {
                         if (tiePlayerNames[i].getText().length() == 0) {
 
                             fullAllEditText = false;
-                            tiePlayerNames[i].setError(getContext().getString(R.string.please_enter_this_field));
+                            tiePlayerNames[i].setError(getString(R.string.please_enter_this_field));
                             break;
                         } else
                             playerNameList.add(tiePlayerNames[i].getText().toString());
@@ -170,8 +160,13 @@ public class StartFragment extends Fragment {
 
                     // callBackPlayerList.getPlayerList(playerNameList);
                     ////////////////////////////////////////////////////////
-                    getChildFragmentManager().beginTransaction()
-                            .add(R.id.fl_game_container, new StartGameFragment(playerNameList)).commit();
+//                    getSupportFragmentManager().beginTransaction()
+//                            .add(R.id.fl_game_container, new StartGameFragment(playerNameList)).commit();
+
+
+                    Intent intent=new Intent(StartGameActivity.this,GameActivity.class);
+                    intent.putExtra(MyConstant.PLAYER_NAME_LIST,playerNameList);
+                    startActivity(intent);
                 }
             }
 
@@ -192,6 +187,5 @@ public class StartFragment extends Fragment {
 
 
     }
-
 
 }

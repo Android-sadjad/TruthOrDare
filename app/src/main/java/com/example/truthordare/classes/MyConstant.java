@@ -19,6 +19,8 @@ public class MyConstant {
     public static final String SHARED_PREFERENCES_NAME="question_list";
     public static final String SETTING="setting";
 
+    public static final String PLAYER_NAME_LIST = "player_name_list";
+    public static final String LIST_TYPE ="list_type" ;
     public static final String TRUTH = "truth";
     public static final String DARE = "dare";
     public static final String MY_LIST = "my_list";

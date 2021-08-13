@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
@@ -24,26 +25,18 @@ import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.dialog.AboutUsDialog;
 import com.example.truthordare.dialog.ExitDialog;
 import com.example.truthordare.fragment.StartFragment;
-import com.example.truthordare.fragment.StartGameFragment;
 import com.example.truthordare.fragment.TabFragment;
-import com.example.truthordare.interfaces.CallBackPlayerList;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.ArrayList;
-
-import ir.tapsell.plus.TapsellPlus;
-import ir.tapsell.plus.TapsellPlusInitListener;
-import ir.tapsell.plus.model.AdNetworkError;
-import ir.tapsell.plus.model.AdNetworks;
 
 public class MainActivity extends AppCompatActivity {
 
     int screenWidth;
     int screenHeight;
 
+    RelativeLayout relativeLayout;
     StartFragment startFragment;
 
     TabFragment defaultQuestionFragment;
@@ -64,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
     AboutUsDialog aboutUsDialog;
     ExitDialog exitDialog;
-
     Setting setting;
 
     @Override
@@ -73,26 +65,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
         findViews();
         init();
         setViewSize();
-
-
-        RelativeLayout relativeLayout = findViewById(R.id.standardBanner);
-
+        startAnimaion();
 
         MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, relativeLayout);
 
 
-        RotateAnimation rotateAnimation = new RotateAnimation(0, 360
-                , Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
-        rotateAnimation.setDuration(30000);
-        rotateAnimation.setRepeatMode(Animation.RESTART);
-        rotateAnimation.setFillAfter(true);
-        rotateAnimation.setRepeatCount(Animation.INFINITE);
-        ivStartGame.startAnimation(rotateAnimation);
+
 
     }
 
@@ -101,12 +83,11 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         setting = new Setting(MainActivity.this);
-        if (setting.isAppSound()&&!MyMediaPlayer.mpMainSound.isPlaying()) {
+        if (setting.isAppSound() && !MyMediaPlayer.mpMainSound.isPlaying()) {
 
             MyMediaPlayer.mpMainSound.start();
         }
     }
-
 
 
     public void findViews() {
@@ -117,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
 //        viewOval = findViewById(R.id.view_oval);
         ivStartGame = findViewById(R.id.tv_show_start_dialog);
+        RelativeLayout rlAdvertising = findViewById(R.id.standardBanner);
     }
 
     private void init() {
@@ -126,8 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
         myQuestionFragment = new TabFragment(MyConstant.MY_LIST);
         defaultQuestionFragment = new TabFragment(MyConstant.DEFAULT_LIST);
-        startFragment=new StartFragment();
-
+        startFragment = new StartFragment();
 
 
         screenWidth = MyConstant.getScreenWidth();
@@ -150,6 +131,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private void startAnimaion() {
+
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 360
+                , Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+
+        rotateAnimation.setDuration(30000);
+        rotateAnimation.setRepeatMode(Animation.RESTART);
+        rotateAnimation.setFillAfter(true);
+        rotateAnimation.setRepeatCount(Animation.INFINITE);
+        ivStartGame.startAnimation(rotateAnimation);
+    }
 
     public void loadFragment(Fragment fragment) {
 
@@ -180,12 +172,15 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.tv_show_start_dialog:
 
-               loadFragment(startFragment);
+                startActivity(new Intent(MainActivity.this, StartGameActivity.class));
+                // loadFragment(startFragment);
                 break;
 
             case R.id.tv_my_question:
-
-                loadFragment(myQuestionFragment);
+                //loadFragment(myQuestionFragment);
+                Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
+                intent.putExtra(MyConstant.LIST_TYPE,MyConstant.MY_LIST);
+                startActivity(intent);
                 break;
 
             case R.id.tv_default_questions:
@@ -205,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.tv_setting:
 
-                startActivityForResult(new Intent(MainActivity.this, SettingActivity.class),MyConstant.REQUEST_CODE);
+                startActivityForResult(new Intent(MainActivity.this, SettingActivity.class), MyConstant.REQUEST_CODE);
 
                 break;
 
@@ -270,13 +265,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable  Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-        Log.i("aaaa","main");
+        Log.i("aaaa", "main");
         Toast.makeText(this, "asdgfdjsgklvngggggggggggggggggggggggggg", Toast.LENGTH_SHORT).show();
 
     }
+
 
 }
