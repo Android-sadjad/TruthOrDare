@@ -1,9 +1,304 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.GameActivity">
+    android:background="@drawable/grassbg"
+    android:clickable="true"
+    android:focusable="true">
+
+    <include layout="@layout/my_toolbar"/>
+
+
+
+    <ImageView
+        android:id="@+id/iv_circle_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle4"
+        android:layout_marginTop="?actionBarSize"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/iv_bottle"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_20sdp"
+        android:background="@drawable/bottle_test"
+        android:elevation="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_circle_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_circle_background">
+
+    </ImageView>
+
+
+    <LinearLayout
+        android:id="@+id/ll_names_board"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:background="@drawable/wood6"
+        android:layoutDirection="ltr"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/_5sdp"
+        android:paddingTop="@dimen/_20sdp"
+        android:paddingRight="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
+
+                <TextView
+                    android:id="@+id/tv_name_7"
+                    style="@style/tv_names_style"
+                   />
+
+                <ImageView
+                    android:id="@+id/iv_color_7"
+                    style="@style/iv_colors_style"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
+
+                <TextView
+                    android:id="@+id/tv_name_8"
+                    style="@style/tv_names_style"
+                     />
+
+                <ImageView
+                    android:id="@+id/iv_color_8"
+                    style="@style/iv_colors_style"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
+
+                <TextView
+                    android:id="@+id/tv_name_9"
+                    style="@style/tv_names_style"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_color_9"
+                    style="@style/iv_colors_style"
+                   />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
+
+                <TextView
+                    android:id="@+id/tv_name_4"
+                    style="@style/tv_names_style"
+                     />
+
+                <ImageView
+                    android:id="@+id/iv_color_4"
+                    style="@style/iv_colors_style"
+                     />
+            </LinearLayout>
+
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
+
+                <TextView
+                    android:id="@+id/tv_name_5"
+                    style="@style/tv_names_style"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_color_5"
+                    style="@style/iv_colors_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
+
+                <TextView
+                    android:id="@+id/tv_name_6"
+                    style="@style/tv_names_style"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_color_6"
+                    style="@style/iv_colors_style"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
+
+                <TextView
+                    android:id="@+id/tv_name_1"
+                    style="@style/tv_names_style"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_color_1"
+                    style="@style/iv_colors_style"
+                    />
+            </LinearLayout>
+
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
+
+                <TextView
+                    android:id="@+id/tv_name_2"
+                    style="@style/tv_names_style"
+                   />
+
+                <ImageView
+                    android:id="@+id/iv_color_2"
+                    style="@style/iv_colors_style"
+                   />
+            </LinearLayout>
+
+            <LinearLayout style="@style/ll_horizontal_color_and_name_style">
+
+                <TextView
+                    android:id="@+id/tv_name_3"
+                    style="@style/tv_names_style"
+                   />
+
+                <ImageView
+                    android:id="@+id/iv_color_3"
+                    style="@style/iv_colors_style"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_truth_dare"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/purple_700"
+        android:layoutDirection="ltr"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        >
+
+        <Button
+            android:id="@+id/btn_dare"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:text="@string/dare" />
+
+
+        <Button
+            android:id="@+id/btn_truth"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/truth" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_700"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tv_tod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:paddingTop="@dimen/_5sdp"
+            android:text="@string/truth"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_qustion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+           android:paddingVertical="@dimen/_10sdp"
+            android:text="@string/sample_question"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+
+
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="ltr"
+            android:orientation="horizontal"
+
+
+            >
+
+            <Button
+                android:id="@+id/btn_change_question"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:text="@string/change_question"
+
+
+                />
+
+
+            <Button
+                android:id="@+id/btn_close_question"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/close"
+
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

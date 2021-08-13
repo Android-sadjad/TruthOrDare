@@ -6,7 +6,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
-import com.example.truthordare.fragment.StartGameFragment;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Setting;
 import com.google.android.material.textfield.TextInputEditText;
@@ -43,7 +41,7 @@ public class StartGameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_start);
+        setContentView(R.layout.activity_start_game);
 
         init();
         findViews();

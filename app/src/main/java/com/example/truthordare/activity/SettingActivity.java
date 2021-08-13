@@ -149,12 +149,7 @@ public class SettingActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        Toast.makeText(this, "kgfdmgkdfmbkmfdcjkbnfjbnj", Toast.LENGTH_SHORT).show();
-
-        Log.i("aaaa","stop");
-        
         setResult(Activity.RESULT_OK, new Intent());
-
 
     }
 }

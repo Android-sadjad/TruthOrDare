@@ -17,14 +17,14 @@ import com.example.truthordare.classes.MyConstant;
 public class ExitDialog extends Dialog {
 
     ConstraintLayout clExit;
-    TextView noTv;
-    TextView yesTv;
-    Context context;
+    TextView tvNO;
+    TextView tvYes;
+    Activity activity;
 
-    public ExitDialog(@NonNull Context context) {
-        super(context);
+    public ExitDialog(@NonNull Activity activity) {
+        super(activity);
         setContentView(R.layout.dialog_exit);
-        this.context=context;
+        this.activity=activity;
         findViews();
         setViewSize();
         configuration();
@@ -32,7 +32,7 @@ public class ExitDialog extends Dialog {
 
     private void configuration() {
 
-        noTv.setOnClickListener(new View.OnClickListener() {
+        tvNO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cancel();
@@ -40,11 +40,11 @@ public class ExitDialog extends Dialog {
         });
 
 
-        yesTv.setOnClickListener(new View.OnClickListener() {
+        tvYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, MainActivity.class);
-                ((Activity) context).finish();
+
+                activity.finish();
             }
         });
 
@@ -61,8 +61,8 @@ public class ExitDialog extends Dialog {
 
     private void findViews() {
         clExit = findViewById(R.id.cl_exit);
-        noTv = findViewById(R.id.cancle_btn);
-        yesTv = findViewById(R.id.ok_btn);
+        tvNO = findViewById(R.id.cancle_btn);
+        tvYes = findViewById(R.id.ok_btn);
 
     }
 }

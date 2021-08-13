@@ -1,12 +1,11 @@
 package com.example.truthordare.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
@@ -14,11 +13,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.MyIntent;
 import com.example.truthordare.classes.MySharedPreferences;
+import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
 
@@ -48,6 +50,7 @@ public class GameActivity extends AppCompatActivity {
     TextView tvTod;
     TextView tvQuestion;
 
+    ImageView ivSetting;
 
 
     ArrayList<Integer> randomNumberList;
@@ -66,10 +69,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_start_game);
-
-
-
+        setContentView(R.layout.activity_game);
 
 
         init();
@@ -79,6 +79,9 @@ public class GameActivity extends AppCompatActivity {
         setTextAndColorAndBackground();
         configuration();
         updateSetting();
+
+
+
 
 
     }
@@ -109,14 +112,14 @@ public class GameActivity extends AppCompatActivity {
     private void findViews() {
 
 
-
-
         ivCircleBackground = findViewById(R.id.iv_circle_background);
         ivBottle = findViewById(R.id.iv_bottle);
 
         llQuestions = findViewById(R.id.ll_question);
         llNamesBord = findViewById(R.id.ll_names_board);
         llTruthOrDare = findViewById(R.id.ll_truth_dare);
+
+        ivSetting = findViewById(R.id.iv_setting);
 
         btnDare = findViewById(R.id.btn_dare);
         btnTruth = findViewById(R.id.btn_truth);
@@ -150,7 +153,6 @@ public class GameActivity extends AppCompatActivity {
         llTruthOrDare.getLayoutParams().height = screenHeight * 9 / 100;
 
 
-
     }
 
     private void setViewTranslation() {
@@ -176,6 +178,54 @@ public class GameActivity extends AppCompatActivity {
         int circleBackgroundId = getResources().getIdentifier("bg_circle_" + playerNameList.size(), "drawable", getPackageName());
         ivCircleBackground.setBackgroundResource(circleBackgroundId);
 
+
+    }
+
+    public void navItemsOnClick(MenuItem item) {
+        switch (item.getItemId()) {
+
+
+            case R.id.nav_my_question:
+
+                openQuestionActivity(MyConstant.MY_LIST);
+                break;
+
+            case R.id.nav_default_question:
+                openQuestionActivity(MyConstant.DEFAULT_LIST);
+
+                break;
+
+            case R.id.nav_hemayat:
+                MyTapsell.showInterstitialAd(GameActivity.this, MyConstant.interstitial_BANNER, null);
+
+                break;
+            case R.id.nav_comment:
+
+                MyIntent.commentIntent(GameActivity.this);
+                break;
+
+
+            case R.id.nav_exit:
+                //    exitDialog.show();
+                break;
+
+            case R.id.nav_share_app:
+                MyIntent.shareAppIntent(GameActivity.this);
+                break;
+
+            case R.id.nav_about_us:
+                //  aboutUsDialog.show();
+                break;
+        }
+
+        //    drawerLayout.closeDrawer(Gravity.RIGHT);
+    }
+
+    private void openQuestionActivity(String listName) {
+
+        Intent intent = new Intent(GameActivity.this, QuestionActivity.class);
+        intent.putExtra(MyConstant.LIST_TYPE, listName);
+        startActivity(intent);
 
     }
 
@@ -272,8 +322,12 @@ public class GameActivity extends AppCompatActivity {
 
             }
         });
-
-
+        ivSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(new Intent(GameActivity.this, SettingActivity.class), MyConstant.REQUEST_CODE);
+            }
+        });
 
 
     }
@@ -446,7 +500,7 @@ public class GameActivity extends AppCompatActivity {
         int position = setting.getPosition();
 
 
-        int id =getResources().getIdentifier("bottle_" + (position + 1), "drawable", getPackageName());
+        int id = getResources().getIdentifier("bottle_" + (position + 1), "drawable", getPackageName());
         ivBottle.setBackgroundResource(id);
 
 
@@ -458,8 +512,6 @@ public class GameActivity extends AppCompatActivity {
 
 
         super.onActivityResult(requestCode, resultCode, data);
-        Log.i("aaaa","game");
-        Toast.makeText(GameActivity.this, "aaaaaaaaaa", Toast.LENGTH_SHORT).show();
 
         if (requestCode == MyConstant.REQUEST_CODE) {
 
@@ -468,12 +520,12 @@ public class GameActivity extends AppCompatActivity {
         }
 
     }
+
     @Override
     protected void onStop() {
-        Log.i("aaaaa","stop");
+        Log.i("aaaaa", "stop");
         super.onStop();
     }
-
 
 
 }

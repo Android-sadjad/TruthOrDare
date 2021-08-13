@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
@@ -24,8 +23,6 @@ import com.example.truthordare.classes.MyIntent;
 import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.dialog.AboutUsDialog;
 import com.example.truthordare.dialog.ExitDialog;
-import com.example.truthordare.fragment.StartFragment;
-import com.example.truthordare.fragment.TabFragment;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
@@ -36,28 +33,15 @@ public class MainActivity extends AppCompatActivity {
     int screenWidth;
     int screenHeight;
 
-    RelativeLayout relativeLayout;
-    StartFragment startFragment;
-
-    TabFragment defaultQuestionFragment;
-    TabFragment myQuestionFragment;
-
-
-    ImageView ivMenu;
-
-
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-
-    View viewOval;
+    RelativeLayout rlAdvertising;
     ImageView ivStartGame;
+    DrawerLayout drawerLayout;
 
-
-    Questions questions;
+    Setting setting;
 
     AboutUsDialog aboutUsDialog;
     ExitDialog exitDialog;
-    Setting setting;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
         findViews();
         init();
         setViewSize();
-        startAnimaion();
+        startAnimation();
 
-        MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, relativeLayout);
+        MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, rlAdvertising);
 
 
 
@@ -92,23 +76,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void findViews() {
 
-        ivMenu = findViewById(R.id.iv_menu);
+        rlAdvertising = findViewById(R.id.standardBanner);
+
+        ivStartGame = findViewById(R.id.tv_show_start_dialog);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigation_view);
-//        viewOval = findViewById(R.id.view_oval);
-        ivStartGame = findViewById(R.id.tv_show_start_dialog);
-        RelativeLayout rlAdvertising = findViewById(R.id.standardBanner);
     }
 
     private void init() {
-
-
-        questions = new Questions(this);
-
-        myQuestionFragment = new TabFragment(MyConstant.MY_LIST);
-        defaultQuestionFragment = new TabFragment(MyConstant.DEFAULT_LIST);
-        startFragment = new StartFragment();
 
 
         screenWidth = MyConstant.getScreenWidth();
@@ -120,18 +95,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void setViewSize() {
 
-        ivMenu.getLayoutParams().height = screenWidth * 13 / 100;
-        ivMenu.getLayoutParams().width = screenWidth * 13 / 100;
-
-//        viewOval.getLayoutParams().height = screenHeight * 30 / 100;
-
         ivStartGame.getLayoutParams().width = screenWidth * 50 / 100;
         ivStartGame.getLayoutParams().height = screenWidth * 50 / 100;
 
     }
 
-
-    private void startAnimaion() {
+    private void startAnimation() {
 
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360
                 , Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
@@ -143,27 +112,10 @@ public class MainActivity extends AppCompatActivity {
         ivStartGame.startAnimation(rotateAnimation);
     }
 
-    public void loadFragment(Fragment fragment) {
-
-        int flId;
-
-        if (fragment == startFragment)
-            flId = R.id.fl_fragment_container;
-        else
-            flId = R.id.fl_fragment_full_screen;
-
-
-        getSupportFragmentManager().beginTransaction()
-                .replace(flId, fragment)
-                .addToBackStack(null).commit();
-
-    }
 
     public void onClick(View view) {
 
-
         if (setting.isButtonSound()) {
-
             MyMediaPlayer.mpBtnSound.start();
         }
 
@@ -173,37 +125,30 @@ public class MainActivity extends AppCompatActivity {
             case R.id.tv_show_start_dialog:
 
                 startActivity(new Intent(MainActivity.this, StartGameActivity.class));
-                // loadFragment(startFragment);
                 break;
 
             case R.id.tv_my_question:
-                //loadFragment(myQuestionFragment);
-                Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
-                intent.putExtra(MyConstant.LIST_TYPE,MyConstant.MY_LIST);
-                startActivity(intent);
+
+                openQuestionActivity(MyConstant.MY_LIST);
+
                 break;
 
             case R.id.tv_default_questions:
 
-                loadFragment(defaultQuestionFragment);
+                openQuestionActivity(MyConstant.DEFAULT_LIST);
                 break;
 
             case R.id.tv_hemayat:
-
                 MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER, null);
                 break;
+
             case R.id.tv_comment:
                 MyIntent.commentIntent(MainActivity.this);
-
-
                 break;
 
-            case R.id.tv_setting:
-
-                startActivityForResult(new Intent(MainActivity.this, SettingActivity.class), MyConstant.REQUEST_CODE);
-
+            case R.id.iv_setting:
+                startActivity(new Intent(MainActivity.this, SettingActivity.class));
                 break;
-
 
             case R.id.iv_menu:
                 drawerLayout.openDrawer(Gravity.RIGHT);
@@ -217,13 +162,13 @@ public class MainActivity extends AppCompatActivity {
 
 
             case R.id.nav_my_question:
-                loadFragment(myQuestionFragment);
 
+            openQuestionActivity(MyConstant.MY_LIST);
                 break;
 
             case R.id.nav_default_question:
+                openQuestionActivity(MyConstant.DEFAULT_LIST);
 
-                loadFragment(defaultQuestionFragment);
                 break;
 
             case R.id.nav_hemayat:
@@ -243,9 +188,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_share_app:
                 MyIntent.shareAppIntent(MainActivity.this);
                 break;
-            case R.id.nav_home_page:
-                closeFragment();
-                break;
 
             case R.id.nav_about_us:
                 aboutUsDialog.show();
@@ -255,24 +197,16 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.closeDrawer(Gravity.RIGHT);
     }
 
+    private void openQuestionActivity(String listName){
 
-    private void closeFragment() {
-        while (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-
-            onBackPressed();
-        }
+        Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
+        intent.putExtra(MyConstant.LIST_TYPE,listName);
+        startActivity(intent);
 
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-
-        super.onActivityResult(requestCode, resultCode, data);
-
-        Log.i("aaaa", "main");
-        Toast.makeText(this, "asdgfdjsgklvngggggggggggggggggggggggggg", Toast.LENGTH_SHORT).show();
-
+    public void onBackPressed() {
+        exitDialog.show();
     }
-
-
 }

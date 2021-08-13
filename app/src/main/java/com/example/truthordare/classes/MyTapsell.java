@@ -61,12 +61,8 @@ public class MyTapsell {
                     public void response(TapsellPlusAdModel tapsellPlusAdModel) {
                         super.response(tapsellPlusAdModel);
 
-                        //Ad is ready to show
-                        //Put the ad's responseId to your responseId variable
+
                         String rewardedResponseId = tapsellPlusAdModel.getResponseId();
-                        Toast.makeText(activity, "response", Toast.LENGTH_SHORT).show();
-
-
 
 
                         TapsellPlus.showRewardedVideoAd(activity, rewardedResponseId,
@@ -81,21 +77,23 @@ public class MyTapsell {
                                     @Override
                                     public void onClosed(TapsellPlusAdModel tapsellPlusAdModel) {
                                         super.onClosed(tapsellPlusAdModel);
-                                       callBackReward.myError();
-                                       MyMediaPlayer.mpMainSound.start();
+                                        if (callBackReward != null)
+                                            callBackReward.myError();
+
+                                        MyMediaPlayer.mpMainSound.start();
                                     }
 
                                     @Override
                                     public void onRewarded(TapsellPlusAdModel tapsellPlusAdModel) {
                                         super.onRewarded(tapsellPlusAdModel);
-                                        callBackReward.myReward();
+                                        if (callBackReward != null)
+                                            callBackReward.myReward();
 
                                     }
 
                                     @Override
                                     public void onError(TapsellPlusErrorModel tapsellPlusErrorModel) {
                                         super.onError(tapsellPlusErrorModel);
-                                        Toast.makeText(activity, "erorrrrrrrr", Toast.LENGTH_SHORT).show();
                                     }
                                 });
 
