@@ -179,7 +179,7 @@ public class GameActivity extends AppCompatActivity {
             tvNames[i].setText(playerNameList.get(i));
 
             ivColors[i].setVisibility(View.VISIBLE);
-
+///////
         }
 
 
