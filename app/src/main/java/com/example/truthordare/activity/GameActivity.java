@@ -201,7 +201,7 @@ public class GameActivity extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.iv_setting:
-                startActivity(new Intent(GameActivity.this, SettingActivity.class));
+                startActivityForResult(new Intent(GameActivity.this, SettingActivity.class),MyConstant.REQUEST_CODE);
                 break;
 
             case R.id.iv_menu:
