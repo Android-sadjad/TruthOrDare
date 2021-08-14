@@ -28,6 +28,7 @@ import com.example.truthordare.dialog.ExitDialog;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -40,6 +41,7 @@ public class GameActivity extends AppCompatActivity {
     int currentDegree = 0;
 
     DrawerLayout drawerLayout;
+    NavigationView navigationView;
 
     ImageView ivCircleBackground;
     ImageView ivBottle;
@@ -81,16 +83,12 @@ public class GameActivity extends AppCompatActivity {
 
         init();
         findViews();
+        setUpMenu();
         setViewSize();
         setViewTranslation();
         setTextAndColorAndBackground();
         configuration();
         updateSetting();
-
-
-
-
-
     }
 
 
@@ -119,6 +117,7 @@ public class GameActivity extends AppCompatActivity {
     private void findViews() {
 
         drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView=findViewById(R.id.navigation_view);
 
         ivCircleBackground = findViewById(R.id.iv_circle_background);
         ivBottle = findViewById(R.id.iv_bottle);
@@ -150,6 +149,10 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    private void setUpMenu(){
+        navigationView.getMenu().removeItem(R.id.nav_exit);
+    }
+
     private void setViewSize() {
 
 
@@ -179,9 +182,7 @@ public class GameActivity extends AppCompatActivity {
             tvNames[i].setText(playerNameList.get(i));
 
             ivColors[i].setVisibility(View.VISIBLE);
-///////
-            /////////
-            ////////
+
         }
 
 
@@ -215,6 +216,10 @@ public class GameActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
 
+            case R.id.nav_home_page:
+
+                startActivity(new Intent(GameActivity.this,MainActivity.class));
+                break;
             case R.id.nav_my_question:
                 openQuestionActivity(MyConstant.MY_LIST);
                 break;

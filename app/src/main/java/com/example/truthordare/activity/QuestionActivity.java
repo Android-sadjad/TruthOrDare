@@ -63,18 +63,19 @@ public class QuestionActivity extends AppCompatActivity {
 
         if (listType.equals(MyConstant.MY_LIST)) {
 
-            dareList = questions.getMyDareQuestionList();
             truthList = questions.getMyTruthQuestionList();
-            truthQuestionFragment = new QuestionLIstFragment(truthList, MyConstant.MY_TRUTH);
-            dareQuestionFragment = new QuestionLIstFragment(dareList, MyConstant.MY_DARE);
+            dareList = questions.getMyDareQuestionList();
+
+            truthQuestionFragment = new QuestionLIstFragment(truthList, questions,MyConstant.MY_TRUTH);
+            dareQuestionFragment = new QuestionLIstFragment(dareList,  questions,MyConstant.MY_DARE);
 
 
         } else if (listType.equals(MyConstant.DEFAULT_LIST)) {
 
             truthList = questions.getTruthQuestionList();
             dareList = questions.getDareQuestionList();
-            truthQuestionFragment = new QuestionLIstFragment(truthList, MyConstant.TRUTH);
-            dareQuestionFragment = new QuestionLIstFragment(dareList, MyConstant.DARE);
+            truthQuestionFragment = new QuestionLIstFragment(truthList,  questions,MyConstant.TRUTH);
+            dareQuestionFragment = new QuestionLIstFragment(dareList,  questions,MyConstant.DARE);
 
         }
 
@@ -85,12 +86,15 @@ public class QuestionActivity extends AppCompatActivity {
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         if (listType.equals(MyConstant.MY_LIST)) {
-            viewPagerAdapter.addToList(dareQuestionFragment, getString(R.string.my_dare));
+
             viewPagerAdapter.addToList(truthQuestionFragment, getString(R.string.my_truth));
+            viewPagerAdapter.addToList(dareQuestionFragment, getString(R.string.my_dare));
 
         } else if (listType.equals(MyConstant.DEFAULT_LIST)) {
-            viewPagerAdapter.addToList(dareQuestionFragment, getString(R.string.truth));
-            viewPagerAdapter.addToList(truthQuestionFragment, getString(R.string.dare));
+
+            viewPagerAdapter.addToList(truthQuestionFragment, getString(R.string.truth));
+            viewPagerAdapter.addToList(dareQuestionFragment, getString(R.string.dare));
+
         }
 
 
@@ -104,9 +108,8 @@ public class QuestionActivity extends AppCompatActivity {
 
 
     @Override
-    public void onStop() {
-        super.onStop();
-
+    protected void onPause() {
+        super.onPause();
         questions.updateQuestions(this, questions);
     }
 

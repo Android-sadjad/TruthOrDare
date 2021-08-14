@@ -26,11 +26,12 @@ public class QuestionLIstFragment extends Fragment {
 
     LinearLayout llGuide;
     String listName;
+    Questions questions;
 
-    public QuestionLIstFragment(ArrayList<String> questionList, String listName){
+    public QuestionLIstFragment(ArrayList<String> questionList,Questions questions, String listName){
         this.questionList=questionList;
-
         this.listName=listName;
+        this.questions=questions;
     }
 
 
@@ -62,7 +63,7 @@ public class QuestionLIstFragment extends Fragment {
     public void init(){
 
 
-        questionsAdapter = new listQuestionsAdapter(questionList,listName,new Questions(getContext()));
+        questionsAdapter = new listQuestionsAdapter(questionList,listName,questions);
         rvQuestionList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvQuestionList.setAdapter(questionsAdapter);
 

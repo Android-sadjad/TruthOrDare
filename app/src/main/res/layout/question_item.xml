@@ -14,13 +14,27 @@
     android:layout_height="match_parent">
 
 
+    <TextView
+        android:id="@+id/tv_index_number"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:background="@drawable/bg_circle"
+        android:textColor="@color/white"
+        android:text="1"
+        android:layout_marginRight="@dimen/_3sdp"
+        android:gravity="center"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
     <TextView
         android:id="@+id/tv_question_item"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="right"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_index_number"
         app:layout_constraintLeft_toRightOf="@id/iv_delete_item"
         android:padding="@dimen/_10sdp"
         android:text="@string/sample_question"

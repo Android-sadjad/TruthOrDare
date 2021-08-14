@@ -103,7 +103,8 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
             }
         });
 
-        holder.setText(questionList.get(position));
+        holder.tvQuestion.setText(questionList.get(position));
+        holder.tvIndexNumber.setText(String.valueOf(position+1));
 
     }
 
@@ -123,16 +124,15 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvQuestion;
+        TextView tvIndexNumber;
         ImageView ivDeleteItem;
 
-        public void setText(String text) {
-            tvQuestion.setText(text);
-        }
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             tvQuestion = itemView.findViewById(R.id.tv_question_item);
+            tvIndexNumber=itemView.findViewById(R.id.tv_index_number);
             ivDeleteItem = itemView.findViewById(R.id.iv_delete_item);
         }
     }
