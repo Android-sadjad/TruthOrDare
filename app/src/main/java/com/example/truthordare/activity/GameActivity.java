@@ -180,6 +180,7 @@ public class GameActivity extends AppCompatActivity {
 
             ivColors[i].setVisibility(View.VISIBLE);
 ///////
+            /////////
         }
 
 
