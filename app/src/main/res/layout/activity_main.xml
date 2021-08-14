@@ -20,7 +20,8 @@
             android:id="@+id/gi_water"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/gif_1"
+            android:background="@drawable/giiiiiif_sam"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -70,8 +71,8 @@
             <TextView
                 android:id="@+id/tv_my_question"
                 style="@style/tv_main_menu_style"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:background="@drawable/oval_wood"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/new_wood_btn"
                 android:text="@string/my_questions"
                 app:layout_constraintLeft_toRightOf="@id/tv_default_questions"
                 app:layout_constraintRight_toRightOf="parent"
@@ -80,7 +81,7 @@
             <TextView
                 android:id="@+id/tv_default_questions"
                 style="@style/tv_main_menu_style"
-                android:background="@drawable/oval_wood"
+                android:background="@drawable/new_wood_btn"
                 android:text="@string/default_questions"
                 app:layout_constraintBottom_toBottomOf="@id/tv_my_question"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -91,7 +92,7 @@
                 android:id="@+id/tv_hemayat"
                 style="@style/tv_main_menu_style"
                 android:layout_marginTop="@dimen/_20sdp"
-                android:background="@drawable/oval_wood"
+                android:background="@drawable/new_wood_btn"
                 android:text="@string/support_from_us"
                 app:layout_constraintLeft_toRightOf="@id/tv_comment"
                 app:layout_constraintRight_toRightOf="parent"
@@ -100,7 +101,7 @@
             <TextView
                 android:id="@+id/tv_comment"
                 style="@style/tv_main_menu_style"
-                android:background="@drawable/oval_wood"
+                android:background="@drawable/new_wood_btn"
                 android:text="@string/comment"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/tv_hemayat"

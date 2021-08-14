@@ -12,8 +12,7 @@
 
         />
 
-    <LinearLayout
-        android:id="@+id/ll_guide"
+    <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,36 +20,52 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_margin="@dimen/_50sdp"
-        android:background="#6F787575"
-        android:padding="@dimen/_5sdp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:backgroundTint="#4D60C5"
+        app:cardCornerRadius="@dimen/_10sdp"
+        >
 
-        <TextView
 
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/ll_guide"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/no_question_added"
-            android:textSize="@dimen/_20sdp"
+
+            android:padding="@dimen/_5sdp"
             android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_question_added"
+                android:textSize="@dimen/_20sdp"
+                android:gravity="center"
 
 
 
-            />
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_your_question"
-            android:textSize="@dimen/_15sdp"
-            android:layout_gravity="center"
-            android:lines="2"
-            android:gravity="center"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_your_question"
+                android:textSize="@dimen/_15sdp"
+                android:layout_gravity="center"
+                android:lines="2"
+                android:gravity="center"
 
 
-            />
+                />
 
-    </LinearLayout>
+        </LinearLayout>
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
 
 
 
