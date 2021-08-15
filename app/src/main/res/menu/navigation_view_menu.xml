@@ -4,42 +4,51 @@
     <item
         android:id="@+id/nav_home_page"
         android:onClick="navItemsOnClick"
+        android:icon="@drawable/ic_home_page"
         android:title="@string/home_page" />
 
 
     <item
         android:id="@+id/nav_default_question"
         android:onClick="navItemsOnClick"
+        android:icon="@drawable/ic_defualt_list"
         android:title="@string/default_questions" />
 
     <item
         android:id="@+id/nav_my_question"
         android:onClick="navItemsOnClick"
+        android:icon="@drawable/ic_my_list"
         android:title="@string/my_questions"  />
 
 
     <item
         android:id="@+id/nav_share_app"
         android:onClick="navItemsOnClick"
+        android:icon="@drawable/ic_share_app"
         android:title="@string/share_app" />
     <item
         android:id="@+id/nav_other_app"
         android:onClick="navItemsOnClick"
+        android:icon="@drawable/ic_other_app"
         android:title="@string/other_app" />
     <item
         android:id="@+id/nav_comment"
         android:onClick="navItemsOnClick"
+        android:icon="@drawable/ic_comment"
         android:title="@string/comment" />
     <item
         android:id="@+id/nav_hemayat"
         android:onClick="navItemsOnClick"
+        android:icon="@drawable/ic_hemayer"
         android:title="@string/support_from_us" />
     <item
         android:id="@+id/nav_about_us"
+        android:icon="@drawable/ic_about_us"
         android:onClick="navItemsOnClick"
         android:title="@string/about_us" />
     <item
         android:id="@+id/nav_exit"
+        android:icon="@drawable/ic_exit"
         android:onClick="navItemsOnClick"
         android:title="@string/exit" />
 
