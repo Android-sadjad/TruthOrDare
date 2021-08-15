@@ -13,9 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TruthOrDare">
-        <activity android:name=".activity.QuestionActivity"></activity>
-        <activity android:name=".activity.GameActivity" />
-        <activity android:name=".activity.StartGameActivity" />
+        <activity android:name=".activity.QuestionActivity"
+            android:configChanges="orientation|keyboard"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name=".activity.GameActivity"
+            android:configChanges="orientation|keyboard"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".activity.StartGameActivity"
+            android:configChanges="orientation|keyboard"
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".activity.SettingActivity"
             android:configChanges="orientation|keyboard"
