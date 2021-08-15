@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android = "http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:startColor="#87452D"
+                android:centerColor="#4E1F11"
+                android:endColor="#87452D"
+                android:angle="270" />
+        </shape>
+    </item>
+
+    <item
+        android:drawable="@drawable/check_arrow" />
+</layer-list>

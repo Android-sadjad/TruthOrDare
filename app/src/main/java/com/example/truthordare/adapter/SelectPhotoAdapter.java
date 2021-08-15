@@ -1,5 +1,6 @@
 package com.example.truthordare.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +43,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
     }
 
     @Override
-    public void onBindViewHolder(SelectPhotoAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(SelectPhotoAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
 
         holder.cbSelected.setChecked(checkedPosition == position);

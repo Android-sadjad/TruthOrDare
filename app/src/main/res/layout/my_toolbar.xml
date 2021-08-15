@@ -29,14 +29,28 @@
                 <ImageView
                     android:id="@+id/iv_setting"
                     style="@style/toolbar_iv_style"
-                    android:src="@drawable/setting_ic"
+                    android:src="@drawable/setting_new_btn"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:gravity="center"
+                    android:fontFamily="@font/lalezar_regular"
+                    android:text="جرعت یا حقیقت"
+                    android:textSize="@dimen/_30sdp"
+                    android:textColor="#7C3E2B"
+                    android:textStyle="bold"
+
+                    />
 
                 <ImageView
                     android:id="@+id/iv_menu"
                     style="@style/toolbar_iv_style"
-                    android:src="@drawable/menubtn"
+                    android:src="@drawable/menu_new_btn"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

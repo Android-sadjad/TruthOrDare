@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:padding="@dimen/_5sdp"
         android:id="@+id/cv_question_setting"
+        android:backgroundTint="#C9D6DC"
         app:cardCornerRadius="@dimen/_10sdp"
         >
 
@@ -52,9 +53,10 @@ android:padding="@dimen/_5sdp"
             <LinearLayout
 
                 android:gravity="center|right"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/_5sdp">
 
 
                 <Switch
@@ -93,7 +95,12 @@ android:padding="@dimen/_5sdp"
         app:layout_constraintTop_toBottomOf="@id/cv_question_setting"
         android:id="@+id/cv_sound_setting"
         app:cardCornerRadius="@dimen/_10sdp"
+        android:backgroundTint="#C9D6DC"
+
         >
+
+
+
 
         <LinearLayout
             android:id="@+id/ll_sound"
@@ -126,9 +133,11 @@ android:padding="@dimen/_5sdp"
             <LinearLayout
 
                 android:gravity="center|right"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/_5sdp"
+                >
 
 
                 <Switch
@@ -156,10 +165,27 @@ android:padding="@dimen/_5sdp"
     </androidx.cardview.widget.CardView>
 
 
+<TextView
+    android:layout_width="@dimen/_100sdp"
+    android:layout_height="wrap_content"
+    android:text="انتخاب بطری"
+    android:textStyle="bold"
+    android:textColor="@color/white"
+    android:gravity="center"
+android:layout_marginLeft="@dimen/_6sdp"
+    android:textSize="@dimen/_15sdp"
+    app:layout_constraintBottom_toTopOf="@id/cv_select_bottle"
+  android:rotation="-20"
+    app:layout_constraintLeft_toLeftOf="parent"
+app:layout_constraintTop_toTopOf="@id/cv_select_bottle"
+    android:background="@drawable/boarder_wood"
+    android:elevation="@dimen/_5sdp"
 
+    />
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_select_bottle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/cv_sound_setting"
@@ -168,6 +194,8 @@ android:padding="@dimen/_5sdp"
         app:cardCornerRadius="@dimen/_5sdp"
     android:layout_marginHorizontal="@dimen/_10sdp"
         android:padding="@dimen/_5sdp"
+        android:backgroundTint="#C9D6DC"
+
         >
 
 

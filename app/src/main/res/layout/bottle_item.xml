@@ -4,40 +4,72 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
-    android:background="@drawable/rectangle_storke"
-    android:layout_margin="@dimen/_10sdp"
+    android:layout_marginTop="@dimen/_20sdp"
+
+
+
     >
 
-    <ImageView
-        android:id="@+id/iv_bottle_selected"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-       android:src="@drawable/bottle_1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_margin="@dimen/_10sdp"
-
-        />
 
     <CheckBox
         android:id="@+id/cb_selected"
-        android:layout_width="@dimen/_30sdp"
-        android:layout_height="@dimen/_30sdp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="@dimen/_5sdp"
-        app:layout_constraintRight_toRightOf="parent"/>
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:button="@android:color/transparent"
+        android:checked="true"
+        android:background="@drawable/custom_checkbox"
+        app:layout_constraintBottom_toTopOf="@id/cl_choose_bottle"
+        app:layout_constraintTop_toTopOf="@id/cl_choose_bottle"
+        app:layout_constraintRight_toRightOf="@id/cl_choose_bottle"
+        app:layout_constraintLeft_toRightOf="@id/cl_choose_bottle"
+        android:elevation="@dimen/_25sdp"
+        android:scaleX="0.9"
+        android:scaleY="0.9"
 
-    <ImageView
-        android:id="@+id/iv_lock"
+
+        />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_lock"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_gravity="center"
+        android:background="@drawable/rectangle_storke"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_margin="@dimen/_30sdp"/>
+        android:id="@+id/cl_choose_bottle"
+        android:layout_margin="@dimen/_14sdp"
+        >
 
+        <ImageView
+            android:id="@+id/iv_bottle_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="@dimen/_10sdp"
+
+            />
+
+
+
+        <ImageView
+            android:id="@+id/iv_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_lock"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="@dimen/_30sdp"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
