@@ -19,10 +19,10 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_start"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_400sdp"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
             app:cardBackgroundColor="#B2C6CF"
             app:cardCornerRadius="@dimen/_30sdp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -48,56 +48,67 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lalezar_regular"
-                    android:gravity="center"
                     android:text="تعداد بازیکنان"
+                    android:gravity="center"
                     android:textColor="@color/brown900"
                     android:textSize="@dimen/_25sdp" />
 
-                <LinearLayout
-                    android:id="@+id/ll_player_number"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_player_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_15sdp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="7">
+
+                    >
 
                     <ImageView
                         android:id="@+id/iv_left_arrow"
-                        android:layout_width="@dimen/_60sdp"
-                        android:layout_height="@dimen/_60sdp"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        app:layout_constraintRight_toLeftOf="@id/iv_right_arrow"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:src="@drawable/minus_circle"
 
-                        android:background="@drawable/minus_circle" />
+                        />
 
                     <TextView
                         android:id="@+id/tv_player_number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:gravity="center"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         android:fontFamily="@font/lalezar_regular"
                         android:text="2"
-                        android:layout_marginHorizontal="@dimen/_20sdp"
+
                         android:textColor="#7C3E2B"
                         android:textSize="@dimen/_40sdp" />
 
                     <ImageView
                         android:id="@+id/iv_right_arrow"
-                        android:layout_width="@dimen/_60sdp"
-                        android:layout_height="@dimen/_60sdp"
+                        android:layout_width="@dimen/_50sdp"
+                        app:layout_constraintLeft_toRightOf="@id/iv_left_arrow"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_height="@dimen/_50sdp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:src="@drawable/plus_circle"
 
-                        android:background="@drawable/plus_circle"
 
                         />
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                 <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/_15sdp"
-                    android:layout_marginBottom="@dimen/_75sdp"
+                    android:layout_marginBottom="@dimen/_40sdp"
 
 
                     >
@@ -498,9 +509,9 @@ app:layout_constraintRight_toRightOf="parent"
 
         <TextView
             android:id="@+id/tv_start_game"
-            android:layout_width="@dimen/_180sdp"
-            android:layout_height="@dimen/_120sdp"
-            android:background="@drawable/dark_board_wooden"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:background="@drawable/new_wood_btn"
             android:elevation="@dimen/_10sdp"
             android:gravity="center"
             android:text="@string/start_game"

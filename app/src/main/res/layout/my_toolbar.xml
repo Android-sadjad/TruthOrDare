@@ -41,7 +41,7 @@
                     android:gravity="center"
                     android:fontFamily="@font/lalezar_regular"
                     android:text="جرعت یا حقیقت"
-                    android:textSize="@dimen/_30sdp"
+                    android:textSize="@dimen/_25sdp"
                     android:layout_marginHorizontal="@dimen/_50sdp"
                     android:background="@drawable/dark_board_wooden"
                     android:textColor="@color/white"

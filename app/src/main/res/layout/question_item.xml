@@ -37,6 +37,7 @@
         app:layout_constraintRight_toLeftOf="@id/tv_index_number"
         app:layout_constraintLeft_toRightOf="@id/iv_delete_item"
         android:padding="@dimen/_10sdp"
+        android:textColor="@color/light_black"
         android:text="@string/sample_question"
         android:textSize="@dimen/_18sdp"
         app:layout_constraintTop_toTopOf="parent"
