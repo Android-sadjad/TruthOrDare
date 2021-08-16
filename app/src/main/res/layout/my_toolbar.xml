@@ -42,7 +42,9 @@
                     android:fontFamily="@font/lalezar_regular"
                     android:text="جرعت یا حقیقت"
                     android:textSize="@dimen/_30sdp"
-                    android:textColor="#7C3E2B"
+                    android:layout_marginHorizontal="@dimen/_50sdp"
+                    android:background="@drawable/dark_board_wooden"
+                    android:textColor="@color/white"
                     android:textStyle="bold"
 
                     />

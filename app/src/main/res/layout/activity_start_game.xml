@@ -34,7 +34,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/start_game_board" />
+                android:background="@drawable/wood_board_without_pich" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                     android:fontFamily="@font/lalezar_regular"
                     android:gravity="center"
                     android:text="تعداد بازیکنان"
-                    android:textColor="#7C3E2B"
+                    android:textColor="@color/brown900"
                     android:textSize="@dimen/_25sdp" />
 
                 <LinearLayout
@@ -64,27 +64,29 @@
 
                     <ImageView
                         android:id="@+id/iv_left_arrow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/left_arrow_wood" />
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
+
+                        android:background="@drawable/minus_circle" />
 
                     <TextView
                         android:id="@+id/tv_player_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
+                        android:layout_weight="1"
                         android:gravity="center"
+                        android:fontFamily="@font/lalezar_regular"
                         android:text="2"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
                         android:textColor="#7C3E2B"
-                        android:textSize="@dimen/_30sdp" />
+                        android:textSize="@dimen/_40sdp" />
 
                     <ImageView
                         android:id="@+id/iv_right_arrow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/right_arrow_wood"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
+
+                        android:background="@drawable/plus_circle"
 
                         />
 
@@ -118,7 +120,7 @@
                             <ImageView
                                 android:id="@+id/iv_avatar_1"
                                 style="@style/iv_avatar_style"
-                                android:background="@drawable/avatar"
+                                android:background="@drawable/avatar_1"
                                 app:layout_constraintBottom_toBottomOf="@id/til_player_1"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/til_player_1"
@@ -131,7 +133,8 @@
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/_5sdp"
+                                android:textColorHint="@color/brown900"
+                                app:boxStrokeColor="@color/brown900"
                                 android:hint="@string/player_name_1"
                                 android:layoutDirection="rtl"
                                 app:hintTextColor="@color/black"
@@ -158,7 +161,7 @@
                             <ImageView
                                 android:id="@+id/iv_avatar_2"
                                 style="@style/iv_avatar_style"
-                                android:background="@drawable/avatar"
+                                android:background="@drawable/avatar_2"
                                 app:layout_constraintBottom_toBottomOf="@id/til_player_2"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/til_player_2"
@@ -170,6 +173,7 @@
                                 android:id="@+id/til_player_2"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                 android:layout_width="0dp"
+                                app:boxStrokeColor="@color/brown900"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/player_name_2"
                                 android:layoutDirection="rtl"
@@ -198,7 +202,7 @@
                             <ImageView
                                 android:id="@+id/iv_avatar_3"
                                 style="@style/iv_avatar_style"
-                                android:background="@drawable/avatar"
+                                android:background="@drawable/avatar_3"
                                 app:layout_constraintBottom_toBottomOf="@id/til_player_3"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/til_player_3"
@@ -210,6 +214,7 @@
                                 android:id="@+id/til_player_3"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                 android:layout_width="0dp"
+                                app:boxStrokeColor="@color/brown900"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/player_name_3"
                                 android:layoutDirection="rtl"
@@ -239,7 +244,7 @@
                             <ImageView
                                 android:id="@+id/iv_avatar_4"
                                 style="@style/iv_avatar_style"
-                                android:background="@drawable/avatar"
+                                android:background="@drawable/avatar_4"
                                 app:layout_constraintBottom_toBottomOf="@id/til_player_4"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/til_player_4"
@@ -252,6 +257,7 @@
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                app:boxStrokeColor="@color/brown900"
                                 android:hint="@string/player_name_4"
                                 android:layoutDirection="rtl"
                                 app:hintTextColor="@color/black"
@@ -280,7 +286,7 @@
                             <ImageView
                                 android:id="@+id/iv_avatar_5"
                                 style="@style/iv_avatar_style"
-                                android:background="@drawable/avatar"
+                                android:background="@drawable/avatar_5"
                                 app:layout_constraintBottom_toBottomOf="@id/til_player_5"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/til_player_5"
@@ -295,6 +301,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="@string/player_name_5"
                                 android:layoutDirection="rtl"
+                                app:boxStrokeColor="@color/brown900"
                                 app:layout_constraintRight_toLeftOf="@id/iv_avatar_5"
                                 app:hintTextColor="@color/black"
                                 app:layout_constraintLeft_toLeftOf="parent"
@@ -320,7 +327,7 @@
                             <ImageView
                                 android:id="@+id/iv_avatar_6"
                                 style="@style/iv_avatar_style"
-                                android:background="@drawable/avatar"
+                                android:background="@drawable/avatar_6"
                                 app:layout_constraintBottom_toBottomOf="@id/til_player_6"
 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/til_player_6"
@@ -333,6 +340,7 @@ app:layout_constraintRight_toRightOf="parent"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                app:boxStrokeColor="@color/brown900"
                                 android:hint="@string/player_name_6"
                                 android:layoutDirection="rtl"
                                 app:hintTextColor="@color/black"
@@ -360,7 +368,7 @@ app:layout_constraintRight_toRightOf="parent"
                             <ImageView
                                 android:id="@+id/iv_avatar_7"
                                 style="@style/iv_avatar_style"
-                                android:background="@drawable/avatar"
+                                android:background="@drawable/avatar_7"
                                 app:layout_constraintBottom_toBottomOf="@id/til_player_7"
                             app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/til_player_7"
@@ -373,6 +381,7 @@ app:layout_constraintRight_toRightOf="parent"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                app:boxStrokeColor="@color/brown900"
                                 android:hint="@string/player_name_7"
                                 android:layoutDirection="rtl"
                                 app:layout_constraintRight_toLeftOf="@id/iv_avatar_7"
@@ -400,7 +409,7 @@ app:layout_constraintRight_toRightOf="parent"
                             <ImageView
                                 android:id="@+id/iv_avatar_8"
                                 style="@style/iv_avatar_style"
-                                android:background="@drawable/avatar"
+                                android:background="@drawable/avatar_8"
                                 app:layout_constraintBottom_toBottomOf="@id/til_player_8"
                                app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/til_player_8"
@@ -413,6 +422,7 @@ app:layout_constraintRight_toRightOf="parent"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                app:boxStrokeColor="@color/brown900"
                                 android:hint="@string/player_name_8"
                                 android:layoutDirection="rtl"
                                 app:layout_constraintLeft_toLeftOf="parent"
@@ -440,7 +450,7 @@ app:layout_constraintRight_toRightOf="parent"
                             <ImageView
                                 android:id="@+id/iv_avatar_9"
                                 style="@style/iv_avatar_style"
-                                android:background="@drawable/avatar"
+                                android:background="@drawable/avatar_9"
                                 app:layout_constraintBottom_toBottomOf="@id/til_player_9"
                               app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/til_player_9"
@@ -455,6 +465,7 @@ app:layout_constraintRight_toRightOf="parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/player_name_9"
                                 android:layoutDirection="rtl"
+                                app:boxStrokeColor="@color/brown900"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:hintTextColor="@color/black"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -487,9 +498,9 @@ app:layout_constraintRight_toRightOf="parent"
 
         <TextView
             android:id="@+id/tv_start_game"
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_70sdp"
-            android:background="@drawable/oval_wood"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:background="@drawable/dark_board_wooden"
             android:elevation="@dimen/_10sdp"
             android:gravity="center"
             android:text="@string/start_game"

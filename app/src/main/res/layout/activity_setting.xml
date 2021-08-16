@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:padding="@dimen/_5sdp"
         android:id="@+id/cv_question_setting"
-        android:backgroundTint="#C9D6DC"
+        android:backgroundTint="@color/ice_card"
         app:cardCornerRadius="@dimen/_10sdp"
         >
 
@@ -95,7 +95,7 @@ android:padding="@dimen/_5sdp"
         app:layout_constraintTop_toBottomOf="@id/cv_question_setting"
         android:id="@+id/cv_sound_setting"
         app:cardCornerRadius="@dimen/_10sdp"
-        android:backgroundTint="#C9D6DC"
+        android:backgroundTint="@color/ice_card"
 
         >
 
@@ -194,7 +194,7 @@ app:layout_constraintTop_toTopOf="@id/cv_select_bottle"
         app:cardCornerRadius="@dimen/_5sdp"
     android:layout_marginHorizontal="@dimen/_10sdp"
         android:padding="@dimen/_5sdp"
-        android:backgroundTint="#C9D6DC"
+        android:backgroundTint="@color/ice_card"
 
         >
 

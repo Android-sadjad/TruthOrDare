@@ -20,7 +20,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_margin="@dimen/_50sdp"
-        android:backgroundTint="#4D60C5"
+        android:backgroundTint="@color/ll_guide_color"
         app:cardCornerRadius="@dimen/_10sdp"
         >
 

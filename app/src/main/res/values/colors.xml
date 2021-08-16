@@ -10,4 +10,18 @@
 
     <color name="toolbar">#226ECA</color>
     <color name="status_bar">#053671</color>
+    <color name="ll_guide_color">#053671</color>
+
+
+
+    <color name="brown900">#7C3E2B</color>
+
+
+    <color name="ice_card">#C9D6DC</color>
+
+
+
+
+
+
 </resources>
