@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.truthordare.R;
@@ -48,7 +49,7 @@ public class GameActivity extends AppCompatActivity {
 
     LinearLayout llNamesBord;
     LinearLayout llTruthOrDare;
-    LinearLayout llQuestions;
+    ConstraintLayout clQuestions;
 
     Button btnDare;
     Button btnTruth;
@@ -122,7 +123,7 @@ public class GameActivity extends AppCompatActivity {
         ivCircleBackground = findViewById(R.id.iv_circle_background);
         ivBottle = findViewById(R.id.iv_bottle);
 
-        llQuestions = findViewById(R.id.ll_question);
+        clQuestions = findViewById(R.id.ll_question);
         llNamesBord = findViewById(R.id.ll_names_board);
         llTruthOrDare = findViewById(R.id.ll_truth_dare);
 
@@ -160,7 +161,7 @@ public class GameActivity extends AppCompatActivity {
         ivCircleBackground.getLayoutParams().height = screenWidth * 80 / 100;
 
         llNamesBord.getLayoutParams().height = screenHeight * 30 / 100;
-        llQuestions.getLayoutParams().height = screenHeight * 35 / 100;
+        clQuestions.getLayoutParams().height = screenHeight * 35 / 100;
         llTruthOrDare.getLayoutParams().height = screenHeight * 9 / 100;
 
 
@@ -168,7 +169,7 @@ public class GameActivity extends AppCompatActivity {
 
     private void setViewTranslation() {
 
-        llQuestions.setTranslationY(llQuestions.getLayoutParams().height);
+        clQuestions.setTranslationY(clQuestions.getLayoutParams().height);
         llTruthOrDare.setTranslationY(llTruthOrDare.getLayoutParams().height);
 
     }
@@ -180,13 +181,20 @@ public class GameActivity extends AppCompatActivity {
 
             tvNames[i].setVisibility(View.VISIBLE);
             tvNames[i].setText(playerNameList.get(i));
+            tvNames[i].setSelected(true);
 
             ivColors[i].setVisibility(View.VISIBLE);
+
+            String shapeName="bg_circle_color_"+(i+1);
+            int circleShapeId=getResources()
+                    .getIdentifier(shapeName,"drawable", getPackageName());
+            ivColors[i].setBackgroundResource(circleShapeId);
 
         }
 
 
-        int circleBackgroundId = getResources().getIdentifier("bg_circle_" + playerNameList.size(), "drawable", getPackageName());
+        int circleBackgroundId = getResources()
+                .getIdentifier("bg_circle_" + playerNameList.size(), "drawable", getPackageName());
         ivCircleBackground.setBackgroundResource(circleBackgroundId);
 
 
@@ -302,7 +310,7 @@ public class GameActivity extends AppCompatActivity {
                     }, 2000);
                 }
 
-                if (llQuestions.getTranslationY() == 0) {
+                if (clQuestions.getTranslationY() == 0) {
                     downQuestionLayoutAnimation();
                 }
 
@@ -400,13 +408,13 @@ public class GameActivity extends AppCompatActivity {
 
     private void upQuestionLayoutAnimation() {
 
-        llQuestions.animate().translationY(0).setDuration(1000).setStartDelay(0);
+        clQuestions.animate().translationY(0).setDuration(1000).setStartDelay(0);
 
     }
 
     private void downQuestionLayoutAnimation() {
 
-        llQuestions.animate().translationY(llQuestions.getLayoutParams().height).setDuration(1000).setStartDelay(0);
+        clQuestions.animate().translationY(clQuestions.getLayoutParams().height).setDuration(1000).setStartDelay(0);
 
     }
 
