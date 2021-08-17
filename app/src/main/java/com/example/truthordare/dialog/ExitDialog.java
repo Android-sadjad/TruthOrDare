@@ -2,37 +2,42 @@ package com.example.truthordare.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.truthordare.R;
-import com.example.truthordare.activity.MainActivity;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.MyTapsell;
+import com.google.android.material.card.MaterialCardView;
+
+import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class ExitDialog extends Dialog {
-
+RelativeLayout rvAdvertising;
     ConstraintLayout clExit;
-    TextView tvNO;
-    TextView tvYes;
+    MaterialCardView cvNo;
+   MaterialCardView cvYes;
+
     Activity activity;
 
     public ExitDialog(@NonNull Activity activity) {
         super(activity);
         setContentView(R.layout.dialog_exit);
+        this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         this.activity=activity;
         findViews();
         setViewSize();
         configuration();
+        showAdvertising();
     }
 
     private void configuration() {
 
-        tvNO.setOnClickListener(new View.OnClickListener() {
+        cvNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cancel();
@@ -40,7 +45,7 @@ public class ExitDialog extends Dialog {
         });
 
 
-        tvYes.setOnClickListener(new View.OnClickListener() {
+        cvYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -60,11 +65,21 @@ public class ExitDialog extends Dialog {
     }
 
     private void findViews() {
-        clExit = findViewById(R.id.cl_exit);
-        tvNO = findViewById(R.id.cancle_btn);
-        tvYes = findViewById(R.id.ok_btn);
+        clExit = findViewById(R.id.cl_bottle_video);
+        cvNo = findViewById(R.id.cv_no_select_dialog);
+        cvYes = findViewById(R.id.cv_yes_select_dialog);
+        rvAdvertising=findViewById(R.id.rv_advertising);
 
     }
+
+    private void showAdvertising(){
+        MyTapsell.showStandardBanner(activity,MyConstant.STANDARD_BANNER_HOME_PAGE,rvAdvertising, TapsellPlusBannerType.BANNER_320x100);
+
+
+
+    }
+
+
 }
 
 

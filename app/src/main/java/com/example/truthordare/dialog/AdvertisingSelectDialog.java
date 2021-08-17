@@ -15,13 +15,14 @@ import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.interfaces.CallBackReward;
 import com.example.truthordare.interfaces.CallBackUpdateSelect;
 import com.example.truthordare.model.Setting;
+import com.google.android.material.card.MaterialCardView;
 
 public class AdvertisingSelectDialog extends Dialog {
 
 
     ConstraintLayout constraintLayout;
-    TextView tvYes;
-    TextView tvNO;
+    MaterialCardView cvYes;
+    MaterialCardView cvNo;
     Setting setting;
     CallBackUpdateSelect callBackUpdateSelect;
     Activity activity;
@@ -44,9 +45,9 @@ public class AdvertisingSelectDialog extends Dialog {
 
     private void findViews() {
 
-        constraintLayout = findViewById(R.id.constraint_layout_show_advertising);
-        tvYes = findViewById(R.id.tv_yes);
-        tvNO = findViewById(R.id.tv_no);
+        constraintLayout = findViewById(R.id.cl_bottle_video);
+        cvYes = findViewById(R.id.cv_yes_select_dialog);
+        cvNo = findViewById(R.id.cv_no_select_dialog);
 
     }
 
@@ -58,7 +59,7 @@ public class AdvertisingSelectDialog extends Dialog {
 
     private void configuration() {
 
-        tvNO.setOnClickListener(new View.OnClickListener() {
+        cvNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -66,7 +67,7 @@ public class AdvertisingSelectDialog extends Dialog {
             }
         });
 
-        tvYes.setOnClickListener(new View.OnClickListener() {
+        cvYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

@@ -4,79 +4,104 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
-    android:id="@+id/cl_exit"
-    android:background="#2196F3"
+    android:layout_gravity="center"
+    android:id="@+id/cl_bottle_video"
+
+
+
     >
 
-
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginBottom="@dimen/_10sdp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/do_you_want_to_exit"
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        android:layout_margin="10dp"
-        android:id="@+id/exit_txt"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_15sdp"
+        android:id="@+id/cl_inner_bottle_video"
+        android:background="@drawable/dialog_bg_wood">
+
+
+
+        <TextView
+            android:id="@+id/tv_exit_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/do_you_want_to_exit"
+            android:fontFamily="@font/lalezar_regular"
+            android:textSize="@dimen/_25sdp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toTopOf="@id/rv_advertising"/>
+
+        <RelativeLayout
+            android:id="@+id/rv_advertising"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_exit_question"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+
+
+
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_yes_select_dialog"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:backgroundTint="@color/center_color_gradiant"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="@id/cl_inner_bottle_video"
         app:layout_constraintRight_toRightOf="parent"
-        android:gravity="center"
-        android:textStyle="bold"
-        />
+        app:layout_constraintLeft_toRightOf="@id/cv_no_select_dialog"
+        app:layout_constraintTop_toBottomOf="@id/cl_inner_bottle_video"
+        app:strokeColor="@color/start_color_gradiant"
+        app:strokeWidth="@dimen/_3sdp"
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:id="@+id/exit_horizental_line"
-        app:layout_constraintTop_toBottomOf="@id/exit_txt"
-        android:background="@color/black"
-        android:layout_marginTop="8dp"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="2"
-        android:gravity="right"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/exit_horizental_line"
         >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/no"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="35sp"
-            android:layout_weight="1"
-            android:id="@+id/cancle_btn"
-
-
-            />
-
-        <ImageView
-            android:layout_width="2dp"
+            android:id="@+id/tv_yes_select_dialog"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/black"
+            android:fontFamily="@font/lalezar_regular"
+            android:gravity="center"
+            android:text="بله"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp" />
+    </com.google.android.material.card.MaterialCardView>
 
-            />
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_no_select_dialog"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:backgroundTint="@color/center_color_gradiant"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="@id/cl_inner_bottle_video"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/cv_yes_select_dialog"
+        app:layout_constraintTop_toBottomOf="@id/cl_inner_bottle_video"
+        app:strokeColor="@color/start_color_gradiant"
+        app:strokeWidth="@dimen/_3sdp"
+       >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/yes"
+            android:id="@+id/tv_no_select_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/lalezar_regular"
+
             android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="35sp"
-            android:layout_weight="1"
-            android:id="@+id/ok_btn"
-            android:textStyle="bold"
-            />
-
-    </LinearLayout>
-
-
+            android:text="خیر"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_25sdp" />
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

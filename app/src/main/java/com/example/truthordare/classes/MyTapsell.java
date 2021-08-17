@@ -17,11 +17,11 @@ import ir.tapsell.plus.model.TapsellPlusErrorModel;
 public class MyTapsell {
 
 
-    public static void showStandardBanner(Activity activity, String zoneId, RelativeLayout relativeLayout) {
+    public static void showStandardBanner(Activity activity, String zoneId, RelativeLayout relativeLayout,TapsellPlusBannerType bannerType) {
 
         TapsellPlus.requestStandardBannerAd(
                 activity, zoneId,
-                TapsellPlusBannerType.BANNER_320x50,
+                bannerType,
                 new AdRequestCallback() {
                     @Override
                     public void response(TapsellPlusAdModel tapsellPlusAdModel) {

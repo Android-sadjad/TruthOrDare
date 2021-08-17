@@ -28,6 +28,8 @@ import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
 import com.google.android.material.navigation.NavigationView;
 
+import ir.tapsell.plus.TapsellPlusBannerType;
+
 public class MainActivity extends AppCompatActivity {
 
     int screenWidth;
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         setViewSize();
         startAnimation();
 
-        MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, rlAdvertising);
+        MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, rlAdvertising, TapsellPlusBannerType.BANNER_320x50);
 
 
 

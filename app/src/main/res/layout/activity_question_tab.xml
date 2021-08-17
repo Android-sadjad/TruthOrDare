@@ -15,9 +15,14 @@
         android:id="@+id/my_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@color/toolbar"
         app:tabTextColor="@color/white"
-        app:tabIndicatorColor="@color/white"
+        android:background="@android:color/transparent"
+        app:tabIndicatorColor="@color/bg_orange"
+        app:tabSelectedTextColor="@color/black"
+
+        app:tabBackground="@drawable/selector_tabs"
+
+
         app:layout_constraintTop_toTopOf="parent"
         />
 

@@ -23,8 +23,8 @@
         app:layout_constraintRight_toRightOf="@id/cl_choose_bottle"
         app:layout_constraintLeft_toRightOf="@id/cl_choose_bottle"
         android:elevation="@dimen/_25sdp"
-        android:scaleX="0.9"
-        android:scaleY="0.9"
+        android:scaleX="0.85"
+        android:scaleY="0.85"
 
 
         />

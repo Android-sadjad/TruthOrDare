@@ -17,6 +17,17 @@
     <color name="brown900">#7C3E2B</color>
     <color name="ice_card">#C9D6DC</color>
     <color name="light_black">#191B1C</color>
+    <color name="dark_white">#E1D3CE</color>
+
+
+
+    <color name="start_color_gradiant">#87452D</color>
+    <color name="center_color_gradiant">#4E1F11</color>
+    <color name="end_color_gradiant">#87452D</color>
+
+
+
+
 
     <color name="bg_blue">#1CAFFF</color>
     <color name="bg_red">#F22800</color>

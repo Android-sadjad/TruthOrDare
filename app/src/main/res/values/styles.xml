@@ -88,6 +88,7 @@
         <item name="android:inputType">textPersonName</item>
         <item name="android:lines">1</item>
         <item name="maxLines">1</item>
+        <item name="android:textCursorDrawable">@null</item>
 
 
     </style>
@@ -103,6 +104,20 @@
 
 
     </style>
+
+
+
+    <style name="text_input_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="boxStrokeColor">@color/brown900</item>
+        <item name="android:layoutDirection">rtl</item>
+        <item name="hintTextColor">@color/brown900</item>
+
+
+
+    </style>
+
 
 
 </resources>

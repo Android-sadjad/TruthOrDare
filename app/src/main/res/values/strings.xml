@@ -64,10 +64,12 @@
     <string name="player_name_8">نام بازیکن 8</string>
     <string name="player_name_9">نام بازیکن 9</string>
 
-    <string name="do_you_want_to_exit">آیا میخواهید خارج شوید؟</string>
+    <string name="do_you_want_to_exit">آیا میخواهید از بازی خارج شوید؟</string>
     <string name="show_video_text">با دیدن یک ویدیو کوتاه میتونی این بطری را به بازی اضافه کنی</string>
     <string name="add_question_with_see_video">با دیدن یک ویدیو کوتاه میتونی ۱۰ سوال به سوالات برنامه اضافه کنی</string>
     <string name="add_question">افزودن سوال</string>
+    <string name="lets_go">بزن بریم</string>
+    <string name="no_matter">بیخیال</string>
     <string name="enter_your_question">سوال خود را وارد کنید</string>
     <string name="add">افزودن</string>
     <string name="email">Email : m.aliattarr@gmial.com</string>
