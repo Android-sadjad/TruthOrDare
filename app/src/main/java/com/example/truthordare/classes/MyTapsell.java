@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.example.truthordare.interfaces.CallBackReward;
 import com.example.truthordare.model.MyMediaPlayer;
+import com.example.truthordare.model.Setting;
 
 import ir.tapsell.plus.AdRequestCallback;
 import ir.tapsell.plus.AdShowListener;
@@ -71,7 +72,9 @@ public class MyTapsell {
                                     public void onOpened(TapsellPlusAdModel tapsellPlusAdModel) {
                                         super.onOpened(tapsellPlusAdModel);
                                         Toast.makeText(activity, "opened", Toast.LENGTH_SHORT).show();
-                                        MyMediaPlayer.mpMainSound.pause();
+
+                                        if(new Setting(activity).isAppSound())
+                                             MyMediaPlayer.mpMainSound.pause();
                                     }
 
                                     @Override
@@ -80,7 +83,8 @@ public class MyTapsell {
                                         if (callBackReward != null)
                                             callBackReward.myError();
 
-                                        MyMediaPlayer.mpMainSound.start();
+                                        if(new Setting(activity).isAppSound())
+                                             MyMediaPlayer.mpMainSound.start();
                                     }
 
                                     @Override

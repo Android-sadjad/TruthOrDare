@@ -61,7 +61,7 @@ public class GameActivity extends AppCompatActivity {
     TextView tvQuestion;
 
 
-
+    Questions questions;
 
     ArrayList<Integer> randomNumberList;
     ArrayList<String> playerNameList;
@@ -106,6 +106,7 @@ public class GameActivity extends AppCompatActivity {
         ivColors = new ImageView[playerNameList.size()];
 
         setting = new Setting(this);
+        questions=new Questions(this);
 
         repetitiousTruthQuestion = new ArrayList<>();
         repetitiousDareQuestion = new ArrayList<>();
@@ -425,7 +426,11 @@ public class GameActivity extends AppCompatActivity {
 
         if (setting.isDefaultQuestion()) {
 
-            truthQuestionList.addAll(new Questions(this).getTruthQuestionList());
+            ArrayList<String>truthList=(questions.getTruthQuestionList());
+
+            for(int i=0;i<questions.getQuestionNumber();i++){
+                truthQuestionList.add(truthList.get(i));
+            }
         }
 
         if (setting.isMYQuestion()) {
@@ -453,7 +458,12 @@ public class GameActivity extends AppCompatActivity {
 
         if (setting.isDefaultQuestion()) {
 
-            dareQuestionList.addAll(new Questions(this).getDareQuestionList());
+            ArrayList<String>dareList=(questions.getDareQuestionList());
+
+            for(int i=0;i<questions.getQuestionNumber();i++){
+                dareQuestionList.add(dareList.get(i));
+            }
+
         }
         if (setting.isMYQuestion()) {
 

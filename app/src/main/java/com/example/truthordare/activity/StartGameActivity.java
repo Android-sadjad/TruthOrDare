@@ -138,7 +138,7 @@ public class StartGameActivity extends AppCompatActivity {
 
                     if (clPlayerNames[i].getVisibility() == View.VISIBLE) {
 
-                        if (tiePlayerNames[i].getText().length() == 0) {
+                        if (tiePlayerNames[i].getText().toString().trim().length() == 0) {
 
                             fullAllEditText = false;
                             tiePlayerNames[i].setError(getString(R.string.please_enter_this_field));

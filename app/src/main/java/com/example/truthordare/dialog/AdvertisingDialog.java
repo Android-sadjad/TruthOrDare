@@ -83,7 +83,7 @@ public class AdvertisingDialog extends Dialog {
                         flag[0] = false;
 
                         Toast.makeText(getContext(),R.string.ten_question_added, Toast.LENGTH_SHORT).show();
-                        questions.setQuestionNumber((questions.getQuestionNumber() + 10));
+                        questions.setQuestionNumber((questions.getQuestionNumber() + 3));
                         questions.updateQuestions(getContext(), questions);
 
                         callBackUpdateList.updateCallBack();
