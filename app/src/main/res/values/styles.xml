@@ -114,6 +114,7 @@
         <item name="boxStrokeColor">@color/brown900</item>
         <item name="android:layoutDirection">rtl</item>
         <item name="hintTextColor">@color/brown900</item>
+        <item name="android:layout_marginRight">@dimen/_5sdp</item>
 
 
 
