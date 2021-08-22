@@ -4,9 +4,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.TextView;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
@@ -18,10 +19,11 @@ public class AddQuestionDialog extends Dialog {
 
     CallBackAddQuestions callBackAddQuestions;
 
-    LinearLayout llAddDialog;
+    ConstraintLayout clAddDialog;
 
-    Button btnCloseDialog;
-    Button btnAddDialog;
+
+    TextView tvCloseDialog;
+    TextView tvAddDialog;
 
     RadioButton rbTruth;
     RadioButton rbDare;
@@ -32,7 +34,6 @@ public class AddQuestionDialog extends Dialog {
 
         super(context);
         setContentView(R.layout.dialog_add_question);
-
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
         this.callBackAddQuestions = callBackAddQuestions;
@@ -45,10 +46,10 @@ public class AddQuestionDialog extends Dialog {
 
     private void findViews() {
 
-        llAddDialog = findViewById(R.id.ll_add_dialog);
+        clAddDialog = findViewById(R.id.cl_add_dialog);
 
-        btnAddDialog = findViewById(R.id.btn_add_question);
-        btnCloseDialog = findViewById(R.id.btn_close_add_dialog);
+        tvAddDialog = findViewById(R.id.tv_add_question);
+        tvCloseDialog = findViewById(R.id.tv_close_add_dialog);
 
         rbDare = findViewById(R.id.rb_dare);
         rbTruth = findViewById(R.id.rb_truth);
@@ -59,20 +60,20 @@ public class AddQuestionDialog extends Dialog {
 
     public void setViewsSize() {
 
-        llAddDialog.getLayoutParams().height = MyConstant.getScreenHeight() * 60 / 100;
-        llAddDialog.getLayoutParams().width = MyConstant.getScreenWidth() * 80 / 100;
+        clAddDialog.getLayoutParams().height = MyConstant.getScreenHeight() * 80 / 100;
+        clAddDialog.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
     }
 
     private void configuration() {
 
-        btnCloseDialog.setOnClickListener(new View.OnClickListener() {
+        tvCloseDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cancel();
             }
         });
 
-        btnAddDialog.setOnClickListener(new View.OnClickListener() {
+        tvAddDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

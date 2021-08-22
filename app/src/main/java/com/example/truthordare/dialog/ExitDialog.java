@@ -62,6 +62,7 @@ RelativeLayout rvAdvertising;
         clExit.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
 
 
+
     }
 
     private void findViews() {
@@ -73,7 +74,7 @@ RelativeLayout rvAdvertising;
     }
 
     private void showAdvertising(){
-        MyTapsell.showStandardBanner(activity,MyConstant.STANDARD_BANNER_HOME_PAGE,rvAdvertising, TapsellPlusBannerType.BANNER_320x100);
+        MyTapsell.showStandardBanner(activity,MyConstant.STANDARD_BANNER_HOME_PAGE,rvAdvertising, TapsellPlusBannerType.BANNER_250x250);
 
 
 

@@ -8,10 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="toolbar">#226ECA</color>
+
     <color name="status_bar">#053671</color>
     <color name="ll_guide_color">#053671</color>
 
+    <color name="toolbar_light">#023551</color>
+    <color name="toolbar_dark">#012F49</color>
 
 
     <color name="brown900">#7C3E2B</color>
