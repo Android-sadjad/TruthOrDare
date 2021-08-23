@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable-v24/bg_circle_color_5.xml" value="0.15694444444444444" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_btn_blue.xml" value="0.21388888888888888" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_circle.xml" value="0.22592592592592592" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_circle_checkboc.xml" value="0.20555555555555555" />
+        <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_circle_color_1.xml" value="0.15694444444444444" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_main.xml" value="0.24074074074074073" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_oval.xml" value="0.21388888888888888" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_rectangle_tabs.xml" value="0.21296296296296297" />

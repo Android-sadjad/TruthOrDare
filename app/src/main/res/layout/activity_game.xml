@@ -47,6 +47,10 @@
         </ImageView>
 
 
+
+
+
+
         <LinearLayout
             android:id="@+id/ll_names_board"
             android:layout_width="match_parent"
@@ -211,7 +215,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/_3sdp"
                 android:layout_weight="1"
-                android:background="@drawable/game_button_wood"
+                android:background="@drawable/button_blue_wood"
                 android:fontFamily="@font/lalezar_regular"
                 android:gravity="center"
                 android:text="@string/dare"
@@ -225,7 +229,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/_3sdp"
                 android:layout_weight="1"
-                android:background="@drawable/game_button_wood"
+                android:background="@drawable/button_blue_wood"
                 android:fontFamily="@font/lalezar_regular"
                 android:gravity="center"
                 android:text="@string/truth"
@@ -289,7 +293,7 @@
                 android:layout_height="60dp"
                 android:layout_marginHorizontal="@dimen/_3sdp"
                 android:layout_weight="1"
-                android:background="@drawable/game_button_wood"
+                android:background="@drawable/button_blue_wood"
                 android:fontFamily="@font/lalezar_regular"
                 android:gravity="center"
                 android:text="@string/change_question"
@@ -308,7 +312,7 @@
                 android:layout_width="0dp"
                 android:layout_marginHorizontal="@dimen/_3sdp"
                 android:layout_height="60dp"
-                android:background="@drawable/game_button_wood"
+                android:background="@drawable/button_blue_wood"
                 android:fontFamily="@font/lalezar_regular"
                 android:gravity="center"
                 android:text="@string/close"
