@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -85,11 +86,13 @@ public class GameActivity extends AppCompatActivity {
         init();
         findViews();
         setUpMenu();
-        setViewSize();
-        setViewTranslation();
-        setTextAndColorAndBackground();
+        setUpView();
         configuration();
         updateSetting();
+
+
+
+
     }
 
 
@@ -124,7 +127,7 @@ public class GameActivity extends AppCompatActivity {
         ivCircleBackground = findViewById(R.id.iv_circle_background);
         ivBottle = findViewById(R.id.iv_bottle);
 
-        clQuestions = findViewById(R.id.ll_question);
+        clQuestions = findViewById(R.id.cl_question);
         llNamesBord = findViewById(R.id.ll_names_board);
         llTruthOrDare = findViewById(R.id.ll_truth_dare);
 
@@ -136,7 +139,7 @@ public class GameActivity extends AppCompatActivity {
 
         tvTod = findViewById(R.id.tv_tod);
         tvQuestion = findViewById(R.id.tv_qustion);
-        btnChangeQuestion = findViewById(R.id.btn_change_question);
+        btnChangeQuestion = findViewById(R.id.tv_change_question);
         btnCloseQuestion = findViewById(R.id.tv_close_question);
 
 
@@ -156,27 +159,40 @@ public class GameActivity extends AppCompatActivity {
         navigationView.getMenu().removeItem(R.id.nav_exit);
     }
 
+    private void setUpView(){
+
+        setViewSize();
+        setViewTranslation();
+        setTextAndColorAndBackground();
+
+        tvQuestion.setMovementMethod(new ScrollingMovementMethod());
+        tvToolbarTitle.setVisibility(View.GONE);
+
+    }
+
     private void setViewSize() {
 
 
-        ivCircleBackground.getLayoutParams().width = screenWidth * 80 / 100;
-        ivCircleBackground.getLayoutParams().height = screenWidth * 80 / 100;
+        ivCircleBackground.getLayoutParams().width = screenHeight * 50 / 100;
+        ivCircleBackground.getLayoutParams().height = screenHeight * 50 / 100;
 
         llNamesBord.getLayoutParams().height = screenHeight * 30 / 100;
-        clQuestions.getLayoutParams().height = screenHeight * 35 / 100;
-        llTruthOrDare.getLayoutParams().height = screenHeight * 9 / 100;
+        clQuestions.getLayoutParams().height = screenHeight * 40 / 100;
 
-        tvToolbarTitle.setVisibility(View.GONE);
+        llTruthOrDare.getLayoutParams().height = screenHeight * 10 / 100;
+        btnTruth.getLayoutParams().height=screenHeight*10/100;
+        btnDare.getLayoutParams().height=screenHeight*10/100;
 
 
     }
 
     private void setViewTranslation() {
 
+
         clQuestions.setTranslationY(clQuestions.getLayoutParams().height);
         llTruthOrDare.setTranslationY(llTruthOrDare.getLayoutParams().height);
-
     }
+
 
     private void setTextAndColorAndBackground() {
 
@@ -392,12 +408,12 @@ public class GameActivity extends AppCompatActivity {
     private void upAnimation() {
 
         llTruthOrDare.animate().translationY(0).setDuration(1000).setStartDelay(2000);
-        llNamesBord.animate().translationY((llTruthOrDare.getLayoutParams().height * -1) - 5).setDuration(1000).setStartDelay(2000);
+        llNamesBord.animate().translationY((llTruthOrDare.getLayoutParams().height * -1)).setDuration(1000).setStartDelay(2000);
     }
 
     private void upAnimationWithoutDelay() {
         llTruthOrDare.animate().translationY(0).setDuration(1000).setStartDelay(0);
-        llNamesBord.animate().translationY((llTruthOrDare.getLayoutParams().height * -1) - 5).setDuration(1000).setStartDelay(0);
+        llNamesBord.animate().translationY((llTruthOrDare.getLayoutParams().height * -1)).setDuration(1000).setStartDelay(0);
     }
 
     private void downAnimation() {
