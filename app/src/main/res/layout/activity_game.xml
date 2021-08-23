@@ -49,7 +49,7 @@
             android:id="@+id/ll_names_board"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_150sdp"
-            android:background="@drawable/wood6"
+            android:background="@drawable/wood_board_color"
             android:layoutDirection="ltr"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/_5sdp"
@@ -201,20 +201,32 @@
 
             >
 
-            <Button
-                android:id="@+id/btn_dare"
+            <TextView
+                android:id="@+id/tv_dare"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/_5sdp"
                 android:layout_weight="1"
+                android:background="@drawable/game_button_wood"
+                android:gravity="center"
+                android:fontFamily="@font/lalezar_regular"
+                android:textColor="@color/white"
+                android:textSize="30sp"
                 android:text="@string/dare" />
 
 
-            <Button
-                android:id="@+id/btn_truth"
+            <TextView
+                android:id="@+id/tv_truth"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textSize="30sp"
+                android:background="@drawable/game_button_wood"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/lalezar_regular"
+
+
                 android:text="@string/truth" />
         </LinearLayout>
 
@@ -222,7 +234,7 @@
             android:id="@+id/ll_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_700"
+            android:background="@drawable/question_board_wood"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent">
 
@@ -233,6 +245,7 @@
                 android:id="@+id/tv_tod"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/lalezar_regular"
                 android:layout_gravity="center"
                 android:paddingTop="@dimen/_5sdp"
                 android:text="@string/truth"
@@ -257,10 +270,12 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:fontFamily="@font/lalezar_regular"
                     android:text="@string/sample_question"
                     android:textColor="@color/white"
                     android:paddingHorizontal="@dimen/_10sdp"
                     android:textSize="25sp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
                    android:layout_marginTop="@dimen/_5sdp"
 
 
@@ -273,29 +288,40 @@
 
 
 
-                <Button
+                <TextView
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/btn_close_question"
+                    app:layout_constraintRight_toLeftOf="@id/tv_close_question"
                     android:id="@+id/btn_change_question"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
+                    android:fontFamily="@font/lalezar_regular"
                     android:layout_marginRight="@dimen/_2sdp"
+                    android:background="@drawable/game_button_wood"
                     android:layout_weight="1"
                     android:text="@string/change_question"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:textColor="@color/white"
 
 
                     />
 
 
-                <Button
+                <TextView
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@id/btn_change_question"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:id="@+id/btn_close_question"
+                    android:id="@+id/tv_close_question"
                     android:layout_marginLeft="@dimen/_2sdp"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:layout_height="60dp"
+                    android:fontFamily="@font/lalezar_regular"
+
+                    android:background="@drawable/game_button_wood"
                     android:text="@string/close"
 
                     />

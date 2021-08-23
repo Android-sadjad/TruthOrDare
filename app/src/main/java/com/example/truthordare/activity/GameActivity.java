@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -51,11 +50,11 @@ public class GameActivity extends AppCompatActivity {
     LinearLayout llTruthOrDare;
     ConstraintLayout clQuestions;
 
-    Button btnDare;
-    Button btnTruth;
+    TextView btnDare;
+    TextView btnTruth;
 
-    Button btnChangeQuestion;
-    Button btnCloseQuestion;
+    TextView btnChangeQuestion;
+    TextView btnCloseQuestion;
 
     TextView tvTod;
     TextView tvQuestion;
@@ -130,13 +129,13 @@ public class GameActivity extends AppCompatActivity {
 
 
 
-        btnDare = findViewById(R.id.btn_dare);
-        btnTruth = findViewById(R.id.btn_truth);
+        btnDare = findViewById(R.id.tv_dare);
+        btnTruth = findViewById(R.id.tv_truth);
 
         tvTod = findViewById(R.id.tv_tod);
         tvQuestion = findViewById(R.id.tv_qustion);
         btnChangeQuestion = findViewById(R.id.btn_change_question);
-        btnCloseQuestion = findViewById(R.id.btn_close_question);
+        btnCloseQuestion = findViewById(R.id.tv_close_question);
 
 
         for (int i = 0; i < tvNames.length; i++) {
