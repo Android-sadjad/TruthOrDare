@@ -58,6 +58,7 @@ public class GameActivity extends AppCompatActivity {
 
     TextView tvTod;
     TextView tvQuestion;
+    TextView tvToolbarTitle;
 
 
     Questions questions;
@@ -127,6 +128,7 @@ public class GameActivity extends AppCompatActivity {
         llNamesBord = findViewById(R.id.ll_names_board);
         llTruthOrDare = findViewById(R.id.ll_truth_dare);
 
+        tvToolbarTitle=findViewById(R.id.tv_toolbar_title);
 
 
         btnDare = findViewById(R.id.tv_dare);
@@ -163,6 +165,8 @@ public class GameActivity extends AppCompatActivity {
         llNamesBord.getLayoutParams().height = screenHeight * 30 / 100;
         clQuestions.getLayoutParams().height = screenHeight * 35 / 100;
         llTruthOrDare.getLayoutParams().height = screenHeight * 9 / 100;
+
+        tvToolbarTitle.setVisibility(View.GONE);
 
 
     }

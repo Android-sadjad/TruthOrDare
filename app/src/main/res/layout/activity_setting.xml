@@ -1,162 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:clickable="true"
     android:background="@drawable/bg_tabs"
 
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    android:clickable="true">
 
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_marginVertical="@dimen/_10sdp"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="@dimen/_5sdp"
         android:id="@+id/cv_question_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
         android:backgroundTint="@color/ice_card"
+        android:padding="@dimen/_5sdp"
         app:cardCornerRadius="@dimen/_10sdp"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/ll_check_box"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="right"
-android:padding="@dimen/_5sdp"
             android:layoutDirection="rtl"
+            android:orientation="horizontal"
 
 
-            android:orientation="horizontal">
+            android:padding="@dimen/_5sdp">
 
             <TextView
+                android:id="@+id/tv_list"
                 android:layout_width="wrap_content"
+
+
                 android:layout_height="match_parent"
-
-
-                android:text="@string/questions_list"
-                android:textSize="@dimen/_18sdp"
-                android:textColor="@color/black"
                 android:gravity="center"
-                android:id="@+id/tv_list"/>
+                android:text="@string/questions_list"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp" />
 
             <View
-                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/aculade_view_setting"/>
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:background="@drawable/aculade_view_setting" />
 
             <LinearLayout
 
-                android:gravity="center|right"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginLeft="@dimen/_5sdp">
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:gravity="center|right"
+                android:orientation="vertical">
 
 
                 <Switch
 
+                    android:id="@+id/switch_default"
                     style="@style/switch_style"
-                    android:text="@string/default_questions"
-                    android:id="@+id/switch_default"/>
+                    android:text="@string/default_questions" />
 
                 <Switch
+                    android:id="@+id/switch_my"
                     style="@style/switch_style"
-                    android:text="@string/my_questions"
-                    android:id="@+id/switch_my"/>
+                    android:text="@string/my_questions" />
 
                 <Switch
+                    android:id="@+id/switch_repeat_question"
                     style="@style/switch_style"
-                    android:text="@string/repetitious_question"
-                    android:id="@+id/switch_repeat_question"/>
+                    android:text="@string/repetitious_question" />
 
             </LinearLayout>
-
 
 
         </LinearLayout>
 
 
-
     </androidx.cardview.widget.CardView>
 
-
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_marginVertical="@dimen/_10sdp"
-        android:layout_marginHorizontal="@dimen/_20sdp"
-        android:padding="@dimen/_5sdp"
-        app:layout_constraintTop_toBottomOf="@id/cv_question_setting"
         android:id="@+id/cv_sound_setting"
-        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
         android:backgroundTint="@color/ice_card"
+        android:padding="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/cv_question_setting"
 
         >
-
-
 
 
         <LinearLayout
             android:id="@+id/ll_sound"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp"
+            android:layout_height="wrap_content"
             android:gravity="right"
             android:layoutDirection="rtl"
 
-            app:layout_constraintTop_toBottomOf="@id/cv_question_setting"
+            android:orientation="horizontal"
             android:padding="@dimen/_5sdp"
-            android:orientation="horizontal">
+            app:layout_constraintTop_toBottomOf="@id/cv_question_setting">
 
             <TextView
+                android:id="@+id/tv_sound"
                 android:layout_width="wrap_content"
+
+
                 android:layout_height="match_parent"
-
-
-                android:text="@string/sound_setting"
-                android:textSize="@dimen/_18sdp"
-                android:textColor="@color/black"
                 android:gravity="center"
-                android:id="@+id/tv_sound"/>
+                android:text="@string/sound_setting"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp" />
 
             <View
-                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_width="10dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/aculade_view_setting"/>
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:background="@drawable/aculade_view_setting" />
 
             <LinearLayout
 
-                android:gravity="center|right"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_marginLeft="@dimen/_5sdp"
-                >
+                android:gravity="center|right"
+                android:orientation="vertical">
 
 
                 <Switch
 
+                    android:id="@+id/switch_circle_cound"
                     style="@style/switch_style"
-                    android:text="@string/rotation_sound"
-                    android:id="@+id/switch_circle_cound"/>
+                    android:text="@string/rotation_sound" />
 
                 <Switch
+                    android:id="@+id/switch_app_sound"
                     style="@style/switch_style"
-                    android:text="@string/app_sound"
-                    android:id="@+id/switch_app_sound"/>
+                    android:text="@string/app_sound" />
+
                 <Switch
+                    android:id="@+id/switch_btn_sound"
                     style="@style/switch_style"
-                    android:text="@string/button_sound"
-                    android:id="@+id/switch_btn_sound"/>
+                    android:text="@string/button_sound" />
 
             </LinearLayout>
-
 
 
         </LinearLayout>
@@ -165,63 +156,52 @@ android:padding="@dimen/_5sdp"
     </androidx.cardview.widget.CardView>
 
 
-<TextView
-    android:layout_width="@dimen/_100sdp"
-    android:layout_height="wrap_content"
-    android:text="انتخاب بطری"
-    android:textStyle="bold"
-    android:textColor="@color/white"
-    android:gravity="center"
-android:layout_marginLeft="@dimen/_6sdp"
-    android:textSize="@dimen/_15sdp"
-    app:layout_constraintBottom_toTopOf="@id/cv_select_bottle"
-  android:rotation="-20"
-    app:layout_constraintLeft_toLeftOf="parent"
-app:layout_constraintTop_toTopOf="@id/cv_select_bottle"
-    android:background="@drawable/boarder_wood"
-    android:elevation="@dimen/_5sdp"
+    <TextView
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/boarder_wood"
+        android:elevation="@dimen/_5sdp"
+        android:gravity="center"
 
-    />
+        android:text="انتخاب بطری"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+
+        app:layout_constraintTop_toTopOf="@id/cv_select_bottle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cv_select_bottle"
+        android:layout_marginRight="20dp"
+
+        />
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_select_bottle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/cv_sound_setting"
-        android:layout_marginTop="@dimen/_40sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        app:cardCornerRadius="@dimen/_5sdp"
-    android:layout_marginHorizontal="@dimen/_10sdp"
-        android:padding="@dimen/_5sdp"
+        android:layout_height="260dp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:backgroundTint="@color/ice_card"
-
+        android:padding="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_sound_setting"
         >
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layoutDirection="ltr"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:padding="@dimen/_5sdp"
             android:id="@+id/rv_select_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutDirection="ltr"
+            android:padding="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
 
 
             />
 
 
-
-
     </androidx.cardview.widget.CardView>
-
-
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,6 +42,7 @@
 
             <ImageView
 
+                android:focusable="false"
                 android:id="@+id/tv_show_start_dialog"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_150sdp"
