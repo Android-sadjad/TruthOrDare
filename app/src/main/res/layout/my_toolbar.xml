@@ -41,7 +41,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:gravity="center"
                     android:fontFamily="@font/lalezar_regular"
-                    android:text="جرعت یا حقیقت"
+                    android:text="@string/truth_or_dare"
                     android:textSize="@dimen/_25sdp"
                     android:layout_marginHorizontal="@dimen/_50sdp"
                     android:background="@drawable/dark_board_wooden"

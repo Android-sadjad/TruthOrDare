@@ -2,6 +2,8 @@
     <string name="app_name">truth or dare</string>
     <string name="developer_team_name">تیم توسعه دهنده گوگولی</string>
     <string name="version_code">ورژن 2.0</string>
+    <string name="truth_or_dare">جرات یا حقیقت</string>
+
 
 
     <string name="need_internet">برای مشاهده این قسمت باید به اینترنت متصل باشید</string>
@@ -27,7 +29,7 @@
     <string name="app_sound">صدای برنامه</string>
     <string name="button_sound">صدای دکمه ها</string>
 
-    <string name="dare">جرعت</string>
+    <string name="dare">جرات</string>
     <string name="truth">حقیقت</string>
     <string name="sample_question">آخرین بار کی آب خوردی؟</string>
     <string name="change_question">تغییر سوال</string>
@@ -36,7 +38,7 @@
     <string name="no_question_added">هنوز هیچ سوالی اضافه نشده است</string>
     <string name="add_your_question">با زدن روی دکمه پلاس \nسوال خود را اضافه کنید</string>
 
-    <string name="my_dare">جرعت من</string>
+    <string name="my_dare">جرات من</string>
     <string name="my_truth">حقیقت من</string>
 
     <string name="delete_question">حذف سوال</string>

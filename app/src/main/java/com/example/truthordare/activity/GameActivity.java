@@ -173,8 +173,8 @@ public class GameActivity extends AppCompatActivity {
     private void setViewSize() {
 
 
-        ivCircleBackground.getLayoutParams().width = screenHeight * 50 / 100;
-        ivCircleBackground.getLayoutParams().height = screenHeight * 50 / 100;
+        ivCircleBackground.getLayoutParams().width = screenWidth * 85 / 100;
+        ivCircleBackground.getLayoutParams().height = screenWidth * 85 / 100;
 
         llNamesBord.getLayoutParams().height = screenHeight * 30 / 100;
         clQuestions.getLayoutParams().height = screenHeight * 40 / 100;
