@@ -15,7 +15,9 @@
         android:layout_height="match_parent"
         android:background="@drawable/bg_main">
 
-        <include layout="@layout/my_toolbar" />
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/my_toolbar" />
 
 
         <ImageView
@@ -26,7 +28,7 @@
             app:layout_constraintBottom_toTopOf="@id/cl_question"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
 
             >
 
@@ -34,8 +36,8 @@
 
         <ImageView
             android:id="@+id/iv_bottle"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_200sdp"
             android:layout_margin="@dimen/_30sdp"
             android:background="@drawable/bottle_test"
             android:elevation="@dimen/_10sdp"

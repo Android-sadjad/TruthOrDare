@@ -50,6 +50,17 @@ public class StartGameActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        setting = new Setting(StartGameActivity.this);
+        if (setting.isAppSound() && !MyMediaPlayer.mpMainSound.isPlaying()) {
+
+            MyMediaPlayer.mpMainSound.start();
+        }
+    }
+
 
     private void init() {
 

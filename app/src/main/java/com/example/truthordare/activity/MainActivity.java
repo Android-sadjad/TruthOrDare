@@ -2,20 +2,20 @@ package com.example.truthordare.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
@@ -24,9 +24,7 @@ import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.dialog.AboutUsDialog;
 import com.example.truthordare.dialog.ExitDialog;
 import com.example.truthordare.model.MyMediaPlayer;
-import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
-import com.google.android.material.navigation.NavigationView;
 
 import ir.tapsell.plus.TapsellPlusBannerType;
 
@@ -38,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout rlAdvertising;
     ImageView ivStartGame;
     DrawerLayout drawerLayout;
+
+    TextView tvMyQuestion;
+    TextView tvDefaultQuestion;
+    TextView tvHemayat;
+    TextView tvComment;
 
     Setting setting;
 
@@ -59,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
         MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, rlAdvertising, TapsellPlusBannerType.BANNER_320x50);
 
 
-
-
-
     }
 
     @Override
@@ -79,10 +79,13 @@ public class MainActivity extends AppCompatActivity {
     public void findViews() {
 
         rlAdvertising = findViewById(R.id.standardBanner);
-
         ivStartGame = findViewById(R.id.tv_show_start_dialog);
-
         drawerLayout = findViewById(R.id.drawer_layout);
+
+        tvMyQuestion = findViewById(R.id.tv_my_question);
+        tvDefaultQuestion = findViewById(R.id.tv_default_questions);
+        tvHemayat = findViewById(R.id.tv_hemayat);
+        tvComment = findViewById(R.id.tv_comment);
     }
 
     private void init() {
@@ -112,6 +115,30 @@ public class MainActivity extends AppCompatActivity {
         rotateAnimation.setFillAfter(true);
         rotateAnimation.setRepeatCount(Animation.INFINITE);
         ivStartGame.startAnimation(rotateAnimation);
+
+
+        Animation scaleAnimation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.scale_animation);
+
+
+        TextView textView=findViewById(R.id.tv_toolbar_title);
+        ConstraintLayout clMainMenuItems=findViewById(R.id.cl_main_menu_items);
+
+        clMainMenuItems.startAnimation(scaleAnimation);
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                ivStartGame.startAnimation(scaleAnimation);
+//                tvMyQuestion.startAnimation(scaleAnimation);
+//                tvDefaultQuestion.startAnimation(scaleAnimation);
+//                tvHemayat.startAnimation(scaleAnimation);
+//                tvComment.startAnimation(scaleAnimation);
+
+
+                clMainMenuItems.startAnimation(scaleAnimation);
+
+            }
+        });
     }
 
 
@@ -165,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.nav_my_question:
 
-            openQuestionActivity(MyConstant.MY_LIST);
+                openQuestionActivity(MyConstant.MY_LIST);
                 break;
 
             case R.id.nav_default_question:
@@ -199,10 +226,10 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.closeDrawer(Gravity.RIGHT);
     }
 
-    private void openQuestionActivity(String listName){
+    private void openQuestionActivity(String listName) {
 
-        Intent intent=new Intent(MainActivity.this,QuestionActivity.class);
-        intent.putExtra(MyConstant.LIST_TYPE,listName);
+        Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+        intent.putExtra(MyConstant.LIST_TYPE, listName);
         startActivity(intent);
 
     }

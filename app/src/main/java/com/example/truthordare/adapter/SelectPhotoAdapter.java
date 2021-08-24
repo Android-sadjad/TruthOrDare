@@ -110,7 +110,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
 
 
         int id = activity.getResources().getIdentifier("bottle_" + (position + 1), "drawable", activity.getPackageName());
-        holder.ivBottle.setBackgroundResource(id);
+        holder.ivBottle.setImageResource(id);
 
 
     }

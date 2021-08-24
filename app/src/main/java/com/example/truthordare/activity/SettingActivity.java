@@ -47,6 +47,17 @@ public class SettingActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Setting set = new Setting(SettingActivity.this);
+        if (set.isAppSound() && !MyMediaPlayer.mpMainSound.isPlaying()) {
+
+            MyMediaPlayer.mpMainSound.start();
+        }
+    }
+
     private void findViews() {
 
         rvSelectPhoto = findViewById(R.id.rv_select_photo);

@@ -30,6 +30,7 @@ import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -40,6 +41,8 @@ public class GameActivity extends AppCompatActivity {
     int screenHeight;
     int sign = 1;
     int currentDegree = 0;
+
+    boolean isUp=false;
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -93,6 +96,17 @@ public class GameActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        setting = new Setting(GameActivity.this);
+        if (setting.isAppSound() && !MyMediaPlayer.mpMainSound.isPlaying()) {
+
+            MyMediaPlayer.mpMainSound.start();
+        }
     }
 
 
@@ -173,11 +187,11 @@ public class GameActivity extends AppCompatActivity {
     private void setViewSize() {
 
 
-        ivCircleBackground.getLayoutParams().width = screenWidth * 85 / 100;
-        ivCircleBackground.getLayoutParams().height = screenWidth * 85 / 100;
+        ivCircleBackground.getLayoutParams().width = screenWidth * 80 / 100;
+        ivCircleBackground.getLayoutParams().height = screenWidth * 80 / 100;
 
-        llNamesBord.getLayoutParams().height = screenHeight * 30 / 100;
-        clQuestions.getLayoutParams().height = screenHeight * 40 / 100;
+        llNamesBord.getLayoutParams().height = screenHeight * 27 / 100;
+        clQuestions.getLayoutParams().height = screenHeight * 37 / 100;
 
         llTruthOrDare.getLayoutParams().height = screenHeight * 10 / 100;
         btnTruth.getLayoutParams().height=screenHeight*10/100;
@@ -428,12 +442,14 @@ public class GameActivity extends AppCompatActivity {
 
     private void upQuestionLayoutAnimation() {
 
+        isUp=true;
         clQuestions.animate().translationY(0).setDuration(1000).setStartDelay(0);
 
     }
 
     private void downQuestionLayoutAnimation() {
 
+        isUp=false;
         clQuestions.animate().translationY(clQuestions.getLayoutParams().height).setDuration(1000).setStartDelay(0);
 
     }
@@ -591,5 +607,15 @@ public class GameActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    @Override
+    public void onBackPressed() {
+       if(isUp){
 
+           downQuestionLayoutAnimation();
+       }
+       else {
+           finish();
+
+       }
+    }
 }

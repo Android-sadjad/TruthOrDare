@@ -14,7 +14,9 @@ import com.example.truthordare.dialog.AdvertisingDialog;
 import com.example.truthordare.fragment.QuestionLIstFragment;
 import com.example.truthordare.interfaces.CallBackAddQuestions;
 import com.example.truthordare.interfaces.CallBackUpdateList;
+import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
+import com.example.truthordare.model.Setting;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -47,6 +49,17 @@ public class QuestionActivity extends AppCompatActivity {
         configuration();
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Setting setting = new Setting(QuestionActivity.this);
+        if (setting.isAppSound() && !MyMediaPlayer.mpMainSound.isPlaying()) {
+
+            MyMediaPlayer.mpMainSound.start();
+        }
     }
 
     private void findViews() {

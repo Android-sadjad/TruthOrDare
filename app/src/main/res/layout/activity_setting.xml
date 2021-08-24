@@ -179,10 +179,10 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_select_bottle"
         android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_height="@dimen/_230sdp"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:backgroundTint="@color/ice_card"
-        android:padding="@dimen/_5sdp"
+
         app:cardCornerRadius="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cv_sound_setting"

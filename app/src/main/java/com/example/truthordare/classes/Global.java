@@ -26,6 +26,8 @@ public class Global extends Application {
         stopAppSound();
     }
 
+
+
     private void initAppSound() {
 
         MyMediaPlayer.createMediaPlayer(this);
