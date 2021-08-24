@@ -11,7 +11,7 @@ import com.example.truthordare.R;
 public class MyConstant {
 
 
-    public static final int SPLASH_SCREEN_DURATION = 500;
+    public static final int SPLASH_SCREEN_DURATION = 2000;
     public static final int BOTTLE_NUMBER = 10;
     public static final int REQUEST_CODE = 1;
     public static final int MAX_QUESTION_NUMBER = 50;
