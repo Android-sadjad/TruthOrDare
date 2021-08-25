@@ -229,7 +229,7 @@ public class GameActivity extends AppCompatActivity {
 
         int circleBackgroundId = getResources()
                 .getIdentifier("bg_circle_" + playerNameList.size(), "drawable", getPackageName());
-        ivCircleBackground.setBackgroundResource(circleBackgroundId);
+        ivCircleBackground.setImageResource(circleBackgroundId);
 
 
     }
@@ -581,7 +581,7 @@ public class GameActivity extends AppCompatActivity {
 
 
         int id = getResources().getIdentifier("bottle_" + (position + 1), "drawable", getPackageName());
-        ivBottle.setBackgroundResource(id);
+        ivBottle.setImageResource(id);
 
 
     }

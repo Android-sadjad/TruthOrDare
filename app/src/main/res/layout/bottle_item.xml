@@ -38,26 +38,27 @@
         android:layout_marginTop="@dimen/_15sdp"
 
         android:background="@drawable/rectangle_storke"
-        android:padding="@dimen/_15sdp"
+        android:padding="@dimen/_10sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/iv_bottle_selected"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
 
             android:src="@drawable/bottle_1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
 
             />
 
 
         <ImageView
             android:id="@+id/iv_lock"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_lock"
             app:layout_constraintBottom_toBottomOf="parent"

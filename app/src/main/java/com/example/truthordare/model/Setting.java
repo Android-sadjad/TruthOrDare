@@ -47,7 +47,7 @@ public class Setting {
                 if (i == 0 || i == 1 || i == 2)
                     lockFlags[i] = false;
                 else
-                    lockFlags[i] = true;
+                    lockFlags[i] = false;
 
             updateSetting(context, this);
 
