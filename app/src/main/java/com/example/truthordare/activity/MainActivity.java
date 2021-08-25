@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -122,14 +123,19 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textView=findViewById(R.id.tv_toolbar_title);
         ConstraintLayout clMainMenuItems=findViewById(R.id.cl_main_menu_items);
-
+        View toolBarView=findViewById(R.id.lay);
         clMainMenuItems.startAnimation(fadeInAnimation);
+        toolBarView.startAnimation(fadeInAnimation);
+
+
+
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 clMainMenuItems.startAnimation(fadeInAnimation);
+                toolBarView.startAnimation(fadeInAnimation);
 
             }
         });

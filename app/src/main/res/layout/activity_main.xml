@@ -28,7 +28,9 @@
 
             />
 
-        <include layout="@layout/my_toolbar" />
+        <include layout="@layout/my_toolbar"
+            android:id="@+id/lay"
+            />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
