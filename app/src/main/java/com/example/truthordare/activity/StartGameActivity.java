@@ -7,6 +7,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +48,7 @@ public class StartGameActivity extends AppCompatActivity {
         init();
         findViews();
         configuration();
+
 
 
     }
@@ -96,10 +99,16 @@ public class StartGameActivity extends AppCompatActivity {
 
     private void configuration() {
 
+        Animation scaleTapAnimationY= AnimationUtils.loadAnimation(StartGameActivity.this,R.anim.scale_y_animation);
+        Animation scaleTapAnimationX= AnimationUtils.loadAnimation(StartGameActivity.this,R.anim.scale_x_animation);
+
+
 
         ivRightArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ivRightArrow.startAnimation(scaleTapAnimationY);
+
                 if (counter >= 9) {
                     Toast.makeText(StartGameActivity.this, getString(R.string.max_number), Toast.LENGTH_SHORT).show();
                     return;
@@ -116,7 +125,7 @@ public class StartGameActivity extends AppCompatActivity {
         ivLeftArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ivLeftArrow.startAnimation(scaleTapAnimationY);
 
                 if (counter <= 2) {
                     Toast.makeText(StartGameActivity.this, getString(R.string.min_number), Toast.LENGTH_SHORT).show();
@@ -136,6 +145,7 @@ public class StartGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                tvStartGame.startAnimation(scaleTapAnimationX);
                 if (setting.isButtonSound()) {
                     MyMediaPlayer.mpBtnSound.start();
                 }

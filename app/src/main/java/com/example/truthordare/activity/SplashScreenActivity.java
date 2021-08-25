@@ -3,17 +3,21 @@ package com.example.truthordare.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
-import com.example.truthordare.model.MyMediaPlayer;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
     ImageView ivSplashScreen;
+    TextView tvTeamName;
+
 
 
     @Override
@@ -24,7 +28,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         findViews();
         setViewsSize();
-
+        setStartAnimation();
         goToMainActivity();
 
 
@@ -32,9 +36,20 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     }
 
+    private void setStartAnimation() {
+
+        Animation translateAnmimation= AnimationUtils.loadAnimation(SplashScreenActivity.this,R.anim.translate_right_animation);
+        Animation bounceAnmimation= AnimationUtils.loadAnimation(SplashScreenActivity.this,R.anim.bounce_animation);
+        tvTeamName.startAnimation(translateAnmimation);
+ivSplashScreen.startAnimation(bounceAnmimation);
+
+
+    }
+
     private void findViews() {
 
         ivSplashScreen = findViewById(R.id.iv_splash_screen);
+        tvTeamName = findViewById(R.id.tv_team_name);
     }
 
     private void setViewsSize() {

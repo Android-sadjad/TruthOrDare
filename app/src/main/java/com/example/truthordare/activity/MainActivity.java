@@ -117,25 +117,19 @@ public class MainActivity extends AppCompatActivity {
         ivStartGame.startAnimation(rotateAnimation);
 
 
-        Animation scaleAnimation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.scale_animation);
+        Animation fadeInAnimation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.fade_in_animation);
 
 
         TextView textView=findViewById(R.id.tv_toolbar_title);
         ConstraintLayout clMainMenuItems=findViewById(R.id.cl_main_menu_items);
 
-        clMainMenuItems.startAnimation(scaleAnimation);
+        clMainMenuItems.startAnimation(fadeInAnimation);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                ivStartGame.startAnimation(scaleAnimation);
-//                tvMyQuestion.startAnimation(scaleAnimation);
-//                tvDefaultQuestion.startAnimation(scaleAnimation);
-//                tvHemayat.startAnimation(scaleAnimation);
-//                tvComment.startAnimation(scaleAnimation);
 
-
-                clMainMenuItems.startAnimation(scaleAnimation);
+                clMainMenuItems.startAnimation(fadeInAnimation);
 
             }
         });
