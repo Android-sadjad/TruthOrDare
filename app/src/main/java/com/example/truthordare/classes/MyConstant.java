@@ -12,7 +12,7 @@ public class MyConstant {
 
 
     public static final int SPLASH_SCREEN_DURATION = 3000;
-    public static final int BOTTLE_NUMBER = 27;
+    public static final int BOTTLE_NUMBER = 50;
     public static final int REQUEST_CODE = 1;
     public static final int MAX_QUESTION_NUMBER = 50;
 
