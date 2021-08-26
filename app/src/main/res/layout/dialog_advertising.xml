@@ -7,8 +7,6 @@
     android:layout_gravity="center"
     android:id="@+id/cl_question_video"
 
-
-
     >
 
     <TextView
@@ -22,40 +20,31 @@
         android:textSize="@dimen/_25sdp"
         android:elevation="@dimen/_5sdp"
         android:background="@drawable/header_wood"
-        app:layout_constraintTop_toTopOf="@id/cl_question_video"
-        app:layout_constraintBottom_toTopOf="@id/cl_inner_question_video"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginHorizontal="@dimen/_50sdp"
 
         />
 
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/_15sdp"
-        android:id="@+id/cl_inner_question_video"
-        android:background="@drawable/board_dialog"
-
-        >
-
-
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_200sdp"
             android:text="@string/add_question_with_see_video"
             android:fontFamily="@font/lalezar_regular"
+            android:paddingHorizontal="@dimen/_20sdp"
             android:textSize="@dimen/_25sdp"
             android:textColor="@color/white"
             android:gravity="center"
             app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/board_dialog"
+            android:id="@+id/tv_question_advetising"
+            android:layout_marginVertical="@dimen/_25sdp"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout
->
+
 
 
     <LinearLayout
@@ -66,8 +55,7 @@
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:padding="@dimen/_2sdp"
         android:elevation="@dimen/_5sdp"
-        app:layout_constraintTop_toBottomOf="@id/cl_inner_question_video"
-        app:layout_constraintBottom_toBottomOf="@id/cl_inner_question_video"
+        app:layout_constraintBottom_toBottomOf="parent"
 
 
         >
