@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -45,9 +44,9 @@ public class AdvertisingSelectDialog extends Dialog {
 
     private void findViews() {
 
-        constraintLayout = findViewById(R.id.cl_bottle_video);
-        cvYes = findViewById(R.id.cv_yes_select_dialog);
-        cvNo = findViewById(R.id.cv_no_select_dialog);
+        constraintLayout = findViewById(R.id.cl_question_video);
+        cvYes = findViewById(R.id.cv_yes_question_dialog);
+        cvNo = findViewById(R.id.cv_no_question_dialog);
 
     }
 

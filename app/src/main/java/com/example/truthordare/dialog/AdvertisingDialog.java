@@ -42,9 +42,9 @@ public class AdvertisingDialog extends Dialog {
 
     private void findViews() {
 
-        constraintLayout = findViewById(R.id.constraint_layout_show_advertising);
-        tvYes = findViewById(R.id.tv_yes);
-        tvNO = findViewById(R.id.tv_no);
+        constraintLayout = findViewById(R.id.cl_question_video);
+        tvYes = findViewById(R.id.tv_yes_question_dialog);
+        tvNO = findViewById(R.id.tv_no_question_dialog);
 
     }
 
