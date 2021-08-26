@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -14,14 +15,13 @@ import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.interfaces.CallBackReward;
 import com.example.truthordare.interfaces.CallBackUpdateSelect;
 import com.example.truthordare.model.Setting;
-import com.google.android.material.card.MaterialCardView;
 
 public class AdvertisingSelectDialog extends Dialog {
 
 
     ConstraintLayout constraintLayout;
-    MaterialCardView cvYes;
-    MaterialCardView cvNo;
+    TextView tvYes;
+    TextView tvNo;
     Setting setting;
     CallBackUpdateSelect callBackUpdateSelect;
     Activity activity;
@@ -44,9 +44,9 @@ public class AdvertisingSelectDialog extends Dialog {
 
     private void findViews() {
 
-        constraintLayout = findViewById(R.id.cl_question_video);
-        cvYes = findViewById(R.id.cv_yes_question_dialog);
-        cvNo = findViewById(R.id.cv_no_question_dialog);
+        constraintLayout = findViewById(R.id.cl_exit_dialog);
+        tvYes = findViewById(R.id.tv_yes_exit);
+        tvNo = findViewById(R.id.tv_no_exit);
 
     }
 
@@ -58,7 +58,7 @@ public class AdvertisingSelectDialog extends Dialog {
 
     private void configuration() {
 
-        cvNo.setOnClickListener(new View.OnClickListener() {
+        tvNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -66,7 +66,7 @@ public class AdvertisingSelectDialog extends Dialog {
             }
         });
 
-        cvYes.setOnClickListener(new View.OnClickListener() {
+        tvYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

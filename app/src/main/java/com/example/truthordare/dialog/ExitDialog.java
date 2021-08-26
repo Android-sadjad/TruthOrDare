@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -12,15 +13,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MyTapsell;
-import com.google.android.material.card.MaterialCardView;
 
 import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class ExitDialog extends Dialog {
 RelativeLayout rvAdvertising;
     ConstraintLayout clExit;
-    MaterialCardView cvNo;
-   MaterialCardView cvYes;
+    TextView tvNo;
+   TextView tvYes;
 
     Activity activity;
 
@@ -37,7 +37,7 @@ RelativeLayout rvAdvertising;
 
     private void configuration() {
 
-        cvNo.setOnClickListener(new View.OnClickListener() {
+        tvNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cancel();
@@ -45,7 +45,7 @@ RelativeLayout rvAdvertising;
         });
 
 
-        cvYes.setOnClickListener(new View.OnClickListener() {
+        tvYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -66,10 +66,10 @@ RelativeLayout rvAdvertising;
     }
 
     private void findViews() {
-        clExit = findViewById(R.id.cl_question_video);
-        cvNo = findViewById(R.id.cv_no_question_dialog);
-        cvYes = findViewById(R.id.cv_yes_question_dialog);
-        rvAdvertising=findViewById(R.id.rv_advertising);
+        clExit = findViewById(R.id.cl_exit_dialog);
+        tvNo = findViewById(R.id.tv_no_exit);
+        tvYes = findViewById(R.id.tv_yes_exit);
+       
 
     }
 

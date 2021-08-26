@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/_5sdp"
-    android:background="#749BD6"
+    android:background="@drawable/board_dialog"
     android:layout_gravity="center"
     android:id="@+id/cl_about_us"
 
@@ -27,8 +27,9 @@
     <ImageView
         android:id="@+id/iv_horizontal_divider"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_2sdp"
+        android:layout_height="@dimen/_4sdp"
         android:background="@color/black"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         app:layout_constraintTop_toBottomOf="@id/tv_team"
 
         />

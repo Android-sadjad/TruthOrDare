@@ -5,90 +5,94 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     android:layout_gravity="center"
-    android:id="@+id/cl_question_video"
-
-
+    android:id="@+id/cl_exit_dialog"
 
     >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-
+    <TextView
+        android:id="@+id/tv_title_dialog_exit"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/_15sdp"
-        android:id="@+id/cl_inner_question_video"
-        android:background="@drawable/wood_board_without_pich"
+        android:layout_height="@dimen/_50sdp"
+        android:fontFamily="@font/lalezar_regular"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="@string/title_select_advertising_dialog"
+        android:textSize="@dimen/_25sdp"
+        android:elevation="@dimen/_5sdp"
+        android:background="@drawable/header_wood"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="@dimen/_50sdp"
+
+        />
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:text="@string/show_video_text"
+        android:fontFamily="@font/lalezar_regular"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:textSize="@dimen/_23sdp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/board_dialog"
+        android:id="@+id/tv_want_exit"
+        android:layout_marginVertical="@dimen/_25sdp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layoutDirection="ltr"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:padding="@dimen/_2sdp"
+        android:elevation="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+
         >
 
+        <TextView
+            android:id="@+id/tv_no_exit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:fontFamily="@font/lalezar_regular"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="@string/no_matter"
+            android:textSize="@dimen/_25sdp"
+            android:background="@drawable/wood_new_btn"
+
+
+            />
 
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/show_video_text"
+            android:id="@+id/tv_yes_exit"
+            android:layout_width="0dp"
+            android:background="@drawable/wood_new_btn"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/white"
             android:fontFamily="@font/lalezar_regular"
             android:textSize="@dimen/_25sdp"
-            android:textColor="@color/white"
-            android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cv_yes_question_dialog"
-        android:layout_width="@dimen/_130sdp"
-        android:layout_height="@dimen/_35sdp"
-        android:backgroundTint="@color/center_color_gradiant"
-        app:cardCornerRadius="@dimen/_10sdp"
-        app:cardElevation="@dimen/_20sdp"
-        app:layout_constraintBottom_toBottomOf="@id/cl_inner_question_video"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/cv_no_question_dialog"
-        app:layout_constraintTop_toBottomOf="@id/cl_inner_question_video"
-        app:strokeColor="@color/start_color_gradiant"
-        app:strokeWidth="@dimen/_3sdp"
-
-        >
-
-        <TextView
-            android:id="@+id/tv_yes_question_dialog"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/lalezar_regular"
-            android:gravity="center"
+            android:layout_weight="1"
             android:text="@string/lets_go"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_25sdp" />
-    </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cv_no_question_dialog"
-        android:layout_width="@dimen/_130sdp"
-        android:layout_height="@dimen/_35sdp"
-        android:backgroundTint="@color/center_color_gradiant"
-        app:cardCornerRadius="@dimen/_10sdp"
-        app:cardElevation="@dimen/_20sdp"
-        app:layout_constraintBottom_toBottomOf="@id/cl_inner_question_video"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/cv_yes_question_dialog"
-        app:layout_constraintTop_toBottomOf="@id/cl_inner_question_video"
-        app:strokeColor="@color/start_color_gradiant"
-        app:strokeWidth="@dimen/_3sdp"
-        >
+            />
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_no_question_dialog"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/lalezar_regular"
 
-            android:gravity="center"
-            android:text="@string/no_matter"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_25sdp" />
-    </com.google.android.material.card.MaterialCardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

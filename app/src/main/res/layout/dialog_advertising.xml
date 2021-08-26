@@ -5,18 +5,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     android:layout_gravity="center"
-    android:id="@+id/cl_question_video"
+    android:id="@+id/cl_exit_dialog"
 
     >
 
     <TextView
-        android:id="@+id/tv_title_dialog_advertising"
+        android:id="@+id/tv_title_dialog_exit"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         android:fontFamily="@font/lalezar_regular"
         android:gravity="center"
         android:textColor="@color/white"
-        android:text="@string/lock_dialod"
+        android:text="@string/title_advertising_dialog"
         android:textSize="@dimen/_25sdp"
         android:elevation="@dimen/_5sdp"
         android:background="@drawable/header_wood"
@@ -30,16 +30,16 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_200sdp"
+            android:layout_height="@dimen/_150sdp"
             android:text="@string/add_question_with_see_video"
             android:fontFamily="@font/lalezar_regular"
             android:paddingHorizontal="@dimen/_20sdp"
-            android:textSize="@dimen/_25sdp"
+            android:textSize="@dimen/_23sdp"
             android:textColor="@color/white"
             android:gravity="center"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/board_dialog"
-            android:id="@+id/tv_question_advetising"
+            android:id="@+id/tv_want_exit"
             android:layout_marginVertical="@dimen/_25sdp"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -61,7 +61,7 @@
         >
 
         <TextView
-            android:id="@+id/tv_no_question_dialog"
+            android:id="@+id/tv_no_exit"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/_5sdp"
@@ -78,7 +78,7 @@
 
 
         <TextView
-            android:id="@+id/tv_yes_question_dialog"
+            android:id="@+id/tv_yes_exit"
             android:layout_width="0dp"
             android:background="@drawable/wood_new_btn"
             android:layout_height="match_parent"
