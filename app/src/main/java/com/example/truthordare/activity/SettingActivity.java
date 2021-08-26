@@ -9,6 +9,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -76,7 +77,7 @@ public class SettingActivity extends AppCompatActivity {
         setting = new Setting(this);
 
         selectPhotoAdapter = new SelectPhotoAdapter(this, setting);
-        rvSelectPhoto.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        rvSelectPhoto.setLayoutManager(new GridLayoutManager(this,2,GridLayoutManager.HORIZONTAL,false));
         rvSelectPhoto.setAdapter(selectPhotoAdapter);
 
     }

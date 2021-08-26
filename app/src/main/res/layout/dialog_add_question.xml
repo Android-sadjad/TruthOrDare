@@ -53,7 +53,6 @@
                 android:id="@+id/et_text_question"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:maxLines="3"
                 android:fontFamily="@font/lalezar_regular"
                 android:layoutDirection="rtl"
                 android:textColor="@color/center_color_gradiant"

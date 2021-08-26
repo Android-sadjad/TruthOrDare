@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:padding="@dimen/_15sdp"
         android:id="@+id/cl_inner_question_video"
-        android:background="@drawable/dialog_wood_boarder">
+        android:background="@drawable/board_dialog">
 
         <TextView
             android:id="@+id/tv_exit_question_title"

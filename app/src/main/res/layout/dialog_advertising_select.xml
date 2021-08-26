@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:padding="@dimen/_15sdp"
         android:id="@+id/cl_inner_question_video"
-        android:background="@drawable/dialog_bg_wood"
+        android:background="@drawable/wood_board_without_pich"
         >
 
 
