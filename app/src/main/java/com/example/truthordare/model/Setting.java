@@ -40,14 +40,14 @@ public class Setting {
             circleSound = true;
             buttonSound = true;
 
-            position = 1;
+            position = 0;
 
             lockFlags = new boolean[MyConstant.BOTTLE_NUMBER];
             for (int i = 0; i < lockFlags.length; i++)
-                if (i == 0 || i == 1 || i == 2)
+                if (i<=3)
                     lockFlags[i] = false;
                 else
-                    lockFlags[i] = false;
+                    lockFlags[i] = true;
 
             updateSetting(context, this);
 

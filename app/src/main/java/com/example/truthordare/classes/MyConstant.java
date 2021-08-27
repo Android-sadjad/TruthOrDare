@@ -11,9 +11,10 @@ import com.example.truthordare.R;
 public class MyConstant {
 
 
-    public static final int SPLASH_SCREEN_DURATION = 3000;
-    public static final int BOTTLE_NUMBER = 50;
+    public static final int SPLASH_SCREEN_DURATION = 2000;
+    public static final int BOTTLE_NUMBER = 40;
     public static final int REQUEST_CODE = 1;
+    public static final int FINISH_CODE = 2;
     public static final int MAX_QUESTION_NUMBER = 50;
 
     public static final String SHARED_PREFERENCES_NAME="question_list";

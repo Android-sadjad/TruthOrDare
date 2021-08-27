@@ -1,5 +1,6 @@
 package com.example.truthordare.activity;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -172,15 +173,11 @@ public class StartGameActivity extends AppCompatActivity {
                 }
                 if (fullAllEditText == true) {
 
-                    // callBackPlayerList.getPlayerList(playerNameList);
-                    ////////////////////////////////////////////////////////
-//                    getSupportFragmentManager().beginTransaction()
-//                            .add(R.id.fl_game_container, new StartGameFragment(playerNameList)).commit();
 
 
                     Intent intent=new Intent(StartGameActivity.this,GameActivity.class);
                     intent.putExtra(MyConstant.PLAYER_NAME_LIST,playerNameList);
-                    startActivity(intent);
+                    startActivityForResult(intent,MyConstant.REQUEST_CODE);
                 }
             }
 
@@ -202,4 +199,11 @@ public class StartGameActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable  Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==MyConstant.FINISH_CODE){
+            finish();
+        }
+    }
 }

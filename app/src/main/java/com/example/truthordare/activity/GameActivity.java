@@ -260,7 +260,8 @@ public class GameActivity extends AppCompatActivity {
 
             case R.id.nav_home_page:
 
-                startActivity(new Intent(GameActivity.this,MainActivity.class));
+                setResult(MyConstant.FINISH_CODE);
+                finish();
                 break;
             case R.id.nav_my_question:
                 openQuestionActivity(MyConstant.MY_LIST);

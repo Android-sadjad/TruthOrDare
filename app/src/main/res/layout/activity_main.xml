@@ -73,6 +73,7 @@
                 app:layout_constraintTop_toTopOf="@id/tv_show_start_dialog" />
 
             <LinearLayout
+                android:layoutDirection="ltr"
                 android:id="@+id/ll_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,6 +108,7 @@
 
 
             <LinearLayout
+                android:layoutDirection="ltr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
