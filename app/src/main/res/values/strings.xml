@@ -67,7 +67,9 @@
     <string name="player_name_9">نام بازیکن 9</string>
 
     <string name="do_you_want_to_exit">آیا میخواهید از بازی خارج شوید؟</string>
+    <string name="do_you_want_to_delete">آیا میخواهید این سوال را حذف کنید؟</string>
     <string name="exit_title">خروج</string>
+    <string name="delete_title">حذف</string>
     <string name="show_video_text">با دیدن یک ویدیو کوتاه میتونی این بطری را به بازی اضافه کنی</string>
     <string name="add_question_with_see_video">با دیدن یک ویدیو کوتاه میتونی ۱۰ سوال به سوالات برنامه اضافه کنی</string>
     <string name="add_question">افزودن سوال</string>

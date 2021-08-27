@@ -1,5 +1,6 @@
 package com.example.truthordare.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -40,7 +41,7 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull listQuestionsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull listQuestionsAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         if (listName.equals(MyConstant.DARE) || listName.equals(MyConstant.TRUTH)){
             holder.ivDeleteItem.setVisibility(View.GONE);
@@ -56,7 +57,6 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
 
                 deleteDialog.setTitle(R.string.delete_question);
                 deleteDialog.setMessage(R.string.delete_message);
-
                 deleteDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -125,6 +125,8 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
 
         TextView tvQuestion;
         TextView tvIndexNumber;
+        TextView tvNo;
+        TextView tvYes;
         ImageView ivDeleteItem;
 
 
@@ -134,6 +136,7 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
             tvQuestion = itemView.findViewById(R.id.tv_question_item);
             tvIndexNumber=itemView.findViewById(R.id.tv_index_number);
             ivDeleteItem = itemView.findViewById(R.id.iv_delete_item);
+
         }
     }
 

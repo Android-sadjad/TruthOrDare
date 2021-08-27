@@ -5,12 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     android:layout_gravity="center"
-    android:id="@+id/cl_exit_dialog"
+    android:id="@+id/cl_delete_dialog"
 
     >
 
     <TextView
-        android:id="@+id/tv_title_dialog_exit"
+        android:id="@+id/tv_title_dialog_delete"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         android:fontFamily="@font/lalezar_regular"
@@ -39,7 +39,7 @@
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/board_dialog"
-        android:id="@+id/tv_want_exit"
+        android:id="@+id/tv_want_delete"
         android:layout_marginVertical="@dimen/_25sdp"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -61,7 +61,7 @@
         >
 
         <TextView
-            android:id="@+id/tv_no_exit"
+            android:id="@+id/tv_no_delete"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/_5sdp"
@@ -78,7 +78,7 @@
 
 
         <TextView
-            android:id="@+id/tv_yes_exit"
+            android:id="@+id/tv_yes_delete"
             android:layout_width="0dp"
             android:background="@drawable/wood_new_btn"
             android:layout_height="match_parent"

@@ -66,9 +66,9 @@ RelativeLayout rvAdvertising;
     }
 
     private void findViews() {
-        clExit = findViewById(R.id.cl_exit_dialog);
-        tvNo = findViewById(R.id.tv_no_exit);
-        tvYes = findViewById(R.id.tv_yes_exit);
+        clExit = findViewById(R.id.cl_delete_dialog);
+        tvNo = findViewById(R.id.tv_no_delete);
+        tvYes = findViewById(R.id.tv_yes_delete);
        
 
     }
