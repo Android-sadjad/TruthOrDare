@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,6 +49,10 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
 
     @Override
     public void onBindViewHolder(@NonNull listQuestionsAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+
+        Animation fadeInAnimation=AnimationUtils.loadAnimation(rootView.getContext(), R.anim.fade_in_animation);
+        rootView.setAnimation(fadeInAnimation);
 
         if (listName.equals(MyConstant.DARE) || listName.equals(MyConstant.TRUTH)) {
             holder.ivDeleteItem.setVisibility(View.GONE);

@@ -42,7 +42,7 @@ public class Questions {
         if (questions == null) {
 
 
-            questionNumber = 3;
+            questionNumber = 20;
 
             initDefaultQuestion(context);
 
