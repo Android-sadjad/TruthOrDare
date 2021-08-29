@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
@@ -48,70 +49,61 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
 
         holder.cbSelected.setChecked(checkedPosition == position);
 
+        int id = activity.getResources().getIdentifier("bottle_" + (position + 1), "drawable", activity.getPackageName());
+        holder.ivBottle.setImageResource(id);
+
         if (lockFlags[position]) {
             holder.ivLock.setVisibility(View.VISIBLE);
-            holder.cbSelected.setVisibility(View.GONE);
+            holder.cbSelected.setVisibility(View.INVISIBLE);
         } else {
 
             holder.ivLock.setVisibility(View.GONE);
             holder.cbSelected.setVisibility(View.VISIBLE);
         }
 
-        holder.cbSelected.setOnClickListener(new View.OnClickListener() {
+
+
+        holder.clItemBottle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (((CheckBox) v).isChecked()) {
-                    checkedPosition = position;
-                } else {
+                if (lockFlags[position]){
+                    if(MyConstant.isNetworkAvailable(activity)){
 
-                    ((CheckBox) v).setChecked(true);
-                    Toast.makeText(activity, R.string.shoud_select_photo, Toast.LENGTH_SHORT).show();
+                        AdvertisingSelectDialog advertisingSelectDialog=new AdvertisingSelectDialog(activity, setting,new CallBackUpdateSelect() {
+                            @Override
+                            public void updateSelect() {
+
+                                Toast.makeText(activity, R.string.added_photo, Toast.LENGTH_SHORT).show();
+
+                                lockFlags[position] = false;
+                                setting.setLockFlags(lockFlags);
+                                setting.updateSetting(activity,setting);
+
+                                notifyDataSetChanged();
+
+
+                            }
+
+                        });
+                        advertisingSelectDialog.show();
+
+
+                    }
 
                 }
-
-                setting.setPosition(checkedPosition);
-                notifyDataSetChanged();
-            }
-        });
-        holder.ivLock.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                else {
 
 
-                if(MyConstant.isNetworkAvailable(activity)){
-
-                    AdvertisingSelectDialog advertisingSelectDialog=new AdvertisingSelectDialog(activity, setting,new CallBackUpdateSelect() {
-                        @Override
-                        public void updateSelect() {
-
-                            Toast.makeText(activity, R.string.added_photo, Toast.LENGTH_SHORT).show();
-
-                            lockFlags[position] = false;
-                            setting.setLockFlags(lockFlags);
-                            setting.updateSetting(activity,setting);
-
-                            notifyDataSetChanged();
-
-
-                        }
-
-                    });
-                    advertisingSelectDialog.show();
+                   checkedPosition=position;
+                    setting.setPosition(checkedPosition);
+                    notifyDataSetChanged();
 
 
                 }
 
-
-
-
             }
         });
-
-
-        int id = activity.getResources().getIdentifier("bottle_" + (position + 1), "drawable", activity.getPackageName());
-        holder.ivBottle.setImageResource(id);
-
 
     }
 
@@ -123,6 +115,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
+        ConstraintLayout clItemBottle;
         ImageView ivBottle;
         ImageView ivLock;
         CheckBox cbSelected;
@@ -130,6 +123,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
         public ViewHolder(View itemView) {
             super(itemView);
 
+            clItemBottle=itemView.findViewById(R.id.cl_item_bottle);
             ivBottle = itemView.findViewById(R.id.iv_bottle_selected);
             ivLock = itemView.findViewById(R.id.iv_lock);
             cbSelected = itemView.findViewById(R.id.cb_selected);

@@ -29,9 +29,9 @@
 
             />
 
-        <include layout="@layout/my_toolbar"
+        <include
             android:id="@+id/lay"
-            />
+            layout="@layout/my_toolbar" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,11 +48,11 @@
 
             <ImageView
 
-                android:focusable="false"
                 android:id="@+id/tv_show_start_dialog"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_150sdp"
                 android:background="@drawable/wood_circle_dark"
+                android:focusable="false"
                 android:onClick="onClick"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -64,34 +64,33 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/lalezar_regular"
                 android:gravity="center"
                 android:text="@string/start_game"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/_30sdp"
-                android:fontFamily="@font/lalezar_regular"
                 app:layout_constraintBottom_toBottomOf="@id/tv_show_start_dialog"
                 app:layout_constraintLeft_toLeftOf="@id/tv_show_start_dialog"
                 app:layout_constraintRight_toRightOf="@id/tv_show_start_dialog"
                 app:layout_constraintTop_toTopOf="@id/tv_show_start_dialog" />
 
             <LinearLayout
-                android:layoutDirection="ltr"
                 android:id="@+id/ll_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="24dp"
                 android:gravity="center"
-                app:layout_constraintTop_toBottomOf="@id/tv_show_start_dialog" >
-
+                android:layoutDirection="ltr"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/tv_show_start_dialog">
 
 
                 <TextView
                     android:id="@+id/tv_my_question"
                     style="@style/tv_main_menu_style"
+                    android:layout_marginRight="@dimen/_20sdp"
                     android:background="@drawable/new_wood_btn"
                     android:text="@string/my_questions"
-                    android:layout_marginRight="@dimen/_20sdp"
                     app:layout_constraintLeft_toRightOf="@id/tv_default_questions"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_show_start_dialog" />
@@ -110,23 +109,22 @@
 
 
             <LinearLayout
-                android:layoutDirection="ltr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:gravity="center"
+                android:layoutDirection="ltr"
                 app:layout_constraintTop_toBottomOf="@id/ll_question">
 
                 <TextView
                     android:id="@+id/tv_hemayat"
-                    android:layout_marginRight="@dimen/_20sdp"
                     style="@style/tv_main_menu_style"
+                    android:layout_marginRight="@dimen/_20sdp"
                     android:background="@drawable/new_wood_btn"
                     android:text="@string/support_from_us"
                     app:layout_constraintLeft_toRightOf="@id/tv_comment"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_my_question"
-                    />
+                    app:layout_constraintTop_toBottomOf="@id/tv_my_question" />
 
                 <TextView
                     android:id="@+id/tv_comment"
@@ -139,7 +137,6 @@
 
                     />
             </LinearLayout>
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -158,16 +155,18 @@
     <com.google.android.material.navigation.NavigationView
 
         android:id="@+id/navigation_view"
-        android:layout_width="@dimen/_200sdp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
+
         android:layout_gravity="right"
-        android:background="#03365E"
+        android:background="#9C6351"
         android:layoutDirection="rtl"
-        android:visibility="gone"
+        android:paddingLeft="@dimen/_5sdp"
+        app:itemBackground="@drawable/bg_menu_item"
+        app:itemIconSize="@dimen/_25sdp"
         app:itemIconTint="#ffffff"
-        app:itemTextColor="#ffffff"
         app:itemTextAppearance="@style/hint_style"
-        app:itemIconSize="@dimen/_20sdp"
+        app:itemTextColor="#ffffff"
         app:menu="@menu/navigation_view_menu" />
 
 

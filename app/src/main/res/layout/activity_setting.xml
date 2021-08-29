@@ -43,7 +43,7 @@
 
             <View
                 android:layout_width="10dp"
-                android:layout_height="@dimen/_90sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:background="@drawable/aculade_view_setting" />
 
@@ -118,7 +118,7 @@
 
             <View
                 android:layout_width="10dp"
-                android:layout_height="@dimen/_90sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:background="@drawable/aculade_view_setting" />
 
@@ -158,20 +158,20 @@
 
     <TextView
         android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:background="@drawable/boarder_wood"
+        android:layout_height="@dimen/_30sdp"
+        android:background="@drawable/bg_select_shape"
         android:elevation="@dimen/_5sdp"
         android:gravity="center"
 
         android:text="انتخاب بطری"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/cv_select_bottle"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/cv_select_bottle"
         android:layout_marginRight="20dp"
+        android:layout_marginTop="-25sp"
 
         />
 
@@ -182,7 +182,7 @@
         android:layout_height="@dimen/_240sdp"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:backgroundTint="@color/ice_card"
-
+        android:layout_marginTop="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cv_sound_setting"
@@ -194,7 +194,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layoutDirection="ltr"
-            android:padding="@dimen/_5sdp"
+           android:paddingTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
             app:layout_constraintBottom_toBottomOf="parent"
 
 

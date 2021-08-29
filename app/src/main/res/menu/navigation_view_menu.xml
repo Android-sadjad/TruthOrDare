@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+
         android:id="@+id/nav_home_page"
         android:onClick="navItemsOnClick"
         android:icon="@drawable/ic_home_page"
