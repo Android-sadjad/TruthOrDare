@@ -182,7 +182,7 @@
         android:layout_height="@dimen/_240sdp"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:backgroundTint="@color/ice_card"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         app:cardCornerRadius="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cv_sound_setting"

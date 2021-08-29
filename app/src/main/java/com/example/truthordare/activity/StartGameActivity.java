@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class StartGameActivity extends AppCompatActivity {
 
     CardView cvPlayer;
 
+    ScrollView svPlayerName;
     ConstraintLayout[] clPlayerNames;
     TextInputEditText[] tiePlayerNames;
 
@@ -76,6 +78,7 @@ public class StartGameActivity extends AppCompatActivity {
 
     private void findViews() {
 
+        svPlayerName=findViewById(R.id.sv_player_name);
         ivRightArrow = findViewById(R.id.iv_right_arrow);
         ivLeftArrow =findViewById(R.id.iv_left_arrow);
         tvPlayerNumber = findViewById(R.id.tv_player_number);
@@ -164,6 +167,7 @@ public class StartGameActivity extends AppCompatActivity {
 
                             fullAllEditText = false;
                             tiePlayerNames[i].setError(getString(R.string.please_enter_this_field));
+                            svPlayerName.smoothScrollTo(0,clPlayerNames[i].getTop());
                             break;
                         } else
                             playerNameList.add(tiePlayerNames[i].getText().toString());

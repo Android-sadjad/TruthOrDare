@@ -17,10 +17,10 @@ import com.example.truthordare.classes.MyTapsell;
 import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class ExitDialog extends Dialog {
-RelativeLayout rvAdvertising;
+    RelativeLayout rvAdvertising;
     ConstraintLayout clExit;
     TextView tvNo;
-   TextView tvYes;
+    TextView tvYes;
 
     Activity activity;
 
@@ -28,7 +28,7 @@ RelativeLayout rvAdvertising;
         super(activity);
         setContentView(R.layout.dialog_exit);
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        this.activity=activity;
+        this.activity = activity;
         findViews();
         setViewSize();
         configuration();
@@ -62,20 +62,18 @@ RelativeLayout rvAdvertising;
         clExit.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
 
 
-
     }
 
     private void findViews() {
         clExit = findViewById(R.id.cl_delete_dialog);
         tvNo = findViewById(R.id.tv_no_delete);
         tvYes = findViewById(R.id.tv_yes_delete);
-       
+
 
     }
 
-    private void showAdvertising(){
-        MyTapsell.showStandardBanner(activity,MyConstant.STANDARD_BANNER_HOME_PAGE,rvAdvertising, TapsellPlusBannerType.BANNER_250x250);
-
+    private void showAdvertising() {
+        MyTapsell.showStandardBanner(activity, MyConstant.STANDARD_BANNER_HOME_PAGE, rvAdvertising, TapsellPlusBannerType.BANNER_250x250);
 
 
     }

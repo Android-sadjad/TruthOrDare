@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,16 +17,18 @@ import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
 import com.example.truthordare.dialog.DeleteItemDialog;
+import com.example.truthordare.fragment.QuestionLIstFragment;
 import com.example.truthordare.interfaces.CallBackDeleteItem;
 import com.example.truthordare.model.Questions;
 
 import java.util.ArrayList;
 
 public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdapter.ViewHolder> {
-CallBackDeleteItem callBackDeleteItem;
+
     Questions questions;
     ArrayList<String> questionList;
     String listName;
+    View rootView;
 
     public listQuestionsAdapter(ArrayList<String> questionList, String listName, Questions questions) {
 
@@ -39,7 +42,8 @@ CallBackDeleteItem callBackDeleteItem;
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        return new ViewHolder(inflater.inflate(R.layout.question_item, parent, false));
+        rootView=inflater.inflate(R.layout.question_item, parent, false);
+        return new ViewHolder(rootView);
     }
 
     @Override
@@ -83,6 +87,8 @@ CallBackDeleteItem callBackDeleteItem;
 
                         }
                         notifyDataSetChanged();
+
+
 
 
 

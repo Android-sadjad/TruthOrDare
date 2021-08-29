@@ -19,17 +19,13 @@ public class DeleteItemDialog extends Dialog {
     ConstraintLayout clDelete;
     TextView tvNo;
     TextView tvYes;
-CallBackDeleteItem callBackDeleteItem;
-    Activity activity;
-
-
+    CallBackDeleteItem callBackDeleteItem;
 
     public DeleteItemDialog(@NonNull Context context, CallBackDeleteItem callBackDeleteItem) {
         super(context);
         setContentView(R.layout.dialog_delete);
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        this.callBackDeleteItem=callBackDeleteItem;
-        this.activity=activity;
+        this.callBackDeleteItem = callBackDeleteItem;
 
         findViews();
         setViewSize();
@@ -60,13 +56,13 @@ CallBackDeleteItem callBackDeleteItem;
     }
 
     private void setViewSize() {
-        clDelete.getLayoutParams().width= MyConstant.getScreenWidth()*90/100;
+        clDelete.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
 
     }
 
     private void findViews() {
-        clDelete=findViewById(R.id.cl_delete_dialog);
-        tvYes=findViewById(R.id.tv_yes_delete);
-        tvNo=findViewById(R.id.tv_no_delete);
+        clDelete = findViewById(R.id.cl_delete_dialog);
+        tvYes = findViewById(R.id.tv_yes_delete);
+        tvNo = findViewById(R.id.tv_no_delete);
     }
 }

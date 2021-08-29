@@ -98,6 +98,7 @@
 
 
                 <ScrollView
+                    android:id="@+id/sv_player_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="@dimen/_15sdp"

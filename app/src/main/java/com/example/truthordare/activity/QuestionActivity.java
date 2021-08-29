@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.truthordare.R;
 import com.example.truthordare.adapter.ViewPagerAdapter;
@@ -60,6 +61,7 @@ public class QuestionActivity extends AppCompatActivity {
 
             MyMediaPlayer.mpMainSound.start();
         }
+        Toast.makeText(this, "resume", Toast.LENGTH_SHORT).show();
     }
 
     private void findViews() {
@@ -190,6 +192,7 @@ public class QuestionActivity extends AppCompatActivity {
 
 
     }
+
 
 
 }
