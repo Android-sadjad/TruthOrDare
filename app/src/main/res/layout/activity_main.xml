@@ -31,7 +31,7 @@
 
         <include
             android:id="@+id/lay"
-            layout="@layout/my_toolbar" />
+            layout="@layout/view_toolbar" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout

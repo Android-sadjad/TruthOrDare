@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.dialog.AdvertisingSelectDialog;
-import com.example.truthordare.interfaces.CallBackUpdateList;
 import com.example.truthordare.interfaces.CallBackUpdateSelect;
 import com.example.truthordare.model.Setting;
 
@@ -40,7 +39,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.bottle_item, parent, false));
+                .inflate(R.layout.view_bottle_item, parent, false));
     }
 
     @Override

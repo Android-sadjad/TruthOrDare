@@ -1,8 +1,6 @@
 package com.example.truthordare.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +16,6 @@ import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
 import com.example.truthordare.dialog.DeleteItemDialog;
-import com.example.truthordare.fragment.QuestionLIstFragment;
 import com.example.truthordare.interfaces.CallBackDeleteItem;
 import com.example.truthordare.model.Questions;
 
@@ -43,7 +40,7 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        rootView=inflater.inflate(R.layout.question_item, parent, false);
+        rootView=inflater.inflate(R.layout.view_question_item, parent, false);
         return new ViewHolder(rootView);
     }
 

@@ -17,7 +17,7 @@
 
         <include
             android:id="@+id/toolbar"
-            layout="@layout/my_toolbar" />
+            layout="@layout/view_toolbar" />
 
 
         <ImageView
