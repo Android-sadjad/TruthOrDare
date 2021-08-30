@@ -124,66 +124,33 @@
 
 
    <TextView
-       android:layout_width="@dimen/_200sdp"
-       android:layout_height="@dimen/_50sdp"
+       android:layout_width="match_parent"
+       style="@style/title_dialog_style"
        android:text="@string/add_question"
-       android:textSize="@dimen/_25sdp"
-       android:fontFamily="@font/lalezar_regular"
-       android:background="@drawable/header_wood"
        app:layout_constraintTop_toTopOf="@id/cl_inner_add_question_dialog"
        app:layout_constraintBottom_toTopOf="@id/cl_inner_add_question_dialog"
-       app:layout_constraintRight_toRightOf="@id/cl_inner_add_question_dialog"
-       app:layout_constraintLeft_toLeftOf="@id/cl_inner_add_question_dialog"
-       android:textColor="@color/white"
-       android:gravity="center"
-       android:elevation="@dimen/_5sdp"
 
-       android:layout_marginTop="@dimen/_10sdp"
        />
-
 
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:layoutDirection="ltr"
-        android:orientation="horizontal"
-        android:layout_margin="@dimen/_10sdp"
-        android:elevation="@dimen/_5sdp"
-        app:layout_constraintTop_toBottomOf="@id/cl_inner_add_question_dialog"
-        app:layout_constraintBottom_toBottomOf="@id/cl_inner_add_question_dialog"
-
+        style="@style/ll_dialog_style"
+        app:layout_constraintBottom_toBottomOf="parent"
 
         >
 
         <TextView
             android:id="@+id/tv_close_add_dialog"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="@dimen/_5sdp"
-            android:fontFamily="@font/lalezar_regular"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@color/white"
+            style="@style/btn_dialog_style"
             android:text="@string/close"
-            android:textSize="@dimen/_25sdp"
-            android:background="@drawable/wood_new_btn"
-
-
             />
 
 
         <TextView
             android:id="@+id/tv_add_question"
-            android:layout_width="0dp"
-            android:background="@drawable/wood_new_btn"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:fontFamily="@font/lalezar_regular"
-            android:textSize="@dimen/_25sdp"
-            android:layout_weight="1"
+            style="@style/btn_dialog_style"
             android:text="@string/add"
 
             />

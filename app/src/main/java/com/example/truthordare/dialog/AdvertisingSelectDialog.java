@@ -12,8 +12,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MyTapsell;
+import com.example.truthordare.interfaces.CallBackMain;
 import com.example.truthordare.interfaces.CallBackReward;
-import com.example.truthordare.interfaces.CallBackUpdateSelect;
 import com.example.truthordare.model.Setting;
 
 public class AdvertisingSelectDialog extends Dialog {
@@ -23,18 +23,18 @@ public class AdvertisingSelectDialog extends Dialog {
     TextView tvYes;
     TextView tvNo;
     Setting setting;
-    CallBackUpdateSelect callBackUpdateSelect;
+    CallBackMain callBackMain;
     Activity activity;
 
 
-    public AdvertisingSelectDialog(Activity activity, Setting setting, CallBackUpdateSelect callBackUpdateSelect) {
+    public AdvertisingSelectDialog(Activity activity, Setting setting, CallBackMain callBackMain) {
         super(activity);
 
         setContentView(R.layout.dialog_advertising_select);
         this.activity = activity;
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         this.setting = setting;
-        this.callBackUpdateSelect = callBackUpdateSelect;
+        this.callBackMain = callBackMain;
 
 
         findViews();
@@ -74,15 +74,15 @@ public class AdvertisingSelectDialog extends Dialog {
 
                 MyTapsell.showInterstitialAd(activity, MyConstant.reward_based, new CallBackReward() {
                     @Override
-                    public void myReward() {
+                    public void onReward() {
 
                         flag[0] = false;
-                        callBackUpdateSelect.updateSelect();
+                        callBackMain.callBack();
 
                     }
 
                     @Override
-                    public void myError() {
+                    public void onError() {
 
                         if (flag[0]) {
                             Toast.makeText(activity, R.string.need_see_video, Toast.LENGTH_SHORT).show();

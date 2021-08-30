@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_about_us"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/_5sdp"
-    android:background="@drawable/board_dialog"
     android:layout_gravity="center"
-    android:id="@+id/cl_about_us"
+    android:background="@drawable/board_dialog"
+    android:padding="@dimen/_5sdp"
 
     >
 
@@ -14,13 +14,13 @@
         android:id="@+id/tv_team"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-     android:gravity="center"
-        android:text="@string/developer_team_name"
-        android:textSize="@dimen/_22sdp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+        android:gravity="center"
         android:padding="@dimen/_6sdp"
+        android:text="@string/developer_team_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_22sdp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
 
         />
 
@@ -28,8 +28,8 @@
         android:id="@+id/iv_horizontal_divider"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_4sdp"
-        android:background="@color/black"
         android:layout_marginHorizontal="@dimen/_10sdp"
+        android:background="@color/black"
         app:layout_constraintTop_toBottomOf="@id/tv_team"
 
         />
@@ -38,28 +38,28 @@
         android:id="@+id/tv_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/iv_horizontal_divider"
-        android:text="@string/email"
-        android:textSize="@dimen/_18sdp"
-        android:gravity="center"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
+        android:gravity="center"
+        android:text="@string/email"
         android:textColor="@color/black"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintTop_toBottomOf="@id/iv_horizontal_divider"
 
-/>
+        />
 
 
     <TextView
         android:id="@+id/tv_developerrs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_email"
-        android:text="@string/developers_name"
-        android:textSize="@dimen/_18sdp"
-        android:gravity="center"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
+        android:gravity="center"
+        android:text="@string/developers_name"
         android:textColor="@color/black"
+        android:textSize="@dimen/_18sdp"
+        app:layout_constraintTop_toBottomOf="@id/tv_email"
 
         />
 

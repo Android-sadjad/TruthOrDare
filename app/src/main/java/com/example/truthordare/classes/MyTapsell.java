@@ -81,7 +81,7 @@ public class MyTapsell {
                                     public void onClosed(TapsellPlusAdModel tapsellPlusAdModel) {
                                         super.onClosed(tapsellPlusAdModel);
                                         if (callBackReward != null)
-                                            callBackReward.myError();
+                                            callBackReward.onError();
 
                                         if(new Setting(activity).isAppSound())
                                              MyMediaPlayer.mpMainSound.start();
@@ -91,7 +91,7 @@ public class MyTapsell {
                                     public void onRewarded(TapsellPlusAdModel tapsellPlusAdModel) {
                                         super.onRewarded(tapsellPlusAdModel);
                                         if (callBackReward != null)
-                                            callBackReward.myReward();
+                                            callBackReward.onReward();
 
                                     }
 

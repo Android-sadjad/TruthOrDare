@@ -1,6 +1,5 @@
 package com.example.truthordare.dialog;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -12,20 +11,20 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
-import com.example.truthordare.interfaces.CallBackDeleteItem;
+import com.example.truthordare.interfaces.CallBackMain;
 
 public class DeleteItemDialog extends Dialog {
 
     ConstraintLayout clDelete;
     TextView tvNo;
     TextView tvYes;
-    CallBackDeleteItem callBackDeleteItem;
+    CallBackMain callBackMain;
 
-    public DeleteItemDialog(@NonNull Context context, CallBackDeleteItem callBackDeleteItem) {
+    public DeleteItemDialog(@NonNull Context context, CallBackMain callBackMain) {
         super(context);
         setContentView(R.layout.dialog_delete);
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        this.callBackDeleteItem = callBackDeleteItem;
+        this.callBackMain = callBackMain;
 
         findViews();
         setViewSize();
@@ -37,7 +36,7 @@ public class DeleteItemDialog extends Dialog {
         tvYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callBackDeleteItem.deleteItem();
+                callBackMain.callBack();
                 cancel();
 
             }

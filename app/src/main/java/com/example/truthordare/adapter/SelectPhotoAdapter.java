@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.dialog.AdvertisingSelectDialog;
-import com.example.truthordare.interfaces.CallBackUpdateSelect;
+import com.example.truthordare.interfaces.CallBackMain;
 import com.example.truthordare.model.Setting;
 
 public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.ViewHolder> {
@@ -39,7 +39,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.view_bottle_item, parent, false));
+                .inflate(R.layout.view_bottle, parent, false));
     }
 
     @Override
@@ -69,9 +69,9 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
                 if (lockFlags[position]){
                     if(MyConstant.isNetworkAvailable(activity)){
 
-                        AdvertisingSelectDialog advertisingSelectDialog=new AdvertisingSelectDialog(activity, setting,new CallBackUpdateSelect() {
+                        AdvertisingSelectDialog advertisingSelectDialog=new AdvertisingSelectDialog(activity, setting,new CallBackMain() {
                             @Override
-                            public void updateSelect() {
+                            public void callBack() {
 
                                 Toast.makeText(activity, R.string.added_photo, Toast.LENGTH_SHORT).show();
 

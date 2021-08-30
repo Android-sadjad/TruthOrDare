@@ -14,7 +14,7 @@ import com.example.truthordare.dialog.AddQuestionDialog;
 import com.example.truthordare.dialog.AdvertisingDialog;
 import com.example.truthordare.fragment.QuestionLIstFragment;
 import com.example.truthordare.interfaces.CallBackAddQuestions;
-import com.example.truthordare.interfaces.CallBackUpdateList;
+import com.example.truthordare.interfaces.CallBackMain;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
@@ -61,7 +61,6 @@ public class QuestionActivity extends AppCompatActivity {
 
             MyMediaPlayer.mpMainSound.start();
         }
-        Toast.makeText(this, "resume", Toast.LENGTH_SHORT).show();
     }
 
     private void findViews() {
@@ -177,9 +176,9 @@ public class QuestionActivity extends AppCompatActivity {
 
         if(MyConstant.isNetworkAvailable(this)){
 
-            AdvertisingDialog advertisingDialog=new AdvertisingDialog(this, questions, new CallBackUpdateList() {
+            AdvertisingDialog advertisingDialog=new AdvertisingDialog(this, questions, new CallBackMain() {
                 @Override
-                public void updateCallBack() {
+                public void callBack() {
                     dareQuestionFragment.init();
                     truthQuestionFragment.init();
 

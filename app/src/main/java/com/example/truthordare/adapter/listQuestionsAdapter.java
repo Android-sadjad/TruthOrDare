@@ -16,7 +16,7 @@ import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
 import com.example.truthordare.dialog.DeleteItemDialog;
-import com.example.truthordare.interfaces.CallBackDeleteItem;
+import com.example.truthordare.interfaces.CallBackMain;
 import com.example.truthordare.model.Questions;
 
 import java.util.ArrayList;
@@ -40,7 +40,7 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        rootView=inflater.inflate(R.layout.view_question_item, parent, false);
+        rootView=inflater.inflate(R.layout.view_question, parent, false);
         return new ViewHolder(rootView);
     }
 
@@ -61,9 +61,9 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
             public void onClick(View v) {
 
 
-                DeleteItemDialog deleteItemDialog=new DeleteItemDialog(v.getContext(), new CallBackDeleteItem() {
+                DeleteItemDialog deleteItemDialog=new DeleteItemDialog(v.getContext(), new CallBackMain() {
                     @Override
-                    public void deleteItem() {
+                    public void callBack() {
 
                         questionList.remove(position);
                         switch (listName) {

@@ -12,8 +12,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MyTapsell;
+import com.example.truthordare.interfaces.CallBackMain;
 import com.example.truthordare.interfaces.CallBackReward;
-import com.example.truthordare.interfaces.CallBackUpdateList;
 import com.example.truthordare.model.Questions;
 
 public class AdvertisingDialog extends Dialog {
@@ -22,10 +22,10 @@ public class AdvertisingDialog extends Dialog {
     TextView tvYes;
     TextView tvNO;
     Questions questions;
-    CallBackUpdateList callBackUpdateList;
+    CallBackMain callBackMain;
     Activity activity;
 
-    public AdvertisingDialog(Activity activity, Questions questions, CallBackUpdateList callBackUpdateList) {
+    public AdvertisingDialog(Activity activity, Questions questions, CallBackMain callBackMain) {
         super(activity);
 
 
@@ -33,7 +33,7 @@ public class AdvertisingDialog extends Dialog {
         this.activity = activity;
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         this.questions = questions;
-        this.callBackUpdateList = callBackUpdateList;
+        this.callBackMain = callBackMain;
 
         findViews();
         setViewsSize();
@@ -79,18 +79,18 @@ public class AdvertisingDialog extends Dialog {
 
                 MyTapsell.showInterstitialAd(activity, MyConstant.reward_based, new CallBackReward() {
                     @Override
-                    public void myReward() {
+                    public void onReward() {
                         flag[0] = false;
 
                         Toast.makeText(getContext(),R.string.ten_question_added, Toast.LENGTH_SHORT).show();
                         questions.setQuestionNumber((questions.getQuestionNumber() + 3));
                         questions.updateQuestions(getContext(), questions);
 
-                        callBackUpdateList.updateCallBack();
+                        callBackMain.callBack();
                     }
 
                     @Override
-                    public void myError() {
+                    public void onError() {
                         if (flag[0]) {
                             Toast.makeText(activity, R.string.need_see_video, Toast.LENGTH_SHORT).show();
 
