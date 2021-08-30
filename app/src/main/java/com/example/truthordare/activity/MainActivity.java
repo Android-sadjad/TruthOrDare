@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, rlAdvertising, TapsellPlusBannerType.BANNER_320x50);
 
+        Toast.makeText(this, "۳۰ تا بشین پاشو توی ۴۰ ثانیه برو", Toast.LENGTH_SHORT).show();
 
     }
 
