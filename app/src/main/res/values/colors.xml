@@ -32,15 +32,16 @@
 
 
 
-    <color name="bg_blue">#1CAFFF</color>
+    <color name="bg_blue">#1CA1FF</color>
     <color name="bg_red">#F22800</color>
-    <color name="bg_green">#00F615</color>
+    <color name="bg_green">#20AC21</color>
     <color name="bg_pink">#FE4161</color>
     <color name="bg_purple">#5918CD</color>
-    <color name="bg_yellow">#E7FF0D</color>
+    <color name="bg_yellow">#F4FF38</color>
     <color name="bg_brown">#553505</color>
     <color name="bg_orange">#CA8219</color>
     <color name="bg_dark_blue">#012F49</color>
+
 
     <color name="stroke_brown">#392201</color>
 
