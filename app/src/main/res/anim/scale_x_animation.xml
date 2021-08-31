@@ -6,22 +6,13 @@
     <scale
         android:fromXScale="1"
         android:fromYScale="1"
-        android:toXScale="0.95"
-        android:toYScale="1"
+        android:toXScale="0.97"
+        android:toYScale="0.97"
 
-        android:pivotX="50%p"
-        android:duration="300"/>
+        android:pivotX="40%p"
+        android:pivotY="20%p"
+        android:duration="150"/>
 
-<!--    <translate-->
-<!--        android:fromXDelta="1"-->
-<!--        android:toXDelta="1"-->
-<!--        android:fromYDelta="-1500"-->
-<!--        android:toYDelta="0"-->
-<!--        android:duration="1000"/>-->
 
-<!--    <alpha-->
-<!--        android:fromAlpha="0"-->
-<!--        android:toAlpha="1"-->
-<!--        android:duration="1000"/>-->
 
 </set>

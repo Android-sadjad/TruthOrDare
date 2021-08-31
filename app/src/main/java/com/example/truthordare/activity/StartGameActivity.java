@@ -37,8 +37,10 @@ public class StartGameActivity extends AppCompatActivity {
     ImageView ivRightArrow;
     ImageView ivLeftArrow;
 
+    Animation scaleAnimation;
 
     Setting setting;
+
 
     int counter = 2;
 
@@ -72,6 +74,8 @@ public class StartGameActivity extends AppCompatActivity {
 
         clPlayerNames = new ConstraintLayout[9];
         tiePlayerNames = new TextInputEditText[9];
+
+        scaleAnimation=AnimationUtils.loadAnimation(StartGameActivity.this,R.anim.scale_animation);
 
         setting = new Setting(this);
     }
@@ -111,7 +115,7 @@ public class StartGameActivity extends AppCompatActivity {
         ivRightArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ivRightArrow.startAnimation(scaleTapAnimationY);
+                ivRightArrow.startAnimation(scaleAnimation);
 
                 if (counter >= 9) {
                     Toast.makeText(StartGameActivity.this, getString(R.string.max_number), Toast.LENGTH_SHORT).show();
@@ -129,7 +133,7 @@ public class StartGameActivity extends AppCompatActivity {
         ivLeftArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ivLeftArrow.startAnimation(scaleTapAnimationY);
+                ivLeftArrow.startAnimation(scaleAnimation);
 
                 if (counter <= 2) {
                     Toast.makeText(StartGameActivity.this, getString(R.string.min_number), Toast.LENGTH_SHORT).show();

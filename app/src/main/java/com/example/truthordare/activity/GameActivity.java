@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -80,6 +81,8 @@ public class GameActivity extends AppCompatActivity {
 
     MediaPlayer mpRound;
 
+    Animation scaleAnimation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,7 +133,7 @@ public class GameActivity extends AppCompatActivity {
 
         mpRound = MediaPlayer.create(this, R.raw.rounding);
 
-
+        scaleAnimation= AnimationUtils.loadAnimation(GameActivity.this,R.anim.scale_x_animation);
     }
 
     private void findViews() {
@@ -371,7 +374,6 @@ public class GameActivity extends AppCompatActivity {
         btnDare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 downAnimation();
                 tvTod.setText(R.string.dare);
                 showRandomDareQuestion();
@@ -383,12 +385,14 @@ public class GameActivity extends AppCompatActivity {
         btnCloseQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startAnimation(v);
                 downQuestionLayoutAnimation();
             }
         });
         btnChangeQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startAnimation(v);
 
                 if (tvTod.getText().toString().equals(getString(R.string.truth))) {
 
@@ -587,6 +591,10 @@ public class GameActivity extends AppCompatActivity {
         ivBottle.setImageResource(id);
 
 
+    }
+
+    private void startAnimation(View v){
+        v.startAnimation(scaleAnimation);
     }
 
 

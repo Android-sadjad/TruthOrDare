@@ -250,7 +250,7 @@
         <item name="android:layout_marginRight">@dimen/_20sdp</item>
         <item name="android:layout_marginTop">@dimen/_10sdp</item>
         <item name="android:layout_marginBottom">@dimen/_10sdp</item>
-        <item name="cornerRadius">@dimen/_10sdp</item>
+        <item name="cardCornerRadius">@dimen/_10sdp</item>
 
     </style>
 

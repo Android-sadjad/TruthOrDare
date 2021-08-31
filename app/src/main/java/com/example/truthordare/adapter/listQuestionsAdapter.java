@@ -28,6 +28,8 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
     String listName;
     View rootView;
 
+    int lastPosition=-1;
+
     public listQuestionsAdapter(ArrayList<String> questionList, String listName, Questions questions) {
 
         this.questionList = questionList;
@@ -48,8 +50,13 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
     public void onBindViewHolder(@NonNull listQuestionsAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
 
-        Animation fadeInAnimation=AnimationUtils.loadAnimation(rootView.getContext(), R.anim.fade_in_animation);
-        rootView.setAnimation(fadeInAnimation);
+        if(position>lastPosition){
+
+            Animation fadeInAnimation=AnimationUtils.loadAnimation(rootView.getContext(), R.anim.fade_in_animation);
+            holder.itemView.setAnimation(fadeInAnimation);
+            lastPosition=position;
+        }
+
 
         if (listName.equals(MyConstant.DARE) || listName.equals(MyConstant.TRUTH)) {
             holder.ivDeleteItem.setVisibility(View.GONE);
@@ -139,4 +146,9 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
         }
     }
 
+    @Override
+    public void onViewDetachedFromWindow( listQuestionsAdapter.ViewHolder holder) {
+        super.onViewDetachedFromWindow(holder);
+        holder.itemView.clearAnimation();
+    }
 }
