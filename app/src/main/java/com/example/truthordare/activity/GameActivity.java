@@ -320,7 +320,9 @@ public class GameActivity extends AppCompatActivity {
                     mpRound.start();
                 }
 
-                int randomNumber = createRandomNumber();
+                int firstRandom=createRandomNumber();
+                int secondRandom=createRandomNumber();
+                int randomNumber = (firstRandom+secondRandom)/2;
 
                 RotateAnimation rotate = new RotateAnimation(currentDegree,
                         3600 + randomNumber,
