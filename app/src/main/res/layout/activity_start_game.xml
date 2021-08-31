@@ -135,7 +135,7 @@
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/til_player_1"
-                                style="@style/text_input_style"
+                                style="@style/til_name_style"
                                 android:hint="@string/player_name_1"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintRight_toLeftOf="@id/iv_avatar_1"
@@ -174,7 +174,7 @@
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/til_player_2"
-                                style="@style/text_input_style"
+                                style="@style/til_name_style"
                                 android:hint="@string/player_name_2"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintRight_toLeftOf="@id/iv_avatar_2"
@@ -210,7 +210,7 @@
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/til_player_3"
-                                style="@style/text_input_style"
+                                style="@style/til_name_style"
                                 android:hint="@string/player_name_3"
                                 app:layout_constraintRight_toLeftOf="@id/iv_avatar_3"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -247,7 +247,7 @@
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/til_player_4"
-                                style="@style/text_input_style"                                android:layout_width="0dp"
+                                style="@style/til_name_style"                                android:layout_width="0dp"
                                 android:hint="@string/player_name_4"
                                 app:layout_constraintRight_toLeftOf="@id/iv_avatar_4"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -284,7 +284,7 @@
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/til_player_5"
-                                style="@style/text_input_style"                                android:layout_width="0dp"
+                                style="@style/til_name_style"                                android:layout_width="0dp"
                                 android:hint="@string/player_name_5"
                                 app:layout_constraintRight_toLeftOf="@id/iv_avatar_5"
                                 app:layout_constraintLeft_toLeftOf="parent"
@@ -320,7 +320,7 @@ app:layout_constraintRight_toRightOf="parent"
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/til_player_6"
-                                style="@style/text_input_style"                                android:layout_width="0dp"
+                                style="@style/til_name_style"                                android:layout_width="0dp"
                                 android:hint="@string/player_name_6"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintRight_toLeftOf="@id/iv_avatar_6"
@@ -356,7 +356,7 @@ app:layout_constraintRight_toRightOf="parent"
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/til_player_7"
-                                style="@style/text_input_style"                                android:layout_width="0dp"
+                                style="@style/til_name_style"                                android:layout_width="0dp"
                                 android:hint="@string/player_name_7"
                                 app:layout_constraintRight_toLeftOf="@id/iv_avatar_7"
                                 app:layout_constraintLeft_toLeftOf="parent"
@@ -392,7 +392,7 @@ app:layout_constraintRight_toRightOf="parent"
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/til_player_8"
-                                style="@style/text_input_style"                                android:layout_width="0dp"
+                                style="@style/til_name_style"                                android:layout_width="0dp"
                                 android:hint="@string/player_name_8"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintRight_toLeftOf="@id/iv_avatar_8"
@@ -428,7 +428,7 @@ app:layout_constraintRight_toRightOf="parent"
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/til_player_9"
-                                style="@style/text_input_style"                                android:layout_width="0dp"
+                                style="@style/til_name_style"                                android:layout_width="0dp"
                                 android:hint="@string/player_name_9"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -460,17 +460,13 @@ app:layout_constraintRight_toRightOf="parent"
 
 
         <TextView
+
             android:id="@+id/tv_start_game"
+            style="@style/btn_dialog_style"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_70sdp"
-            android:background="@drawable/wood_new_btn"
             android:elevation="@dimen/_10sdp"
-            android:gravity="center"
-            android:fontFamily="@font/lalezar_regular"
             android:text="@string/start_game"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_22sdp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/cv_start"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -478,21 +474,13 @@ app:layout_constraintRight_toRightOf="parent"
 
 
         <TextView
+            style="@style/title_dialog_style"
+            android:layout_width="match_parent"
             android:id="@+id/tv_title"
-            android:layout_width="@dimen/_230sdp"
-            android:layout_height="@dimen/_55sdp"
             app:layout_constraintTop_toTopOf="@id/cv_start"
             app:layout_constraintBottom_toTopOf="@id/cv_start"
-            android:elevation="@dimen/_10sdp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:fontFamily="@font/lalezar_regular"
             android:text="تعداد بازیکنان"
-            android:gravity="center"
-            android:background="@drawable/header_wood"
-
-            android:textColor="@color/white"
-            android:textSize="@dimen/_25sdp" />
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
