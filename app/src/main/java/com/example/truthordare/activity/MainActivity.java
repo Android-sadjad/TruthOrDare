@@ -11,8 +11,6 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -31,12 +29,12 @@ import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class MainActivity extends AppCompatActivity {
 
-    int screenWidth;
-    int screenHeight;
+    final int ROTATE_ANIM_DURATION = 30000;
 
-    RelativeLayout rlAdvertising;
-    ImageView ivStartGame;
     DrawerLayout drawerLayout;
+    RelativeLayout rlAdvertising;
+
+    ImageView ivStartGame;
 
     TextView tvMyQuestion;
     TextView tvDefaultQuestion;
@@ -57,10 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
         findViews();
         init();
-        setViewSize();
         startAnimation();
+        showStandardAdvertising();
 
-        MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, rlAdvertising, TapsellPlusBannerType.BANNER_320x50);
 
     }
 
@@ -78,9 +75,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void findViews() {
 
-        rlAdvertising = findViewById(R.id.standardBanner);
-        ivStartGame = findViewById(R.id.tv_show_start_dialog);
         drawerLayout = findViewById(R.id.drawer_layout);
+        rlAdvertising = findViewById(R.id.standardBanner);
+
+        ivStartGame = findViewById(R.id.tv_start_game_activity);
 
         tvMyQuestion = findViewById(R.id.tv_my_question);
         tvDefaultQuestion = findViewById(R.id.tv_default_questions);
@@ -90,19 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
 
-
-        screenWidth = MyConstant.getScreenWidth();
-        screenHeight = MyConstant.getScreenHeight();
-
         aboutUsDialog = new AboutUsDialog(MainActivity.this);
         exitDialog = new ExitDialog(MainActivity.this);
-    }
-
-    public void setViewSize() {
-
-        ivStartGame.getLayoutParams().width = screenWidth * 50 / 100;
-        ivStartGame.getLayoutParams().height = screenWidth * 50 / 100;
-
     }
 
     private void startAnimation() {
@@ -110,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360
                 , Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
-        rotateAnimation.setDuration(30000);
+
+        rotateAnimation.setDuration(ROTATE_ANIM_DURATION);
         rotateAnimation.setRepeatMode(Animation.RESTART);
         rotateAnimation.setFillAfter(true);
         rotateAnimation.setRepeatCount(Animation.INFINITE);
@@ -119,25 +107,22 @@ public class MainActivity extends AppCompatActivity {
 
         Animation fadeInAnimation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.fade_in_animation);
 
-
         TextView textView=findViewById(R.id.tv_toolbar_title);
         ConstraintLayout clMainMenuItems=findViewById(R.id.cl_main_menu_items);
         View toolBarView=findViewById(R.id.lay);
         clMainMenuItems.startAnimation(fadeInAnimation);
         toolBarView.startAnimation(fadeInAnimation);
 
+    }
 
+    private void showStandardAdvertising(){
 
+        MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, rlAdvertising, TapsellPlusBannerType.BANNER_320x50);
+    }
 
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    private void showInterstitialAdvertising(){
 
-                clMainMenuItems.startAnimation(fadeInAnimation);
-                toolBarView.startAnimation(fadeInAnimation);
-
-            }
-        });
+        MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER, null);
     }
 
 
@@ -147,27 +132,23 @@ public class MainActivity extends AppCompatActivity {
             MyMediaPlayer.mpBtnSound.start();
         }
 
-
         switch (view.getId()) {
 
-            case R.id.tv_show_start_dialog:
-
+            case R.id.tv_start_game_activity:
                 startActivity(new Intent(MainActivity.this, StartGameActivity.class));
                 break;
 
             case R.id.tv_my_question:
-
                 openQuestionActivity(MyConstant.MY_LIST);
 
                 break;
 
             case R.id.tv_default_questions:
-
                 openQuestionActivity(MyConstant.DEFAULT_LIST);
                 break;
 
             case R.id.tv_hemayat:
-                MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER, null);
+                showInterstitialAdvertising();
                 break;
 
             case R.id.tv_comment:
@@ -190,24 +171,20 @@ public class MainActivity extends AppCompatActivity {
 
 
             case R.id.nav_my_question:
-
                 openQuestionActivity(MyConstant.MY_LIST);
                 break;
 
             case R.id.nav_default_question:
                 openQuestionActivity(MyConstant.DEFAULT_LIST);
-
                 break;
 
             case R.id.nav_hemayat:
-                MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER, null);
-
+                showInterstitialAdvertising();
                 break;
-            case R.id.nav_comment:
 
+            case R.id.nav_comment:
                 MyIntent.commentIntent(MainActivity.this);
                 break;
-
 
             case R.id.nav_exit:
                 exitDialog.show();

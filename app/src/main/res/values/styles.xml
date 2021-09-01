@@ -6,7 +6,7 @@
 
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">@dimen/_50sdp</item>
+        <item name="android:layout_height">@dimen/tv_main_height</item>
         <item name="android:background">@drawable/new_wood_btn</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">#FFFFFF</item>
@@ -20,7 +20,7 @@
 
     </style>
 
-    <style name="ll_main_btn_style">
+    <style name="ll_main_tv_style">
 
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

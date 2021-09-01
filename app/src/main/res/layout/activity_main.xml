@@ -25,14 +25,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-
-
             />
 
         <include
             android:id="@+id/lay"
             layout="@layout/view_toolbar" />
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_main_menu_items"
@@ -40,12 +37,12 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-
+            android:layout_marginTop="@dimen/_10sdp"
             >
 
 
             <ImageView
-                android:id="@+id/tv_show_start_dialog"
+                android:id="@+id/tv_start_game_activity"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_150sdp"
                 android:background="@drawable/wood_circle_dark"
@@ -53,53 +50,49 @@
                 android:onClick="onClick"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lalezar_regular"
                 android:gravity="center"
                 android:text="@string/start_game"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/_30sdp"
-                app:layout_constraintBottom_toBottomOf="@id/tv_show_start_dialog"
-                app:layout_constraintLeft_toLeftOf="@id/tv_show_start_dialog"
-                app:layout_constraintRight_toRightOf="@id/tv_show_start_dialog"
-                app:layout_constraintTop_toTopOf="@id/tv_show_start_dialog" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/_30ssp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_start_game_activity"
+                app:layout_constraintLeft_toLeftOf="@id/tv_start_game_activity"
+                app:layout_constraintRight_toRightOf="@id/tv_start_game_activity"
+                app:layout_constraintTop_toTopOf="@id/tv_start_game_activity" />
 
             <LinearLayout
                 android:id="@+id/ll_question"
+                style="@style/ll_main_tv_style"
                 android:layout_width="match_parent"
-                style="@style/ll_main_btn_style"
-                app:layout_constraintTop_toBottomOf="@id/tv_show_start_dialog">
+                app:layout_constraintTop_toBottomOf="@id/tv_start_game_activity">
 
 
                 <TextView
                     android:id="@+id/tv_my_question"
                     style="@style/tv_main_menu_style"
-                    android:text="@string/my_questions"
-                  />
+                    android:text="@string/my_questions" />
 
                 <TextView
                     android:id="@+id/tv_default_questions"
                     style="@style/tv_main_menu_style"
-                    android:text="@string/default_questions"/>
+                    android:text="@string/default_questions" />
 
             </LinearLayout>
 
 
             <LinearLayout
+                style="@style/ll_main_tv_style"
                 android:layout_width="match_parent"
-                style="@style/ll_main_btn_style"
                 app:layout_constraintTop_toBottomOf="@id/ll_question">
 
                 <TextView
                     android:id="@+id/tv_hemayat"
                     style="@style/tv_main_menu_style"
-                    android:text="@string/support_from_us"
-                    />
+                    android:text="@string/support_from_us" />
 
                 <TextView
                     android:id="@+id/tv_comment"
@@ -127,8 +120,7 @@
 
         android:id="@+id/navigation_view"
         style="@style/navigation_view_style"
-        android:visibility="gone"
- />
+        android:visibility="gone" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

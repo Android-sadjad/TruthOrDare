@@ -15,52 +15,44 @@ import com.example.truthordare.classes.MyConstant;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    ImageView ivSplashScreen;
+    ImageView ivProgramIcon;
     TextView tvTeamName;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-
         findViews();
         setViewsSize();
-        setStartAnimation();
+        startAnimation();
         goToMainActivity();
-
-
-
-
-    }
-
-    private void setStartAnimation() {
-
-        Animation translateAnmimation= AnimationUtils.loadAnimation(SplashScreenActivity.this,R.anim.translate_right_animation);
-        Animation bounceAnmimation= AnimationUtils.loadAnimation(SplashScreenActivity.this,R.anim.bounce_animation);
-        tvTeamName.startAnimation(translateAnmimation);
-ivSplashScreen.startAnimation(bounceAnmimation);
-
-
     }
 
     private void findViews() {
 
-        ivSplashScreen = findViewById(R.id.iv_splash_screen);
+        ivProgramIcon = findViewById(R.id.iv_program_icon);
         tvTeamName = findViewById(R.id.tv_team_name);
+    }
+
+    private void startAnimation() {
+
+
+        Animation translateAnimation = AnimationUtils.loadAnimation(SplashScreenActivity.this, R.anim.translate_right_animation);
+        Animation bounceAnimation = AnimationUtils.loadAnimation(SplashScreenActivity.this, R.anim.bounce_animation);
+        tvTeamName.startAnimation(translateAnimation);
+        ivProgramIcon.startAnimation(bounceAnimation);
+
+
     }
 
     private void setViewsSize() {
 
         int width = MyConstant.getScreenWidth() * 60 / 100;
-        ivSplashScreen.getLayoutParams().width = width;
-        ivSplashScreen.getLayoutParams().height = width;
+        ivProgramIcon.getLayoutParams().width = width;
+        ivProgramIcon.getLayoutParams().height = width;
 
     }
-
-
 
     private void goToMainActivity() {
 
