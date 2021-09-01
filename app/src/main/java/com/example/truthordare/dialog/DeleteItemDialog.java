@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.UseFullMethod;
 import com.example.truthordare.interfaces.CallBackMain;
 
 public class DeleteItemDialog extends Dialog {
@@ -55,7 +56,7 @@ public class DeleteItemDialog extends Dialog {
     }
 
     private void setViewSize() {
-        clDelete.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
+        clDelete.getLayoutParams().width = UseFullMethod.getScreenWidth() * 90 / 100;
 
     }
 

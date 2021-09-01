@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.truthordare.adapter.listQuestionsAdapter;
 import com.example.truthordare.R;
+import com.example.truthordare.adapter.listQuestionsAdapter;
 import com.example.truthordare.model.Questions;
 
 import java.util.ArrayList;
@@ -21,17 +21,18 @@ import java.util.ArrayList;
 public class QuestionLIstFragment extends Fragment {
 
     RecyclerView rvQuestionList;
+    LinearLayout llGuide;
+
     ArrayList<String> questionList;
     listQuestionsAdapter questionsAdapter;
 
-    LinearLayout llGuide;
     String listName;
     Questions questions;
 
-    public QuestionLIstFragment(ArrayList<String> questionList,Questions questions, String listName){
-        this.questionList=questionList;
-        this.listName=listName;
-        this.questions=questions;
+    public QuestionLIstFragment(ArrayList<String> questionList, Questions questions, String listName) {
+        this.questionList = questionList;
+        this.questions = questions;
+        this.listName = listName;
     }
 
 
@@ -47,46 +48,36 @@ public class QuestionLIstFragment extends Fragment {
 
         findViews(view);
         init();
-
         setVisibilityGuideLayout();
 
     }
 
 
-
-    private void findViews(View view){
+    private void findViews(View view) {
 
         rvQuestionList = view.findViewById(R.id.rv_question_list);
         llGuide = view.findViewById(R.id.ll_guide);
     }
 
-    public void init(){
+    public void init() {
 
-
-        questionsAdapter = new listQuestionsAdapter(questionList,listName,questions);
+        questionsAdapter = new listQuestionsAdapter(questionList, listName, questions);
         rvQuestionList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvQuestionList.setAdapter(questionsAdapter);
-
     }
 
     private void setVisibilityGuideLayout() {
 
-        if(questionList.isEmpty())
+        if (questionList.isEmpty())
             llGuide.setVisibility(View.VISIBLE);
         else
             llGuide.setVisibility(View.GONE);
     }
 
+    public void updateList() {
 
-    public void updateList(){
         questionsAdapter.notifyDataSetChanged();
-
         setVisibilityGuideLayout();
 
     }
-
-
-
-
-
 }

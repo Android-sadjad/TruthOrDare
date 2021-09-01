@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.UseFullMethod;
 import com.example.truthordare.interfaces.CallBackAddQuestions;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -60,8 +61,8 @@ public class AddQuestionDialog extends Dialog {
 
     public void setViewsSize() {
 
-        clAddDialog.getLayoutParams().height = MyConstant.getScreenHeight() * 80 / 100;
-        clAddDialog.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
+        clAddDialog.getLayoutParams().height = UseFullMethod.getScreenHeight() * 80 / 100;
+        clAddDialog.getLayoutParams().width = UseFullMethod.getScreenWidth() * 90 / 100;
     }
 
     private void configuration() {

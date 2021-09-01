@@ -1,66 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:keepScreenOn="true"
     android:layout_height="match_parent"
     android:background="@drawable/bg_main"
+    android:keepScreenOn="true"
 
     >
 
-
-
-
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/my_tab_layout"
+        android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
-        app:tabTextColor="@color/ice_card"
         android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabBackground="@drawable/selector_tabs"
         app:tabIndicatorColor="@color/white"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/ice_card"
-        app:tabBackground="@drawable/selector_tabs"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-
-
+        app:tabTextColor="@color/ice_card" />
 
 
     <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/my_view_pager"
-        app:layout_constraintTop_toBottomOf="@+id/my_tab_layout"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
-
-
-
-
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout">
 
     </androidx.viewpager.widget.ViewPager>
 
 
-
-
-
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
-
+        android:backgroundTint="@color/ice_card_dark"
         android:src="@drawable/ic_plus_float_btn"
-        android:backgroundTint="@color/white"
-    app:rippleColor="@color/bg_dark_blue"
-        android:id="@+id/float_btn"
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:rippleColor="@color/bg_blue"
+        app:maxImageSize="@dimen/_30sdp"
+        app:fabCustomSize="@dimen/_50sdp"
         />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

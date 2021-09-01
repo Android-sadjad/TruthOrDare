@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MyTapsell;
+import com.example.truthordare.classes.UseFullMethod;
 
 import ir.tapsell.plus.TapsellPlusBannerType;
 
@@ -59,7 +60,7 @@ public class ExitDialog extends Dialog {
 
     private void setViewSize() {
 
-        clExit.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
+        clExit.getLayoutParams().width = UseFullMethod.getScreenWidth() * 90 / 100;
 
 
     }
@@ -73,7 +74,7 @@ public class ExitDialog extends Dialog {
     }
 
     private void showAdvertising() {
-        MyTapsell.showStandardBanner(activity, MyConstant.STANDARD_BANNER_HOME_PAGE, rvAdvertising, TapsellPlusBannerType.BANNER_250x250);
+        MyTapsell.showStandardBanner(activity, MyConstant.STANDARD_BANNER, rvAdvertising, TapsellPlusBannerType.BANNER_250x250);
 
 
     }

@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.UseFullMethod;
 
 public class AboutUsDialog extends Dialog {
 
@@ -25,7 +26,7 @@ public class AboutUsDialog extends Dialog {
 
     private void setViewSize() {
 
-   clAboutUs.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
+   clAboutUs.getLayoutParams().width = UseFullMethod.getScreenWidth() * 90 / 100;
 
 
     }

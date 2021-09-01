@@ -25,13 +25,13 @@ import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MyIntent;
 import com.example.truthordare.classes.MySharedPreferences;
 import com.example.truthordare.classes.MyTapsell;
+import com.example.truthordare.classes.UseFullMethod;
 import com.example.truthordare.dialog.AboutUsDialog;
 import com.example.truthordare.dialog.ExitDialog;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Questions;
 import com.example.truthordare.model.Setting;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -117,8 +117,8 @@ public class GameActivity extends AppCompatActivity {
 
         playerNameList = getIntent().getExtras().getStringArrayList(MyConstant.PLAYER_NAME_LIST);
 
-        screenWidth = MyConstant.getScreenWidth();
-        screenHeight = MyConstant.getScreenHeight();
+        screenWidth = UseFullMethod.getScreenWidth();
+        screenHeight = UseFullMethod.getScreenHeight();
 
         randomNumberList = new ArrayList<>();
 
@@ -275,7 +275,7 @@ public class GameActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_hemayat:
-                MyTapsell.showInterstitialAd(GameActivity.this, MyConstant.interstitial_BANNER, null);
+                MyTapsell.showInterstitialAd(GameActivity.this, MyConstant.INTERSTITIAL_BANNER, null);
                 break;
             case R.id.nav_comment:
 

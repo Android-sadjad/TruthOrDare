@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.UseFullMethod;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -48,7 +49,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     private void setViewsSize() {
 
-        int width = MyConstant.getScreenWidth() * 60 / 100;
+        int width = UseFullMethod.getScreenWidth() * 60 / 100;
         ivProgramIcon.getLayoutParams().width = width;
         ivProgramIcon.getLayoutParams().height = width;
 

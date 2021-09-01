@@ -26,9 +26,9 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
     Questions questions;
     ArrayList<String> questionList;
     String listName;
-    View rootView;
+    Animation fadeInAnimation;
 
-    int lastPosition=-1;
+    int lastPosition = -1;
 
     public listQuestionsAdapter(ArrayList<String> questionList, String listName, Questions questions) {
 
@@ -41,22 +41,20 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
+        fadeInAnimation = AnimationUtils.loadAnimation(parent.getContext(), R.anim.fade_in_animation);
+
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        rootView=inflater.inflate(R.layout.view_question, parent, false);
-        return new ViewHolder(rootView);
+        return new ViewHolder(inflater.inflate(R.layout.view_question, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull listQuestionsAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
 
-        if(position>lastPosition){
-
-            Animation fadeInAnimation=AnimationUtils.loadAnimation(rootView.getContext(), R.anim.fade_in_animation);
+        if (position > lastPosition) {
             holder.itemView.setAnimation(fadeInAnimation);
-            lastPosition=position;
+            lastPosition = position;
         }
-
 
         if (listName.equals(MyConstant.DARE) || listName.equals(MyConstant.TRUTH)) {
             holder.ivDeleteItem.setVisibility(View.GONE);
@@ -68,13 +66,13 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
             public void onClick(View v) {
 
 
-                DeleteItemDialog deleteItemDialog=new DeleteItemDialog(v.getContext(), new CallBackMain() {
+                DeleteItemDialog deleteItemDialog = new DeleteItemDialog(v.getContext(), new CallBackMain() {
                     @Override
                     public void callBack() {
 
                         questionList.remove(position);
-                        switch (listName) {
 
+                        switch (listName) {
 
                             case MyConstant.TRUTH:
                                 MySharedPreferences.getInstance(v.getContext()).getQuestions().setTruthQuestionList(questionList);
@@ -98,10 +96,6 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
                         notifyDataSetChanged();
 
 
-
-
-
-
                     }
                 });
 
@@ -110,6 +104,7 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
         });
 
         holder.tvQuestion.setText(questionList.get(position));
+
         holder.tvIndexNumber.setText(String.valueOf(position + 1));
 
     }
@@ -126,13 +121,16 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
         return questionList.size();
     }
 
+    @Override
+    public void onViewDetachedFromWindow(listQuestionsAdapter.ViewHolder holder) {
+        super.onViewDetachedFromWindow(holder);
+        holder.itemView.clearAnimation();
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvQuestion;
         TextView tvIndexNumber;
-        TextView tvNo;
-        TextView tvYes;
         ImageView ivDeleteItem;
 
 
@@ -144,11 +142,5 @@ public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdap
             ivDeleteItem = itemView.findViewById(R.id.iv_delete_item);
 
         }
-    }
-
-    @Override
-    public void onViewDetachedFromWindow( listQuestionsAdapter.ViewHolder holder) {
-        super.onViewDetachedFromWindow(holder);
-        holder.itemView.clearAnimation();
     }
 }

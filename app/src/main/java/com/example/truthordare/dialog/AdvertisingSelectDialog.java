@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MyTapsell;
+import com.example.truthordare.classes.UseFullMethod;
 import com.example.truthordare.interfaces.CallBackMain;
 import com.example.truthordare.interfaces.CallBackReward;
 import com.example.truthordare.model.Setting;
@@ -53,7 +54,7 @@ public class AdvertisingSelectDialog extends Dialog {
 
     private void setViewsSize() {
 
-        constraintLayout.getLayoutParams().width = MyConstant.getScreenWidth() * 90 / 100;
+        constraintLayout.getLayoutParams().width = UseFullMethod.getScreenWidth() * 90 / 100;
     }
 
     private void configuration() {
@@ -72,7 +73,7 @@ public class AdvertisingSelectDialog extends Dialog {
 
                 final boolean[] flag = {true};
 
-                MyTapsell.showInterstitialAd(activity, MyConstant.reward_based, new CallBackReward() {
+                MyTapsell.showInterstitialAd(activity, MyConstant.INTERSTITIAL_VIDEO, new CallBackReward() {
                     @Override
                     public void onReward() {
 

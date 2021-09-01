@@ -1,490 +1,460 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_start_dialog"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:keepScreenOn="true"
-    android:layout_gravity="center"
     android:background="@drawable/bg_main"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:keepScreenOn="true">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/title_dialog_style"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:text="@string/player_number"
+        app:layout_constraintBottom_toTopOf="@id/cv_start"
+        app:layout_constraintTop_toTopOf="@id/cv_start" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
+        app:cardCornerRadius="@dimen/_30sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_start"
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:layout_marginBottom="@dimen/_50sdp"
-            app:cardBackgroundColor="#B2C6CF"
-            app:cardCornerRadius="@dimen/_30sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/wood_board_without_pich" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
 
-            >
-
-            <ImageView
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_player_number"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/wood_board_without_pich" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_5sdp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/iv_left_arrow"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:rotationY="180"
+                    android:src="@drawable/arrow_right"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/iv_right_arrow"
+                    app:layout_constraintTop_toTopOf="parent"
 
+                    />
 
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_player_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                   android:layout_marginBottom="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    >
-
-                    <ImageView
-                        android:id="@+id/iv_left_arrow"
-                        android:layout_width="@dimen/_45sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        app:layout_constraintRight_toLeftOf="@id/iv_right_arrow"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        android:src="@drawable/arrow_right"
-                        android:rotationY="180"
-
-                        />
-
-                    <TextView
-                        android:id="@+id/tv_player_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:fontFamily="@font/lalezar_regular"
-                        android:text="2"
-
-                        android:textColor="#7C3E2B"
-                        android:textSize="@dimen/_40sdp" />
-
-                    <ImageView
-                        android:id="@+id/iv_right_arrow"
-                        android:layout_width="@dimen/_45sdp"
-                        app:layout_constraintLeft_toRightOf="@id/iv_left_arrow"
-                        app:layout_constraintRight_toRightOf="parent"
-                        android:layout_height="@dimen/_50sdp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:src="@drawable/arrow_right"
-
-
-                        />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                <ScrollView
-                    android:id="@+id/sv_player_name"
+                <TextView
+                    android:id="@+id/tv_player_number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@dimen/_15sdp"
-                    android:layout_marginBottom="@dimen/_40sdp"
-
-
-                    >
-
-                    <LinearLayout
-                        android:id="@+id/ll_edit_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-
-                            android:id="@+id/cl_player_name_1"
-                            style="@style/cl_name_and_avatar_style"
-                            android:visibility="visible"
-
-                            >
-
-                            <ImageView
-                                android:id="@+id/iv_avatar_1"
-                                style="@style/iv_avatar_style"
-                                android:src="@drawable/avatar_1"
-                                app:layout_constraintBottom_toBottomOf="@id/til_player_1"
-                                app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="@id/til_player_1"
-
-
-                                />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_player_1"
-                                style="@style/til_name_style"
-                                android:hint="@string/player_name_1"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintRight_toLeftOf="@id/iv_avatar_1"
-                                app:layout_constraintTop_toTopOf="parent"
-
-                                >
-
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/et_player_1"
-                                    style="@style/et_player_name_style"
-
-                                    />
-
-
-                            </com.google.android.material.textfield.TextInputLayout>
-
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_player_name_2"
-                            style="@style/cl_name_and_avatar_style"
-                            android:visibility="visible">
-
-                            <ImageView
-                                android:id="@+id/iv_avatar_2"
-                                style="@style/iv_avatar_style"
-                                android:src="@drawable/avatar_2"
-                                app:layout_constraintBottom_toBottomOf="@id/til_player_2"
-                                app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="@id/til_player_2"
-
-
-                                />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_player_2"
-                                style="@style/til_name_style"
-                                android:hint="@string/player_name_2"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintRight_toLeftOf="@id/iv_avatar_2"
-                                app:layout_constraintTop_toTopOf="parent">
-
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/et_player_2"
-                                    style="@style/et_player_name_style" />
-
-
-                            </com.google.android.material.textfield.TextInputLayout>
-
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_player_name_3"
-                            style="@style/cl_name_and_avatar_style"
-
-                            >
-
-                            <ImageView
-                                android:id="@+id/iv_avatar_3"
-                                style="@style/iv_avatar_style"
-                                android:src="@drawable/avatar_3"
-                                app:layout_constraintBottom_toBottomOf="@id/til_player_3"
-                                app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="@id/til_player_3"
-
-
-                                />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_player_3"
-                                style="@style/til_name_style"
-                                android:hint="@string/player_name_3"
-                                app:layout_constraintRight_toLeftOf="@id/iv_avatar_3"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                >
-
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/et_player_3"
-                                    style="@style/et_player_name_style" />
-
-
-                            </com.google.android.material.textfield.TextInputLayout>
-
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_player_name_4"
-                            style="@style/cl_name_and_avatar_style"
-
-                            >
-
-                            <ImageView
-                                android:id="@+id/iv_avatar_4"
-                                style="@style/iv_avatar_style"
-                                android:src="@drawable/avatar_4"
-                                app:layout_constraintBottom_toBottomOf="@id/til_player_4"
-                                app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="@id/til_player_4"
-
-
-                                />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_player_4"
-                                style="@style/til_name_style"                                android:layout_width="0dp"
-                                android:hint="@string/player_name_4"
-                                app:layout_constraintRight_toLeftOf="@id/iv_avatar_4"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                >
-
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/et_player_4"
-                                    style="@style/et_player_name_style" />
-
-
-                            </com.google.android.material.textfield.TextInputLayout>
-
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_player_name_5"
-                            style="@style/cl_name_and_avatar_style"
-
-                            >
-
-                            <ImageView
-                                android:id="@+id/iv_avatar_5"
-                                style="@style/iv_avatar_style"
-                                android:src="@drawable/avatar_5"
-                                app:layout_constraintBottom_toBottomOf="@id/til_player_5"
-                                app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="@id/til_player_5"
-
-
-                                />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_player_5"
-                                style="@style/til_name_style"                                android:layout_width="0dp"
-                                android:hint="@string/player_name_5"
-                                app:layout_constraintRight_toLeftOf="@id/iv_avatar_5"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/et_player_5"
-                                    style="@style/et_player_name_style" />
-
-
-                            </com.google.android.material.textfield.TextInputLayout>
-
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_player_name_6"
-                            style="@style/cl_name_and_avatar_style"
-
-                            >
-
-                            <ImageView
-                                android:id="@+id/iv_avatar_6"
-                                style="@style/iv_avatar_style"
-                                android:src="@drawable/avatar_6"
-                                app:layout_constraintBottom_toBottomOf="@id/til_player_6"
-app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="@id/til_player_6"
-
-
-                                />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_player_6"
-                                style="@style/til_name_style"                                android:layout_width="0dp"
-                                android:hint="@string/player_name_6"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintRight_toLeftOf="@id/iv_avatar_6"
-                                app:layout_constraintTop_toTopOf="parent">
-
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/et_player_6"
-                                    style="@style/et_player_name_style" />
-
-
-                            </com.google.android.material.textfield.TextInputLayout>
-
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_player_name_7"
-                            style="@style/cl_name_and_avatar_style"
-
-                            >
-
-                            <ImageView
-                                android:id="@+id/iv_avatar_7"
-                                style="@style/iv_avatar_style"
-                                android:src="@drawable/avatar_7"
-                                app:layout_constraintBottom_toBottomOf="@id/til_player_7"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="#7C3E2B"
+                    android:textSize="@dimen/_40sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_right_arrow"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:src="@drawable/arrow_right"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/iv_left_arrow"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ScrollView
+                android:id="@+id/sv_player_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_40sdp">
+
+                <LinearLayout
+                    android:id="@+id/ll_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_player_name_1"
+                        style="@style/cl_name_and_avatar_style"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/iv_avatar_1"
+                            style="@style/iv_avatar_style"
+                            android:src="@drawable/avatar_1"
+                            app:layout_constraintBottom_toBottomOf="@id/til_player_1"
                             app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="@id/til_player_7"
+                            app:layout_constraintTop_toTopOf="@id/til_player_1" />
 
-
-                                />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_player_7"
-                                style="@style/til_name_style"                                android:layout_width="0dp"
-                                android:hint="@string/player_name_7"
-                                app:layout_constraintRight_toLeftOf="@id/iv_avatar_7"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/et_player_7"
-                                    style="@style/et_player_name_style" />
-
-
-                            </com.google.android.material.textfield.TextInputLayout>
-
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_player_name_8"
-                            style="@style/cl_name_and_avatar_style"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_player_1"
+                            style="@style/til_name_style"
+                            android:hint="@string/player_name_1"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/iv_avatar_1"
+                            app:layout_constraintTop_toTopOf="parent"
 
                             >
 
-                            <ImageView
-                                android:id="@+id/iv_avatar_8"
-                                style="@style/iv_avatar_style"
-                                android:src="@drawable/avatar_8"
-                                app:layout_constraintBottom_toBottomOf="@id/til_player_8"
-                               app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="@id/til_player_8"
 
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_player_1"
+                                style="@style/et_player_name_style"
 
                                 />
 
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_player_8"
-                                style="@style/til_name_style"                                android:layout_width="0dp"
-                                android:hint="@string/player_name_8"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintRight_toLeftOf="@id/iv_avatar_8"
-                                app:layout_constraintTop_toTopOf="parent">
+
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/et_player_8"
-                                    style="@style/et_player_name_style" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_player_name_2"
+                        style="@style/cl_name_and_avatar_style"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/iv_avatar_2"
+                            style="@style/iv_avatar_style"
+                            android:src="@drawable/avatar_2"
+                            app:layout_constraintBottom_toBottomOf="@id/til_player_2"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/til_player_2"
 
 
-                            </com.google.android.material.textfield.TextInputLayout>
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_player_2"
+                            style="@style/til_name_style"
+                            android:hint="@string/player_name_2"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/iv_avatar_2"
+                            app:layout_constraintTop_toTopOf="parent">
 
 
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_player_name_9"
-                            style="@style/cl_name_and_avatar_style"
-
-                            >
-
-                            <ImageView
-                                android:id="@+id/iv_avatar_9"
-                                style="@style/iv_avatar_style"
-                                android:src="@drawable/avatar_9"
-                                app:layout_constraintBottom_toBottomOf="@id/til_player_9"
-                              app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="@id/til_player_9"
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_player_2"
+                                style="@style/et_player_name_style" />
 
 
-                                />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_player_9"
-                                style="@style/til_name_style"                                android:layout_width="0dp"
-                                android:hint="@string/player_name_9"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintRight_toLeftOf="@id/iv_avatar_9"
-                                >
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/et_player_9"
-                                    style="@style/et_player_name_style" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_player_name_3"
+                        style="@style/cl_name_and_avatar_style"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/iv_avatar_3"
+                            style="@style/iv_avatar_style"
+                            android:src="@drawable/avatar_3"
+                            app:layout_constraintBottom_toBottomOf="@id/til_player_3"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/til_player_3"
 
 
-                            </com.google.android.material.textfield.TextInputLayout>
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_player_3"
+                            style="@style/til_name_style"
+                            android:hint="@string/player_name_3"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/iv_avatar_3"
+                            app:layout_constraintTop_toTopOf="parent">
 
 
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_player_3"
+                                style="@style/et_player_name_style" />
 
 
-                    </LinearLayout>
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
-                </ScrollView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_player_name_4"
+                        style="@style/cl_name_and_avatar_style"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/iv_avatar_4"
+                            style="@style/iv_avatar_style"
+                            android:src="@drawable/avatar_4"
+                            app:layout_constraintBottom_toBottomOf="@id/til_player_4"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/til_player_4"
 
 
-            </LinearLayout>
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_player_4"
+                            style="@style/til_name_style"
+                            android:layout_width="0dp"
+                            android:hint="@string/player_name_4"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/iv_avatar_4"
+                            app:layout_constraintTop_toTopOf="parent">
 
 
-        </androidx.cardview.widget.CardView>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_player_4"
+                                style="@style/et_player_name_style" />
 
 
-        <TextView
-
-            android:id="@+id/tv_start_game"
-            style="@style/btn_dialog_style"
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_70sdp"
-            android:elevation="@dimen/_10sdp"
-            android:text="@string/start_game"
-            app:layout_constraintBottom_toBottomOf="@id/cv_start"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_start" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
-        <TextView
-            style="@style/title_dialog_style"
-            android:layout_width="match_parent"
-            android:id="@+id/tv_title"
-            app:layout_constraintTop_toTopOf="@id/cv_start"
-            app:layout_constraintBottom_toTopOf="@id/cv_start"
-            android:text="تعداد بازیکنان"
-            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_player_name_5"
+                        style="@style/cl_name_and_avatar_style"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/iv_avatar_5"
+                            style="@style/iv_avatar_style"
+                            android:src="@drawable/avatar_5"
+                            app:layout_constraintBottom_toBottomOf="@id/til_player_5"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/til_player_5"
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_player_5"
+                            style="@style/til_name_style"
+                            android:layout_width="0dp"
+                            android:hint="@string/player_name_5"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/iv_avatar_5"
+                            app:layout_constraintTop_toTopOf="parent">
 
 
-</LinearLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_player_5"
+                                style="@style/et_player_name_style" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_player_name_6"
+                        style="@style/cl_name_and_avatar_style"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/iv_avatar_6"
+                            style="@style/iv_avatar_style"
+                            android:src="@drawable/avatar_6"
+                            app:layout_constraintBottom_toBottomOf="@id/til_player_6"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/til_player_6"
+
+
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_player_6"
+                            style="@style/til_name_style"
+                            android:layout_width="0dp"
+                            android:hint="@string/player_name_6"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/iv_avatar_6"
+                            app:layout_constraintTop_toTopOf="parent">
+
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_player_6"
+                                style="@style/et_player_name_style" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_player_name_7"
+                        style="@style/cl_name_and_avatar_style"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/iv_avatar_7"
+                            style="@style/iv_avatar_style"
+                            android:src="@drawable/avatar_7"
+                            app:layout_constraintBottom_toBottomOf="@id/til_player_7"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/til_player_7"
+
+
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_player_7"
+                            style="@style/til_name_style"
+                            android:layout_width="0dp"
+                            android:hint="@string/player_name_7"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/iv_avatar_7"
+                            app:layout_constraintTop_toTopOf="parent">
+
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_player_7"
+                                style="@style/et_player_name_style" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_player_name_8"
+                        style="@style/cl_name_and_avatar_style"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/iv_avatar_8"
+                            style="@style/iv_avatar_style"
+                            android:src="@drawable/avatar_8"
+                            app:layout_constraintBottom_toBottomOf="@id/til_player_8"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/til_player_8"
+
+
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_player_8"
+                            style="@style/til_name_style"
+                            android:layout_width="0dp"
+                            android:hint="@string/player_name_8"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/iv_avatar_8"
+                            app:layout_constraintTop_toTopOf="parent">
+
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_player_8"
+                                style="@style/et_player_name_style" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_player_name_9"
+                        style="@style/cl_name_and_avatar_style"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/iv_avatar_9"
+                            style="@style/iv_avatar_style"
+                            android:src="@drawable/avatar_9"
+                            app:layout_constraintBottom_toBottomOf="@id/til_player_9"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/til_player_9"
+
+
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_player_9"
+                            style="@style/til_name_style"
+                            android:layout_width="0dp"
+                            android:hint="@string/player_name_9"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/iv_avatar_9"
+                            app:layout_constraintTop_toTopOf="parent">
+
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_player_9"
+                                style="@style/et_player_name_style" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_start_game"
+        style="@style/btn_dialog_style"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_70sdp"
+        android:elevation="@dimen/_10sdp"
+        android:text="@string/start_game"
+        app:layout_constraintBottom_toBottomOf="@id/cv_start"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_start" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

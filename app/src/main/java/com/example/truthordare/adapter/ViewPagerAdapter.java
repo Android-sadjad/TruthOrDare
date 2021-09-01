@@ -48,6 +48,5 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
         fragmentList.add(fragment);
         titleList.add(title);
-
     }
 }

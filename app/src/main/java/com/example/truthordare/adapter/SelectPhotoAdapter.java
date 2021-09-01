@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.UseFullMethod;
 import com.example.truthordare.dialog.AdvertisingSelectDialog;
 import com.example.truthordare.interfaces.CallBackMain;
 import com.example.truthordare.model.Setting;
@@ -48,8 +49,8 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
 
         holder.cbSelected.setChecked(checkedPosition == position);
 
-        int id = activity.getResources().getIdentifier("bottle_" + (position + 1), "drawable", activity.getPackageName());
-        holder.ivBottle.setImageResource(id);
+        int imageSourceId = activity.getResources().getIdentifier("bottle_" + (position + 1), "drawable", activity.getPackageName());
+        holder.ivBottle.setImageResource(imageSourceId);
 
         if (lockFlags[position]) {
             holder.ivLock.setVisibility(View.VISIBLE);
@@ -61,15 +62,14 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
         }
 
 
-
         holder.clItemBottle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (lockFlags[position]){
-                    if(MyConstant.isNetworkAvailable(activity)){
+                if (lockFlags[position]) {
+                    if (UseFullMethod.isNetworkAvailable(activity)) {
 
-                        AdvertisingSelectDialog advertisingSelectDialog=new AdvertisingSelectDialog(activity, setting,new CallBackMain() {
+                        AdvertisingSelectDialog advertisingSelectDialog = new AdvertisingSelectDialog(activity, setting, new CallBackMain() {
                             @Override
                             public void callBack() {
 
@@ -77,10 +77,9 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
 
                                 lockFlags[position] = false;
                                 setting.setLockFlags(lockFlags);
-                                setting.updateSetting(activity,setting);
+                                setting.updateSetting(activity, setting);
 
                                 notifyDataSetChanged();
-
 
                             }
 
@@ -90,15 +89,11 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
 
                     }
 
-                }
-                else {
+                } else {
 
-
-                   checkedPosition=position;
+                    checkedPosition = position;
                     setting.setPosition(checkedPosition);
                     notifyDataSetChanged();
-
-
                 }
 
             }
@@ -122,7 +117,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
         public ViewHolder(View itemView) {
             super(itemView);
 
-            clItemBottle=itemView.findViewById(R.id.cl_item_bottle);
+            clItemBottle = itemView.findViewById(R.id.cl_item_bottle);
             ivBottle = itemView.findViewById(R.id.iv_bottle_selected);
             ivLock = itemView.findViewById(R.id.iv_lock);
             cbSelected = itemView.findViewById(R.id.cb_selected);

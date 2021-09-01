@@ -3,14 +3,11 @@ package com.example.truthordare.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.Switch;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
@@ -43,9 +40,6 @@ public class SettingActivity extends AppCompatActivity {
         setUpSetting();
         setSwitchOnClick();
 
-
-
-
     }
 
     @Override
@@ -69,7 +63,6 @@ public class SettingActivity extends AppCompatActivity {
         switchRepeatQuestion = findViewById(R.id.switch_repeat_question);
         switchAppSound = findViewById(R.id.switch_app_sound);
         switchCircleSound = findViewById(R.id.switch_circle_cound);
-
     }
 
     private void init() {
@@ -77,7 +70,7 @@ public class SettingActivity extends AppCompatActivity {
         setting = new Setting(this);
 
         selectPhotoAdapter = new SelectPhotoAdapter(this, setting);
-        rvSelectPhoto.setLayoutManager(new GridLayoutManager(this,2,GridLayoutManager.HORIZONTAL,false));
+        rvSelectPhoto.setLayoutManager(new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false));
         rvSelectPhoto.setAdapter(selectPhotoAdapter);
 
     }
@@ -95,57 +88,30 @@ public class SettingActivity extends AppCompatActivity {
 
     public void setSwitchOnClick() {
 
-
-        switchDefaultQuestion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setting.setDefaultQuestion(isChecked);
             }
-        });
+        };
 
-        switchMYQuestion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                setting.setMYQuestion(isChecked);
-            }
-        });
-
-        switchRepeatQuestion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                setting.setRepeatQuestion(isChecked);
-            }
-        });
+        switchDefaultQuestion.setOnCheckedChangeListener(checkedChangeListener);
+        switchMYQuestion.setOnCheckedChangeListener(checkedChangeListener);
+        switchRepeatQuestion.setOnCheckedChangeListener(checkedChangeListener);
+        switchCircleSound.setOnCheckedChangeListener(checkedChangeListener);
+        switchButtonSound.setOnCheckedChangeListener(checkedChangeListener);
 
         switchAppSound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setting.setAppSound(isChecked);
-                if (isChecked){
+                if (isChecked) {
                     MyMediaPlayer.mpMainSound.start();
-                }else {
+                } else {
                     MyMediaPlayer.mpMainSound.pause();
                 }
-
-
             }
         });
-
-        switchCircleSound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                setting.setCircleSound(isChecked);
-            }
-        });
-
-       switchButtonSound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-           @Override
-           public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-               setting.setButtonSound(isChecked);
-           }
-       });
-
-
 
     }
 
@@ -155,7 +121,6 @@ public class SettingActivity extends AppCompatActivity {
         super.onPause();
 
         setting.updateSetting(this, setting);
-
     }
 
     @Override

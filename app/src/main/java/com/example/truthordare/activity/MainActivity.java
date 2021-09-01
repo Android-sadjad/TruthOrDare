@@ -20,6 +20,7 @@ import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MyIntent;
 import com.example.truthordare.classes.MyTapsell;
+import com.example.truthordare.classes.UseFullMethod;
 import com.example.truthordare.dialog.AboutUsDialog;
 import com.example.truthordare.dialog.ExitDialog;
 import com.example.truthordare.model.MyMediaPlayer;
@@ -105,24 +106,24 @@ public class MainActivity extends AppCompatActivity {
         ivStartGame.startAnimation(rotateAnimation);
 
 
-        Animation fadeInAnimation= AnimationUtils.loadAnimation(MainActivity.this,R.anim.fade_in_animation);
+        Animation fadeInAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_in_animation);
 
-        TextView textView=findViewById(R.id.tv_toolbar_title);
-        ConstraintLayout clMainMenuItems=findViewById(R.id.cl_main_menu_items);
-        View toolBarView=findViewById(R.id.lay);
+        TextView textView = findViewById(R.id.tv_toolbar_title);
+        ConstraintLayout clMainMenuItems = findViewById(R.id.cl_main_menu_items);
+        View toolBarView = findViewById(R.id.lay);
         clMainMenuItems.startAnimation(fadeInAnimation);
         toolBarView.startAnimation(fadeInAnimation);
 
     }
 
-    private void showStandardAdvertising(){
+    private void showStandardAdvertising() {
 
-        MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER_HOME_PAGE, rlAdvertising, TapsellPlusBannerType.BANNER_320x50);
+        MyTapsell.showStandardBanner(MainActivity.this, MyConstant.STANDARD_BANNER, rlAdvertising, TapsellPlusBannerType.BANNER_320x50);
     }
 
-    private void showInterstitialAdvertising(){
+    private void showInterstitialAdvertising() {
 
-        MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.interstitial_BANNER, null);
+        MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.INTERSTITIAL_BANNER, null);
     }
 
 
@@ -196,6 +197,11 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.nav_about_us:
                 aboutUsDialog.show();
+                break;
+
+            case R.id.nav_other_app:
+                if (UseFullMethod.isNetworkAvailable(this))
+                    MyIntent.otherAppIntent(MainActivity.this);
                 break;
         }
 

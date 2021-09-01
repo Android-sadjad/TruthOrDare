@@ -13,28 +13,32 @@ import java.util.ArrayList;
 
 public class MySharedPreferences {
 
-    Context context;
-
     private static Gson gson;
+    private static MySharedPreferences mySharedPreferences = null;
+    Context context;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-
     ArrayList<String> truthQuestionList;
     ArrayList<String> dareQuestionList;
     ArrayList<String> myTruthQuestionList;
     ArrayList<String> myDareQuestionList;
-
     String truth;
     String dare;
     String my_truth;
     String my_dare;
 
-    int questionNumber;
-
 
     //////////////////////////////////////////////////////////////////////////////////
+    int questionNumber;
 
-    private static MySharedPreferences mySharedPreferences = null;
+    private MySharedPreferences(Context context) {
+
+        sharedPreferences = context.getSharedPreferences(MyConstant.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        this.context = context;
+
+    }
 
     public static MySharedPreferences getInstance(Context context) {
 
@@ -44,15 +48,6 @@ public class MySharedPreferences {
         gson = new Gson();
 
         return mySharedPreferences;
-    }
-
-    private MySharedPreferences(Context context) {
-
-        sharedPreferences = context.getSharedPreferences(MyConstant.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-
-        this.context = context;
-
     }
 
     //////////////////////////////////////////////////////////////////////////////////
@@ -83,7 +78,7 @@ public class MySharedPreferences {
         dare = sharedPreferences.getString(MyConstant.DARE, null);
         my_truth = sharedPreferences.getString(MyConstant.MY_TRUTH, null);
         my_dare = sharedPreferences.getString(MyConstant.MY_DARE, null);
-        questionNumber=sharedPreferences.getInt(MyConstant.QUESTION_NUMBER,10);
+        questionNumber = sharedPreferences.getInt(MyConstant.QUESTION_NUMBER, 10);
 
         if (truth == null)
             return null;
@@ -110,7 +105,7 @@ public class MySharedPreferences {
         dareQuestionList = questions.getDareQuestionList();
         myTruthQuestionList = questions.getMyTruthQuestionList();
         myDareQuestionList = questions.getMyDareQuestionList();
-        questionNumber=questions.getQuestionNumber();
+        questionNumber = questions.getQuestionNumber();
 
         truth = gson.toJson(truthQuestionList);
         editor.putString(MyConstant.TRUTH, truth).apply();
@@ -124,7 +119,7 @@ public class MySharedPreferences {
         my_dare = gson.toJson(myDareQuestionList);
         editor.putString(MyConstant.MY_DARE, my_dare).apply();
 
-        editor.putInt(MyConstant.QUESTION_NUMBER,questionNumber).apply();
+        editor.putInt(MyConstant.QUESTION_NUMBER, questionNumber).apply();
 
 
     }
