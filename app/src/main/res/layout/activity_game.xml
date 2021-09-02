@@ -218,7 +218,7 @@
 
             <TextView
                 android:id="@+id/tv_tod"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/_100sdp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_5sdp"
@@ -226,9 +226,12 @@
                 android:gravity="center"
                 android:paddingTop="@dimen/_5sdp"
                 android:text="@string/truth"
+                android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="30sp"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
 
                 />
 
