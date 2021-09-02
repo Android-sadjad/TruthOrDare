@@ -16,6 +16,7 @@ public class MyConstant {
     public static final int REQUEST_CODE = 1;
     public static final int FINISH_CODE = 2;
     public static final int MAX_QUESTION_NUMBER = 100;
+    public static final int FREE_QUESTION_NUMBER = 30 ;
 
     public static final String SHARED_PREFERENCES_NAME = "truth or dare";
     public static final String SETTING = "setting";

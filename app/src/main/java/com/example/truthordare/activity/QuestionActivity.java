@@ -59,9 +59,9 @@ public class QuestionActivity extends AppCompatActivity {
         super.onResume();
 
         Setting setting = new Setting(QuestionActivity.this);
-        if (setting.isAppSound() && !MyMediaPlayer.mpMainSound.isPlaying()) {
+        if (setting.isAppSound() && !MyMediaPlayer.mpAppSound.isPlaying()) {
 
-            MyMediaPlayer.mpMainSound.start();
+            MyMediaPlayer.mpAppSound.start();
         }
     }
 

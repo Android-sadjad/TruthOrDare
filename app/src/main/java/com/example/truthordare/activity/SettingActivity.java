@@ -47,9 +47,9 @@ public class SettingActivity extends AppCompatActivity {
         super.onResume();
 
         Setting set = new Setting(SettingActivity.this);
-        if (set.isAppSound() && !MyMediaPlayer.mpMainSound.isPlaying()) {
+        if (set.isAppSound() && !MyMediaPlayer.mpAppSound.isPlaying()) {
 
-            MyMediaPlayer.mpMainSound.start();
+            MyMediaPlayer.mpAppSound.start();
         }
     }
 
@@ -81,34 +81,57 @@ public class SettingActivity extends AppCompatActivity {
         switchMYQuestion.setChecked(setting.isMYQuestion());
         switchRepeatQuestion.setChecked(setting.isRepeatQuestion());
         switchAppSound.setChecked(setting.isAppSound());
-        switchCircleSound.setChecked(setting.isCircleSound());
+        switchCircleSound.setChecked(setting.isSpinSound());
         switchButtonSound.setChecked(setting.isButtonSound());
 
     }
 
     public void setSwitchOnClick() {
 
-        CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
+
+        switchDefaultQuestion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setting.setDefaultQuestion(isChecked);
             }
-        };
+        });
 
-        switchDefaultQuestion.setOnCheckedChangeListener(checkedChangeListener);
-        switchMYQuestion.setOnCheckedChangeListener(checkedChangeListener);
-        switchRepeatQuestion.setOnCheckedChangeListener(checkedChangeListener);
-        switchCircleSound.setOnCheckedChangeListener(checkedChangeListener);
-        switchButtonSound.setOnCheckedChangeListener(checkedChangeListener);
+        switchMYQuestion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setting.setMYQuestion(isChecked);
+            }
+        });
+
+        switchRepeatQuestion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setting.setRepeatQuestion(isChecked);
+            }
+        });
+
+        switchCircleSound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setting.setSpinSound(isChecked);
+            }
+        });
+
+        switchButtonSound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                setting.setButtonSound(isChecked);
+            }
+        });
 
         switchAppSound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setting.setAppSound(isChecked);
                 if (isChecked) {
-                    MyMediaPlayer.mpMainSound.start();
+                    MyMediaPlayer.mpAppSound.start();
                 } else {
-                    MyMediaPlayer.mpMainSound.pause();
+                    MyMediaPlayer.mpAppSound.pause();
                 }
             }
         });

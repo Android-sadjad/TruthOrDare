@@ -29,7 +29,7 @@ public class Global extends Application {
 
     private void initAppSound() {
 
-        MyMediaPlayer.createMediaPlayer(this);
+        MyMediaPlayer.createAppSound(this);
         MyMediaPlayer.createButtonSound(this);
     }
 
@@ -51,7 +51,7 @@ public class Global extends Application {
 
     private void stopAppSound() {
 
-        if (MyMediaPlayer.mpMainSound.isPlaying())
-            MyMediaPlayer.mpMainSound.pause();
+        if (MyMediaPlayer.mpAppSound.isPlaying())
+            MyMediaPlayer.mpAppSound.pause();
     }
 }

@@ -7,6 +7,7 @@
         android:startColor="@color/start_color_brown"
         android:centerColor="@color/brown_500"
         android:endColor="@color/end_color_brown"
+
         android:angle="270" />
 
     <size android:width="20sp"

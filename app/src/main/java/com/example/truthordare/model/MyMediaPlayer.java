@@ -7,22 +7,23 @@ import com.example.truthordare.R;
 
 public class MyMediaPlayer {
 
-    public static MediaPlayer mpMainSound;
+    public static MediaPlayer mpAppSound;
     public static MediaPlayer mpBtnSound;
+    public static MediaPlayer mpSpinSound;
 
-    public static void createMediaPlayer(Context context) {
-        mpMainSound = MediaPlayer.create(context, R.raw.dark_shadow);
-        mpMainSound.setLooping(true);
-
+    public static void createAppSound(Context context) {
+        mpAppSound = MediaPlayer.create(context, R.raw.app_sound);
+        mpAppSound.setLooping(true);
     }
-
 
     public static void createButtonSound(Context context) {
-
-        mpBtnSound = MediaPlayer.create(context, R.raw.btn_sound);
-
+        mpBtnSound = MediaPlayer.create(context, R.raw.button_sound);
 
     }
 
+    public static void createSpinSound(Context context) {
+        mpBtnSound = MediaPlayer.create(context, R.raw.spin_sound);
+
+    }
 
 }

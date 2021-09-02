@@ -108,7 +108,7 @@ public class MyTapsell {
                         Toast.makeText(activity, "opened", Toast.LENGTH_SHORT).show();
 
                         if (new Setting(activity).isAppSound())
-                            MyMediaPlayer.mpMainSound.pause();
+                            MyMediaPlayer.mpAppSound.pause();
                     }
 
                     @Override
@@ -118,7 +118,7 @@ public class MyTapsell {
                             callBackReward.onError();
 
                         if (new Setting(activity).isAppSound())
-                            MyMediaPlayer.mpMainSound.start();
+                            MyMediaPlayer.mpAppSound.start();
                     }
 
                     @Override

@@ -1,16 +1,15 @@
 package com.example.truthordare.model;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.example.truthordare.R;
+import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.MySharedPreferences;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Questions {
-
 
     ArrayList<String> truthQuestionList;
     ArrayList<String> dareQuestionList;
@@ -26,23 +25,14 @@ public class Questions {
 
     }
 
-    public int getQuestionNumber() {
-        return questionNumber;
-    }
-
-    public void setQuestionNumber(int questionNumber) {
-        this.questionNumber = questionNumber;
-    }
-
     public Questions(Context context) {
-
 
         Questions questions = MySharedPreferences.getInstance(context).getQuestions();
 
         if (questions == null) {
 
 
-            questionNumber = 20;
+            questionNumber = MyConstant.FREE_QUESTION_NUMBER;
 
             initDefaultQuestion(context);
 
@@ -54,17 +44,13 @@ public class Questions {
 
         } else {
 
-
             questionNumber = questions.getQuestionNumber();
-
 
             truthQuestionList = questions.getTruthQuestionList();
             dareQuestionList = questions.getDareQuestionList();
 
             myTruthQuestionList = questions.getMyTruthQuestionList();
             myDareQuestionList = questions.getMyDareQuestionList();
-
-
         }
 
     }
@@ -72,7 +58,7 @@ public class Questions {
 
     private void initDefaultQuestion(Context context) {
 
-        ArrayList<String> tempList = new ArrayList<>();
+
         truthQuestionList = new ArrayList<>();
         dareQuestionList = new ArrayList<>();
 
@@ -84,12 +70,11 @@ public class Questions {
 
     }
 
-
     ////////////////////////////////////////////////////////////////////////////////
 
     public void updateQuestions(Context context, Questions questions) {
-        MySharedPreferences.getInstance(context).putQuestions(questions);
 
+        MySharedPreferences.getInstance(context).putQuestions(questions);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -123,6 +108,14 @@ public class Questions {
 
     public void setMyDareQuestionList(ArrayList<String> myDareQuestionList) {
         this.myDareQuestionList = myDareQuestionList;
+    }
+
+    public int getQuestionNumber() {
+        return questionNumber;
+    }
+
+    public void setQuestionNumber(int questionNumber) {
+        this.questionNumber = questionNumber;
     }
 
 }

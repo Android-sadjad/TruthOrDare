@@ -10,41 +10,33 @@ public class Setting {
     boolean defaultQuestion;
     boolean mYQuestion;
     boolean repeatQuestion;
+
     boolean appSound;
-    boolean circleSound;
+    boolean spinSound;
     boolean buttonSound;
 
     boolean[] lockFlags;
-    int position;
+    int selectedPhotoPosition;
 
-
-    public int getPosition() {
-        return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
-    }
 
     public Setting(Context context) {
-
 
         Setting setting = MySharedPreferences.getInstance(context).getSetting();
 
         if (setting == null) {
 
             defaultQuestion = true;
-            mYQuestion = false;
+            mYQuestion = true;
             repeatQuestion = false;
             appSound = true;
-            circleSound = true;
+            spinSound = true;
             buttonSound = true;
 
-            position = 0;
+            selectedPhotoPosition = 0;
 
             lockFlags = new boolean[MyConstant.BOTTLE_NUMBER];
             for (int i = 0; i < lockFlags.length; i++)
-                if (i<=3)
+                if (i <= 3)
                     lockFlags[i] = false;
                 else
                     lockFlags[i] = true;
@@ -58,9 +50,9 @@ public class Setting {
             mYQuestion = setting.isMYQuestion();
             repeatQuestion = setting.isRepeatQuestion();
             appSound = setting.isAppSound();
-            circleSound = setting.isCircleSound();
+            spinSound = setting.isSpinSound();
 
-            position = setting.getPosition();
+            selectedPhotoPosition = setting.getSelectedPhotoPosition();
             lockFlags = setting.getLockFlags();
 
             buttonSound = setting.isButtonSound();
@@ -108,12 +100,12 @@ public class Setting {
         this.appSound = appSound;
     }
 
-    public boolean isCircleSound() {
-        return circleSound;
+    public boolean isSpinSound() {
+        return spinSound;
     }
 
-    public void setCircleSound(boolean circleSound) {
-        this.circleSound = circleSound;
+    public void setSpinSound(boolean spinSound) {
+        this.spinSound = spinSound;
     }
 
     public boolean[] getLockFlags() {
@@ -134,5 +126,12 @@ public class Setting {
         this.buttonSound = buttonSound;
     }
 
+    public int getSelectedPhotoPosition() {
+        return selectedPhotoPosition;
+    }
+
+    public void setSelectedPhotoPosition(int selectedPhotoPosition) {
+        this.selectedPhotoPosition = selectedPhotoPosition;
+    }
 
 }

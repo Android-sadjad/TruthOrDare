@@ -13,7 +13,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
-import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.UseFullMethod;
 import com.example.truthordare.dialog.AdvertisingSelectDialog;
 import com.example.truthordare.interfaces.CallBackMain;
@@ -32,7 +31,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
         this.activity = activity;
         this.setting = setting;
 
-        checkedPosition = setting.getPosition();
+        checkedPosition = setting.getSelectedPhotoPosition();
         lockFlags = setting.getLockFlags();
 
     }
@@ -92,7 +91,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
                 } else {
 
                     checkedPosition = position;
-                    setting.setPosition(checkedPosition);
+                    setting.setSelectedPhotoPosition(checkedPosition);
                     notifyDataSetChanged();
                 }
 

@@ -106,9 +106,9 @@ public class GameActivity extends AppCompatActivity {
         super.onResume();
 
         setting = new Setting(GameActivity.this);
-        if (setting.isAppSound() && !MyMediaPlayer.mpMainSound.isPlaying()) {
+        if (setting.isAppSound() && !MyMediaPlayer.mpAppSound.isPlaying()) {
 
-            MyMediaPlayer.mpMainSound.start();
+            MyMediaPlayer.mpAppSound.start();
         }
     }
 
@@ -131,7 +131,7 @@ public class GameActivity extends AppCompatActivity {
         repetitiousTruthQuestion = new ArrayList<>();
         repetitiousDareQuestion = new ArrayList<>();
 
-        mpRound = MediaPlayer.create(this, R.raw.rounding);
+        mpRound = MediaPlayer.create(this, R.raw.spin_sound);
 
         scaleAnimation= AnimationUtils.loadAnimation(GameActivity.this,R.anim.scale_x_animation);
     }
@@ -319,7 +319,7 @@ public class GameActivity extends AppCompatActivity {
 
                 }
 
-                if (setting.isCircleSound()) {
+                if (setting.isSpinSound()) {
                     mpRound.start();
                 }
 
@@ -584,7 +584,7 @@ public class GameActivity extends AppCompatActivity {
 
         setting = new Setting(this);
 
-        int position = setting.getPosition();
+        int position = setting.getSelectedPhotoPosition();
 
 
         int id = getResources().getIdentifier("bottle_" + (position + 1), "drawable", getPackageName());
