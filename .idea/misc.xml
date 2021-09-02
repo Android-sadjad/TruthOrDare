@@ -8,6 +8,8 @@
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_circle.xml" value="0.22592592592592592" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_circle_checkboc.xml" value="0.20555555555555555" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_circle_color_1.xml" value="0.15694444444444444" />
+        <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_circle_color_8.xml" value="0.1787037037037037" />
+        <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_circle_color_9.xml" value="0.1787037037037037" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_main.xml" value="0.24074074074074073" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_oval.xml" value="0.21388888888888888" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/bg_rectangle_tabs.xml" value="0.21296296296296297" />
@@ -17,13 +19,14 @@
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/custom_checkbox.xml" value="0.20555555555555555" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/ic_delete.xml" value="0.21388888888888888" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/ic_new_wood_btn.xml" value="0.24814814814814815" />
+        <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/ic_plus.xml" value="0.1787037037037037" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/rectangle_brown_strok.xml" value="0.22592592592592592" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/rectangle_storke.xml" value="0.22592592592592592" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/selector_tabs.xml" value="0.2111111111111111" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/drawable/unchecked.xml" value="0.20555555555555555" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/layout/activity_game.xml" value="0.136" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/android codes/TruthOrDare/app/src/main/res/layout/activity_question_tab.xml" value="0.25416666666666665" />
+        <entry key="..\:/android codes/TruthOrDare/app/src/main/res/layout/activity_question_tab.xml" value="0.2" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/layout/activity_setting.xml" value="0.176" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/layout/activity_start_game.xml" value="0.2" />
@@ -37,6 +40,7 @@
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/layout/fragment_question_list.xml" value="0.136" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/layout/my_toolbar.xml" value="0.25416666666666665" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/layout/question_item.xml" value="0.176" />
+        <entry key="..\:/android codes/TruthOrDare/app/src/main/res/layout/view_toolbar.xml" value="0.24010416666666667" />
         <entry key="..\:/android codes/TruthOrDare/app/src/main/res/menu/navigation_view_menu.xml" value="0.25416666666666665" />
       </map>
     </option>

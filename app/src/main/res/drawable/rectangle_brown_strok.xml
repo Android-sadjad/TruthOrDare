@@ -4,9 +4,9 @@
     >
 
     <stroke android:width="@dimen/_2sdp"
-        android:color="@color/start_color_gradiant"/>
+        android:color="@color/start_color_brown"/>
     <corners android:radius="10dp"/>
-    <solid android:color="@color/center_color_gradiant"/>
+    <solid android:color="@color/brown_500"/>
 
 
 </shape>

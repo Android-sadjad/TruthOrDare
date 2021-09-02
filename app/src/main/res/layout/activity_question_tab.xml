@@ -36,13 +36,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
-        android:backgroundTint="@color/ice_card_dark"
-        android:src="@drawable/ic_plus_float_btn"
+        android:backgroundTint="@color/toolbar_light"
+        android:src="@drawable/ic_plus"
+        app:tint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:rippleColor="@color/bg_blue"
-        app:maxImageSize="@dimen/_30sdp"
-        app:fabCustomSize="@dimen/_50sdp"
+        app:maxImageSize="@dimen/_20sdp"
+        app:fabCustomSize="@dimen/_45sdp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

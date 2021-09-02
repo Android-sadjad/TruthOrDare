@@ -12,8 +12,8 @@
     <color name="status_bar">#2B35E4</color>
     <color name="ll_guide_color">#053671</color>
 
-    <color name="toolbar_light">#023551</color>
-    <color name="toolbar_dark">#012F49</color>
+    <color name="toolbar_light">#115384</color>
+    <color name="toolbar_dark">#124D79</color>
 
 
     <color name="brown900">#7C3E2B</color>
@@ -24,9 +24,18 @@
 
 
 
-    <color name="start_color_gradiant">#87452D</color>
-    <color name="center_color_gradiant">#4E1F11</color>
-    <color name="end_color_gradiant">#87452D</color>
+    <color name="start_color_brown">#87452D</color>
+    <color name="brown_500">#4E1F11</color>
+    <color name="end_color_brown">#87452D</color>
+
+
+    <color name="start_color_blue">#2A35E4</color>
+    <color name="center_color_blue">#4B6FF6</color>
+    <color name="end_color_blue">#6FA7FD</color>
+
+
+    <color name="navigation_view_bg_color">#9C6351</color>
+
 
 
 
@@ -40,7 +49,7 @@
     <color name="bg_yellow">#F4FF38</color>
     <color name="bg_brown">#553505</color>
     <color name="bg_orange">#E86C0D</color>
-    <color name="bg_dark_blue">#561571</color>
+    <color name="bg_gray">#6D757A</color>
 
 
     <color name="stroke_brown">#392201</color>

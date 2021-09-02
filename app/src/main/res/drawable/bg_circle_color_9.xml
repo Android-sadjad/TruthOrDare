@@ -9,6 +9,6 @@
     <stroke android:width="@dimen/stroke_circle_shape_width"
         android:color="@color/stroke_brown"
         />
-    <solid android:color="@color/bg_dark_blue"/>
+    <solid android:color="@color/bg_gray"/>
 
 </shape>

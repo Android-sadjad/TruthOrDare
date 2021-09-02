@@ -4,9 +4,9 @@
 
 
     <gradient
-        android:startColor="@color/start_color_gradiant"
-        android:centerColor="@color/center_color_gradiant"
-        android:endColor="@color/end_color_gradiant"
+        android:startColor="@color/start_color_brown"
+        android:centerColor="@color/brown_500"
+        android:endColor="@color/end_color_brown"
         android:angle="270" />
 
 
