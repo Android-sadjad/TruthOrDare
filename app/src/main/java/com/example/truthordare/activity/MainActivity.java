@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
 
         Animation fadeInAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_in_animation);
 
-        TextView textView = findViewById(R.id.tv_toolbar_title);
         ConstraintLayout clMainMenuItems = findViewById(R.id.cl_main_menu_items);
         View toolBarView = findViewById(R.id.lay);
         clMainMenuItems.startAnimation(fadeInAnimation);
@@ -122,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showInterstitialAdvertising() {
-
+        if (UseFullMethod.isNetworkAvailable(this))
         MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.INTERSTITIAL_BANNER, null);
     }
 

@@ -84,6 +84,7 @@
 
     <string name="max_number">حداکثر تعداد بازیکنان 9 نفر میباشد</string>
     <string name="min_number">حداقل تعداد بازیکنان 2 نفر میباشد</string>
+    <string name="category">دسته بندی</string>
 
 
     <array name="truth_questions_list">

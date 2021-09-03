@@ -105,7 +105,9 @@ public class MyTapsell {
                     @Override
                     public void onOpened(TapsellPlusAdModel tapsellPlusAdModel) {
                         super.onOpened(tapsellPlusAdModel);
-                        Toast.makeText(activity, "opened", Toast.LENGTH_SHORT).show();
+                        if(callBackReward==null){
+                            Toast.makeText(activity, "جهت حمایت از ما میتوانید بر روی این بنر تبلیغاتی کلیک کنید", Toast.LENGTH_LONG).show();
+                        }
 
                         if (new Setting(activity).isAppSound())
                             MyMediaPlayer.mpAppSound.pause();
@@ -116,6 +118,8 @@ public class MyTapsell {
                         super.onClosed(tapsellPlusAdModel);
                         if (callBackReward != null)
                             callBackReward.onError();
+                        else
+                            Toast.makeText(activity, "با تشکر", Toast.LENGTH_LONG).show();
 
                         if (new Setting(activity).isAppSound())
                             MyMediaPlayer.mpAppSound.start();
@@ -126,6 +130,7 @@ public class MyTapsell {
                         super.onRewarded(tapsellPlusAdModel);
                         if (callBackReward != null)
                             callBackReward.onReward();
+
 
                     }
 

@@ -15,9 +15,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/bg_wood_blue">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/view_toolbar" />
+
 
 
         <ImageView
@@ -49,6 +47,9 @@
             app:layout_constraintTop_toTopOf="@id/iv_circle_background">
 
         </ImageView>
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/view_toolbar" />
 
 
         <LinearLayout

@@ -61,7 +61,6 @@ public class AddQuestionDialog extends Dialog {
 
     public void setViewsSize() {
 
-        clAddDialog.getLayoutParams().height = UseFullMethod.getScreenHeight() * 80 / 100;
         clAddDialog.getLayoutParams().width = UseFullMethod.getScreenWidth() * 90 / 100;
     }
 

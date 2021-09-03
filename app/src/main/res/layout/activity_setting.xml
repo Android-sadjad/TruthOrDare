@@ -97,7 +97,7 @@
     <TextView
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_30sdp"
-        android:layout_marginTop="-25sp"
+        app:layout_constraintBottom_toTopOf="@id/cv_select_bottle"
         android:layout_marginRight="20dp"
         android:background="@drawable/bg_select_shape"
         android:elevation="@dimen/_5sdp"
@@ -131,7 +131,7 @@
             android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/_5sdp"
             android:layoutDirection="ltr"
-            android:paddingTop="@dimen/_10sdp"
+            android:paddingTop="@dimen/_15sdp"
             app:layout_constraintBottom_toBottomOf="parent"
 
 
