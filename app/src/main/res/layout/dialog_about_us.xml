@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_about_us"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/cl_about_us_dialog_height"
     android:layout_gravity="center"
     android:padding="@dimen/_5sdp"
 
@@ -26,6 +26,7 @@
         android:id="@+id/iv_inner_about_us_dialog"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginVertical="@dimen/_20sdp"
         android:background="@drawable/board_dialog" />
 
 

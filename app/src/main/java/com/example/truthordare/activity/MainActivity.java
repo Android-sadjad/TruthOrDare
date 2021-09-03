@@ -30,7 +30,7 @@ import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class MainActivity extends AppCompatActivity {
 
-    final int ROTATE_ANIM_DURATION = 30000;
+
 
     DrawerLayout drawerLayout;
     RelativeLayout rlAdvertising;
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 , Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
 
-        rotateAnimation.setDuration(ROTATE_ANIM_DURATION);
+        rotateAnimation.setDuration(MyConstant.ROTATE_ANIM_DURATION);
         rotateAnimation.setRepeatMode(Animation.RESTART);
         rotateAnimation.setFillAfter(true);
         rotateAnimation.setRepeatCount(Animation.INFINITE);

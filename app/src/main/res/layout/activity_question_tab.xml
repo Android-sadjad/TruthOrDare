@@ -43,7 +43,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:rippleColor="@color/bg_blue"
         app:maxImageSize="@dimen/float_action_max_image_size"
-        app:fabCustomSize="@dimen/float_action_fab_custom_size"
+        app:fabCustomSize="@dimen/fab_custom_size"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

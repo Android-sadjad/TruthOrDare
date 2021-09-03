@@ -36,7 +36,7 @@
     <!--activity_question_tab-->
     <dimen name="tabloyout_height">@dimen/_45sdp</dimen>
     <dimen name="float_action_max_image_size">@dimen/_15sdp</dimen>
-    <dimen name="float_action_fab_custom_size">@dimen/_45sdp</dimen>
+    <dimen name="fab_custom_size">@dimen/_45sdp</dimen>
 
 
     <!--activity_setting-->
@@ -89,7 +89,7 @@
 
 
     <!--dialog_about_us-->
-
+    <dimen name="cl_about_us_dialog_height">@dimen/_300sdp</dimen>
 
 
 

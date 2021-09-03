@@ -12,6 +12,9 @@ public class MyConstant {
 
 
     public static final int SPLASH_SCREEN_DURATION = 2000;
+    public static final int TYPE_WRITER_ANIM_DELAY = 50;
+    public static final int ROTATE_ANIM_DURATION = 30000;
+
     public static final int BOTTLE_NUMBER = 40;
     public static final int REQUEST_CODE = 1;
     public static final int FINISH_CODE = 2;

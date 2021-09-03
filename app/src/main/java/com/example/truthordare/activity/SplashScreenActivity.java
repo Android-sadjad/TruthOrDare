@@ -12,12 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.MyConstant;
+import com.example.truthordare.classes.Typewriter;
 import com.example.truthordare.classes.UseFullMethod;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
     ImageView ivProgramIcon;
-    TextView tvTeamName;
+    Typewriter typewriterTeamName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +34,18 @@ public class SplashScreenActivity extends AppCompatActivity {
     private void findViews() {
 
         ivProgramIcon = findViewById(R.id.iv_program_icon);
-        tvTeamName = findViewById(R.id.tv_team_name);
+        typewriterTeamName = findViewById(R.id.typewriter_team_name);
     }
 
     private void startAnimation() {
 
 
-        Animation translateAnimation = AnimationUtils.loadAnimation(SplashScreenActivity.this, R.anim.translate_right_animation);
         Animation bounceAnimation = AnimationUtils.loadAnimation(SplashScreenActivity.this, R.anim.bounce_animation);
-        tvTeamName.startAnimation(translateAnimation);
         ivProgramIcon.startAnimation(bounceAnimation);
 
+
+        typewriterTeamName.setCharacterDelay(MyConstant.TYPE_WRITER_ANIM_DELAY);
+        typewriterTeamName.animateText(getString(R.string.developer_team_name));
 
     }
 

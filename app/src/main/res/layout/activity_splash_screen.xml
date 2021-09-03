@@ -29,18 +29,19 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <TextView
-        android:id="@+id/tv_team_name"
+    <com.example.truthordare.classes.Typewriter
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_program_icon"
+        android:id="@+id/typewriter_team_name"
+        android:layout_alignParentTop="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/developer_team_name"
         android:textColor="@color/ice_card_dark"
         android:textSize="@dimen/tv_splash_team_name_text_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_program_icon" />
+        />
 
 
     <TextView
@@ -52,7 +53,8 @@
         android:textSize="@dimen/tv_splash_code_version_text_size"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_team_name" />
+        app:layout_constraintTop_toBottomOf="@id/typewriter_team_name" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
