@@ -1,6 +1,9 @@
 package com.example.truthordare.classes;
 
 import android.app.Application;
+import android.content.Context;
+import android.media.AudioManager;
+import android.widget.Toast;
 
 import com.example.truthordare.model.MyMediaPlayer;
 
@@ -17,7 +20,11 @@ public class Global extends Application {
 
         initAppSound();
         initTapsell();
+        setStreamVolume();
+
     }
+
+
 
 
     @Override
@@ -31,6 +38,7 @@ public class Global extends Application {
 
         MyMediaPlayer.createAppSound(this);
         MyMediaPlayer.createButtonSound(this);
+        MyMediaPlayer.createSpinSound(this);
     }
 
     private void initTapsell() {
@@ -53,5 +61,13 @@ public class Global extends Application {
 
         if (MyMediaPlayer.mpAppSound.isPlaying())
             MyMediaPlayer.mpAppSound.pause();
+    }
+
+    private void setStreamVolume() {
+
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        int maxVolume=audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume*MyConstant.DEFAULT_STREAM_VOLUME/100,AudioManager.FLAG_PLAY_SOUND);
+
     }
 }

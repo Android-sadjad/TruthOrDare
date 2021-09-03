@@ -20,6 +20,7 @@
     <dimen name="btn_truth_dare_height">@dimen/_45sdp</dimen>
     <dimen name="tv_tod_width">@dimen/_100sdp</dimen>
     <dimen name="tv_tod_text_size">@dimen/_25ssp</dimen>
+    <dimen name="tv_question_text_size">@dimen/_22ssp</dimen>
     <dimen name="iv_colors_width">@dimen/_22sdp</dimen>
     <dimen name="iv_colors_height">@dimen/_22sdp</dimen>
 

@@ -11,15 +11,15 @@
     <string name="default_questions">سوالات برنامه</string>
     <string name="support_from_us">حمایت از ما</string>
     <string name="comment">ثبت نظر</string>
-    <string name="exit">خروج</string>
-    <string name="setting">تنظیمات</string>
+
 
 
     <string name="home_page">صفحه اصلی</string>
     <string name="share_app">اشتراک گذاری برنامه</string>
     <string name="other_app">سایر برنامه ها</string>
+    <string name="setting">تنظیمات</string>
     <string name="about_us">درباره ما</string>
-
+    <string name="exit">خروج</string>
 
     <string name="questions_list">لیست سوالات</string>
     <string name="repetitious_question">سوال تکراری</string>

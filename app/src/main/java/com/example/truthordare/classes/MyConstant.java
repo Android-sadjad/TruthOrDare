@@ -10,16 +10,22 @@ import com.example.truthordare.R;
 
 public class MyConstant {
 
-
+    public static final int DEFAULT_STREAM_VOLUME =80;
     public static final int SPLASH_SCREEN_DURATION = 2000;
+
     public static final int TYPE_WRITER_ANIM_DELAY = 50;
     public static final int ROTATE_ANIM_DURATION = 30000;
+    public static final int UP_ANIM_DURATION = 1000;
+    public static final int UP_ANIM_DELAY = 2000;
+    public static final int DOWN_ANIM_DURATION = 500;
 
     public static final int BOTTLE_NUMBER = 40;
+    public static final int ROTATE_BOTTLE_NUMBER = 3600;
     public static final int REQUEST_CODE = 1;
     public static final int FINISH_CODE = 2;
     public static final int MAX_QUESTION_NUMBER = 100;
     public static final int FREE_QUESTION_NUMBER = 30 ;
+    public static final int MAX_RANDOM_NUMBER = 360 ;
 
     public static final String SHARED_PREFERENCES_NAME = "truth or dare";
     public static final String SETTING = "setting";

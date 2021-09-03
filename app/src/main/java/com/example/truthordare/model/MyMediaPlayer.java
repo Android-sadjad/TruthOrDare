@@ -22,7 +22,7 @@ public class MyMediaPlayer {
     }
 
     public static void createSpinSound(Context context) {
-        mpBtnSound = MediaPlayer.create(context, R.raw.spin_sound);
+        mpSpinSound = MediaPlayer.create(context, R.raw.spin_sound);
 
     }
 

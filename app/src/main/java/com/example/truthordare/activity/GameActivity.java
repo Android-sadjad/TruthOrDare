@@ -1,11 +1,9 @@
 package com.example.truthordare.activity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,12 +36,13 @@ import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
 
+
     int screenWidth;
     int screenHeight;
     int sign = 1;
     int currentDegree = 0;
 
-    boolean isUp=false;
+    boolean isUp = false;
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -55,18 +54,18 @@ public class GameActivity extends AppCompatActivity {
     LinearLayout llTruthOrDare;
     ConstraintLayout clQuestions;
 
-    TextView btnDare;
-    TextView btnTruth;
+    TextView tvDare;
+    TextView tvTruth;
 
-    TextView btnChangeQuestion;
-    TextView btnCloseQuestion;
+    TextView tvChangeQuestion;
+    TextView tvCloseQuestion;
 
     TextView tvTod;
     TextView tvQuestion;
     TextView tvToolbarTitle;
 
-
     Questions questions;
+    Setting setting;
 
     ArrayList<Integer> randomNumberList;
     ArrayList<String> playerNameList;
@@ -76,10 +75,6 @@ public class GameActivity extends AppCompatActivity {
 
     TextView[] tvNames;
     ImageView[] ivColors;
-
-    Setting setting;
-
-    MediaPlayer mpRound;
 
     Animation scaleAnimation;
 
@@ -94,9 +89,7 @@ public class GameActivity extends AppCompatActivity {
         setUpMenu();
         setUpView();
         configuration();
-        updateSetting();
-
-
+        applySetting();
 
 
     }
@@ -126,20 +119,18 @@ public class GameActivity extends AppCompatActivity {
         ivColors = new ImageView[playerNameList.size()];
 
         setting = new Setting(this);
-        questions=new Questions(this);
+        questions = new Questions(this);
 
         repetitiousTruthQuestion = new ArrayList<>();
         repetitiousDareQuestion = new ArrayList<>();
 
-        mpRound = MediaPlayer.create(this, R.raw.spin_sound);
-
-        scaleAnimation= AnimationUtils.loadAnimation(GameActivity.this,R.anim.scale_x_animation);
+        scaleAnimation = AnimationUtils.loadAnimation(GameActivity.this, R.anim.scale_x_animation);
     }
 
     private void findViews() {
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView=findViewById(R.id.navigation_view);
+        navigationView = findViewById(R.id.navigation_view);
 
         ivCircleBackground = findViewById(R.id.iv_circle_background);
         ivBottle = findViewById(R.id.iv_bottle);
@@ -148,16 +139,16 @@ public class GameActivity extends AppCompatActivity {
         llNamesBord = findViewById(R.id.ll_names_board);
         llTruthOrDare = findViewById(R.id.ll_truth_dare);
 
-        tvToolbarTitle=findViewById(R.id.tv_toolbar_title);
+        tvToolbarTitle = findViewById(R.id.tv_toolbar_title);
 
 
-        btnDare = findViewById(R.id.tv_dare);
-        btnTruth = findViewById(R.id.tv_truth);
+        tvDare = findViewById(R.id.tv_dare);
+        tvTruth = findViewById(R.id.tv_truth);
 
         tvTod = findViewById(R.id.tv_tod);
-        tvQuestion = findViewById(R.id.tv_qustion);
-        btnChangeQuestion = findViewById(R.id.tv_change_question);
-        btnCloseQuestion = findViewById(R.id.tv_close_question);
+        tvQuestion = findViewById(R.id.tv_question);
+        tvChangeQuestion = findViewById(R.id.tv_change_question);
+        tvCloseQuestion = findViewById(R.id.tv_close_question);
 
 
         for (int i = 0; i < tvNames.length; i++) {
@@ -172,11 +163,11 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    private void setUpMenu(){
+    private void setUpMenu() {
         navigationView.getMenu().removeItem(R.id.nav_exit);
     }
 
-    private void setUpView(){
+    private void setUpView() {
 
         setViewSize();
         setViewTranslation();
@@ -184,7 +175,6 @@ public class GameActivity extends AppCompatActivity {
 
         tvQuestion.setMovementMethod(new ScrollingMovementMethod());
         tvToolbarTitle.setVisibility(View.GONE);
-
     }
 
     private void setViewSize() {
@@ -197,8 +187,8 @@ public class GameActivity extends AppCompatActivity {
         clQuestions.getLayoutParams().height = screenHeight * 37 / 100;
 
         llTruthOrDare.getLayoutParams().height = screenHeight * 10 / 100;
-        btnTruth.getLayoutParams().height=screenHeight*10/100;
-        btnDare.getLayoutParams().height=screenHeight*10/100;
+        tvTruth.getLayoutParams().height = screenHeight * 10 / 100;
+        tvDare.getLayoutParams().height = screenHeight * 10 / 100;
 
 
     }
@@ -209,7 +199,6 @@ public class GameActivity extends AppCompatActivity {
         clQuestions.setTranslationY(clQuestions.getLayoutParams().height);
         llTruthOrDare.setTranslationY(llTruthOrDare.getLayoutParams().height);
     }
-
 
     private void setTextAndColorAndBackground() {
 
@@ -222,9 +211,9 @@ public class GameActivity extends AppCompatActivity {
 
             ivColors[i].setVisibility(View.VISIBLE);
 
-            String shapeName="bg_circle_color_"+(i+1);
-            int circleShapeId=getResources()
-                    .getIdentifier(shapeName,"drawable", getPackageName());
+            String shapeName = "bg_circle_color_" + (i + 1);
+            int circleShapeId = getResources()
+                    .getIdentifier(shapeName, "drawable", getPackageName());
             ivColors[i].setBackgroundResource(circleShapeId);
 
         }
@@ -237,6 +226,7 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+
     public void onClick(View view) {
 
         if (setting.isButtonSound()) {
@@ -247,7 +237,7 @@ public class GameActivity extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.iv_setting:
-                startActivityForResult(new Intent(GameActivity.this, SettingActivity.class),MyConstant.REQUEST_CODE);
+                startActivityForResult(new Intent(GameActivity.this, SettingActivity.class), MyConstant.REQUEST_CODE);
                 break;
 
             case R.id.iv_menu:
@@ -275,10 +265,10 @@ public class GameActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_hemayat:
-                MyTapsell.showInterstitialAd(GameActivity.this, MyConstant.INTERSTITIAL_BANNER, null);
+                if (UseFullMethod.isNetworkAvailable(GameActivity.this))
+                    MyTapsell.showInterstitialAd(GameActivity.this, MyConstant.INTERSTITIAL_BANNER, null);
                 break;
             case R.id.nav_comment:
-
                 MyIntent.commentIntent(GameActivity.this);
                 break;
 
@@ -292,11 +282,11 @@ public class GameActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_about_us:
-               new AboutUsDialog(this).show();
+                new AboutUsDialog(this).show();
                 break;
         }
 
-            drawerLayout.closeDrawer(Gravity.RIGHT);
+        drawerLayout.closeDrawer(Gravity.RIGHT);
     }
 
     private void openQuestionActivity(String listName) {
@@ -313,41 +303,40 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                if (mpRound.isPlaying()) {
+                if (MyMediaPlayer.mpSpinSound.isPlaying()) {
                     return;
-
                 }
 
                 if (setting.isSpinSound()) {
-                    mpRound.start();
+                    MyMediaPlayer.mpSpinSound.start();
                 }
 
-                int firstRandom=createRandomNumber();
-                int secondRandom=createRandomNumber();
-                int randomNumber = (firstRandom+secondRandom)/2;
+                int firstRandom = createRandomNumber();
+                int secondRandom = createRandomNumber();
+                int randomNumber = (firstRandom + secondRandom) / 2;
 
                 RotateAnimation rotate = new RotateAnimation(currentDegree,
-                        3600 + randomNumber,
+                        MyConstant.ROTATE_BOTTLE_NUMBER + randomNumber,
                         Animation.RELATIVE_TO_SELF,
                         0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
-                rotate.setDuration(mpRound.getDuration());
+                rotate.setDuration(MyMediaPlayer.mpSpinSound.getDuration());
                 rotate.setFillAfter(true);
 
                 currentDegree = randomNumber;
                 ivBottle.startAnimation(rotate);
 
                 if (llNamesBord.getTranslationY() == 0)
-                    upAnimation();
+                    upAnimation(MyConstant.UP_ANIM_DELAY);
                 else {
                     downAnimation();
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            upAnimationWithoutDelay();
+                            // upAnimationWithoutDelay();
+                            upAnimation(0);
                         }
-                    }, 2000);
+                    }, MyConstant.UP_ANIM_DELAY);
                 }
 
                 if (clQuestions.getTranslationY() == 0) {
@@ -357,45 +346,39 @@ public class GameActivity extends AppCompatActivity {
 
             }
         });
-        btnTruth.setOnClickListener(new View.OnClickListener() {
+        tvTruth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
                 downAnimation();
                 tvTod.setText(R.string.truth);
+
                 showRandomTruthQuestion();
-
                 upQuestionLayoutAnimation();
-
-
             }
         });
-        btnDare.setOnClickListener(new View.OnClickListener() {
+        tvDare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 downAnimation();
                 tvTod.setText(R.string.dare);
                 showRandomDareQuestion();
                 upQuestionLayoutAnimation();
-
-
             }
         });
-        btnCloseQuestion.setOnClickListener(new View.OnClickListener() {
+        tvCloseQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startAnimation(v);
+                startScaleAnimation(v);
                 downQuestionLayoutAnimation();
             }
         });
-        btnChangeQuestion.setOnClickListener(new View.OnClickListener() {
+        tvChangeQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startAnimation(v);
+                startScaleAnimation(v);
 
                 if (tvTod.getText().toString().equals(getString(R.string.truth))) {
-
                     showRandomTruthQuestion();
                 } else if (tvTod.getText().equals(getString(R.string.dare))) {
                     showRandomDareQuestion();
@@ -404,15 +387,13 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     private int createRandomNumber() {
 
         int randomNumber = 0;
         while (true) {
-            randomNumber = new Random().nextInt() % 360;
+            randomNumber = new Random().nextInt() % MyConstant.MAX_RANDOM_NUMBER;
             if (!randomNumberList.contains(randomNumber)) {
                 randomNumberList.add(randomNumber);
                 break;
@@ -426,38 +407,33 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    private void upAnimation() {
+    private void upAnimation(int delay) {
 
-        llTruthOrDare.animate().translationY(0).setDuration(1000).setStartDelay(2000);
-        llNamesBord.animate().translationY((llTruthOrDare.getLayoutParams().height * -1)).setDuration(1000).setStartDelay(2000);
-    }
-
-    private void upAnimationWithoutDelay() {
-        llTruthOrDare.animate().translationY(0).setDuration(1000).setStartDelay(0);
-        llNamesBord.animate().translationY((llTruthOrDare.getLayoutParams().height * -1)).setDuration(1000).setStartDelay(0);
+        llTruthOrDare.animate().translationY(0).setDuration(MyConstant.UP_ANIM_DURATION).setStartDelay(delay);
+        llNamesBord.animate().translationY((llTruthOrDare.getLayoutParams().height * -1)).setDuration(MyConstant.UP_ANIM_DURATION).setStartDelay(delay);
     }
 
     private void downAnimation() {
 
         llTruthOrDare.animate().translationY(llTruthOrDare.getLayoutParams().height)
-                .setDuration(500).setStartDelay(0);
+                .setDuration(MyConstant.DOWN_ANIM_DURATION).setStartDelay(0);
 
 
-        llNamesBord.animate().translationY(0).setDuration(500).setStartDelay(0);
+        llNamesBord.animate().translationY(0).setDuration(MyConstant.DOWN_ANIM_DURATION).setStartDelay(0);
 
     }
 
     private void upQuestionLayoutAnimation() {
 
-        isUp=true;
-        clQuestions.animate().translationY(0).setDuration(1000).setStartDelay(0);
+        isUp = true;
+        clQuestions.animate().translationY(0).setDuration(MyConstant.UP_ANIM_DURATION).setStartDelay(0);
 
     }
 
     private void downQuestionLayoutAnimation() {
 
-        isUp=false;
-        clQuestions.animate().translationY(clQuestions.getLayoutParams().height).setDuration(1000).setStartDelay(0);
+        isUp = false;
+        clQuestions.animate().translationY(clQuestions.getLayoutParams().height).setDuration(MyConstant.UP_ANIM_DURATION).setStartDelay(0);
 
     }
 
@@ -468,9 +444,9 @@ public class GameActivity extends AppCompatActivity {
 
         if (setting.isDefaultQuestion()) {
 
-            ArrayList<String>truthList=(questions.getTruthQuestionList());
+            ArrayList<String> truthList = (questions.getTruthQuestionList());
 
-            for(int i=0;i<questions.getQuestionNumber();i++){
+            for (int i = 0; i < questions.getQuestionNumber(); i++) {
                 truthQuestionList.add(truthList.get(i));
             }
         }
@@ -489,7 +465,6 @@ public class GameActivity extends AppCompatActivity {
             else
                 tvQuestion.setText(truthQuestionList.get(createNonRepeatRandomNumber(truthQuestionList.size(), "truth")));
 
-
         }
 
     }
@@ -500,9 +475,9 @@ public class GameActivity extends AppCompatActivity {
 
         if (setting.isDefaultQuestion()) {
 
-            ArrayList<String>dareList=(questions.getDareQuestionList());
+            ArrayList<String> dareList = (questions.getDareQuestionList());
 
-            for(int i=0;i<questions.getQuestionNumber();i++){
+            for (int i = 0; i < questions.getQuestionNumber(); i++) {
                 dareQuestionList.add(dareList.get(i));
             }
 
@@ -539,7 +514,7 @@ public class GameActivity extends AppCompatActivity {
     private int createNonRepeatRandomNumber(int maximum, String listType) {
 
         int randomNumber;
-        if (listType.equals(R.string.truth)) {
+        if (listType.equals(getString(R.string.truth))) {
 
             while (true) {
                 if (repetitiousTruthQuestion.size() == maximum)
@@ -578,8 +553,7 @@ public class GameActivity extends AppCompatActivity {
         return randomNumber;
     }
 
-
-    public void updateSetting() {
+    public void applySetting() {
 
 
         setting = new Setting(this);
@@ -593,40 +567,28 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    private void startAnimation(View v){
+    private void startScaleAnimation(View v) {
         v.startAnimation(scaleAnimation);
     }
 
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == MyConstant.REQUEST_CODE) {
-
-            updateSetting();
-
+            applySetting();
         }
 
     }
 
-    @Override
-    protected void onStop() {
-        Log.i("aaaaa", "stop");
-        super.onStop();
-    }
 
     @Override
     public void onBackPressed() {
-       if(isUp){
-
-           downQuestionLayoutAnimation();
-       }
-       else {
-           finish();
-
-       }
+        if (isUp) {
+            downQuestionLayoutAnimation();
+        } else {
+            finish();
+        }
     }
 }
