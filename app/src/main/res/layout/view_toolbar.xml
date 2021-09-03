@@ -12,7 +12,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
+            android:layout_height="@dimen/toolbar_height"
             android:contentInsetStart="0dp"
             android:contentInsetLeft="0dp"
             app:contentInsetLeft="0dp"
@@ -23,7 +23,7 @@
                 android:id="@+id/cl_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:elevation="@dimen/_100sdp"
+                android:elevation="@dimen/cl_toolbar_elevation"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
@@ -37,12 +37,12 @@
                 <TextView
                     android:id="@+id/tv_toolbar_title"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_45sdp"
+                    android:layout_height="@dimen/tv_toolbar_title_height"
                     app:layout_constraintTop_toTopOf="parent"
                     android:gravity="center"
                     android:fontFamily="@font/lalezar_regular"
                     android:text="@string/truth_or_dare"
-                    android:textSize="@dimen/_25sdp"
+                    android:textSize="@dimen/tv_toolbar_title_text_size"
                     android:layout_marginHorizontal="@dimen/_50sdp"
                     android:background="@drawable/dark_board_wooden"
                     android:textColor="@color/white"

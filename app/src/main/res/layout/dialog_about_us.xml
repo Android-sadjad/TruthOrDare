@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_about_us"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@drawable/board_dialog"
     android:padding="@dimen/_5sdp"
 
     >
+
+
+
+    <TextView
+        android:id="@+id/tv_title_add"
+        style="@style/title_dialog_style"
+        android:layout_width="match_parent"
+        android:text="@string/add_question"
+        app:layout_constraintBottom_toTopOf="@id/iv_inner_about_us_dialog"
+        app:layout_constraintTop_toTopOf="@id/iv_inner_about_us_dialog"
+
+        />
+
+    <ImageView
+        android:id="@+id/iv_inner_about_us_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/board_dialog" />
+
+
 
     <TextView
         android:id="@+id/tv_team"
@@ -20,7 +40,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/_22sdp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_add"
 
         />
 

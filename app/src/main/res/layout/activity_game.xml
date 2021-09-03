@@ -34,11 +34,11 @@
 
         <ImageView
             android:id="@+id/iv_bottle"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/iv_game_bottle_width"
+            android:layout_height="@dimen/iv_game_bottle_height"
 
             android:layout_margin="@dimen/_25sdp"
-            android:elevation="@dimen/_10sdp"
+            android:elevation="@dimen/iv_game_bottle_elevation"
 
             android:src="@drawable/bottle_1"
             app:layout_constraintBottom_toBottomOf="@id/iv_circle_background"
@@ -55,7 +55,7 @@
         <LinearLayout
             android:id="@+id/ll_names_board"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_150sdp"
+            android:layout_height="@dimen/ll_color_board_height"
             android:layout_margin="@dimen/_2sdp"
             android:background="@drawable/wood_board_color"
             android:layoutDirection="ltr"
@@ -219,7 +219,7 @@
 
             <TextView
                 android:id="@+id/tv_tod"
-                android:layout_width="@dimen/_100sdp"
+                android:layout_width="@dimen/tv_tod_width"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_5sdp"
@@ -229,7 +229,7 @@
                 android:text="@string/truth"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:textSize="30sp"
+                android:textSize="@dimen/tv_tod_text_size"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"

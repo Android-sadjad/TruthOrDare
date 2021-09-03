@@ -23,7 +23,7 @@
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_40sdp"
         android:layout_marginBottom="@dimen/_50sdp"
-        app:cardCornerRadius="@dimen/_30sdp"
+        app:cardCornerRadius="@dimen/cardview_start_game_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -48,8 +48,8 @@
 
                 <ImageView
                     android:id="@+id/iv_left_arrow"
-                    android:layout_width="@dimen/_45sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_width="@dimen/iv_left_and_right_arrow_width"
+                    android:layout_height="@dimen/iv_left_and_right_arrow_height"
                     android:rotationY="180"
                     android:src="@drawable/arrow_right"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -65,8 +65,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="2"
-                    android:textColor="#7C3E2B"
-                    android:textSize="@dimen/_40sdp"
+                    android:textColor="@color/brown200"
+                    android:textSize="@dimen/tv_number_count_text_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -74,8 +74,8 @@
 
                 <ImageView
                     android:id="@+id/iv_right_arrow"
-                    android:layout_width="@dimen/_45sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_width="@dimen/iv_left_and_right_arrow_width"
+                    android:layout_height="@dimen/iv_left_and_right_arrow_height"
                     android:src="@drawable/arrow_right"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@id/iv_left_arrow"
@@ -445,9 +445,9 @@
     <TextView
         android:id="@+id/tv_start_game"
         style="@style/btn_dialog_style"
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_70sdp"
-        android:elevation="@dimen/_10sdp"
+        android:layout_width="@dimen/tv_start_game_width"
+        android:layout_height="@dimen/tv_start_game_height"
+        android:elevation="@dimen/tv_start_game_elevation"
         android:text="@string/start_game"
         app:layout_constraintBottom_toBottomOf="@id/cv_start"
         app:layout_constraintLeft_toLeftOf="parent"

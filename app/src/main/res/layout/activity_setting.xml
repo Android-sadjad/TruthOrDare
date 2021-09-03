@@ -95,8 +95,8 @@
 
 
     <TextView
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_width="@dimen/tv_titile_setting_select_bottle_width"
+        android:layout_height="@dimen/tv_titile_setting_select_bottle_height"
         app:layout_constraintBottom_toTopOf="@id/cv_select_bottle"
         android:layout_marginRight="20dp"
         android:background="@drawable/bg_select_shape"
@@ -104,7 +104,7 @@
         android:gravity="center"
         android:text="انتخاب بطری"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="@dimen/tv_titile_setting_select_bottle_textsize"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -116,11 +116,11 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_select_bottle"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_240sdp"
+        android:layout_height="@dimen/tv_setting_cardview_select_bottle_height"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:backgroundTint="@color/ice_card"
-        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/tv_setting_cardview_select_bottle_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cv_sound_setting">
 

@@ -15,7 +15,7 @@
         android:layout_margin="@dimen/_50sdp"
         android:alpha="0.5"
         android:backgroundTint="@color/ice_card"
-        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/card_view_guid_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -36,7 +36,7 @@
                 android:gravity="center"
                 android:text="@string/no_question_added"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_20sdp"
+                android:textSize="@dimen/tv_no_question_text_size"
                 />
 
             <TextView
@@ -47,7 +47,7 @@
                 android:lines="2"
                 android:text="@string/add_your_question"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/tv_click_plus_text_size"
                 />
 
         </LinearLayout>

@@ -12,12 +12,12 @@
     <CheckBox
        android:clickable="false"
         android:id="@+id/cb_selected"
-        android:layout_width="@dimen/_20sdp"
-        android:layout_height="@dimen/_20sdp"
+        android:layout_width="@dimen/checkbox_bottle_view_width"
+        android:layout_height="@dimen/checkbox_bottle_view_height"
         android:background="@drawable/custom_checkbox"
         android:button="@android:color/transparent"
         android:checked="true"
-        android:elevation="@dimen/_25sdp"
+        android:elevation="@dimen/checkbox_bottle_view_elevation"
         android:scaleX="0.85"
         android:scaleY="0.85"
         app:layout_constraintBottom_toTopOf="@id/cl_choose_bottle"
@@ -30,8 +30,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_choose_bottle"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_100sdp"
+        android:layout_width="@dimen/cl_bottle_view_width"
+        android:layout_height="@dimen/cl_bottle_view_height"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_10sdp"
 

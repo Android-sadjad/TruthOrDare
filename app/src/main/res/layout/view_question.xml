@@ -16,14 +16,14 @@
 
     <TextView
         android:id="@+id/tv_index_number"
-        android:layout_width="@dimen/_23sdp"
-        android:layout_height="@dimen/_23sdp"
+        android:layout_width="@dimen/tv_index_number_width"
+        android:layout_height="@dimen/tv_index_number_height"
         android:background="@drawable/bg_circle"
         android:textColor="@color/white"
         android:text="1"
         android:layout_marginRight="@dimen/_5sdp"
         android:gravity="center"
-        android:textSize="@dimen/_14sdp"
+        android:textSize="@dimen/tv_index_number_text_size"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
         android:padding="@dimen/_10sdp"
         android:textColor="@color/light_black"
         android:text="@string/sample_question"
-        android:textSize="@dimen/_18sdp"
+        android:textSize="@dimen/tv_question_item_text_size"
         app:layout_constraintTop_toTopOf="parent"
 
         />
@@ -50,8 +50,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:padding="@dimen/_5sdp"
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_width="@dimen/iv_delete_item_width"
+        android:layout_height="@dimen/iv_delete_item_height"
         android:src="@drawable/delete_icon"
 
         >

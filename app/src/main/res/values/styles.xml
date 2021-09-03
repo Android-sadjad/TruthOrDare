@@ -10,7 +10,7 @@
         <item name="android:background">@drawable/new_wood_btn</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/_19sdp</item>
+        <item name="android:textSize">@dimen/tv_main_menu_text_size</item>
         <item name="android:onClick">onClick</item>
         <item name="android:textStyle">bold</item>
         <item name="android:focusable">false</item>
@@ -34,8 +34,8 @@
 
     <style name="toolbar_iv_style">
 
-        <item name="android:layout_width">@dimen/_45sdp</item>
-        <item name="android:layout_height">@dimen/_45sdp</item>
+        <item name="android:layout_width">@dimen/toolbar_iv_width</item>
+        <item name="android:layout_height">@dimen/toolbar_iv_height</item>
         <item name="android:gravity">center</item>
         <item name="android:onClick">onClick</item>
         <item name="android:padding">@dimen/_4sdp</item>
@@ -70,7 +70,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">right|center</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textSize">@dimen/tv_names_text_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:visibility">gone</item>
         <item name="android:layout_marginRight">@dimen/_2sdp</item>
@@ -84,14 +84,14 @@
 
     <style name="iv_colors_style">
 
-        <item name="android:layout_width">@dimen/_22sdp</item>
-        <item name="android:layout_height">@dimen/_22sdp</item>
+        <item name="android:layout_width">@dimen/iv_colors_width</item>
+        <item name="android:layout_height">@dimen/iv_colors_height</item>
         <item name="android:gravity">center</item>
         <item name="android:visibility">gone</item>
     </style>
 
     <style name="iv_avatar_style">
-        <item name="android:layout_width">@dimen/_40sdp</item>
+        <item name="android:layout_width">@dimen/iv_avatar_width</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_margin">5dp</item>
         <item name="android:gravity">center</item>
@@ -113,7 +113,7 @@
         <item name="android:inputType">textPersonName</item>
         <item name="android:lines">1</item>
         <item name="maxLines">1</item>
-        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textSize">@dimen/et_player_name_text_size</item>
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:textColor">@color/brown_500</item>
 
@@ -121,7 +121,7 @@
     </style>
 
     <style name="hint_style">
-        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textSize">@dimen/hint_text_size</item>
 
 
     </style>
@@ -131,18 +131,18 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">@dimen/_2sdp</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textSize">@dimen/switch_setting_text_size</item>
         <item name="android:fontFamily">@font/lalezar_regular</item>
 
     </style>
 
     <style name="title_dialog_style">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/_50sdp</item>
+        <item name="android:layout_height">@dimen/tv_title_dialog_height</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/_25sdp</item>
-        <item name="android:elevation">@dimen/_5sdp</item>
+        <item name="android:textSize">@dimen/tv_title_dialog_text_size</item>
+        <item name="android:elevation">@dimen/tv_title_dialog_elevation</item>
         <item name="android:background">@drawable/header_wood</item>
         <item name="android:layout_marginLeft">@dimen/_50sdp</item>
         <item name="android:layout_marginRight">@dimen/_50sdp</item>
@@ -152,11 +152,11 @@
 
     <style name="text_dialog_style">
 
-        <item name="android:layout_height">@dimen/_150sdp</item>
+        <item name="android:layout_height">@dimen/tv_text_dialog_height</item>
         <item name="android:paddingLeft">@dimen/_20sdp</item>
         <item name="android:paddingRight">@dimen/_20sdp</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/_23sdp</item>
+        <item name="android:textSize">@dimen/tv_text_dialog_text_size</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/board_dialog</item>
         <item name="android:layout_marginTop">@dimen/_25sdp</item>
@@ -178,10 +178,10 @@
 
     <style name="btn_dialog_style">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">@dimen/_45sdp</item>
+        <item name="android:layout_height">@dimen/btn_dialog_height</item>
         <item name="android:layout_weight">1</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/_25sdp</item>
+        <item name="android:textSize">@dimen/tv_start_game_text_size</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/wood_new_btn</item>
         <item name="android:layout_margin">@dimen/_2sdp</item>
@@ -200,7 +200,7 @@
 
     <style name="btn_truth_dare_style">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">@dimen/_45sdp</item>
+        <item name="android:layout_height">@dimen/btn_truth_dare_height</item>
         <item name="android:layout_weight">1</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/_22sdp</item>
@@ -232,7 +232,7 @@
         <item name="android:layoutDirection">rtl</item>
         <item name="android:paddingLeft">@dimen/_5sdp</item>
         <item name="itemBackground">@drawable/rectangle_brown_strok</item>
-        <item name="itemIconSize">@dimen/_25sdp</item>
+        <item name="itemIconSize">@dimen/navigation_item_icon_size</item>
         <item name="itemTextAppearance">@style/hint_style</item>
         <item name="itemIconTint">@color/white</item>
         <item name="itemTextColor">@color/white</item>
@@ -250,7 +250,7 @@
         <item name="android:layout_marginRight">@dimen/_20sdp</item>
         <item name="android:layout_marginTop">@dimen/_10sdp</item>
         <item name="android:layout_marginBottom">@dimen/_10sdp</item>
-        <item name="cardCornerRadius">@dimen/_10sdp</item>
+        <item name="cardCornerRadius">@dimen/cardview_setting_radius</item>
 
     </style>
 
@@ -267,13 +267,13 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">@dimen/_18sdp</item>
+        <item name="android:textSize">@dimen/tv_setting_text_size</item>
         <item name="android:textColor">@color/black</item>
 
     </style>
     <style name="view_brace_setting_style">
-        <item name="android:layout_height">@dimen/_80sdp</item>
-        <item name="android:layout_width">@dimen/_10sdp</item>
+        <item name="android:layout_height">@dimen/view_brace_setting_height</item>
+        <item name="android:layout_width">@dimen/view_brace_setting_width</item>
         <item name="android:layout_marginRight">@dimen/_10sdp</item>
         <item name="android:layout_marginLeft">@dimen/_10sdp</item>
         <item name="android:background">@drawable/aculade_view_setting</item>
