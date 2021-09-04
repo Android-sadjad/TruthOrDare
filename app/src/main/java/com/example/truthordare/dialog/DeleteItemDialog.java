@@ -16,19 +16,33 @@ import com.example.truthordare.interfaces.CallBackMain;
 public class DeleteItemDialog extends Dialog {
 
     ConstraintLayout clDelete;
+
     TextView tvNo;
     TextView tvYes;
+
     CallBackMain callBackMain;
 
     public DeleteItemDialog(@NonNull Context context, CallBackMain callBackMain) {
         super(context);
         setContentView(R.layout.dialog_delete);
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
         this.callBackMain = callBackMain;
 
         findViews();
         setViewSize();
         configuration();
+    }
+
+    private void findViews() {
+        clDelete = findViewById(R.id.cl_delete_dialog);
+        tvYes = findViewById(R.id.tv_yes);
+        tvNo = findViewById(R.id.tv_no);
+    }
+
+    private void setViewSize() {
+
+        clDelete.getLayoutParams().width = UseFullMethod.getScreenWidth() * 90 / 100;
     }
 
     private void configuration() {
@@ -42,7 +56,6 @@ public class DeleteItemDialog extends Dialog {
             }
         });
 
-
         tvNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,17 +64,5 @@ public class DeleteItemDialog extends Dialog {
             }
         });
 
-
-    }
-
-    private void setViewSize() {
-        clDelete.getLayoutParams().width = UseFullMethod.getScreenWidth() * 90 / 100;
-
-    }
-
-    private void findViews() {
-        clDelete = findViewById(R.id.cl_exit_dialog);
-        tvYes = findViewById(R.id.tv_yes_exit);
-        tvNo = findViewById(R.id.tv_no_exit);
     }
 }

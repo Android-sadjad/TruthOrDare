@@ -5,31 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/cl_about_us_dialog_height"
     android:layout_gravity="center"
-    android:padding="@dimen/_5sdp"
-
     >
 
-
     <TextView
-        android:id="@+id/tv_title_add"
+        android:id="@+id/tv_title_about_us"
         style="@style/title_dialog_style"
         android:layout_width="match_parent"
-        android:text="@string/add_question"
+        android:text="@string/about_us"
         app:layout_constraintBottom_toTopOf="@id/iv_inner_about_us_dialog"
-        app:layout_constraintTop_toTopOf="@id/iv_inner_about_us_dialog"
-
-        />
+        app:layout_constraintTop_toTopOf="@id/iv_inner_about_us_dialog" />
 
     <ImageView
         android:id="@+id/iv_inner_about_us_dialog"
+        style="@style/text_dialog_style"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginVertical="@dimen/_20sdp"
-        android:background="@drawable/board_dialog" />
+        android:layout_marginVertical="@dimen/_20sdp" />
 
 
     <TextView
-        android:id="@+id/tv_team"
+        android:id="@+id/tv_team_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -38,7 +33,7 @@
         android:textColor="@color/brown_500"
         android:textSize="@dimen/_22sdp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tv_title_add"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_about_us"
 
         />
 
@@ -48,9 +43,7 @@
         android:layout_height="@dimen/_4sdp"
         android:layout_marginHorizontal="@dimen/_30sdp"
         android:background="@color/brown_500"
-        app:layout_constraintTop_toBottomOf="@id/tv_team"
-
-        />
+        app:layout_constraintTop_toBottomOf="@id/tv_team_name" />
 
     <TextView
         android:id="@+id/tv_email"
@@ -61,7 +54,7 @@
         android:gravity="center"
         android:text="@string/call_us"
         android:textColor="@color/brown_500"
-        android:textSize="@dimen/_18sdp"
+        android:textSize="@dimen/tv_developers_text_size"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_horizontal_divider"
 
@@ -77,17 +70,16 @@
 
 
         <ImageView
+            android:id="@+id/iv_insta"
             android:layout_width="@dimen/iv_insta_width"
             android:layout_height="@dimen/iv_insta_height"
             android:layout_marginRight="@dimen/_10sdp"
-            android:id="@+id/ic_insta"
             android:src="@drawable/ic_insta_about" />
 
-
         <ImageView
+            android:id="@+id/iv_email"
             android:layout_width="@dimen/iv_email_width"
             android:layout_height="@dimen/iv_email_height"
-            android:id="@+id/ic_email"
             android:layout_marginLeft="@dimen/_10sdp"
             android:src="@drawable/ic_email_about" />
 
@@ -96,20 +88,28 @@
 
 
     <TextView
-        android:id="@+id/tv_developerrs"
+        android:id="@+id/tv_developers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_14sdp"
         android:layout_marginBottom="@dimen/_5sdp"
         android:gravity="center"
-        android:layout_margin="@dimen/_8sdp"
+        android:text="@string/developers"
+        android:textColor="@color/brown_500"
+        android:textSize="@dimen/tv_developers_text_size"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ll_ic_about" />
 
+    <TextView
+        android:id="@+id/tv_developers_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:gravity="center"
         android:text="@string/developers_name"
         android:textColor="@color/brown_500"
-        android:textSize="@dimen/_18sdp"
-        app:layout_constraintTop_toBottomOf="@id/ll_ic_about"
-
-        />
+        android:textSize="@dimen/tv_developers_name_text_size"
+        app:layout_constraintTop_toBottomOf="@id/tv_developers" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

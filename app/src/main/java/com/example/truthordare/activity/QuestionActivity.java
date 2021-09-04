@@ -11,7 +11,7 @@ import com.example.truthordare.adapter.ViewPagerAdapter;
 import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.UseFullMethod;
 import com.example.truthordare.dialog.AddQuestionDialog;
-import com.example.truthordare.dialog.AdvertisingDialog;
+import com.example.truthordare.dialog.AdvertisingQuestionDialog;
 import com.example.truthordare.fragment.QuestionLIstFragment;
 import com.example.truthordare.interfaces.CallBackAddQuestions;
 import com.example.truthordare.interfaces.CallBackMain;
@@ -161,7 +161,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         if(UseFullMethod.isNetworkAvailable(this)){
 
-            AdvertisingDialog advertisingDialog=new AdvertisingDialog(this, questions, new CallBackMain() {
+            AdvertisingQuestionDialog advertisingDialog=new AdvertisingQuestionDialog(this, questions, new CallBackMain() {
                 @Override
                 public void callBack() {
                     dareQuestionFragment.init();

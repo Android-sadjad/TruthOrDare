@@ -1,121 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_add_dialog"
     android:layout_width="match_parent"
     android:layout_height="@dimen/cl_add_question_dialog_height"
     android:layout_gravity="center"
-    android:layout_marginLeft="@dimen/_20sdp"
-    android:layout_marginRight="@dimen/_20sdp"
     android:background="@android:color/transparent"
-    android:gravity="center"
-    >
+    android:gravity="center">
 
     <TextView
-        android:id="@+id/tv_title_add"
         style="@style/title_dialog_style"
         android:layout_width="match_parent"
         android:text="@string/add_question"
         app:layout_constraintBottom_toTopOf="@id/iv_inner_about_us_dialog"
-        app:layout_constraintTop_toTopOf="@id/iv_inner_about_us_dialog"
-
-        />
+        app:layout_constraintTop_toTopOf="@id/iv_inner_about_us_dialog" />
 
 
     <ImageView
         android:id="@+id/iv_inner_about_us_dialog"
-        android:layout_marginVertical="@dimen/_20sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginVertical="@dimen/_20sdp"
         android:background="@drawable/wood_board_without_pich" />
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_question_text"
+        style="@style/til_name_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_35sdp"
+        android:hint="@string/enter_your_question"
+        android:layoutDirection="rtl"
+        app:layout_constraintTop_toTopOf="@id/iv_inner_about_us_dialog">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_question_text"
-            style="@style/til_name_style"
-            app:layout_constraintTop_toTopOf="@id/iv_inner_about_us_dialog"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_text_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_35sdp"
-           android:layout_marginHorizontal="@dimen/_15sdp"
-            android:hint="@string/enter_your_question"
-            android:layoutDirection="rtl">
+            android:gravity="top"
+            android:layoutDirection="rtl"
+            android:lines="5"
+            android:textColor="@color/brown_500"
+            android:textColorHint="@color/brown_500"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/_15sdp"
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_text_question"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lines="5"
-                android:gravity="top"
-                android:layoutDirection="rtl"
-                android:textColor="@color/brown_500"
-                android:textColorHint="@color/brown_500"
-                android:textCursorDrawable="@null"
-                android:textSize="@dimen/_15sdp"
-
-                />
+            />
 
 
-        </com.google.android.material.textfield.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        app:layout_constraintTop_toTopOf="@id/rg_truth_or_dare"
-        app:layout_constraintBottom_toBottomOf="@id/rg_truth_or_dare"
-       app:layout_constraintRight_toRightOf="parent"
-android:layout_marginRight="@dimen/_20sdp"
         android:id="@+id/tv_category"
-       android:textColor="@color/brown_500"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:text="@string/category"
+        android:textColor="@color/brown_500"
         android:textSize="@dimen/tv_category_text_size"
-        android:text="@string/category" />
+        app:layout_constraintBottom_toBottomOf="@id/rg_truth_or_dare"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rg_truth_or_dare" />
 
     <View
-        app:layout_constraintRight_toLeftOf="@id/tv_category"
-        app:layout_constraintTop_toTopOf="@id/rg_truth_or_dare"
-        app:layout_constraintBottom_toBottomOf="@id/rg_truth_or_dare"
         android:id="@+id/view_brace"
-        style="@style/view_brace_setting_style" />
+        style="@style/view_brace_setting_style"
+        app:layout_constraintBottom_toBottomOf="@id/rg_truth_or_dare"
+        app:layout_constraintRight_toLeftOf="@id/tv_category"
+        app:layout_constraintTop_toTopOf="@id/rg_truth_or_dare" />
 
 
-        <RadioGroup
-            android:id="@+id/rg_truth_or_dare"
-            app:layout_constraintTop_toBottomOf="@id/til_question_text"
-            app:layout_constraintRight_toLeftOf="@id/view_brace"
+    <RadioGroup
+        android:id="@+id/rg_truth_or_dare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:gravity="right"
+        android:layoutDirection="rtl"
+        android:orientation="vertical"
+        app:layout_constraintRight_toLeftOf="@id/view_brace"
+        app:layout_constraintTop_toBottomOf="@id/til_question_text">
+
+        <RadioButton
+            android:id="@+id/rb_truth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:gravity="right"
-            android:layoutDirection="rtl"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/rb_truth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/brown_500"
-                android:checked="true"
-                android:text="@string/truth"
-                android:textColor="@color/brown_500"
-                android:textSize="@dimen/radio_btn_text_size"
-                />
+            android:buttonTint="@color/brown_500"
+            android:checked="true"
+            android:text="@string/truth"
+            android:textColor="@color/brown_500"
+            android:textSize="@dimen/radio_btn_text_size" />
 
 
-            <RadioButton
-                android:id="@+id/rb_dare"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="@color/brown_500"
-                android:fontFamily="@font/lalezar_regular"
-                android:text="@string/dare"
-                android:textColor="@color/brown_500"
-                android:textSize="@dimen/radio_btn_text_size" />
+        <RadioButton
+            android:id="@+id/rb_dare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/brown_500"
+            android:fontFamily="@font/lalezar_regular"
+            android:text="@string/dare"
+            android:textColor="@color/brown_500"
+            android:textSize="@dimen/radio_btn_text_size" />
 
 
-        </RadioGroup>
-
+    </RadioGroup>
 
 
     <LinearLayout

@@ -53,6 +53,7 @@
     <string name="need_see_video">برای دریافت جایزه باید ویدیو تا انتها مشاهده شود</string>
     <string name="please_enter_this_field">لطفا این فیلد را هم کامل کنید</string>
 
+
     <string name="select_player">انتخاب بازیکن</string>
     <string name="player_number">تعداد بازیکنان</string>
     <string name="player_name_1">نام بازیکن 1</string>
@@ -81,12 +82,30 @@
     <string name="enter_your_question">سوال خود را وارد کنید</string>
     <string name="add">افزودن</string>
     <string name="call_us">راه های ارتباط با ما:</string>
-    <string name="developers_name">توسعه دهندگان:\nمحمدعلی عطار علیایی\nمحمد یزدی</string>
+    <string name="developers_name">محمدعلی عطار علیایی - محمد یزدی</string>
+    <string name="developers">توسعه دهندگان:</string>
 
 
     <string name="max_number">حداکثر تعداد بازیکنان 9 نفر میباشد</string>
     <string name="min_number">حداقل تعداد بازیکنان 2 نفر میباشد</string>
     <string name="category">دسته بندی</string>
+
+
+
+    <string name="unknown_error">خطای ناشناخته</string>
+    <string name="instagram_page_address">https://www.instagram.com/omidsharifmehr/</string>
+    <string name="instagram_package_name">com.instagram.android</string>
+    <string name="need_install_caffe_bazaar">برای ثبت نظر باید اپلیکیشن بازار را نصب داشته باشید</string>
+
+    <string name="comment_caffe_bazaar">bazaar://details?id=</string>
+    <string name="developer_caffe_bazaar">https://cafebazaar.ir/developer/mohammad9731</string>
+    <string name="app_link_download">"لینک دانلود برنامه "</string>
+    <string name="app_id_caffe_bazaar">http://cafebazaar.ir/app/?id=</string>
+    <string name="email_address">mohammadyt1379@gmail.com</string>
+    <string name="send_email">ارسال ایمیل...</string>
+    <string name="hemayat_text">جهت حمایت از ما میتوانید بر روی این بنر تبلیغاتی کلیک کنید</string>
+    <string name="thank_you">با تشکر</string>
+    <string name="please_wait">لطفا صبر کنید</string>
 
 
     <array name="truth_questions_list">

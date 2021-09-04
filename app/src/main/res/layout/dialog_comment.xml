@@ -5,19 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:padding="10dp"
+
 
     >
 
     <TextView
-        android:layout_width="match_parent"
-        android:id="@+id/tv_title_dialog_comment"
         style="@style/title_dialog_style"
+        android:layout_width="match_parent"
         android:text="@string/comment_title"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_want_comment"
         style="@style/text_dialog_style"
         android:layout_width="match_parent"
         android:text="@string/do_you_enjoy_this_game"
@@ -25,8 +23,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="match_parent"
         style="@style/ll_dialog_style"
+        android:layout_width="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
 
         >
@@ -36,7 +34,6 @@
             style="@style/btn_dialog_style"
             android:text="@string/no"
 
-
             />
 
 
@@ -44,8 +41,6 @@
             android:id="@+id/tv_yes_comment"
             style="@style/btn_dialog_style"
             android:text="@string/yes"
-
-
             />
     </LinearLayout>
 

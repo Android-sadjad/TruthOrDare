@@ -17,22 +17,23 @@ import com.example.truthordare.interfaces.CallBackMain;
 import com.example.truthordare.interfaces.CallBackReward;
 import com.example.truthordare.model.Questions;
 
-public class AdvertisingDialog extends Dialog {
+public class AdvertisingQuestionDialog extends Dialog {
 
     ConstraintLayout constraintLayout;
+
     TextView tvYes;
     TextView tvNO;
+
     Questions questions;
     CallBackMain callBackMain;
     Activity activity;
 
-    public AdvertisingDialog(Activity activity, Questions questions, CallBackMain callBackMain) {
+    public AdvertisingQuestionDialog(Activity activity, Questions questions, CallBackMain callBackMain) {
         super(activity);
 
-
         setContentView(R.layout.dialog_advertising);
-        this.activity = activity;
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        this.activity = activity;
         this.questions = questions;
         this.callBackMain = callBackMain;
 
@@ -43,10 +44,9 @@ public class AdvertisingDialog extends Dialog {
 
     private void findViews() {
 
-        constraintLayout = findViewById(R.id.cl_exit_dialog);
-        tvYes = findViewById(R.id.tv_yes_exit);
-        tvNO = findViewById(R.id.tv_no_exit);
-
+        constraintLayout = findViewById(R.id.cl_ad_add_question_dialog);
+        tvYes = findViewById(R.id.tv_yes);
+        tvNO = findViewById(R.id.tv_no);
     }
 
     private void setViewsSize() {
@@ -77,14 +77,13 @@ public class AdvertisingDialog extends Dialog {
 
                 final boolean[] flag = {true};
 
-
                 MyTapsell.showInterstitialAd(activity, MyConstant.INTERSTITIAL_VIDEO, new CallBackReward() {
                     @Override
                     public void onReward() {
                         flag[0] = false;
 
-                        Toast.makeText(getContext(),R.string.ten_question_added, Toast.LENGTH_SHORT).show();
-                        questions.setQuestionNumber((questions.getQuestionNumber() + 3));
+                        Toast.makeText(getContext(), R.string.ten_question_added, Toast.LENGTH_SHORT).show();
+                        questions.setQuestionNumber((questions.getQuestionNumber() + MyConstant.ADD_QUESTION_NUMBER));
                         questions.updateQuestions(getContext(), questions);
 
                         callBackMain.callBack();

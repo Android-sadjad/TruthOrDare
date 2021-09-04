@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.truthordare.R;
 import com.example.truthordare.interfaces.CallBackReward;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Setting;
@@ -69,8 +70,9 @@ public class MyTapsell {
 
     }
 
-
     public static void showInterstitialAd(Activity activity, String zoneId, CallBackReward callBackReward) {
+
+        Toast.makeText(activity, activity.getString(R.string.please_wait), Toast.LENGTH_SHORT).show();
         TapsellPlus.requestRewardedVideoAd(
                 activity,
                 zoneId,
@@ -106,7 +108,7 @@ public class MyTapsell {
                     public void onOpened(TapsellPlusAdModel tapsellPlusAdModel) {
                         super.onOpened(tapsellPlusAdModel);
                         if(callBackReward==null){
-                            Toast.makeText(activity, "جهت حمایت از ما میتوانید بر روی این بنر تبلیغاتی کلیک کنید", Toast.LENGTH_LONG).show();
+                            Toast.makeText(activity, activity.getString(R.string.hemayat_text), Toast.LENGTH_LONG).show();
                         }
 
                         if (new Setting(activity).isAppSound())
@@ -119,7 +121,7 @@ public class MyTapsell {
                         if (callBackReward != null)
                             callBackReward.onError();
                         else
-                            Toast.makeText(activity, "با تشکر", Toast.LENGTH_LONG).show();
+                            Toast.makeText(activity, R.string.thank_you, Toast.LENGTH_LONG).show();
 
                         if (new Setting(activity).isAppSound())
                             MyMediaPlayer.mpAppSound.start();
@@ -137,6 +139,9 @@ public class MyTapsell {
                     @Override
                     public void onError(TapsellPlusErrorModel tapsellPlusErrorModel) {
                         super.onError(tapsellPlusErrorModel);
+                        Toast.makeText(activity, activity.getString(R.string.unknown_error), Toast.LENGTH_SHORT).show();
+
+
                     }
                 });
 

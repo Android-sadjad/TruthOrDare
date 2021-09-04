@@ -17,26 +17,25 @@ import com.example.truthordare.interfaces.CallBackMain;
 import com.example.truthordare.interfaces.CallBackReward;
 import com.example.truthordare.model.Setting;
 
-public class AdvertisingSelectDialog extends Dialog {
-
+public class AdvertisingSelectPhotoDialog extends Dialog {
 
     ConstraintLayout constraintLayout;
+
     TextView tvYes;
     TextView tvNo;
+
     Setting setting;
     CallBackMain callBackMain;
     Activity activity;
 
-
-    public AdvertisingSelectDialog(Activity activity, Setting setting, CallBackMain callBackMain) {
+    public AdvertisingSelectPhotoDialog(Activity activity, Setting setting, CallBackMain callBackMain) {
         super(activity);
-
         setContentView(R.layout.dialog_advertising_select);
-        this.activity = activity;
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        this.activity = activity;
         this.setting = setting;
         this.callBackMain = callBackMain;
-
 
         findViews();
         setViewsSize();
@@ -45,12 +44,10 @@ public class AdvertisingSelectDialog extends Dialog {
 
     private void findViews() {
 
-        constraintLayout = findViewById(R.id.cl_exit_dialog);
-        tvYes = findViewById(R.id.tv_yes_exit);
-        tvNo = findViewById(R.id.tv_no_exit);
-
+        constraintLayout = findViewById(R.id.cl_ad_select_photo_dialog);
+        tvYes = findViewById(R.id.tv_yes);
+        tvNo = findViewById(R.id.tv_no);
     }
-
 
     private void setViewsSize() {
 
@@ -87,12 +84,10 @@ public class AdvertisingSelectDialog extends Dialog {
 
                         if (flag[0]) {
                             Toast.makeText(activity, R.string.need_see_video, Toast.LENGTH_SHORT).show();
-
                         }
 
                     }
                 });
-
 
                 cancel();
             }

@@ -11,11 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.truthordare.R;
-import com.example.truthordare.classes.MyConstant;
-import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.classes.UseFullMethod;
-
-import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class ExitDialog extends Dialog {
     RelativeLayout rvAdvertising;
@@ -27,13 +23,28 @@ public class ExitDialog extends Dialog {
 
     public ExitDialog(@NonNull Activity activity) {
         super(activity);
+
         setContentView(R.layout.dialog_exit);
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+
         this.activity = activity;
         findViews();
         setViewSize();
         configuration();
-        showAdvertising();
+    }
+
+
+    private void findViews() {
+
+        clExit = findViewById(R.id.cl_exit_dialog);
+        tvNo = findViewById(R.id.tv_no);
+        tvYes = findViewById(R.id.tv_yes);
+    }
+
+    private void setViewSize() {
+
+        clExit.getLayoutParams().width = UseFullMethod.getScreenWidth() * 90 / 100;
     }
 
     private void configuration() {
@@ -45,7 +56,6 @@ public class ExitDialog extends Dialog {
             }
         });
 
-
         tvYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,31 +64,7 @@ public class ExitDialog extends Dialog {
             }
         });
 
-
     }
-
-
-    private void setViewSize() {
-
-        clExit.getLayoutParams().width = UseFullMethod.getScreenWidth() * 90 / 100;
-
-
-    }
-
-    private void findViews() {
-        clExit = findViewById(R.id.cl_exit_dialog);
-        tvNo = findViewById(R.id.tv_no_exit);
-        tvYes = findViewById(R.id.tv_yes_exit);
-
-
-    }
-
-    private void showAdvertising() {
-        MyTapsell.showStandardBanner(activity, MyConstant.STANDARD_BANNER, rvAdvertising, TapsellPlusBannerType.BANNER_250x250);
-
-
-    }
-
 
 }
 

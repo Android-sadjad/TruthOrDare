@@ -17,11 +17,9 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class AddQuestionDialog extends Dialog {
 
-
     CallBackAddQuestions callBackAddQuestions;
 
     ConstraintLayout clAddDialog;
-
 
     TextView tvCloseDialog;
     TextView tvAddDialog;
@@ -56,7 +54,6 @@ public class AddQuestionDialog extends Dialog {
         rbTruth = findViewById(R.id.rb_truth);
 
         tieTextQuestion = findViewById(R.id.et_text_question);
-
     }
 
     public void setViewsSize() {
@@ -77,7 +74,7 @@ public class AddQuestionDialog extends Dialog {
             @Override
             public void onClick(View v) {
 
-                if (tieTextQuestion.getText().length() == 0) {
+                if (tieTextQuestion.getText().toString().trim().length() == 0) {
                     tieTextQuestion.setError(getContext().getString(R.string.please_enter_question));
                     return;
                 }

@@ -5,19 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:padding="10dp"
+
 
     >
 
     <TextView
-        android:layout_width="match_parent"
-        android:id="@+id/tv_title_dialog_exit"
         style="@style/title_dialog_style"
+        android:layout_width="match_parent"
         android:text="@string/exit_title"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_want_exit"
         style="@style/text_dialog_style"
         android:layout_width="match_parent"
         android:text="@string/do_you_want_to_exit"
@@ -25,14 +23,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="match_parent"
         style="@style/ll_dialog_style"
+        android:layout_width="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
 
         >
 
         <TextView
-            android:id="@+id/tv_no_exit"
+            android:id="@+id/tv_no"
             style="@style/btn_dialog_style"
             android:text="@string/no"
 
@@ -41,7 +39,7 @@
 
 
         <TextView
-            android:id="@+id/tv_yes_exit"
+            android:id="@+id/tv_yes"
             style="@style/btn_dialog_style"
             android:text="@string/yes"
 

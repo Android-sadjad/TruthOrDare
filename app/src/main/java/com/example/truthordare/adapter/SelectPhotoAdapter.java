@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.truthordare.R;
 import com.example.truthordare.classes.UseFullMethod;
-import com.example.truthordare.dialog.AdvertisingSelectDialog;
+import com.example.truthordare.dialog.AdvertisingSelectPhotoDialog;
 import com.example.truthordare.interfaces.CallBackMain;
 import com.example.truthordare.model.Setting;
 
@@ -68,7 +68,7 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
                 if (lockFlags[position]) {
                     if (UseFullMethod.isNetworkAvailable(activity)) {
 
-                        AdvertisingSelectDialog advertisingSelectDialog = new AdvertisingSelectDialog(activity, setting, new CallBackMain() {
+                        AdvertisingSelectPhotoDialog advertisingSelectDialog = new AdvertisingSelectPhotoDialog(activity, setting, new CallBackMain() {
                             @Override
                             public void callBack() {
 
