@@ -22,6 +22,7 @@ import com.example.truthordare.classes.MyIntent;
 import com.example.truthordare.classes.MyTapsell;
 import com.example.truthordare.classes.UseFullMethod;
 import com.example.truthordare.dialog.AboutUsDialog;
+import com.example.truthordare.dialog.CommentDialog;
 import com.example.truthordare.dialog.ExitDialog;
 import com.example.truthordare.model.MyMediaPlayer;
 import com.example.truthordare.model.Setting;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     AboutUsDialog aboutUsDialog;
     ExitDialog exitDialog;
+    CommentDialog commentDialog;
 
 
     @Override
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         aboutUsDialog = new AboutUsDialog(MainActivity.this);
         exitDialog = new ExitDialog(MainActivity.this);
+        commentDialog=new CommentDialog(MainActivity.this);
     }
 
     private void startAnimation() {
@@ -152,7 +155,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.tv_comment:
-                MyIntent.commentIntent(MainActivity.this);
+                commentDialog.show();
+
                 break;
 
             case R.id.iv_setting:

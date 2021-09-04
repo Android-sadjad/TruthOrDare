@@ -45,9 +45,9 @@ public class AdvertisingSelectDialog extends Dialog {
 
     private void findViews() {
 
-        constraintLayout = findViewById(R.id.cl_delete_dialog);
-        tvYes = findViewById(R.id.tv_yes_delete);
-        tvNo = findViewById(R.id.tv_no_delete);
+        constraintLayout = findViewById(R.id.cl_exit_dialog);
+        tvYes = findViewById(R.id.tv_yes_exit);
+        tvNo = findViewById(R.id.tv_no_exit);
 
     }
 

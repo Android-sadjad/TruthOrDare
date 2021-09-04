@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cl_delete_dialog"
+    android:id="@+id/cl_exit_dialog"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -11,13 +11,13 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:id="@+id/tv_title_dialog_delete"
+        android:id="@+id/tv_title_dialog_exit"
         style="@style/title_dialog_style"
         android:text="@string/exit_title"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_want_delete"
+        android:id="@+id/tv_want_exit"
         style="@style/text_dialog_style"
         android:layout_width="match_parent"
         android:text="@string/do_you_want_to_exit"
@@ -32,7 +32,7 @@
         >
 
         <TextView
-            android:id="@+id/tv_no_delete"
+            android:id="@+id/tv_no_exit"
             style="@style/btn_dialog_style"
             android:text="@string/no"
 
@@ -41,7 +41,7 @@
 
 
         <TextView
-            android:id="@+id/tv_yes_delete"
+            android:id="@+id/tv_yes_exit"
             style="@style/btn_dialog_style"
             android:text="@string/yes"
 

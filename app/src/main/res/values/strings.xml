@@ -66,8 +66,10 @@
     <string name="player_name_9">نام بازیکن 9</string>
 
     <string name="do_you_want_to_exit">آیا میخواهید از بازی خارج شوید؟</string>
+    <string name="do_you_enjoy_this_game">آیا از بازی راضی هستید؟</string>
     <string name="do_you_want_to_delete">آیا میخواهید این سوال را حذف کنید؟</string>
     <string name="exit_title">خروج</string>
+    <string name="comment_title">ثبت نظر</string>
     <string name="delete_title">حذف</string>
     <string name="show_video_text">با دیدن یک ویدیو کوتاه میتونی این بطری را به بازی اضافه کنی</string>
     <string name="add_question_with_see_video">با دیدن یک ویدیو کوتاه میتونی ۱۰ سوال به سوالات برنامه اضافه کنی</string>
@@ -78,8 +80,8 @@
     <string name="title_select_advertising_dialog">افزودن بطری</string>
     <string name="enter_your_question">سوال خود را وارد کنید</string>
     <string name="add">افزودن</string>
-    <string name="email">Email : m.aliattarr@gmial.com</string>
-    <string name="developers_name">برنامه نویس ها:\nمحمدعلی عطار علیایی\nمحمد یزدی</string>
+    <string name="call_us">راه های ارتباط با ما:</string>
+    <string name="developers_name">توسعه دهندگان:\nمحمدعلی عطار علیایی\nمحمد یزدی</string>
 
 
     <string name="max_number">حداکثر تعداد بازیکنان 9 نفر میباشد</string>

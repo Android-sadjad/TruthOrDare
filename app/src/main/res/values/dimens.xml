@@ -90,7 +90,11 @@
 
 
     <!--dialog_about_us-->
-    <dimen name="cl_about_us_dialog_height">@dimen/_300sdp</dimen>
+    <dimen name="cl_about_us_dialog_height">@dimen/_320sdp</dimen>
+    <dimen name="iv_insta_height">@dimen/_45sdp</dimen>
+    <dimen name="iv_insta_width">@dimen/_45sdp</dimen>
+    <dimen name="iv_email_height">@dimen/_50sdp</dimen>
+    <dimen name="iv_email_width">@dimen/_50sdp</dimen>
 
 
 

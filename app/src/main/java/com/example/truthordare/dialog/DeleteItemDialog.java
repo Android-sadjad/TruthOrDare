@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.truthordare.R;
-import com.example.truthordare.classes.MyConstant;
 import com.example.truthordare.classes.UseFullMethod;
 import com.example.truthordare.interfaces.CallBackMain;
 
@@ -61,8 +60,8 @@ public class DeleteItemDialog extends Dialog {
     }
 
     private void findViews() {
-        clDelete = findViewById(R.id.cl_delete_dialog);
-        tvYes = findViewById(R.id.tv_yes_delete);
-        tvNo = findViewById(R.id.tv_no_delete);
+        clDelete = findViewById(R.id.cl_exit_dialog);
+        tvYes = findViewById(R.id.tv_yes_exit);
+        tvNo = findViewById(R.id.tv_no_exit);
     }
 }
