@@ -73,7 +73,7 @@
     <dimen name="et_player_name_text_size">@dimen/_14ssp</dimen>
     <dimen name="tv_start_game_width">@dimen/_200sdp</dimen>
     <dimen name="tv_start_game_height">@dimen/_70sdp</dimen>
-    <dimen name="tv_start_game_text_size">@dimen/_25ssp</dimen>
+    <dimen name="tv_start_game_text_size">@dimen/_24ssp</dimen>
     <dimen name="tv_start_game_elevation">@dimen/_10sdp</dimen>
     <dimen name="btn_dialog_height">@dimen/_45sdp</dimen>
     <dimen name="hint_text_size">@dimen/_14ssp</dimen>

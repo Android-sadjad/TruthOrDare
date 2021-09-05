@@ -119,7 +119,7 @@
 
         android:id="@+id/navigation_view"
         style="@style/navigation_view_style"
-        android:visibility="gone" />
+        />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

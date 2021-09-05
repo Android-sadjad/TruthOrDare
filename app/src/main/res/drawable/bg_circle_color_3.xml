@@ -7,7 +7,7 @@
         android:height="@dimen/circle_shape_height"/>
 
     <stroke android:width="@dimen/stroke_circle_shape_width"
-        android:color="@color/stroke_brown"
+        android:color="@color/brown_1000"
         />
     <solid android:color="@color/bg_green"/>
 

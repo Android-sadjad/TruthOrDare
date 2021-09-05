@@ -3,39 +3,31 @@
     <color name="purple_500">#FF6200EE</color>
     <color name="teal_200">#3A7FFB</color>
     <color name="teal_700">#FF018786</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="status_bar">#2B35E4</color>
 
-    <color name="toolbar_light">#115384</color>
-    <color name="toolbar_dark">#124D79</color>
+    <color name="tab_light">#044067</color>
+    <color name="tab_dark">#03345A</color>
 
 
-    <color name="brown900">#7C3E2B</color>
     <color name="ice_card">#C9D6DC</color>
     <color name="ice_card_dark">#DDFDFF</color>
     <color name="light_black">#191B1C</color>
-    <color name="dark_white">#E1D3CE</color>
 
 
-
-    <color name="start_color_brown">#87452D</color>
-    <color name="brown_500">#4E1F11</color>
-    <color name="end_color_brown">#87452D</color>
-
-
-    <color name="start_color_blue">#2A35E4</color>
-    <color name="center_color_blue">#4B6FF6</color>
-    <color name="end_color_blue">#6FA7FD</color>
-
-
-    <color name="navigation_view_bg_color">#9C6351</color>
+    <color name="brown_100">#9C6351</color>
     <color name="brown200">#7C3E2B</color>
+    <color name="brown_500">#4E1F11</color>
+    <color name="brown900">#7C3E2B</color>
+    <color name="brown_1000">#392201</color>
 
 
-
-
+    <color name="blue_300">#6FA7FD</color>
+    <color name="blue_600">#4B6FF6</color>
+    <color name="blue_900">#2A35E4</color>
 
 
     <color name="bg_blue">#1CA1FF</color>
@@ -47,11 +39,4 @@
     <color name="bg_brown">#553505</color>
     <color name="bg_orange">#E86C0D</color>
     <color name="bg_gray">#6D757A</color>
-
-
-    <color name="stroke_brown">#392201</color>
-
-
-
-
 </resources>

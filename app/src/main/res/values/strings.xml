@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">جرات یا حقیقت</string>
+    <string name="app_name">جرات یا حقیقت | بطری بازی</string>
     <string name="developer_team_name">تیم توسعه دهنده دراگون تک</string>
-    <string name="version_code">ورژن 2.0</string>
+    <string name="version_code">ورژن 1.0.0</string>
+    <string name="version">"ورژن  "</string>
     <string name="truth_or_dare">جرات یا حقیقت</string>
 
 
@@ -81,7 +82,7 @@
     <string name="title_select_advertising_dialog">افزودن بطری</string>
     <string name="enter_your_question">سوال خود را وارد کنید</string>
     <string name="add">افزودن</string>
-    <string name="call_us">راه های ارتباط با ما:</string>
+    <string name="call_us">راه های ارتباط با ما</string>
     <string name="developers_name">محمدعلی عطار علیایی - محمد یزدی</string>
     <string name="developers">توسعه دهندگان:</string>
 
@@ -106,6 +107,7 @@
     <string name="hemayat_text">جهت حمایت از ما میتوانید بر روی این بنر تبلیغاتی کلیک کنید</string>
     <string name="thank_you">با تشکر</string>
     <string name="please_wait">لطفا صبر کنید</string>
+    <string name="thanks_comment">با تشکر از شما که با دادن امتیاز بالا از ما حمایت میکنید</string>
 
 
     <array name="truth_questions_list">

@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
-        android:backgroundTint="@color/toolbar_light"
+        android:backgroundTint="@color/tab_dark"
         android:src="@drawable/ic_plus"
         app:tint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"

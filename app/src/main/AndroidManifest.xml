@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.truthordare">
+    package="com.dragontech.truthordare">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".classes.Global"
+        android:name="com.dragontech.truthordare.classes.Global"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,29 +14,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TruthOrDare">
         <activity
-            android:name=".activity.QuestionActivity"
+            android:name="com.dragontech.truthordare.activity.QuestionActivity"
             android:configChanges="orientation|keyboard"
             android:screenOrientation="portrait"
             />
-        <activity android:name=".activity.GameActivity"
+        <activity android:name="com.dragontech.truthordare.activity.GameActivity"
             android:configChanges="orientation|keyboard"
             android:screenOrientation="portrait"
             />
-        <activity android:name=".activity.StartGameActivity"
+        <activity android:name="com.dragontech.truthordare.activity.StartGameActivity"
             android:configChanges="orientation|keyboard"
             android:windowSoftInputMode="adjustPan"
         android:screenOrientation="portrait"
             />
         <activity
-            android:name=".activity.SettingActivity"
+            android:name="com.dragontech.truthordare.activity.SettingActivity"
             android:configChanges="orientation|keyboard"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.dragontech.truthordare.activity.MainActivity"
             android:configChanges="orientation|keyboard"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.SplashScreenActivity"
+            android:name="com.dragontech.truthordare.activity.SplashScreenActivity"
             android:configChanges="orientation|keyboard"
             android:screenOrientation="portrait">
             <intent-filter>
