@@ -478,6 +478,7 @@ public class GameActivity extends AppCompatActivity {
 
         ArrayList<String> dareQuestionList = new ArrayList<>();
 
+
         if (setting.isDefaultQuestion()) {
 
             ArrayList<String> dareList = (questions.getDareQuestionList());
@@ -568,6 +569,11 @@ public class GameActivity extends AppCompatActivity {
 
         int id = getResources().getIdentifier("bottle_" + (position + 1), "drawable", getPackageName());
         ivBottle.setImageResource(id);
+
+        if(!setting.isRepeatQuestion()){
+            repetitiousDareQuestion.clear();
+            repetitiousTruthQuestion.clear();
+        }
 
 
     }
