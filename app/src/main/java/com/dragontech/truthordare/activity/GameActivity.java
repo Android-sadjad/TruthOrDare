@@ -13,6 +13,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -316,19 +317,22 @@ public class GameActivity extends AppCompatActivity {
                     MyMediaPlayer.mpSpinSound.start();
                 }
 
-                int firstRandom = createRandomNumber();
-                int secondRandom = createRandomNumber();
-                int randomNumber = (firstRandom + secondRandom) / 2;
+//                int firstRandom=createRandomNumber();
+//                int secondRandom=createRandomNumber();
+//                int randomNumber=(firstRandom+secondRandom)/2;
+                int randomNumber=createRandomNumber();
+
+                int nextDegree=randomNumber+currentDegree%360;
 
                 RotateAnimation rotate = new RotateAnimation(currentDegree,
-                        MyConstant.ROTATE_BOTTLE_NUMBER + randomNumber,
+                        MyConstant.ROTATE_BOTTLE_NUMBER+nextDegree,
                         Animation.RELATIVE_TO_SELF,
                         0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
                 rotate.setDuration(MyMediaPlayer.mpSpinSound.getDuration());
                 rotate.setFillAfter(true);
 
-                currentDegree = randomNumber;
+                currentDegree = nextDegree;
                 ivBottle.startAnimation(rotate);
 
                 if (llNamesBord.getTranslationY() == 0)
@@ -398,7 +402,11 @@ public class GameActivity extends AppCompatActivity {
 
         int randomNumber = 0;
         while (true) {
-            randomNumber = new Random().nextInt() % MyConstant.MAX_RANDOM_NUMBER;
+            randomNumber = new Random().nextInt() % (MyConstant.MAX_RANDOM_NUMBER);
+
+            if(randomNumberList.size()==MyConstant.MAX_RANDOM_NUMBER)
+                randomNumberList.clear();
+
             if (!randomNumberList.contains(randomNumber)) {
                 randomNumberList.add(randomNumber);
                 break;
@@ -407,6 +415,7 @@ public class GameActivity extends AppCompatActivity {
 
         randomNumber *= sign;
         sign *= -1;
+
 
         return randomNumber;
 
