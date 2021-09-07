@@ -119,6 +119,8 @@
 
         android:id="@+id/navigation_view"
         style="@style/navigation_view_style"
+        app:headerLayout="@layout/view_bottle"
+
         />
 
 

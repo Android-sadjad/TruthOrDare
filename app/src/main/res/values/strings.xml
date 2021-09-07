@@ -22,37 +22,36 @@
     <string name="about_us">درباره ما</string>
     <string name="exit">خروج</string>
 
-    <string name="questions_list">لیست سوالات</string>
+    <string name="questions_list">نمایش سوالات</string>
     <string name="repetitious_question">سوال تکراری</string>
     <string name="sound_setting">تنظیمات صدا</string>
-    <string name="rotation_sound">صدای چرخش</string>
-    <string name="app_sound">صدای برنامه</string>
+    <string name="rotation_sound">صدای چرخش بطری</string>
+    <string name="app_sound">صدای پس زمینه</string>
     <string name="button_sound">صدای دکمه ها</string>
+    <string name="select_question_list">از طریق صفحه تنظیمات میتوانید دسته بندی سوالات را مشخص کنید</string>
 
     <string name="dare">جرات</string>
     <string name="truth">حقیقت</string>
     <string name="sample_question">آخرین بار کی آب خوردی؟</string>
-    <string name="change_question">تغییر سوال</string>
+    <string name="change_question">تعویض سوال</string>
     <string name="close">بستن</string>
     <string name="no_question_selected">هیچ سوالی انتخاب نشده است</string>
     <string name="no_question_added">هنوز هیچ سوالی اضافه نشده است</string>
-    <string name="add_your_question">با زدن روی دکمه پلاس \nسوال خود را اضافه کنید</string>
+    <string name="add_your_question">با زدن روی دکمه بعلاوه پایین صفحه میتوانید سوال خود را اضافه کنید</string>
 
-    <string name="my_dare">جرات من</string>
-    <string name="my_truth">حقیقت من</string>
 
     <string name="delete_question">حذف سوال</string>
     <string name="delete_message">آیا میخواهید این سوال را حذف کنید؟</string>
     <string name="yes">بله</string>
     <string name="no">خیر</string>
 
-    <string name="shoud_select_photo">حتما باید یک عکس رو انتخاب کنی</string>
-    <string name="added_photo">تبریک بطری شما اضافه شد</string>
+
+    <string name="added_photo">تبریک! بطری شما اضافه شد</string>
     <string name="please_enter_question">لطفا متن سوال را وارد کنید</string>
     <string name="all_question_added_already">قبلا همه سوال ها اضافه شده است</string>
-    <string name="ten_question_added">تبریک ۱۰ سوال به هر دسته بندی اضافه شد</string>
+    <string name="ten_question_added">تبریک! ۱۰ سوال به هر دسته بندی اضافه شد</string>
     <string name="need_see_video">برای دریافت جایزه باید ویدیو تا انتها مشاهده شود</string>
-    <string name="please_enter_this_field">لطفا این فیلد را هم کامل کنید</string>
+    <string name="please_enter_this_field">لطفا این بخش را هم وارد کنید</string>
 
 
     <string name="select_player">انتخاب بازیکن</string>
@@ -68,7 +67,7 @@
     <string name="player_name_9">نام بازیکن 9</string>
 
     <string name="do_you_want_to_exit">آیا میخواهید از بازی خارج شوید؟</string>
-    <string name="do_you_enjoy_this_game">آیا از بازی راضی هستید؟</string>
+    <string name="do_you_enjoy_this_game">آیا از این بازی رضایت دارید؟</string>
     <string name="do_you_want_to_delete">آیا میخواهید این سوال را حذف کنید؟</string>
     <string name="exit_title">خروج</string>
     <string name="comment_title">ثبت نظر</string>
@@ -94,7 +93,7 @@
 
 
     <string name="unknown_error">خطای ناشناخته</string>
-    <string name="instagram_page_address">https://www.instagram.com/omidsharifmehr/</string>
+    <string name="instagram_page_address">https://www.instagram.com/dragon_.tech/</string>
     <string name="instagram_package_name">com.instagram.android</string>
     <string name="need_install_caffe_bazaar">برای ثبت نظر باید اپلیکیشن بازار را نصب داشته باشید</string>
 
@@ -102,12 +101,13 @@
     <string name="developer_caffe_bazaar">https://cafebazaar.ir/developer/mohammad9731</string>
     <string name="app_link_download">"لینک دانلود برنامه "</string>
     <string name="app_id_caffe_bazaar">http://cafebazaar.ir/app/?id=</string>
-    <string name="email_address">mohammadyt1379@gmail.com</string>
-    <string name="send_email">ارسال ایمیل...</string>
+    <string name="email_address">dragontech.developers@gmail.com</string>
+    <string name="send_email">ارسال ایمیل با...</string>
     <string name="hemayat_text">جهت حمایت از ما میتوانید بر روی این بنر تبلیغاتی کلیک کنید</string>
     <string name="thank_you">با تشکر</string>
     <string name="please_wait">لطفا صبر کنید</string>
     <string name="thanks_comment">با تشکر از شما که با دادن امتیاز بالا از ما حمایت میکنید</string>
+
 
 
     <array name="truth_questions_list">

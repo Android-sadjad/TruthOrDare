@@ -103,8 +103,8 @@ public class QuestionActivity extends AppCompatActivity {
 
         if (listType.equals(MyConstant.MY_LIST)) {
 
-            viewPagerAdapter.addToList(truthQuestionFragment, getString(R.string.my_truth));
-            viewPagerAdapter.addToList(dareQuestionFragment, getString(R.string.my_dare));
+            viewPagerAdapter.addToList(truthQuestionFragment, getString(R.string.truth));
+            viewPagerAdapter.addToList(dareQuestionFragment, getString(R.string.dare));
 
         } else if (listType.equals(MyConstant.DEFAULT_LIST)) {
 

@@ -3,7 +3,7 @@ package com.dragontech.truthordare.classes;
 public class MyConstant {
 
     public static final int DEFAULT_STREAM_VOLUME =70;
-    public static final int SPLASH_SCREEN_DURATION = 2500;
+    public static final int SPLASH_SCREEN_DURATION = 2200;
 
     public static final int TYPE_WRITER_ANIM_DELAY = 40;
     public static final int ROTATE_ANIM_DURATION = 30000;

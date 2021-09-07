@@ -317,9 +317,7 @@ public class GameActivity extends AppCompatActivity {
                     MyMediaPlayer.mpSpinSound.start();
                 }
 
-//                int firstRandom=createRandomNumber();
-//                int secondRandom=createRandomNumber();
-//                int randomNumber=(firstRandom+secondRandom)/2;
+
                 int randomNumber=createRandomNumber();
 
                 int nextDegree=randomNumber+currentDegree%360;
@@ -470,8 +468,10 @@ public class GameActivity extends AppCompatActivity {
             truthQuestionList.addAll(MySharedPreferences.getInstance(this).getQuestions().getMyTruthQuestionList());
         }
 
-        if (truthQuestionList.isEmpty())
+        if (truthQuestionList.isEmpty()) {
             tvQuestion.setText(R.string.no_question_selected);
+            Toast.makeText(this, R.string.select_question_list, Toast.LENGTH_SHORT).show();
+        }
         else {
             if (setting.isRepeatQuestion())
                 tvQuestion.setText(truthQuestionList.get(createRandomNumber(truthQuestionList.size())));
@@ -501,9 +501,10 @@ public class GameActivity extends AppCompatActivity {
 
             dareQuestionList.addAll(MySharedPreferences.getInstance(this).getQuestions().getMyDareQuestionList());
         }
-        if (dareQuestionList.isEmpty())
+        if (dareQuestionList.isEmpty()){
             tvQuestion.setText(R.string.no_question_selected);
-
+            Toast.makeText(this, R.string.select_question_list, Toast.LENGTH_SHORT).show();
+    }
         else {
             if (setting.isRepeatQuestion())
                 tvQuestion.setText(dareQuestionList.get(createRandomNumber(dareQuestionList.size())));

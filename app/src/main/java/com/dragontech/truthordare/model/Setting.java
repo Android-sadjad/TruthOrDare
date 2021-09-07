@@ -36,7 +36,7 @@ public class Setting {
 
             lockFlags = new boolean[MyConstant.BOTTLE_NUMBER];
             for (int i = 0; i < lockFlags.length; i++)
-                if (i <= 3)
+                if (i <= 1)
                     lockFlags[i] = false;
                 else
                     lockFlags[i] = true;
