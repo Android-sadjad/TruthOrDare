@@ -15,12 +15,12 @@ import com.dragontech.truthordare.interfaces.CallBackMain;
 
 public class DeleteItemDialog extends Dialog {
 
-    ConstraintLayout clDelete;
+    private ConstraintLayout clDelete;
 
-    TextView tvNo;
-    TextView tvYes;
+    private TextView tvNo;
+    private TextView tvYes;
 
-    CallBackMain callBackMain;
+    private CallBackMain callBackMain;
 
     public DeleteItemDialog(@NonNull Context context, CallBackMain callBackMain) {
         super(context);

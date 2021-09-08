@@ -25,20 +25,26 @@ import java.util.ArrayList;
 
 public class StartGameActivity extends AppCompatActivity {
 
-    final int MAX_PLAYER_NUMBER = 9;
-    final int MIN_PLAYER_NUMBER = 2;
-    CardView cvPlayer;
-    ScrollView svPlayerName;
-    ConstraintLayout[] clPlayerNames;
-    TextInputEditText[] tiePlayerNames;
-    TextView tvPlayerNumber;
-    TextView tvStartGame;
-    ImageView ivRightArrow;
-    ImageView ivLeftArrow;
-    Animation scaleAnimation;
-    Animation scaleXAnimation;
-    Setting setting;
-    int counter = 2;
+    private final int MAX_PLAYER_NUMBER = 9;
+    private final int MIN_PLAYER_NUMBER = 2;
+
+    private CardView cvPlayer;
+    private ScrollView svPlayerName;
+
+    private ConstraintLayout[] clPlayerNames;
+    private TextInputEditText[] tiePlayerNames;
+
+    private TextView tvPlayerNumber;
+    private TextView tvStartGame;
+
+    private ImageView ivRightArrow;
+    private ImageView ivLeftArrow;
+
+    private Animation scaleAnimation;
+    private Animation scaleXAnimation;
+
+    private Setting setting;
+    private int counter = 2;
 
 
     @Override

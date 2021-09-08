@@ -1,15 +1,14 @@
 package com.dragontech.truthordare.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.dragontech.truthordare.R;
 import com.dragontech.truthordare.adapter.ViewPagerAdapter;
 import com.dragontech.truthordare.classes.MyConstant;
-import com.dragontech.truthordare.classes.UseFullMethod;
 import com.dragontech.truthordare.dialog.AddQuestionDialog;
 import com.dragontech.truthordare.dialog.AdvertisingQuestionDialog;
 import com.dragontech.truthordare.fragment.QuestionLIstFragment;
@@ -25,27 +24,27 @@ import java.util.ArrayList;
 
 public class QuestionActivity extends AppCompatActivity {
 
-    TabLayout tabLayout;
-    ViewPager viewPager;
-    FloatingActionButton fabButton;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private FloatingActionButton fabButton;
 
-    String listType;
 
-    Questions questions;
+    private String listType;
 
-    QuestionLIstFragment truthQuestionFragment;
-    QuestionLIstFragment dareQuestionFragment;
+    private Questions questions;
 
-    ArrayList<String> truthList;
-    ArrayList<String> dareList;
+    private QuestionLIstFragment truthQuestionFragment;
+    private QuestionLIstFragment dareQuestionFragment;
 
-    ViewPagerAdapter viewPagerAdapter;
+    private ArrayList<String> truthList;
+    private ArrayList<String> dareList;
+
+    private ViewPagerAdapter viewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_tab);
-
 
         findViews();
         init();
@@ -74,24 +73,24 @@ public class QuestionActivity extends AppCompatActivity {
 
     private void init() {
 
-       listType =getIntent().getStringExtra(MyConstant.LIST_TYPE);
-       questions = new Questions(this);
+        listType = getIntent().getStringExtra(MyConstant.LIST_TYPE);
+        questions = new Questions(this);
 
         if (listType.equals(MyConstant.MY_LIST)) {
 
             truthList = questions.getMyTruthQuestionList();
             dareList = questions.getMyDareQuestionList();
 
-            truthQuestionFragment = new QuestionLIstFragment(truthList, questions,MyConstant.MY_TRUTH);
-            dareQuestionFragment = new QuestionLIstFragment(dareList,  questions,MyConstant.MY_DARE);
+            truthQuestionFragment = new QuestionLIstFragment(truthList, questions, MyConstant.MY_TRUTH);
+            dareQuestionFragment = new QuestionLIstFragment(dareList, questions, MyConstant.MY_DARE);
 
 
         } else if (listType.equals(MyConstant.DEFAULT_LIST)) {
 
             truthList = questions.getTruthQuestionList();
             dareList = questions.getDareQuestionList();
-            truthQuestionFragment = new QuestionLIstFragment(truthList,  questions,MyConstant.TRUTH);
-            dareQuestionFragment = new QuestionLIstFragment(dareList,  questions,MyConstant.DARE);
+            truthQuestionFragment = new QuestionLIstFragment(truthList, questions, MyConstant.TRUTH);
+            dareQuestionFragment = new QuestionLIstFragment(dareList, questions, MyConstant.DARE);
 
         }
 
@@ -157,19 +156,18 @@ public class QuestionActivity extends AppCompatActivity {
 
     }
 
-    private void showAdvertisingDialog(){
-            AdvertisingQuestionDialog advertisingDialog=new AdvertisingQuestionDialog(this, questions, new CallBackMain() {
-                @Override
-                public void callBack() {
-                    dareQuestionFragment.init();
-                    truthQuestionFragment.init();
+    private void showAdvertisingDialog() {
+        AdvertisingQuestionDialog advertisingDialog = new AdvertisingQuestionDialog(this, questions, new CallBackMain() {
+            @Override
+            public void callBack() {
+                dareQuestionFragment.init();
+                truthQuestionFragment.init();
 
-                }
-            });
-            advertisingDialog.show();
+            }
+        });
+        advertisingDialog.show();
 
-        }
-
+    }
 
 
     @Override

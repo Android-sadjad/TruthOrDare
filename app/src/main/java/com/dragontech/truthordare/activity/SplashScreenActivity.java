@@ -19,9 +19,9 @@ import com.dragontech.truthordare.classes.UseFullMethod;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    ImageView ivProgramIcon;
-    Typewriter typewriterTeamName;
-    TextView tvCodeVersion;
+    private ImageView ivProgramIcon;
+    private Typewriter typewriterTeamName;
+    private TextView tvCodeVersion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         ivProgramIcon = findViewById(R.id.iv_program_icon);
         typewriterTeamName = findViewById(R.id.typewriter_team_name);
-        tvCodeVersion=findViewById(R.id.tv_code_version);
+        tvCodeVersion = findViewById(R.id.tv_code_version);
     }
 
     private void startAnimation() {
@@ -62,11 +62,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     }
 
-    private void setText(){
+    private void setText() {
 
         try {
             PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-            String version = getString(R.string.version)+pInfo.versionName;
+            String version = getString(R.string.version) + pInfo.versionName;
             tvCodeVersion.setText(version);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

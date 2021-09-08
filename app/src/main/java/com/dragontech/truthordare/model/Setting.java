@@ -7,16 +7,16 @@ import com.dragontech.truthordare.classes.MySharedPreferences;
 
 public class Setting {
 
-    boolean defaultQuestion;
-    boolean mYQuestion;
-    boolean repeatQuestion;
+    private boolean defaultQuestion;
+    private boolean mYQuestion;
+    private boolean repeatQuestion;
 
-    boolean appSound;
-    boolean spinSound;
-    boolean buttonSound;
+    private boolean appSound;
+    private boolean spinSound;
+    private boolean buttonSound;
 
-    boolean[] lockFlags;
-    int selectedPhotoPosition;
+    private boolean[] lockFlags;
+    private int selectedPhotoPosition;
 
 
     public Setting(Context context) {

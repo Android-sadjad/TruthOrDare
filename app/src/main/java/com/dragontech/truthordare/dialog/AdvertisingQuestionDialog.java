@@ -19,14 +19,14 @@ import com.dragontech.truthordare.model.Questions;
 
 public class AdvertisingQuestionDialog extends Dialog {
 
-    ConstraintLayout constraintLayout;
+    private ConstraintLayout constraintLayout;
 
-    TextView tvYes;
-    TextView tvNO;
+    private TextView tvYes;
+    private TextView tvNO;
 
-    Questions questions;
-    CallBackMain callBackMain;
-    Activity activity;
+    private Questions questions;
+    private CallBackMain callBackMain;
+    private Activity activity;
 
     public AdvertisingQuestionDialog(Activity activity, Questions questions, CallBackMain callBackMain) {
         super(activity);
@@ -68,7 +68,7 @@ public class AdvertisingQuestionDialog extends Dialog {
             @Override
             public void onClick(View v) {
 
-                if(UseFullMethod.isNetworkAvailable(getContext())){
+                if (UseFullMethod.isNetworkAvailable(getContext())) {
 
                     if (questions.getQuestionNumber() >= MyConstant.MAX_QUESTION_NUMBER) {
 

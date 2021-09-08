@@ -23,12 +23,12 @@ import java.util.ArrayList;
 
 public class listQuestionsAdapter extends RecyclerView.Adapter<listQuestionsAdapter.ViewHolder> {
 
-    Questions questions;
-    ArrayList<String> questionList;
-    String listName;
-    Animation fadeInAnimation;
+    private Questions questions;
+    private ArrayList<String> questionList;
+    private String listName;
+    private Animation fadeInAnimation;
 
-    int lastPosition = -1;
+    private int lastPosition = -1;
 
     public listQuestionsAdapter(ArrayList<String> questionList, String listName, Questions questions) {
 

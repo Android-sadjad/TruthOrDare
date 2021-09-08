@@ -17,12 +17,12 @@ import com.dragontech.truthordare.classes.UseFullMethod;
 
 public class AboutUsDialog extends Dialog {
 
-    ConstraintLayout clAboutUs;
+    private ConstraintLayout clAboutUs;
 
-    ImageView ivInstagram;
-    ImageView ivEmail;
+    private ImageView ivInstagram;
+    private ImageView ivEmail;
 
-    Animation scaleAnimation;
+    private Animation scaleAnimation;
 
     public AboutUsDialog(@NonNull Context context) {
         super(context);

@@ -20,14 +20,14 @@ import java.util.ArrayList;
 
 public class QuestionLIstFragment extends Fragment {
 
-    RecyclerView rvQuestionList;
-    LinearLayout llGuide;
+    private RecyclerView rvQuestionList;
+    private LinearLayout llGuide;
 
-    ArrayList<String> questionList;
-    listQuestionsAdapter questionsAdapter;
+    private ArrayList<String> questionList;
+    private listQuestionsAdapter questionsAdapter;
 
-    String listName;
-    Questions questions;
+    private String listName;
+    private Questions questions;
 
     public QuestionLIstFragment(ArrayList<String> questionList, Questions questions, String listName) {
         this.questionList = questionList;

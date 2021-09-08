@@ -17,16 +17,16 @@ import com.dragontech.truthordare.model.Setting;
 
 public class SettingActivity extends AppCompatActivity {
 
-    RecyclerView rvSelectPhoto;
-    SelectPhotoAdapter selectPhotoAdapter;
-    Setting setting;
+    private RecyclerView rvSelectPhoto;
+    private SelectPhotoAdapter selectPhotoAdapter;
+    private Setting setting;
 
-    Switch switchDefaultQuestion;
-    Switch switchMYQuestion;
-    Switch switchRepeatQuestion;
-    Switch switchAppSound;
-    Switch switchCircleSound;
-    Switch switchButtonSound;
+    private Switch switchDefaultQuestion;
+    private Switch switchMYQuestion;
+    private Switch switchRepeatQuestion;
+    private Switch switchAppSound;
+    private Switch switchCircleSound;
+    private Switch switchButtonSound;
 
 
     @Override

@@ -17,17 +17,17 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class AddQuestionDialog extends Dialog {
 
-    CallBackAddQuestions callBackAddQuestions;
+    private CallBackAddQuestions callBackAddQuestions;
 
-    ConstraintLayout clAddDialog;
+    private ConstraintLayout clAddDialog;
 
-    TextView tvCloseDialog;
-    TextView tvAddDialog;
+    private TextView tvCloseDialog;
+    private TextView tvAddDialog;
 
-    RadioButton rbTruth;
-    RadioButton rbDare;
+    private RadioButton rbTruth;
+    private RadioButton rbDare;
 
-    TextInputEditText tieTextQuestion;
+    private TextInputEditText tieTextQuestion;
 
     public AddQuestionDialog(Context context, CallBackAddQuestions callBackAddQuestions) {
 

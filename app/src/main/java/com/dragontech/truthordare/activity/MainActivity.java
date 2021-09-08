@@ -1,8 +1,6 @@
 package com.dragontech.truthordare.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -19,7 +17,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.dragontech.truthordare.R;
-import com.dragontech.truthordare.classes.Global;
 import com.dragontech.truthordare.classes.MyConstant;
 import com.dragontech.truthordare.classes.MyIntent;
 import com.dragontech.truthordare.classes.MyTapsell;
@@ -35,22 +32,21 @@ import ir.tapsell.plus.TapsellPlusBannerType;
 public class MainActivity extends AppCompatActivity {
 
 
+    private DrawerLayout drawerLayout;
+    private RelativeLayout rlAdvertising;
 
-    DrawerLayout drawerLayout;
-    RelativeLayout rlAdvertising;
+    private ImageView ivStartGame;
 
-    ImageView ivStartGame;
+    private TextView tvMyQuestion;
+    private TextView tvDefaultQuestion;
+    private TextView tvHemayat;
+    private TextView tvComment;
 
-    TextView tvMyQuestion;
-    TextView tvDefaultQuestion;
-    TextView tvHemayat;
-    TextView tvComment;
+    private Setting setting;
 
-    Setting setting;
-
-    AboutUsDialog aboutUsDialog;
-    ExitDialog exitDialog;
-    CommentDialog commentDialog;
+    private AboutUsDialog aboutUsDialog;
+    private ExitDialog exitDialog;
+    private CommentDialog commentDialog;
 
 
     @Override
@@ -80,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     public void findViews() {
 
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -98,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         aboutUsDialog = new AboutUsDialog(MainActivity.this);
         exitDialog = new ExitDialog(MainActivity.this);
-        commentDialog=new CommentDialog(MainActivity.this);
+        commentDialog = new CommentDialog(MainActivity.this);
     }
 
     private void startAnimation() {
@@ -130,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showInterstitialAdvertising() {
         if (UseFullMethod.isNetworkAvailable(this))
-        MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.INTERSTITIAL_BANNER, null);
+            MyTapsell.showInterstitialAd(MainActivity.this, MyConstant.INTERSTITIAL_BANNER, null);
     }
 
 

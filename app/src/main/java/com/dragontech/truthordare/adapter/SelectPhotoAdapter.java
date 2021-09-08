@@ -13,18 +13,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dragontech.truthordare.R;
-import com.dragontech.truthordare.classes.UseFullMethod;
 import com.dragontech.truthordare.dialog.AdvertisingSelectPhotoDialog;
 import com.dragontech.truthordare.interfaces.CallBackMain;
 import com.dragontech.truthordare.model.Setting;
 
 public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.ViewHolder> {
 
-    boolean[] lockFlags;
-    int checkedPosition;
+    private boolean[] lockFlags;
+    private int checkedPosition;
 
-    Activity activity;
-    Setting setting;
+    private Activity activity;
+    private Setting setting;
 
     public SelectPhotoAdapter(Activity activity, Setting setting) {
 
@@ -67,24 +66,22 @@ public class SelectPhotoAdapter extends RecyclerView.Adapter<SelectPhotoAdapter.
 
                 if (lockFlags[position]) {
 
-                        AdvertisingSelectPhotoDialog advertisingSelectDialog = new AdvertisingSelectPhotoDialog(activity, setting, new CallBackMain() {
-                            @Override
-                            public void callBack() {
+                    AdvertisingSelectPhotoDialog advertisingSelectDialog = new AdvertisingSelectPhotoDialog(activity, setting, new CallBackMain() {
+                        @Override
+                        public void callBack() {
 
-                                Toast.makeText(activity, R.string.added_photo, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, R.string.added_photo, Toast.LENGTH_SHORT).show();
 
-                                lockFlags[position] = false;
-                                setting.setLockFlags(lockFlags);
-                                setting.updateSetting(activity, setting);
+                            lockFlags[position] = false;
+                            setting.setLockFlags(lockFlags);
+                            setting.updateSetting(activity, setting);
 
-                                notifyDataSetChanged();
+                            notifyDataSetChanged();
 
-                            }
+                        }
 
-                        });
-                        advertisingSelectDialog.show();
-
-
+                    });
+                    advertisingSelectDialog.show();
 
 
                 } else {

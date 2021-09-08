@@ -39,46 +39,46 @@ import java.util.Random;
 public class GameActivity extends AppCompatActivity {
 
 
-    int screenWidth;
-    int screenHeight;
-    int sign = 1;
-    int currentDegree = 0;
+    private int screenWidth;
+    private int screenHeight;
+    private int sign = 1;
+    private int currentDegree = 0;
 
-    boolean isUp = false;
+    private boolean isUp = false;
 
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
 
-    ImageView ivCircleBackground;
-    ImageView ivBottle;
+    private ImageView ivCircleBackground;
+    private ImageView ivBottle;
 
-    LinearLayout llNamesBord;
-    LinearLayout llTruthOrDare;
-    ConstraintLayout clQuestions;
+    private LinearLayout llNamesBord;
+    private LinearLayout llTruthOrDare;
+    private ConstraintLayout clQuestions;
 
-    TextView tvDare;
-    TextView tvTruth;
+    private TextView tvDare;
+    private TextView tvTruth;
 
-    TextView tvChangeQuestion;
-    TextView tvCloseQuestion;
+    private TextView tvChangeQuestion;
+    private TextView tvCloseQuestion;
 
-    TextView tvTod;
-    TextView tvQuestion;
-    TextView tvToolbarTitle;
+    private TextView tvTod;
+    private TextView tvQuestion;
+    private TextView tvToolbarTitle;
 
-    Questions questions;
-    Setting setting;
+    private Questions questions;
+    private Setting setting;
 
-    ArrayList<Integer> randomNumberList;
-    ArrayList<String> playerNameList;
+    private ArrayList<Integer> randomNumberList;
+    private ArrayList<String> playerNameList;
 
-    ArrayList<Integer> repetitiousTruthQuestion;
-    ArrayList<Integer> repetitiousDareQuestion;
+    private ArrayList<Integer> repetitiousTruthQuestion;
+    private ArrayList<Integer> repetitiousDareQuestion;
 
-    TextView[] tvNames;
-    ImageView[] ivColors;
+    private TextView[] tvNames;
+    private ImageView[] ivColors;
 
-    Animation scaleAnimation;
+    private Animation scaleAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

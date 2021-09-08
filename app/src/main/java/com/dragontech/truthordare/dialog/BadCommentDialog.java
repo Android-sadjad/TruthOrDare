@@ -17,13 +17,12 @@ import com.dragontech.truthordare.classes.UseFullMethod;
 
 public class BadCommentDialog extends Dialog {
 
-    ConstraintLayout clBadComment;
+    private ConstraintLayout clBadComment;
 
-    ImageView ivInstagram;
-    ImageView ivEmail;
+    private ImageView ivInstagram;
+    private ImageView ivEmail;
 
-    Animation scaleAnimation;
-
+    private Animation scaleAnimation;
 
 
     public BadCommentDialog(@NonNull Context context) {

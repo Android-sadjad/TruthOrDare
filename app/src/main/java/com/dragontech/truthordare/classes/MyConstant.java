@@ -34,11 +34,10 @@ public class MyConstant {
     public static final String QUESTION_NUMBER = "question_number";
 
 
-    public static final String TAPSELL_KEY = "kqeejibsfcireicosnsakmkrfpcspehismbolbqqmdfjetsrbdqjtphnhmendqotnreedh";
-    public static final String STANDARD_BANNER = "61026ec203fb244413fcd8ee";
-    public static final String INTERSTITIAL_BANNER = "610274f524c82d5311e6338c";
-    public static final String INTERSTITIAL_VIDEO = "61056351bd57ce68f9fa9aff";
-
+    public static final String TAPSELL_KEY = "onpsgikrohrrmstgfhgerdcqoqrnohhitjnammfpkomsmiqljkrojrmpldelclrsgesktq";
+    public static final String STANDARD_BANNER = "61390e743608e1281d9c2c9c";
+    public static final String INTERSTITIAL_VIDEO = "61390ef14c47836e26dc5ef9";
+    public static final String INTERSTITIAL_BANNER = "61390f0e9c924b65aa524625";
 
 
 }

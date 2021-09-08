@@ -16,14 +16,14 @@ import com.dragontech.truthordare.classes.UseFullMethod;
 
 public class CommentDialog extends Dialog {
 
-    ConstraintLayout clComment;
+    private ConstraintLayout clComment;
 
-    TextView tvNo;
-    TextView tvYes;
+    private TextView tvNo;
+    private TextView tvYes;
 
-    Activity activity;
+    private Activity activity;
 
-    BadCommentDialog badCommentDialog;
+    private BadCommentDialog badCommentDialog;
 
     public CommentDialog(@NonNull Activity activity) {
         super(activity);
@@ -41,10 +41,9 @@ public class CommentDialog extends Dialog {
     }
 
 
+    private void init() {
 
-    private void init(){
-
-        badCommentDialog=new BadCommentDialog(activity);
+        badCommentDialog = new BadCommentDialog(activity);
 
 
     }
@@ -77,7 +76,7 @@ public class CommentDialog extends Dialog {
             @Override
             public void onClick(View v) {
 
-                if (UseFullMethod.isNetworkAvailable(activity)){
+                if (UseFullMethod.isNetworkAvailable(activity)) {
                     Toast.makeText(activity, getContext().getString(R.string.thanks_comment), Toast.LENGTH_LONG).show();
                     MyIntent.commentIntent(activity);
                     cancel();

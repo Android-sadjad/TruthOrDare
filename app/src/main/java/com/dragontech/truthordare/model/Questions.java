@@ -11,14 +11,12 @@ import java.util.Arrays;
 
 public class Questions {
 
-    ArrayList<String> truthQuestionList;
-    ArrayList<String> dareQuestionList;
-
-    ArrayList<String> myTruthQuestionList;
-    ArrayList<String> myDareQuestionList;
-
-
     int questionNumber;
+
+    private ArrayList<String> truthQuestionList;
+    private ArrayList<String> dareQuestionList;
+    private ArrayList<String> myTruthQuestionList;
+    private ArrayList<String> myDareQuestionList;
 
 
     public Questions() {

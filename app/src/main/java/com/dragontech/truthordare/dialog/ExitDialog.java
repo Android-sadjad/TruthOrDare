@@ -14,12 +14,13 @@ import com.dragontech.truthordare.R;
 import com.dragontech.truthordare.classes.UseFullMethod;
 
 public class ExitDialog extends Dialog {
-    RelativeLayout rvAdvertising;
-    ConstraintLayout clExit;
-    TextView tvNo;
-    TextView tvYes;
 
-    Activity activity;
+    private ConstraintLayout clExit;
+
+    private TextView tvNo;
+    private TextView tvYes;
+
+    private Activity activity;
 
     public ExitDialog(@NonNull Activity activity) {
         super(activity);

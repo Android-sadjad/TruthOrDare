@@ -15,21 +15,22 @@ public class MySharedPreferences {
 
     private static Gson gson;
     private static MySharedPreferences mySharedPreferences = null;
-    Context context;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
-    ArrayList<String> truthQuestionList;
-    ArrayList<String> dareQuestionList;
-    ArrayList<String> myTruthQuestionList;
-    ArrayList<String> myDareQuestionList;
-    String truth;
-    String dare;
-    String my_truth;
-    String my_dare;
-
-
     //////////////////////////////////////////////////////////////////////////////////
     int questionNumber;
+    private Context context;
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
+    private ArrayList<String> truthQuestionList;
+    private ArrayList<String> dareQuestionList;
+    private ArrayList<String> myTruthQuestionList;
+    private ArrayList<String> myDareQuestionList;
+
+    private String truth;
+    private String dare;
+    private String my_truth;
+    private String my_dare;
 
     private MySharedPreferences(Context context) {
 

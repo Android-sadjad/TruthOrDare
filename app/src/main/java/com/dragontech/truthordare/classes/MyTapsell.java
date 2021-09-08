@@ -19,9 +19,9 @@ import ir.tapsell.plus.model.TapsellPlusErrorModel;
 
 public class MyTapsell {
 
-    final static int MAX_REQUEST_NUMBER = 10;
-    static int standardAdCounter = 0;
-    static int interstitialAdCounter = 0;
+    private final static int MAX_REQUEST_NUMBER = 10;
+    private static int standardAdCounter = 0;
+    private static int interstitialAdCounter = 0;
 
     public static void showStandardBanner(Activity activity, String zoneId, RelativeLayout relativeLayout, TapsellPlusBannerType bannerType) {
 

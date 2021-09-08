@@ -19,14 +19,14 @@ import com.dragontech.truthordare.model.Setting;
 
 public class AdvertisingSelectPhotoDialog extends Dialog {
 
-    ConstraintLayout constraintLayout;
+    private ConstraintLayout constraintLayout;
 
-    TextView tvYes;
-    TextView tvNo;
+    private TextView tvYes;
+    private TextView tvNo;
 
-    Setting setting;
-    CallBackMain callBackMain;
-    Activity activity;
+    private Setting setting;
+    private CallBackMain callBackMain;
+    private Activity activity;
 
     public AdvertisingSelectPhotoDialog(Activity activity, Setting setting, CallBackMain callBackMain) {
         super(activity);
@@ -68,7 +68,7 @@ public class AdvertisingSelectPhotoDialog extends Dialog {
             @Override
             public void onClick(View v) {
 
-                if (UseFullMethod.isNetworkAvailable(activity)){
+                if (UseFullMethod.isNetworkAvailable(activity)) {
 
                     final boolean[] flag = {true};
 
