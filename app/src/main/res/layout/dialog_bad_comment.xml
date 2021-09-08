@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cl_bad_comment"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/cl_about_us_dialog_height"
+    android:layout_height="@dimen/cl_bad_comment_height"
     android:layout_gravity="center"
     >
 
