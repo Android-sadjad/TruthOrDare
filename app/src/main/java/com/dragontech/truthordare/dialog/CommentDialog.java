@@ -23,6 +23,8 @@ public class CommentDialog extends Dialog {
 
     Activity activity;
 
+    BadCommentDialog badCommentDialog;
+
     public CommentDialog(@NonNull Activity activity) {
         super(activity);
 
@@ -30,13 +32,22 @@ public class CommentDialog extends Dialog {
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         this.activity = activity;
 
-
+        init();
         findViews();
+
         setViewSize();
         configuration();
 
     }
 
+
+
+    private void init(){
+
+        badCommentDialog=new BadCommentDialog(activity);
+
+
+    }
 
     private void findViews() {
 
@@ -58,6 +69,7 @@ public class CommentDialog extends Dialog {
             public void onClick(View v) {
 
                 cancel();
+                badCommentDialog.show();
             }
         });
 

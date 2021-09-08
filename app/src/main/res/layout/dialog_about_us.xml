@@ -11,7 +11,7 @@
         android:id="@+id/tv_title_about_us"
         style="@style/title_dialog_style"
         android:layout_width="match_parent"
-        android:text="@string/about_us"
+        android:text="@string/bad_comment"
         app:layout_constraintBottom_toTopOf="@id/iv_inner_about_us_dialog"
         app:layout_constraintTop_toTopOf="@id/iv_inner_about_us_dialog" />
 

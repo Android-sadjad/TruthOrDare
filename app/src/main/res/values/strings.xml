@@ -20,6 +20,7 @@
     <string name="other_app">سایر برنامه ها</string>
     <string name="setting">تنظیمات</string>
     <string name="about_us">درباره ما</string>
+    <string name="bad_comment">انتقاد و پیشنهادات</string>
     <string name="exit">خروج</string>
 
     <string name="questions_list">نمایش سوالات</string>
@@ -69,6 +70,7 @@
     <string name="do_you_want_to_exit">آیا میخواهید از بازی خارج شوید؟</string>
     <string name="do_you_enjoy_this_game">آیا از این بازی رضایت دارید؟</string>
     <string name="do_you_want_to_delete">آیا میخواهید این سوال را حذف کنید؟</string>
+    <string name="if_no_interest_pls_goto_insta">در صورت نارضایتی از این بازی و یا هرگونه انتقاد یا پیشنهادی بسیار خوشحال میشیم که با کلیک بر روی یکی از راه های ارتباطی ما با ما درمیان بگذارید</string>
     <string name="exit_title">خروج</string>
     <string name="comment_title">ثبت نظر</string>
     <string name="delete_title">حذف</string>

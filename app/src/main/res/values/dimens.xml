@@ -100,12 +100,14 @@
 
 
 
-
+    <!--bad_comment_dialog-->
+    <dimen name="tv_bad_comment_text_size">@dimen/_19ssp</dimen>
 
 
     <!--other_dialog-->
     <dimen name="tv_text_dialog_height">@dimen/_150sdp</dimen>
     <dimen name="tv_text_dialog_text_size">@dimen/_22ssp</dimen>
+
 
 
 
@@ -118,6 +120,7 @@
 
 
     <!--view_bottle-->
+
     <dimen name="checkbox_bottle_view_width">@dimen/_20sdp</dimen>
     <dimen name="checkbox_bottle_view_height">@dimen/_20sdp</dimen>
     <dimen name="checkbox_bottle_view_elevation">@dimen/_25sdp</dimen>
@@ -125,6 +128,10 @@
     <dimen name="cl_bottle_view_height">@dimen/_100sdp</dimen>
 
 
+
+    <!--view_logo_menu-->
+    <dimen name="iv_view_logo_height">@dimen/_120sdp</dimen>
+    <dimen name="iv_view_logo_weight">@dimen/_120sdp</dimen>
 
 
     <!--view_question-->
@@ -140,12 +147,16 @@
 
 
     <!--view_toolbar-->
+
     <dimen name="toolbar_height">@dimen/_45sdp</dimen>
     <dimen name="cl_toolbar_elevation">@dimen/_100sdp</dimen>
     <dimen name="toolbar_iv_width">@dimen/_45sdp</dimen>
     <dimen name="toolbar_iv_height">@dimen/_45sdp</dimen>
     <dimen name="tv_toolbar_title_height">@dimen/_45sdp</dimen>
     <dimen name="tv_toolbar_title_text_size">@dimen/_25ssp</dimen>
+
+
+
 
 
 

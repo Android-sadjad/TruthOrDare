@@ -12,6 +12,9 @@
     <color name="tab_light">#044067</color>
     <color name="tab_dark">#03345A</color>
 
+    <color name="logo_blue">#2A6367</color>
+    <color name="white_logo">#DDFDFF</color>
+
 
     <color name="ice_card">#C9D6DC</color>
     <color name="ice_card_dark">#DDFDFF</color>

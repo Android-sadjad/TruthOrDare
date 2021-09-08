@@ -243,7 +243,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_gravity">right</item>
-        <item name="android:background">@color/brown_100</item>
+        <item name="android:background">@color/ice_card</item>
         <item name="android:layoutDirection">rtl</item>
         <item name="android:paddingLeft">@dimen/_5sdp</item>
         <item name="itemBackground">@drawable/rectangle_brown_strok</item>
@@ -252,6 +252,7 @@
         <item name="itemIconTint">@color/white</item>
         <item name="itemTextColor">@color/white</item>
         <item name="menu">@menu/navigation_view_menu</item>
+        <item name="headerLayout">@layout/view_menu_logo</item>
 
 
 

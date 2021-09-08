@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_bad_comment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="@dimen/cl_about_us_dialog_height"
+    android:layout_gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/tv_title_bad_comment"
+        style="@style/title_dialog_style"
+        android:layout_width="match_parent"
+        android:text="@string/bad_comment"
+        app:layout_constraintBottom_toTopOf="@id/iv_inner_bad_comment"
+        app:layout_constraintTop_toTopOf="@id/iv_inner_bad_comment" />
+
+    <ImageView
+        android:id="@+id/iv_inner_bad_comment"
+        style="@style/text_dialog_style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="@dimen/_20sdp" />
+
+
+    <TextView
+        android:id="@+id/tv_no_interest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/if_no_interest_pls_goto_insta"
+        android:textColor="@color/brown_500"
+        android:textSize="@dimen/tv_bad_comment_text_size"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_bad_comment"
+
+        />
+
+    <LinearLayout
+        android:layoutDirection="ltr"
+        android:id="@+id/ll_ic_bad_comment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/tv_no_interest">
+
+
+        <ImageView
+            android:id="@+id/iv_insta_bad_comment"
+            android:layout_width="@dimen/iv_insta_width"
+            android:layout_height="@dimen/iv_insta_height"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:src="@drawable/ic_insta_about" />
+
+        <ImageView
+            android:id="@+id/iv_email_bad_comment"
+            android:layout_width="@dimen/iv_email_width"
+            android:layout_height="@dimen/iv_email_height"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:src="@drawable/ic_email_about" />
+
+
+    </LinearLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
