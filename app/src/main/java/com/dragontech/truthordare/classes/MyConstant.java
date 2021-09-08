@@ -12,7 +12,7 @@ public class MyConstant {
     public static final int DOWN_ANIM_DURATION = 500;
 
     public static final int BOTTLE_NUMBER = 40;
-    public static final int ROTATE_BOTTLE_NUMBER = 3600;
+    public static final int ROTATE_BOTTLE_NUMBER = 5400;
     public static final int ADD_QUESTION_NUMBER = 10;
     public static final int REQUEST_CODE = 1;
     public static final int FINISH_CODE = 2;

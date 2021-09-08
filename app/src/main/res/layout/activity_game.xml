@@ -274,7 +274,8 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
-        style="@style/navigation_view_style" />
+        style="@style/navigation_view_style"
+        />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

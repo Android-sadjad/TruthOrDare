@@ -26,7 +26,7 @@
     <string name="questions_list">نمایش سوالات</string>
     <string name="repetitious_question">سوال تکراری</string>
     <string name="sound_setting">تنظیمات صدا</string>
-    <string name="rotation_sound">صدای چرخش بطری</string>
+    <string name="rotation_sound">صدای چرخش </string>
     <string name="app_sound">صدای پس زمینه</string>
     <string name="button_sound">صدای دکمه ها</string>
     <string name="select_question_list">از طریق صفحه تنظیمات میتوانید دسته بندی سوالات را مشخص کنید</string>

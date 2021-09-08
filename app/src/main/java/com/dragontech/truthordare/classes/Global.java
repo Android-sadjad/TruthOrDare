@@ -1,6 +1,8 @@
 package com.dragontech.truthordare.classes;
 
 import android.app.Application;
+import android.content.Context;
+import android.media.AudioManager;
 
 import com.dragontech.truthordare.model.MyMediaPlayer;
 
@@ -11,12 +13,15 @@ import ir.tapsell.plus.model.AdNetworks;
 
 public class Global extends Application {
 
+
+
     @Override
     public void onCreate() {
         super.onCreate();
 
         initAppSound();
         initTapsell();
+        setStreamVolume();
     }
 
 
@@ -56,6 +61,15 @@ public class Global extends Application {
 
         if (MyMediaPlayer.mpAppSound.isPlaying())
             MyMediaPlayer.mpAppSound.pause();
+    }
+
+    private void setStreamVolume() {
+
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        int maxVolume=audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume*MyConstant.DEFAULT_STREAM_VOLUME/100,0);
+
+
     }
 
 }

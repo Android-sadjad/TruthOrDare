@@ -243,7 +243,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_gravity">right</item>
-        <item name="android:background">@color/ice_card</item>
+        <item name="android:background">@color/blue_300</item>
         <item name="android:layoutDirection">rtl</item>
         <item name="android:paddingLeft">@dimen/_5sdp</item>
         <item name="itemBackground">@drawable/rectangle_brown_strok</item>
@@ -253,10 +253,16 @@
         <item name="itemTextColor">@color/white</item>
         <item name="menu">@menu/navigation_view_menu</item>
         <item name="headerLayout">@layout/view_menu_logo</item>
+        <item name="theme">@style/NavigationTheme</item>
 
 
 
     </style>
+
+    <style name="NavigationTheme" >
+        <item name="android:layout_marginBottom">@dimen/_2sdp</item>
+    </style>
+
 
     <style name="cv_setting_style">
         <item name="android:layout_height">wrap_content</item>

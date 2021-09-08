@@ -19,6 +19,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.dragontech.truthordare.R;
+import com.dragontech.truthordare.classes.Global;
 import com.dragontech.truthordare.classes.MyConstant;
 import com.dragontech.truthordare.classes.MyIntent;
 import com.dragontech.truthordare.classes.MyTapsell;
@@ -74,17 +75,10 @@ public class MainActivity extends AppCompatActivity {
         if (setting.isAppSound() && !MyMediaPlayer.mpAppSound.isPlaying()) {
 
             MyMediaPlayer.mpAppSound.start();
-            setStreamVolume();
+
         }
     }
-    private void setStreamVolume() {
 
-        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        int maxVolume=audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume*MyConstant.DEFAULT_STREAM_VOLUME/100,AudioManager.FLAG_PLAY_SOUND);
-
-
-    }
 
 
     public void findViews() {
