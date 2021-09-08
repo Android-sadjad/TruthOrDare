@@ -38,7 +38,7 @@ public class MyConstant {
 
     public static final String TAPSELL_KEY = "onpsgikrohrrmstgfhgerdcqoqrnohhitjnammfpkomsmiqljkrojrmpldelclrsgesktq";
     public static final String STANDARD_BANNER = "61390e743608e1281d9c2c9c";
-    public static final String INTERSTITIAL_VIDEO = "61390ef14c47836e26dc5ef9";
+    public static final String INTERSTITIAL_VIDEO = "61393f339c924b65aa524626";
     public static final String INTERSTITIAL_BANNER = "61390f0e9c924b65aa524625";
 
 
