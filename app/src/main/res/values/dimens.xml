@@ -103,6 +103,7 @@
     <!--bad_comment_dialog-->
     <dimen name="tv_bad_comment_text_size">@dimen/_19ssp</dimen>
     <dimen name="cl_bad_comment_height">@dimen/_320sdp</dimen>
+    <dimen name="tv_title_bad_comment_text_size">@dimen/_20ssp</dimen>
 
 
     <!--other_dialog-->

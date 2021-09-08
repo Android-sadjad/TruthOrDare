@@ -12,6 +12,7 @@
         style="@style/title_dialog_style"
         android:layout_width="match_parent"
         android:text="@string/bad_comment"
+        android:textSize="@dimen/tv_bad_comment_text_size"
         app:layout_constraintBottom_toTopOf="@id/iv_inner_bad_comment"
         app:layout_constraintTop_toTopOf="@id/iv_inner_bad_comment" />
 
