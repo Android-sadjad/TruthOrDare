@@ -17,7 +17,6 @@
         <item name="android:layout_marginRight">@dimen/_10sdp</item>
         <item name="android:layout_marginLeft">@dimen/_10sdp</item>
 
-
     </style>
 
     <style name="ll_main_tv_style">
@@ -78,7 +77,6 @@
         <item name="android:textStyle">bold</item>
         <item name="android:visibility">gone</item>
         <item name="android:layout_marginRight">@dimen/_2sdp</item>
-
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:marqueeRepeatLimit">marquee_forever</item>
@@ -114,6 +112,7 @@
     </style>
 
     <style name="et_player_name_style">
+
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textDirection">rtl</item>
@@ -124,16 +123,15 @@
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:textColor">@color/brown_500</item>
 
-
     </style>
 
     <style name="hint_style">
+
         <item name="android:textSize">@dimen/hint_text_size</item>
-
-
     </style>
 
     <style name="switch_setting_style">
+
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">@dimen/_2sdp</item>
@@ -145,6 +143,7 @@
     </style>
 
     <style name="title_dialog_style">
+
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/tv_title_dialog_height</item>
         <item name="android:gravity">center</item>
@@ -155,7 +154,6 @@
         <item name="android:layout_marginLeft">@dimen/_50sdp</item>
         <item name="android:layout_marginRight">@dimen/_50sdp</item>
         <item name="android:focusable">false</item>
-
 
     </style>
 
@@ -172,10 +170,10 @@
         <item name="android:layout_marginBottom">@dimen/_25sdp</item>
         <item name="android:focusable">false</item>
 
-
     </style>
 
     <style name="ll_dialog_style">
+
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/_10sdp</item>
@@ -184,10 +182,10 @@
         <item name="android:orientation">horizontal</item>
         <item name="android:focusable">false</item>
 
-
     </style>
 
     <style name="btn_dialog_style">
+
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/btn_dialog_height</item>
         <item name="android:layout_weight">1</item>
@@ -199,20 +197,20 @@
         <item name="android:paddingBottom">@dimen/_3sdp</item>
         <item name="android:focusable">false</item>
 
-
     </style>
 
     <style name="ll_truth_dare_style">
+
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layoutDirection">ltr</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:focusable">false</item>
 
-
     </style>
 
     <style name="btn_truth_dare_style">
+
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/btn_truth_dare_height</item>
         <item name="android:layout_weight">1</item>
@@ -224,10 +222,10 @@
         <item name="android:layout_marginLeft">@dimen/_3sdp</item>
         <item name="android:focusable">false</item>
 
-
     </style>
 
     <style name="til_name_style" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>
         <item name="boxStrokeColor">@color/brown900</item>
@@ -236,10 +234,10 @@
         <item name="hintTextAppearance">@style/hint_style</item>
         <item name="android:layout_marginRight">@dimen/_5sdp</item>
 
-
     </style>
 
     <style name="navigation_view_style">
+
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_gravity">right</item>
@@ -255,16 +253,14 @@
         <item name="headerLayout">@layout/view_menu_logo</item>
         <item name="theme">@style/NavigationTheme</item>
 
-
-
     </style>
 
-    <style name="NavigationTheme" >
+    <style name="NavigationTheme">
         <item name="android:layout_marginBottom">@dimen/_2sdp</item>
     </style>
 
-
     <style name="cv_setting_style">
+
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:backgroundTint">@color/ice_card</item>
@@ -279,6 +275,7 @@
     </style>
 
     <style name="ll_setting_style">
+
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:gravity">right</item>
@@ -288,7 +285,9 @@
         <item name="android:focusable">false</item>
 
     </style>
+
     <style name="tv_setting_style">
+
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:gravity">center</item>
@@ -297,16 +296,20 @@
         <item name="android:focusable">false</item>
 
     </style>
+
     <style name="view_brace_setting_style">
+
         <item name="android:layout_height">@dimen/view_brace_setting_height</item>
         <item name="android:layout_width">@dimen/view_brace_setting_width</item>
         <item name="android:layout_marginRight">@dimen/_10sdp</item>
         <item name="android:layout_marginLeft">@dimen/_10sdp</item>
         <item name="android:background">@drawable/aculade_view_setting</item>
         <item name="android:focusable">false</item>
+
     </style>
 
     <style name="ll_switch_setting_style">
+
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginLeft">@dimen/_5sdp</item>

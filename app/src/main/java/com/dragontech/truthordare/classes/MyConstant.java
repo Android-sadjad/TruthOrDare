@@ -1,5 +1,7 @@
 package com.dragontech.truthordare.classes;
 
+import com.dragontech.truthordare.model.MyMediaPlayer;
+
 public class MyConstant {
 
     public static final int DEFAULT_STREAM_VOLUME =70;
@@ -8,7 +10,7 @@ public class MyConstant {
     public static final int TYPE_WRITER_ANIM_DELAY = 40;
     public static final int ROTATE_ANIM_DURATION = 30000;
     public static final int UP_ANIM_DURATION = 1000;
-    public static final int UP_ANIM_DELAY = 2000;
+    public static final int UP_ANIM_DELAY = MyMediaPlayer.mpSpinSound.getDuration();
     public static final int DOWN_ANIM_DURATION = 500;
 
     public static final int BOTTLE_NUMBER = 40;

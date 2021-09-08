@@ -2,45 +2,44 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-
         android:id="@+id/nav_home_page"
-        android:onClick="navItemsOnClick"
         android:icon="@drawable/ic_home_page"
+        android:onClick="navItemsOnClick"
         android:title="@string/home_page" />
 
 
     <item
         android:id="@+id/nav_default_question"
-        android:onClick="navItemsOnClick"
         android:icon="@drawable/ic_defualt_list"
+        android:onClick="navItemsOnClick"
         android:title="@string/default_questions" />
 
     <item
         android:id="@+id/nav_my_question"
-        android:onClick="navItemsOnClick"
         android:icon="@drawable/ic_my_list"
-        android:title="@string/my_questions"  />
+        android:onClick="navItemsOnClick"
+        android:title="@string/my_questions" />
 
 
     <item
         android:id="@+id/nav_share_app"
-        android:onClick="navItemsOnClick"
         android:icon="@drawable/ic_share_app"
+        android:onClick="navItemsOnClick"
         android:title="@string/share_app" />
     <item
         android:id="@+id/nav_other_app"
-        android:onClick="navItemsOnClick"
         android:icon="@drawable/ic_other_app"
+        android:onClick="navItemsOnClick"
         android:title="@string/other_app" />
     <item
         android:id="@+id/nav_comment"
-        android:onClick="navItemsOnClick"
         android:icon="@drawable/ic_comment"
+        android:onClick="navItemsOnClick"
         android:title="@string/comment" />
     <item
         android:id="@+id/nav_hemayat"
-        android:onClick="navItemsOnClick"
         android:icon="@drawable/ic_hemayer"
+        android:onClick="navItemsOnClick"
         android:title="@string/support_from_us" />
     <item
         android:id="@+id/nav_about_us"
