@@ -470,6 +470,9 @@ public class GameActivity extends AppCompatActivity {
 
         if (truthQuestionList.isEmpty()) {
             tvQuestion.setText(R.string.no_question_selected);
+            if(setting.isMYQuestion()&&!setting.isDefaultQuestion())
+                Toast.makeText(this, R.string.add_your_list_question, Toast.LENGTH_SHORT).show();
+          else
             Toast.makeText(this, R.string.select_question_list, Toast.LENGTH_SHORT).show();
         }
         else {
@@ -503,8 +506,11 @@ public class GameActivity extends AppCompatActivity {
         }
         if (dareQuestionList.isEmpty()){
             tvQuestion.setText(R.string.no_question_selected);
-            Toast.makeText(this, R.string.select_question_list, Toast.LENGTH_SHORT).show();
-    }
+            if(setting.isMYQuestion()&&!setting.isDefaultQuestion())
+                Toast.makeText(this, R.string.add_your_list_question, Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(this, R.string.select_question_list, Toast.LENGTH_SHORT).show();
+        }
         else {
             if (setting.isRepeatQuestion())
                 tvQuestion.setText(dareQuestionList.get(createRandomNumber(dareQuestionList.size())));

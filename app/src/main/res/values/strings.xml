@@ -38,6 +38,7 @@
     <string name="no_question_selected">هیچ سوالی انتخاب نشده است</string>
     <string name="no_question_added">هنوز هیچ سوالی اضافه نشده است</string>
     <string name="add_your_question">با زدن روی دکمه بعلاوه پایین صفحه میتوانید سوال خود را اضافه کنید</string>
+    <string name="add_your_list_question">از قسمت لیست سوالات من در منو سمت راست میتوانید سوالات دلخواه خود را اضافه کنید</string>
 
 
     <string name="delete_question">حذف سوال</string>
