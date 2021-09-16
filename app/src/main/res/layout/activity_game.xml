@@ -33,7 +33,7 @@
             android:id="@+id/iv_bottle"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/_25sdp"
+            android:layout_margin="@dimen/_30sdp"
             android:elevation="@dimen/iv_game_bottle_elevation"
             android:src="@drawable/bottle_1"
             app:layout_constraintBottom_toBottomOf="@id/iv_circle_background"
@@ -255,7 +255,7 @@
                 <TextView
                     android:id="@+id/tv_change_question"
                     style="@style/btn_truth_dare_style"
-                    android:text="@string/change_question"
+                    android:text="@string/change"
 
                     />
 

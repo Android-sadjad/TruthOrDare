@@ -333,6 +333,7 @@ public class GameActivity extends AppCompatActivity {
                 currentDegree = nextDegree;
                 ivBottle.startAnimation(rotate);
 
+                showPlayerNameTurn(currentDegree);
                 if (llNamesBord.getTranslationY() == 0)
                     upAnimation(MyConstant.UP_ANIM_DELAY);
                 else {
@@ -340,7 +341,6 @@ public class GameActivity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            // upAnimationWithoutDelay();
                             upAnimation(0);
                         }
                     }, MyConstant.UP_ANIM_DELAY);
@@ -393,6 +393,45 @@ public class GameActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+
+    private void showPlayerNameTurn(int degree){
+
+        String name="name";
+
+        degree%=360;
+        if (degree<0)
+            degree+=360;
+
+        int size = playerNameList.size();
+        int sliceSize=360/size;
+
+        Toast.makeText(this, "degree : "+degree, Toast.LENGTH_SHORT).show();
+
+        if(degree<=sliceSize)
+            name=playerNameList.get(0);
+        else if(degree<=sliceSize*2&&sliceSize*2<=360)
+            name=playerNameList.get(1);
+        else if(degree<=sliceSize*3&&sliceSize*3<=360)
+            name=playerNameList.get(2);
+        else if(degree<=sliceSize*4&&sliceSize*4<=360)
+            name=playerNameList.get(3);
+        else if(degree<=sliceSize*5&&sliceSize*5<=360)
+            name=playerNameList.get(4);
+        else if(degree<=sliceSize*6&&sliceSize*6<=360)
+            name=playerNameList.get(5);
+        else if(degree<=sliceSize*7&&sliceSize*7<=360)
+            name=playerNameList.get(6);
+        else if(degree<=sliceSize*8&&sliceSize*8<=360)
+            name=playerNameList.get(7);
+        else if(degree<=sliceSize*9&&sliceSize*9<=360)
+            name=playerNameList.get(8);
+
+
+
+        Toast.makeText(this, "name : "+name, Toast.LENGTH_SHORT).show();
 
     }
 
