@@ -7,6 +7,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
@@ -27,29 +28,33 @@ import com.dragontech.truthordare.classes.MyTapsell;
 import com.dragontech.truthordare.classes.UseFullMethod;
 import com.dragontech.truthordare.dialog.AboutUsDialog;
 import com.dragontech.truthordare.dialog.CommentDialog;
-import com.dragontech.truthordare.dialog.ExitDialog;
 import com.dragontech.truthordare.model.MyMediaPlayer;
 import com.dragontech.truthordare.model.Questions;
 import com.dragontech.truthordare.model.Setting;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
 
 
+    PieChart pieChart;
+    int turnIndex = 0;
     private int screenWidth;
     private int screenHeight;
     private int sign = 1;
     private int currentDegree = 0;
-
     private boolean isUp = false;
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
 
-    private ImageView ivCircleBackground;
     private ImageView ivBottle;
 
     private LinearLayout llNamesBord;
@@ -58,10 +63,8 @@ public class GameActivity extends AppCompatActivity {
 
     private TextView tvDare;
     private TextView tvTruth;
-
     private TextView tvChangeQuestion;
     private TextView tvCloseQuestion;
-
     private TextView tvTod;
     private TextView tvQuestion;
     private TextView tvToolbarTitle;
@@ -71,7 +74,6 @@ public class GameActivity extends AppCompatActivity {
 
     private ArrayList<Integer> randomNumberList;
     private ArrayList<String> playerNameList;
-
     private ArrayList<Integer> repetitiousTruthQuestion;
     private ArrayList<Integer> repetitiousDareQuestion;
 
@@ -88,6 +90,7 @@ public class GameActivity extends AppCompatActivity {
 
         init();
         findViews();
+        drawPieChart();
         setUpMenu();
         setUpView();
         configuration();
@@ -134,8 +137,8 @@ public class GameActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
 
-        ivCircleBackground = findViewById(R.id.iv_circle_background);
         ivBottle = findViewById(R.id.iv_bottle);
+        pieChart = findViewById(R.id.pie_chart);
 
         clQuestions = findViewById(R.id.cl_question);
         llNamesBord = findViewById(R.id.ll_names_board);
@@ -165,6 +168,45 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    private void drawPieChart() {
+
+        PieData pieData;
+        PieDataSet pieDataSet;
+        List<PieEntry> pieEntryList = new ArrayList<>();
+
+        for (int i = 0; i < playerNameList.size(); i++) {
+            pieEntryList.add(new PieEntry(1));
+        }
+
+        int[] colors = new int[]{
+                getResources().getColor(R.color.bg_blue),
+                getResources().getColor(R.color.bg_red),
+                getResources().getColor(R.color.bg_green),
+                getResources().getColor(R.color.bg_pink),
+                getResources().getColor(R.color.bg_purple),
+                getResources().getColor(R.color.bg_yellow),
+                getResources().getColor(R.color.bg_brown),
+                getResources().getColor(R.color.bg_orange),
+                getResources().getColor(R.color.bg_gray)
+        };
+
+
+        pieDataSet = new PieDataSet(pieEntryList, "");
+        pieDataSet.setColors(colors);
+        pieData = new PieData(pieDataSet);
+
+        pieChart.setData(pieData);
+        pieChart.invalidate();
+
+        pieChart.setRotationEnabled(false);
+        pieChart.setDrawHoleEnabled(false);
+        pieChart.setTouchEnabled(false);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.getLegend().setEnabled(false);
+
+
+    }
+
     private void setUpMenu() {
         navigationView.getMenu().removeItem(R.id.nav_exit);
     }
@@ -182,8 +224,8 @@ public class GameActivity extends AppCompatActivity {
     private void setViewSize() {
 
 
-        ivCircleBackground.getLayoutParams().width = screenWidth * 80 / 100;
-        ivCircleBackground.getLayoutParams().height = screenWidth * 80 / 100;
+        pieChart.getLayoutParams().width = screenWidth * 80 / 100;
+        pieChart.getLayoutParams().height = screenWidth * 80 / 100;
 
         llNamesBord.getLayoutParams().height = screenHeight * 27 / 100;
         clQuestions.getLayoutParams().height = screenHeight * 37 / 100;
@@ -219,11 +261,6 @@ public class GameActivity extends AppCompatActivity {
             ivColors[i].setBackgroundResource(circleShapeId);
 
         }
-
-
-        int circleBackgroundId = getResources()
-                .getIdentifier("bg_circle_" + playerNameList.size(), "drawable", getPackageName());
-        ivCircleBackground.setImageResource(circleBackgroundId);
 
 
     }
@@ -305,9 +342,10 @@ public class GameActivity extends AppCompatActivity {
 
     private void configuration() {
 
-        ivCircleBackground.setOnClickListener(new View.OnClickListener() {
+        pieChart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 if (MyMediaPlayer.mpSpinSound.isPlaying()) {
                     return;
@@ -318,12 +356,12 @@ public class GameActivity extends AppCompatActivity {
                 }
 
 
-                int randomNumber=createRandomNumber();
+                int randomNumber = createRandomNumber();
 
-                int nextDegree=randomNumber+currentDegree%360;
+                int nextDegree = randomNumber + currentDegree % 360;
 
                 RotateAnimation rotate = new RotateAnimation(currentDegree,
-                        MyConstant.ROTATE_BOTTLE_NUMBER+nextDegree,
+                        MyConstant.ROTATE_BOTTLE_NUMBER + nextDegree,
                         Animation.RELATIVE_TO_SELF,
                         0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 
@@ -333,7 +371,7 @@ public class GameActivity extends AppCompatActivity {
                 currentDegree = nextDegree;
                 ivBottle.startAnimation(rotate);
 
-                showPlayerNameTurn(currentDegree);
+                showPlayerTurn(currentDegree);
                 if (llNamesBord.getTranslationY() == 0)
                     upAnimation(MyConstant.UP_ANIM_DELAY);
                 else {
@@ -376,6 +414,7 @@ public class GameActivity extends AppCompatActivity {
         tvCloseQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ivColors[turnIndex].clearAnimation();
                 startScaleAnimation(v);
                 downQuestionLayoutAnimation();
             }
@@ -396,42 +435,50 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    private void showPlayerTurn(int degree) {
 
-    private void showPlayerNameTurn(int degree){
+        ivColors[turnIndex].clearAnimation();
 
-        String name="name";
-
-        degree%=360;
-        if (degree<0)
-            degree+=360;
-
-        int size = playerNameList.size();
-        int sliceSize=360/size;
-
-        Toast.makeText(this, "degree : "+degree, Toast.LENGTH_SHORT).show();
-
-        if(degree<=sliceSize)
-            name=playerNameList.get(0);
-        else if(degree<=sliceSize*2&&sliceSize*2<=360)
-            name=playerNameList.get(1);
-        else if(degree<=sliceSize*3&&sliceSize*3<=360)
-            name=playerNameList.get(2);
-        else if(degree<=sliceSize*4&&sliceSize*4<=360)
-            name=playerNameList.get(3);
-        else if(degree<=sliceSize*5&&sliceSize*5<=360)
-            name=playerNameList.get(4);
-        else if(degree<=sliceSize*6&&sliceSize*6<=360)
-            name=playerNameList.get(5);
-        else if(degree<=sliceSize*7&&sliceSize*7<=360)
-            name=playerNameList.get(6);
-        else if(degree<=sliceSize*8&&sliceSize*8<=360)
-            name=playerNameList.get(7);
-        else if(degree<=sliceSize*9&&sliceSize*9<=360)
-            name=playerNameList.get(8);
+        degree %= 360;
+        if (degree < 0)
+            degree += 360;
 
 
+        int sliceSize = 360 /  playerNameList.size();
 
-        Toast.makeText(this, "name : "+name, Toast.LENGTH_SHORT).show();
+        if (degree <= sliceSize)
+            turnIndex = 0;
+        else if (degree <= sliceSize * 2 && sliceSize * 2 <= 360)
+            turnIndex = 1;
+        else if (degree <= sliceSize * 3 && sliceSize * 3 <= 360)
+            turnIndex = 2;
+        else if (degree <= sliceSize * 4 && sliceSize * 4 <= 360)
+            turnIndex = 3;
+        else if (degree <= sliceSize * 5 && sliceSize * 5 <= 360)
+            turnIndex = 4;
+        else if (degree <= sliceSize * 6 && sliceSize * 6 <= 360)
+            turnIndex = 5;
+        else if (degree <= sliceSize * 7 && sliceSize * 7 <= 360)
+            turnIndex = 6;
+        else if (degree <= sliceSize * 8 && sliceSize * 8 <= 360)
+            turnIndex = 7;
+        else if (sliceSize * 9 <= 360)
+            turnIndex = 8;
+
+
+        AlphaAnimation alphaAnimation = new AlphaAnimation(1, 0);
+        alphaAnimation.setDuration(MyConstant.ALPHA_ANIM_DURATION);
+        alphaAnimation.setRepeatCount(Animation.INFINITE);
+        alphaAnimation.setRepeatMode(Animation.REVERSE);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                ivColors[turnIndex].startAnimation(alphaAnimation);
+            }
+        }, MyMediaPlayer.mpSpinSound.getDuration());
+
 
     }
 
@@ -441,7 +488,7 @@ public class GameActivity extends AppCompatActivity {
         while (true) {
             randomNumber = new Random().nextInt() % (MyConstant.MAX_RANDOM_NUMBER);
 
-            if(randomNumberList.size()==MyConstant.MAX_RANDOM_NUMBER)
+            if (randomNumberList.size() == MyConstant.MAX_RANDOM_NUMBER)
                 randomNumberList.clear();
 
             if (!randomNumberList.contains(randomNumber)) {
@@ -509,12 +556,11 @@ public class GameActivity extends AppCompatActivity {
 
         if (truthQuestionList.isEmpty()) {
             tvQuestion.setText(R.string.no_question_selected);
-            if(setting.isMYQuestion()&&!setting.isDefaultQuestion())
+            if (setting.isMYQuestion() && !setting.isDefaultQuestion())
                 Toast.makeText(this, R.string.add_your_list_question, Toast.LENGTH_SHORT).show();
-          else
-            Toast.makeText(this, R.string.select_question_list, Toast.LENGTH_SHORT).show();
-        }
-        else {
+            else
+                Toast.makeText(this, R.string.select_question_list, Toast.LENGTH_SHORT).show();
+        } else {
             if (setting.isRepeatQuestion())
                 tvQuestion.setText(truthQuestionList.get(createRandomNumber(truthQuestionList.size())));
 
@@ -543,14 +589,13 @@ public class GameActivity extends AppCompatActivity {
 
             dareQuestionList.addAll(MySharedPreferences.getInstance(this).getQuestions().getMyDareQuestionList());
         }
-        if (dareQuestionList.isEmpty()){
+        if (dareQuestionList.isEmpty()) {
             tvQuestion.setText(R.string.no_question_selected);
-            if(setting.isMYQuestion()&&!setting.isDefaultQuestion())
+            if (setting.isMYQuestion() && !setting.isDefaultQuestion())
                 Toast.makeText(this, R.string.add_your_list_question, Toast.LENGTH_SHORT).show();
             else
                 Toast.makeText(this, R.string.select_question_list, Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             if (setting.isRepeatQuestion())
                 tvQuestion.setText(dareQuestionList.get(createRandomNumber(dareQuestionList.size())));
 
@@ -625,7 +670,7 @@ public class GameActivity extends AppCompatActivity {
         int id = getResources().getIdentifier("bottle_" + (position + 1), "drawable", getPackageName());
         ivBottle.setImageResource(id);
 
-        if(!setting.isRepeatQuestion()){
+        if (!setting.isRepeatQuestion()) {
             repetitiousDareQuestion.clear();
             repetitiousTruthQuestion.clear();
         }

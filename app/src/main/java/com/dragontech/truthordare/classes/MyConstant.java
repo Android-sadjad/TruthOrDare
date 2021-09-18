@@ -12,6 +12,7 @@ public class MyConstant {
     public static final int UP_ANIM_DURATION = 1000;
     public static final int UP_ANIM_DELAY = MyMediaPlayer.mpSpinSound.getDuration();
     public static final int DOWN_ANIM_DURATION = 500;
+    public static final long ALPHA_ANIM_DURATION = 600;
 
     public static final int BOTTLE_NUMBER = 40;
     public static final int ROTATE_BOTTLE_NUMBER = 5400;
@@ -40,6 +41,7 @@ public class MyConstant {
     public static final String STANDARD_BANNER = "61390e743608e1281d9c2c9c";
     public static final String INTERSTITIAL_VIDEO = "61393f339c924b65aa524626";
     public static final String INTERSTITIAL_BANNER = "61390f0e9c924b65aa524625";
+
 
 
 }

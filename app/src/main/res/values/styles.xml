@@ -69,7 +69,7 @@
 
     <style name="tv_names_style">
 
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">@dimen/_60sdp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">right|center</item>
         <item name="android:textColor">@color/white</item>
@@ -80,6 +80,7 @@
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:marqueeRepeatLimit">marquee_forever</item>
+
 
 
     </style>
