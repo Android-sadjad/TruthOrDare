@@ -33,13 +33,13 @@
     <color name="blue_900">#2A35E4</color>
 
 
-    <color name="bg_blue">#1CA1FF</color>
-    <color name="bg_red">#F22800</color>
-    <color name="bg_green">#20AC21</color>
-    <color name="bg_pink">#FE4161</color>
-    <color name="bg_purple">#5918CD</color>
+    <color name="bg_blue">#23A3FD</color>
+    <color name="bg_red">#ED1809</color>
+    <color name="bg_green">#039804</color>
+    <color name="bg_pink">#F34C85</color>
+    <color name="bg_purple">#5E1AD6</color>
     <color name="bg_yellow">#F4FF38</color>
-    <color name="bg_brown">#553505</color>
-    <color name="bg_orange">#E86C0D</color>
+    <color name="bg_brown">#633C01</color>
+    <color name="bg_orange">#FD6F02</color>
     <color name="bg_gray">#6D757A</color>
 </resources>

@@ -203,6 +203,7 @@ public class GameActivity extends AppCompatActivity {
         pieChart.setTouchEnabled(false);
         pieChart.getDescription().setEnabled(false);
         pieChart.getLegend().setEnabled(false);
+        pieChart.getData().getDataSet().setValueTextSize(0f);
 
 
     }
@@ -414,7 +415,6 @@ public class GameActivity extends AppCompatActivity {
         tvCloseQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ivColors[turnIndex].clearAnimation();
                 startScaleAnimation(v);
                 downQuestionLayoutAnimation();
             }
@@ -523,6 +523,7 @@ public class GameActivity extends AppCompatActivity {
 
     private void upQuestionLayoutAnimation() {
 
+        ivColors[turnIndex].clearAnimation();
         isUp = true;
         clQuestions.animate().translationY(0).setDuration(MyConstant.UP_ANIM_DURATION).setStartDelay(0);
 
